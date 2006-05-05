@@ -1,0 +1,3 @@
+importFrom(MASS, mvrnorm)
+importFrom(gsl, hyperg_2F1)
+exportPattern("^[^\\.]") # Exports all functions not beginning with a period.

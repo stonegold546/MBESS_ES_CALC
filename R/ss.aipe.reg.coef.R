@@ -1,0 +1,208 @@
+"ss.aipe.reg.coef" <- function(Rho2.Y_X=NULL, Rho2.j_X.without.j=NULL, p=NULL, b.j=NULL, width, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=NULL, Rho.YX=NULL, which.predictor=NULL, Noncentral=FALSE, alpha.lower=NULL, alpha.upper=NULL, conf.level=1-.05, degree.of.certainty=NULL, Suppress.Statement=FALSE)
+{
+# Expected value of R^2 given Population.R2, N, and p.
+Expected.R2 <- function(Population.R2, N, p)
+{
+# From Kendall's Advanced Theory (1999, p. 531).
+Value <- 1 - ((N-p-1)/(N-1))*(1-Population.R2)*hyperg_2F1(1, 1, .5*(N+1), Population.R2)
+Value <- max(0, Value)
+return(Value)
+}
+
+if(Noncentral==TRUE & is.null(sigma.X)) sigma.X <- 1
+if(Noncentral==TRUE & is.null(sigma.Y)) sigma.Y <- 1
+
+if(Noncentral==TRUE & sigma.Y != 1) stop("Since you've specified \'Noncentral=TRUE\', all variances should be unity (your \'sigma.Y\' (i.e., the Y variance) is not one).")
+if(Noncentral==TRUE & sigma.X != 1) stop("Since you've specified \'Noncentral=TRUE\', all variances should be unity (your \'sigma.X\' (i.e., the X variance) is not unity).")
+
+
+
+
+if(is.null(p) & is.null(RHO.XX)) stop("Since RHO.XX is not specified, you must specify \'p\'.")
+
+if(!is.null(RHO.XX)) 
+{
+if(!(sum(round(RHO.XX, 5)==round(t(RHO.XX),5))==dim(RHO.XX)[1]*dim(RHO.XX)[2])) stop("The correlation matrix, \'RHO.XX\' should be symmetric.")
+}
+
+if(is.null(p) & !is.null(RHO.XX)) p <- dim(RHO.XX)[1]
+
+
+char.expand(which.width, c("Full", "Lower", "Upper"), nomatch = stop("Problems with \'which.width\' specification. You must choose either 'Full', 'Lower', or 'Upper'.", call.=FALSE))
+if(which.width=="Lower" | which.width=="Upper") stop("At the present time, only the \'which.width\' of \'Full\' is implemented.", call.=FALSE)
+
+
+
+if(is.null(conf.level))
+{
+if(!is.numeric(alpha.lower) | !is.numeric(alpha.upper)) stop("Since \'conf.level\' is not specified, you need to correctly specify \'alpha.lower\' and \'alpha.upper\'.")
+if(alpha.lower < 0 | alpha.lower>=1 | alpha.upper<0 | alpha.upper>=1) stop("You have not correctly specified \'alpha.lower\' and/or \'alpha.upper\'.")
+}
+if(!is.null(conf.level))
+{
+if(!is.null(alpha.lower) | !is.null(alpha.upper)) stop("Since \'conf.level\' is not specified, you need to correctly specify \'alpha.lower\' and \'alpha.upper\'.")
+if(!is.null(alpha.lower) | !is.null(alpha.upper)) stop("Since \'conf.level\' is specified, do not specifiy \'alpha.lower\' and \'alpha.upper\'.")
+alpha.lower <- alpha.upper <- (1-conf.level)/2
+}
+
+
+if(!is.null(degree.of.certainty))
+{
+if((degree.of.certainty <= 0) | (degree.of.certainty >= 1)) stop("The 'degree.of.certainty' must either be NULL or some value greater than zero and less than unity.", call.=FALSE)
+if(degree.of.certainty <= .50) stop("The 'degree.of.certainty' should be > .5 (but less than 1).", call.=FALSE)
+}
+
+
+if((!is.null(Rho2.j_X.without.j) & !is.null(Rho2.Y_X)) & (!is.null(RHO.XX) & !is.null(Rho.YX))) stop("Since \'Rho2.j_X.without.j\' and \'Rho2.Y_X\' are specified, do not specify \'RHO.XX\' or \'Rho.YX\' (or vice versa).", call.=FALSE)
+
+if(!is.null(RHO.XX) & !is.null(Rho.YX))
+{
+
+if(!is.null(Rho2.j_X.without.j) | !is.null(Rho2.Y_X)) stop("Since \'RHO.XX\' and \'Rho.YX\' are specified, do not specify \'Rho2.Y_X\' or \'Rho2.j_X.without.j\'.", call.=FALSE)
+
+Rho2.Y_X <- (Rho.YX%*%solve(RHO.XX)%*%Rho.YX)
+Rho2.j_X.without.j <- 1 - 1/solve(RHO.XX)[which.predictor,which.predictor]
+Rho2.Y_X.without.j <- (Rho.YX[-which.predictor]%*%solve(RHO.XX[-which.predictor,-which.predictor])%*%Rho.YX[-which.predictor])
+
+b.j.tmp <- (solve(RHO.XX)%*%Rho.YX)[which.predictor]
+
+if(!is.null(b.j)) 
+{
+if(round(b.j, 5)!=b.j.tmp) stop("The covariance structure implied regression coefficient and \'b.j\' are not equal; this is a problem.")
+}
+
+}
+
+if(!is.null(Rho2.j_X.without.j) & !is.null(Rho2.Y_X) & (is.null(RHO.XX) | is.null(Rho.YX)))
+{
+if(is.null(b.j)) stop("Since \'RHO.XX\' and \'Rho.YX\' are not specified, implying \'Rho2.j_X.without.j\' and \'Rho2.Y_X\' are specified, \'b.j\' must also be specified.", call.=FALSE)
+}
+
+############ Standard (Central) Method for Sample Size.
+
+
+n0 <- (qnorm(1-(alpha.lower+alpha.upper)/2)/(width*.5))^2 * (1-Rho2.Y_X)/(1-Rho2.j_X.without.j)*(sigma.Y^2/sigma.X^2) + p + 1
+
+n1 <- max(ceiling(n0)-10, 2*p)
+Diff <- 1
+while(Diff>0)
+{
+n1 <- n1+1
+
+E.Rho2.Y_X <- Expected.R2(Population.R2=Rho2.Y_X, N=n1, p=p)
+E.Rho2.j_X.without.j <- Expected.R2(Population.R2=Rho2.j_X.without.j, N=n1, p=p)
+
+CV.i <- (qt(1-(alpha.lower+alpha.upper)/2, n1-p-1))
+
+SD.i <- sqrt(((1-E.Rho2.Y_X)/((1-E.Rho2.j_X.without.j)*(n1-p-1))))*(sigma.Y/sigma.X)
+
+# Since added and subtracted, multiply the per side by half. 
+Current.Width <- CV.i*SD.i*2
+
+
+Diff <- Current.Width - width
+}
+N <- n1
+
+if(!is.null(degree.of.certainty))
+{
+if((degree.of.certainty <= 0) | (degree.of.certainty >= 1)) stop("The 'degree.of.certainty' must either be NULL or some value greater than zero and less than unity.", call.=FALSE)
+if(degree.of.certainty <= .50) stop("The 'degree.of.certainty' should be > .5 (but less than 1).", call.=FALSE)
+
+E.Rho2.Y_X <- Expected.R2(Population.R2=Rho2.Y_X, N=N, p=p)
+E.Rho2.j_X.without.j <- Expected.R2(Population.R2=Rho2.j_X.without.j, N=N, p=p)
+
+N_M <- (qt(1-(alpha.lower+alpha.upper)/2, N-p-1)/(width*.5))^2*((1-E.Rho2.Y_X)/(1-E.Rho2.j_X.without.j))*(sigma.Y^2/sigma.X^2)*(qchisq(degree.of.certainty, N-1)/(N-p-1)) + p + 1
+N_M <- ceiling(N_M)
+}
+############
+
+if(Noncentral==FALSE & is.null(degree.of.certainty)) 
+{
+if(Suppress.Statement==FALSE) print(paste("Necessary sample size such that the expected", (1-alpha.lower-alpha.upper)*100, "confidence interval width is", width, "is", N))
+return(as.numeric(N))
+}
+
+if(Noncentral==FALSE & !is.null(degree.of.certainty)) 
+{
+if(Suppress.Statement==FALSE) print(paste("Necessary sample size such that the expected", (1-alpha.lower-alpha.upper)*100, "confidence interval will be no wider than", width, "with", degree.of.certainty*100, "certainty is", N_M))
+return(as.numeric(N_M))
+}
+
+########
+
+if(Noncentral==TRUE)
+{
+
+if(is.null(b.j))
+{
+b.j <- (solve(RHO.XX)%*%Rho.YX)[which.predictor]
+if(is.null(b.j)) stop("b.j must be specified directly or obtained from other combinations of parameters.")
+}
+
+
+# Noncentral Method for regular sample size.
+n2 <- max(N-6, 2*p+1)
+Diff <- 1
+while(Diff>0)
+{
+n2 <- n2+1
+
+E.Rho2.Y_X <- Expected.R2(Population.R2=Rho2.Y_X, N=n2, p=p)
+E.Rho2.j_X.without.j <- Expected.R2(Population.R2=Rho2.j_X.without.j, N=n2, p=p)
+
+CI.Result.NC <- ci.reg.coef(b.j=b.j, SE.b.j=NULL, s.Y=sigma.Y, s.X=sigma.X, N=n2, p=p, R2.Y_X=E.Rho2.Y_X, R2.j_X.without.j=E.Rho2.j_X.without.j, conf.level=NULL, R2.Y_X.without.j=NULL, t.value=NULL, alpha.lower=alpha.lower, alpha.upper=alpha.upper, Noncentral=TRUE, Suppress.Statement=TRUE)
+
+current.width <- CI.Result.NC$Upper.Limit - CI.Result.NC$Lower.Limit 
+
+Diff <- current.width - width
+}
+N_NC <- n2
+
+if(Noncentral==TRUE & is.null(degree.of.certainty)) 
+{
+if(Suppress.Statement==FALSE) print(paste("Necessary sample size such that the expected", (1-alpha.lower-alpha.upper)*100, "confidence interval using noncentral methods is", width, "is", N_NC))
+return(as.numeric(N_NC))
+}
+
+# Modified NC procedure.
+if(!is.null(degree.of.certainty))
+{
+E.Rho2.Y_X <- Expected.R2(Population.R2=Rho2.Y_X, N=N_NC, p=p)
+E.Rho2.j_X.without.j <- Expected.R2(Population.R2=Rho2.j_X.without.j, N=N_NC, p=p)
+E.Rho2.Y_X.without.j <- Expected.R2(Population.R2=Rho2.Y_X.without.j, N=N_NC, p=p)
+
+# Standard error when SS is from the standard noncentral method.
+SE.b.M <- sqrt((((1-E.Rho2.Y_X)*sigma.Y^2)/(((1-E.Rho2.j_X.without.j)*(N_NC-p-1))*sigma.X^2)))
+
+CI.R2 <- ci.R2(R2 = E.Rho2.Y_X, df.1 = p, df.2 = N_NC-p-1, conf.level =degree.of.certainty, 
+     F.value = NULL, N = NULL, p = NULL, alpha.lower = NULL, alpha.upper = NULL)$Lower
+
+# E.CI.R2 <- Expected.R2(Population.R2=CI.R2, N=N_NC, p=p)
+
+n3 <- N_NC
+Diff <- 1
+while(Diff>0)
+{
+n3 <- n3+1
+
+E.Rho2.Y_X <- Expected.R2(Population.R2=CI.R2, N=n3, p=p)
+E.Rho2.j_X.without.j <- Expected.R2(Population.R2=Rho2.j_X.without.j, N=n3, p=p)
+E.Rho2.Y_X.without.j <- Expected.R2(Population.R2=Rho2.Y_X.without.j, N=n3, p=p)
+
+CI.Result.NC <- ci.reg.coef(b.j=b.j, SE.b.j=NULL, s.Y=sigma.Y, s.X=sigma.X, N=n3, p=p, R2.Y_X=E.Rho2.Y_X, R2.j_X.without.j=E.Rho2.j_X.without.j, conf.level=NULL, R2.Y_X.without.j=E.Rho2.Y_X.without.j, t.value=NULL, alpha.lower=alpha.lower, alpha.upper=alpha.upper, Noncentral=TRUE, Suppress.Statement=TRUE)
+
+current.width <- CI.Result.NC$Upper.Limit - CI.Result.NC$Lower.Limit 
+
+Diff <- current.width - width
+}
+N.NC_M <- n3
+
+if(Noncentral==TRUE & !is.null(degree.of.certainty)) 
+{
+if(Suppress.Statement==FALSE) print(paste("Necessary sample size such that the expected", (1-alpha.lower-alpha.upper)*100, "confidence interval using noncentral methods will be no wider than", width, "with", degree.of.certainty*100, "certainty is", N.NC_M, ". Caution, although the method used here seems to work well, it has not been definitively shown to be the optimal method. It will perhaps be best to evaluate the estimated sample size given here with the \'ss.aipe.reg.coef.sensitivity\' function."))
+return(as.numeric(N.NC_M))
+}
+}
+}
+}
