@@ -48,10 +48,11 @@ of interest, try using the \code{ss.aipe.R2.sensitivity} function.}
 \seealso{'ci.R2', 'conf.limits.nct', 'ss.aipe.R2.sensitivity'}
 
 \examples{
-ss.aipe.R2(Population.R2=.50, conf.level=.95, width=.10, which.width="Full", p=5)
-ss.aipe.R2(Population.R2=.50, conf.level=.95, width=.10, which.width="Full", p=5,
-degree.of.certainty=.85)
-ss.aipe.R2(Population.R2=.50, conf.level=.95, width=.05, which.width="Lower", p=5,
-degree.of.certainty=.85)
+ss.aipe.R2(Population.R2=.50, conf.level=.95, width=.10, which.width="Full",
+p=5)
+ss.aipe.R2(Population.R2=.50, conf.level=.95, width=.10, which.width="Full",
+p=5, degree.of.certainty=.85)
+ss.aipe.R2(Population.R2=.50, conf.level=.95, width=.05, which.width="Lower",
+p=5, degree.of.certainty=.85)
 }
 \keyword{design}

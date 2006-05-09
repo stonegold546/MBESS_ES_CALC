@@ -8,13 +8,13 @@ This function is thus to determine the confidence bounds for the population
 quantity of what is generally referred to as Cohen's \emph{d} (delta being 
 that population quantity).}
 \usage{
-ci.smd(ncp=NULL, smd=NULL, n.1=NULL, n.2=NULL, conf.level=NULL, alpha.lower=NULL, 
-alpha.upper=NULL, tol=1e-9, ...)
+ci.smd(ncp=NULL, smd=NULL, n.1=NULL, n.2=NULL, conf.level=NULL, 
+alpha.lower=NULL, alpha.upper=NULL, tol=1e-9, ...)
 
 }
 %- maybe also 'usage' for other objects documented here. 
 \arguments{
-  \item{ncp}{ is the estimated noncentrality parameter, this is generally the observed t-statistic from comparing the two groups and assumes homogeneity of variance}
+  \item{ncp}{ is the estimated noncentrality parameter, this is generally the observed \emph{t}-statistic from comparing the two groups and assumes homogeneity of variance}
   \item{smd}{ is the standardized mean difference (using the pooled standard deviation in the denominator)}
   \item{n.1}{ is the sample size for Group 1}
   \item{n.2}{ is the sample size for Group 2}

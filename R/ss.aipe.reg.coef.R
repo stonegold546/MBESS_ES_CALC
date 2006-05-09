@@ -48,7 +48,7 @@ alpha.lower <- alpha.upper <- (1-conf.level)/2
 
 if(!is.null(degree.of.certainty))
 {
-if((degree.of.certainty <= 0) | (degree.of.certainty >= 1)) stop("The 'degree.of.certainty' must either be NULL or some value greater than zero and less than unity.", call.=FALSE)
+if((degree.of.certainty <= 0) | (degree.of.certainty >= 1)) stop("The 'degree.of.certainty' must either be NULL or some value greater than .50 and less than 1.", call.=FALSE)
 if(degree.of.certainty <= .50) stop("The 'degree.of.certainty' should be > .5 (but less than 1).", call.=FALSE)
 }
 

@@ -1,13 +1,14 @@
 \name{ss.power.R2}
 \alias{ss.power.R2}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{ ~~function to do ... ~~ }
+\title{Function to plan sample size so that the test of the squred multiple correlation coefficient is sufficiently powerful.}
 \description{
 Function for determining the necessary sample size for the test of the squared multiple correlation coefficient or for determining the statistical power given a specified sample size for the squared multiple correlation coefficient.
 }
 \usage{
-ss.power.R2(Population.R2 = NULL, alpha.level = 0.05, desired.power = 0.85, p, 
-Specified.N = NULL, Cohen.f2 = NULL, Null.R2 = 0, Print.Progress = FALSE, ...)
+ss.power.R2(Population.R2 = NULL, alpha.level = 0.05, desired.power = 0.85,
+p, Specified.N = NULL, Cohen.f2 = NULL, Null.R2 = 0, 
+Print.Progress = FALSE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -38,8 +39,8 @@ until the actual power is no less than the desired power (given sample size is a
 \examples{
 ss.power.R2(Population.R2=.5, alpha.level=.05, desired.power=.85, p=5)
 ss.power.R2(Cohen.f2=1, alpha.level=.05, desired.power=.85, p=5)
-ss.power.R2(Population.R2=.5, Specified.N=15, alpha.level=.05, desired.power=.85, p=5)
+ss.power.R2(Population.R2=.5, Specified.N=15, alpha.level=.05, 
+desired.power=.85, p=5)
 ss.power.R2(Cohen.f2=1, Specified.N=15, alpha.level=.05, desired.power=.85, p=5)
 }
 \keyword{design}
-

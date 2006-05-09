@@ -7,7 +7,8 @@ Function to calculate the standardized mean difference (regular or unbiased) usi
 }
 \usage{
 smd(Group.1 = NULL, Group.2 = NULL, Mean.1 = NULL, Mean.2 = NULL, 
-s.1 = NULL, s.2 = NULL, s = NULL, n.1 = NULL, n.2 = NULL, Unbiased=FALSE)
+s.1 = NULL, s.2 = NULL, s = NULL, n.1 = NULL, n.2 = NULL,
+Unbiased=FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
