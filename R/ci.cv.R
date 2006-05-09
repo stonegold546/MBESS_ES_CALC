@@ -27,13 +27,21 @@ if(is.null(n)) stop("Either input the whole data set using \'data\' or specify t
 k <- sd/mean
 ncp.estimate <- sqrt(n)/k # or (sqrt(n)*x.bar)/sd
 
-CI.NCP <- conf.limits.nct(ncp=ncp.estimate, df=n-1, alpha.lower=alpha.lower, alpha.upper=alpha.upper)
+CI.NCP <- conf.limits.nct(ncp=ncp.estimate, df=n-1, alpha.lower=alpha.upper, alpha.upper=alpha.lower)
+Low.lim <- CI.NCP$Upper.Limit
+Up.lim <- CI.NCP$Lower.Limit
 
-Low.Lim <- CI.NCP$Lower.Limit*((k^2)/sqrt(n))
-Up.Lim <- CI.NCP$Upper.Limit*((k^2)/sqrt(n))
+Low.Lim <- sqrt(n)/Low.lim
+Up.Lim <- sqrt(n)/Up.lim
 
-Result <- c(Lower.Limit.CofV=Low.Lim, Prob.Less.Lower=alpha.lower, Upper.Limit.CofV=Up.Lim, Prob.Greater.Upper=alpha.upper, C.of.V=k)
+if(Up.lim<=0) Up.Lim <- Inf
 
+Result <- list(Lower.Limit.CofV=Low.Lim, Prob.Less.Lower=alpha.lower, Upper.Limit.CofV=Up.Lim, Prob.Greater.Upper=alpha.upper, C.of.V=k)
+if(alpha.lower==0) Result <- list(Lower.Limit.CofV=-Inf, Prob.Less.Lower=0, Upper.Limit.CofV=Up.Lim, Prob.Greater.Upper=alpha.upper, C.of.V=k)
+if(alpha.upper==0) Result <- list(Lower.Limit.CofV=Low.Lim, Prob.Less.Lower=alpha.lower, Upper.Limit.CofV=Inf, Prob.Greater.Upper=0, C.of.V=k)
+if(Up.Lim==Inf) Result[4] <- 0
+
+if(round((Result$Prob.Less.Lower + Result$Prob.Greater.Upper), 3) != round((alpha.lower+alpha.upper), 3)) warning("The computed confidence interval does not have the same coverage as the specified confidence interval.", call. = FALSE)
 return(Result)
 }
 
@@ -49,17 +57,23 @@ sd.data <- (var(data))^.5
 mean.data <- mean(data)
 k <- sd.data/mean.data
 
-print(n)
-
 ncp.estimate <- sqrt(n)/k # or (sqrt(n)*x.bar)/sd
 
-CI.NCP <- conf.limits.nct(ncp=ncp.estimate, df=n-1, alpha.lower=alpha.lower, alpha.upper=alpha.upper)
+CI.NCP <- conf.limits.nct(ncp=ncp.estimate, df=n-1, alpha.lower=alpha.upper, alpha.upper=alpha.lower)
+Low.lim <- CI.NCP$Upper.Limit
+Up.lim <- CI.NCP$Lower.Limit
 
-Low.Lim <- CI.NCP$Lower.Limit*((k^2)/sqrt(n))
-Up.Lim <- CI.NCP$Upper.Limit*((k^2)/sqrt(n))
+Low.Lim <- sqrt(n)/Low.lim
+Up.Lim <- sqrt(n)/Up.lim
 
-Result <- c(Lower.Limit.CofV=Low.Lim, Prob.Less.Lower=alpha.lower, Upper.Limit.CofV=Up.Lim, Prob.Greater.Upper=alpha.upper, C.of.V=k)
+if(Up.lim<=0) Up.Lim <- Inf
 
+Result <- list(Lower.Limit.CofV=Low.Lim, Prob.Less.Lower=alpha.lower, Upper.Limit.CofV=Up.Lim, Prob.Greater.Upper=alpha.upper, C.of.V=k)
+if(alpha.lower==0) Result <- list(Lower.Limit.CofV=-Inf, Prob.Less.Lower=0, Upper.Limit.CofV=Up.Lim, Prob.Greater.Upper=alpha.upper, C.of.V=k)
+if(alpha.upper==0) Result <- list(Lower.Limit.CofV=Low.Lim, Prob.Less.Lower=alpha.lower, Upper.Limit.CofV=Inf, Prob.Greater.Upper=0, C.of.V=k)
+if(Up.Lim==Inf) Result[4] <- 0
+
+if(round((Result$Prob.Less.Lower + Result$Prob.Greater.Upper), 3) != round((alpha.lower+alpha.upper), 3)) warning("The computed confidence interval does not have the same coverage as the specified confidence interval.", call. = FALSE)
 return(Result)
 }
 
@@ -76,13 +90,21 @@ if(!is.null(sd)) stop("Since you specified the coefficient of variation (\'cv\')
 
 ncp.estimate <- sqrt(n)/k
 
-CI.NCP <- conf.limits.nct(ncp=ncp.estimate, df=n-1, alpha.lower=alpha.lower, alpha.upper=alpha.upper)
+CI.NCP <- conf.limits.nct(ncp=ncp.estimate, df=n-1, alpha.lower=alpha.upper, alpha.upper=alpha.lower)
+Low.lim <- CI.NCP$Upper.Limit
+Up.lim <- CI.NCP$Lower.Limit
 
-Low.Lim <- CI.NCP$Lower.Limit*((k^2)/sqrt(n))
-Up.Lim <- CI.NCP$Upper.Limit*((k^2)/sqrt(n))
+Low.Lim <- sqrt(n)/Low.lim
+Up.Lim <- sqrt(n)/Up.lim
 
-Result <- c(Lower.Limit.CofV=Low.Lim, Prob.Less.Lower=alpha.lower, Upper.Limit.CofV=Up.Lim, Prob.Greater.Upper=alpha.upper, C.of.V=k)
+if(Up.lim<=0) Up.Lim <- Inf
 
+Result <- list(Lower.Limit.CofV=Low.Lim, Prob.Less.Lower=alpha.lower, Upper.Limit.CofV=Up.Lim, Prob.Greater.Upper=alpha.upper, C.of.V=k)
+if(alpha.lower==0) Result <- list(Lower.Limit.CofV=-Inf, Prob.Less.Lower=0, Upper.Limit.CofV=Up.Lim, Prob.Greater.Upper=alpha.upper, C.of.V=k)
+if(alpha.upper==0) Result <- list(Lower.Limit.CofV=Low.Lim, Prob.Less.Lower=alpha.lower, Upper.Limit.CofV=Inf, Prob.Greater.Upper=0, C.of.V=k)
+if(Up.Lim==Inf) Result[4] <- 0
+
+if(round((Result$Prob.Less.Lower + Result$Prob.Greater.Upper), 3) != round((alpha.lower+alpha.upper), 3)) warning("The computed confidence interval does not have the same coverage as the specified confidence interval.",  call. = FALSE)
 return(Result)
 }
 

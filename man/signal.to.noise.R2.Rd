@@ -15,7 +15,7 @@ signal.to.noise.R2(R.Square, N, p)
   \item{p}{number of predictors}
 }
 \details{
-The method of choice is 'f2.UMVUE.NL', but it requires 'p' of 5 or more. In situations where \code{p}<5, it is suggested that 'f2.UMVUE.L' be used. 
+The method of choice is `f2.UMVUE.NL', but it requires \code{p} of 5 or more. In situations where \code{p} < 5, it is suggested that 'f2.UMVUE.L' be used. 
 }
 \value{
 \item{f2.hat}{Basic estimate of the signal-to-noise ratio using the usual estimate of the squared multiple correlation coefficient: f2.hat=R2/(1-R2)}

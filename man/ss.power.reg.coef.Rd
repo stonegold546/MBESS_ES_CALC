@@ -5,10 +5,10 @@
 Determine the necessary sample size for a targeted regression coefficient or determine the degree of power given a specified sample size}
 \usage{
 ss.power.reg.coef(Rho2.Y_X = NULL, Rho2.Y_X.without.j = NULL, p = NULL, 
-desired.power = 0.85, alpha.level = 0.05, Directional = FALSE, beta.j = NULL, 
-sigma.X = NULL, sigma.Y = NULL, Rho2.j_X.without.j = NULL, RHO.XX = NULL, 
-Rho.YX = NULL, which.predictor = NULL, Cohen.f2 = NULL, Specified.N=NULL, 
-Print.Progress = FALSE)
+desired.power = 0.85, alpha.level = 0.05, Directional = FALSE, 
+beta.j = NULL, sigma.X = NULL, sigma.Y = NULL, Rho2.j_X.without.j = NULL,
+RHO.XX = NULL, Rho.YX = NULL, which.predictor = NULL, Cohen.f2 = NULL, 
+Specified.N=NULL, Print.Progress = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -58,27 +58,27 @@ Rho.YX <- Cor.Mat[1,2:6]
 
 
 # Method 1
-ss.power.reg.coef(Rho2.Y_X=0.7826786, Rho2.Y_X.without.j=0.7363697, p=5, alpha.level=.05, 
-Directional=FALSE, desired.power=.80)
+ss.power.reg.coef(Rho2.Y_X=0.7826786, Rho2.Y_X.without.j=0.7363697, p=5,
+alpha.level=.05, Directional=FALSE, desired.power=.80)
 
 # Method 2
 ss.power.reg.coef(alpha.level=.05, RHO.XX=RHO.XX, Rho.YX=Rho.YX, which.predictor=5, 
 Directional=FALSE, desired.power=.80)
 
 # Method 3
-# Here, beta.j is the standardized regression coefficient. Had beta.j been the unstandardized
-# regression coefficient, sigma.X and sigma.Y would have been the standard deviation for the 
-# X variable of interest and Y, respectively.
-ss.power.reg.coef(Rho2.Y_X=0.7826786, Rho2.j_X.without.j=0.3652136, beta.j=0.2700964, p=5, 
-alpha.level=.05,  sigma.X=1, sigma.Y=1, Directional=FALSE, desired.power=.80)
+# Here, beta.j is the standardized regression coefficient. Had beta.j been the 
+# unstandardized regression coefficient, sigma.X and sigma.Y would have been the 
+# standard deviation for the X variable of interest and Y, respectively.
+ss.power.reg.coef(Rho2.Y_X=0.7826786, Rho2.j_X.without.j=0.3652136, beta.j=0.2700964,
+p=5, alpha.level=.05,  sigma.X=1, sigma.Y=1, Directional=FALSE, desired.power=.80)
 
 # Method 4
-ss.power.reg.coef(alpha.level=.05, Cohen.f2=0.2130898, p=5, 
-Directional=FALSE, desired.power=.80)
+ss.power.reg.coef(alpha.level=.05, Cohen.f2=0.2130898, p=5, Directional=FALSE,
+desired.power=.80)
 
 # Power given a specified N and squared multiple correlation coefficients.
-ss.power.reg.coef(Rho2.Y_X=0.7826786, Rho2.Y_X.without.j=0.7363697, Specified.N=25, p=5, 
-alpha.level=.05, Directional=FALSE, desired.power=.80)
+ss.power.reg.coef(Rho2.Y_X=0.7826786, Rho2.Y_X.without.j=0.7363697, Specified.N=25,
+p=5, alpha.level=.05, Directional=FALSE, desired.power=.80)
 
 # Power given a specified N and effect size.
 ss.power.reg.coef(alpha.level=.05, Cohen.f2=0.2130898, p=5, Specified.N=25,
@@ -101,10 +101,11 @@ RHO.XX.Maxwell.no.1 <- Cor.Mat.Maxwell[3:6,3:6]
 Rho.YX.Maxwell.no.1 <- Cor.Mat.Maxwell[1,3:6]
 R2.Maxwell.no.1 <- Rho.YX.Maxwell.no.1%*%solve(RHO.XX.Maxwell.no.1)%*%Rho.YX.Maxwell.no.1
 
-# Note that Maxwell arrives at N=113, whereas this procedure arrives at 111. It is believed this 
-# procedure is correct, as there is no rounding error anywhere in the application of the method. 
-ss.power.reg.coef(Rho2.Y_X=R2.Maxwell, Rho2.Y_X.without.j=R2.Maxwell.no.1, p=5, alpha.level=.05, 
-Directional=FALSE, desired.power=.80)
+# Note that Maxwell arrives at N=113, whereas this procedure arrives at 111.
+# This seems to be the case becuase of rounding error in calculations and tables
+# (Cohen, 1988) used. The present procedure is correct and contains no rounding error 
+# in the application of the method. 
+ss.power.reg.coef(Rho2.Y_X=R2.Maxwell, Rho2.Y_X.without.j=R2.Maxwell.no.1, p=5,
+alpha.level=.05, Directional=FALSE, desired.power=.80)
 }
 \keyword{design}
-

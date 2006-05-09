@@ -26,7 +26,6 @@ Stuart, A., Ord, J. K., \& Arnold, S. (1999). \emph{Kendall's advanced theory of
 New York, NY: Oxford University Press. 
 
 Olkin, I. \& Pratt, J. W. (1958). Unbiased estimation of certain correlation coefficients. \emph{Annals of Mathematical statistics, 29}, 201--211.
-New York, NY: Oxford University Press. 
 }
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
 
@@ -43,4 +42,3 @@ Expected.R2(.5, 1000, 5)
 Expected.R2(.5, 10000, 5)
 }
 \keyword{design}% at least one, from doc/KEYWORDS
-

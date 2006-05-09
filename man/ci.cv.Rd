@@ -31,23 +31,26 @@ Uses the noncentral \code{t}-distribution to calculate the confidence interval f
 \item{C.of.V}{Observed coefficient of variation}
 
 }
-%\references{ ~put references to the literature/web site here ~ }
+\references{
+Johnson, B. L., \& Welch, B. L. (1940). Applications of the non-central \emph{t}-distribution. \emph{Biometrika}, 31, 362--389.}
+
+
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
 %\note{ ~~further notes~~ 
 %
 % ~Make other sections like Warning with \section{Warning }{....} ~
 %}
-%\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
+%\seealso{'conf.limits.nct'}
 \examples{
-
 set.seed(113)
 N <- 15
 X <- rnorm(N, 5, 1)
 mean.X <- mean(X)
 sd.X <- var(X)^.5
 
-ci.cv(mean=mean.X, sd=sd.X, n=N, alpha.lower=.025, alpha.upper=.025, conf.level=NULL)
-ci.cv(data=X,, conf.level=.95)
+ci.cv(mean=mean.X, sd=sd.X, n=N, alpha.lower=.025, alpha.upper=.025,
+conf.level=NULL)
+ci.cv(data=X, conf.level=.95)
 ci.cv(cv=sd.X/mean.X, n=N, conf.level=.95)
 
 }

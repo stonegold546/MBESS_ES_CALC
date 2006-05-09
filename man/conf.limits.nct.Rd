@@ -10,8 +10,8 @@ differences (e.g., Cohen's d; Glass's g; Hedges g', etc.)
 }
 
 \usage{
-conf.limits.nct(ncp, df, conf.level=NULL, alpha.lower=NULL, alpha.upper=NULL,
-tol=1e-9, ...)
+conf.limits.nct(ncp, df, conf.level=NULL, alpha.lower=NULL, 
+alpha.upper=NULL, tol=1e-9, ...)
 
 }
 \arguments{
@@ -66,7 +66,8 @@ conf.limits.nct(ncp=2.83, df=126, conf.level=.95)
 
 # Modifying the above example so that nonsymmetric confidence intervals 
 # can be formed:
-conf.limits.nct(ncp=2.83, df=126, alpha.lower=.01, alpha.upper=.04, conf.level=NULL)
+conf.limits.nct(ncp=2.83, df=126, alpha.lower=.01, alpha.upper=.04,
+conf.level=NULL)
 }
 \keyword{models}
 \keyword{htest}

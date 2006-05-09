@@ -87,7 +87,7 @@ Results[i,6] <- b.j/SE.b.j
 Results <- as.data.frame(Results)
 # End Simulation.
 
-Summary.of.Results <- list(Mean.b.j=mean(Results[,1]), Median.b.j=median(Results[,1]), SD.b.j=var(Results[,1]), 
+Summary.of.Results <- list(Mean.b.j=mean(Results[,1]), Median.b.j=median(Results[,1]), SD.b.j=(var(Results[,1]))^.5, 
 Mean.CI.width=mean(Results[,3]-Results[,2]), Median.CI.width=median(Results[,3]-Results[,2]), SD.CI.width=(var(Results[,3]-Results[,2]))^.5, 
 Pct.CI.Less.w=mean((Results[,3]-Results[,2])<=w)*100,Pct.CI.Miss.Low=mean(True.b.j < Results[,2])*100, Pct.CI.Miss.High=mean(True.b.j > Results[,3])*100, Total.Type.I.Error=(mean((True.b.j < Results[,2]) | (True.b.j > Results[,3])))*100,
 Mean.R2=mean(Results[,4]), Median.R2=median(Results[,4]), sd.R2=(var(Results[,4]))^.5)

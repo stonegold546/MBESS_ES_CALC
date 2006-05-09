@@ -11,7 +11,8 @@ evaluates the effect of a misspecified \code{True.R2} on the width of obtained c
 \usage{
 ss.aipe.R2.sensitivity(True.R2 = NULL, Estimated.R2 = NULL, w = NULL, 
 p = NULL, Selected.N=NULL, degree.of.certainty = NULL, 
-conf.level = 0.95, rho.yx = 0.3, rho.xx = 0.3,  G = 10000, print.iter = TRUE, ...)
+conf.level = 0.95, rho.yx = 0.3, rho.xx = 0.3,  G = 10000, 
+print.iter = TRUE, ...)
 }
 \arguments{
   \item{True.R2}{value of the population squared multiple correlation coefficient}
@@ -39,7 +40,7 @@ power analysis (recall this function is used in the context of precision), there
 }
 \value{
   \item{Results}{a list containing vectors of the empirical results}
-  \item{Specifications}{a list outputs the input specifications and the required sample size}
+  \item{Specifications}{outputs the input specifications and required sample size}
   \item{Summary}{summary values for the results of the sensitivity analysis (simulation study)}
 }
 \references{
@@ -54,6 +55,7 @@ and hypothesis testing for the squared multiple correlation. \emph{Behavior rese
 \seealso{'ci.R2', 'conf.limits.nct', 'ss.aipe.R2'}
 \examples{
 # Change 'G' to some large number (e.g., G=5,000)
-ss.aipe.R2.sensitivity(True.R2=.5, Estimated.R2=.4, w=.10, p=5, conf.level=0.95, G=100)
+ss.aipe.R2.sensitivity(True.R2=.5, Estimated.R2=.4, w=.10, p=5, conf.level=0.95,
+G=100)
 }
 \keyword{design}

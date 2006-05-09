@@ -5,9 +5,10 @@
 \description{
 Performs a sensitivity analysis when planning sample size from the Accuracy in Parameter Estimation Perspective for the standardized or unstandardized regression coefficient.}
 \usage{
-ss.aipe.reg.coef.sensitivity(True.Var.Y = NULL, True.Cov.YX = NULL, True.Cov.XX = NULL, 
-Estimated.Var.Y = NULL, Estimated.Cov.YX = NULL, Estimated.Cov.XX = NULL, Specified.N = NULL, 
-which.predictor = 1, w = NULL, Noncentral = TRUE, Standardize = TRUE, conf.level = 0.95, 
+ss.aipe.reg.coef.sensitivity(True.Var.Y = NULL, True.Cov.YX = NULL,
+True.Cov.XX = NULL, Estimated.Var.Y = NULL, Estimated.Cov.YX = NULL,
+Estimated.Cov.XX = NULL, Specified.N = NULL, which.predictor = 1, 
+w = NULL, Noncentral = TRUE, Standardize = TRUE, conf.level = 0.95, 
 degree.of.certainty = NULL, G = 1000, print.iter = TRUE)
 }
 %- maybe also 'usage' for other objects documented here.

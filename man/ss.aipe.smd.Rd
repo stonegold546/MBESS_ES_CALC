@@ -9,7 +9,8 @@ A function to calculate the appropriate sample size for the standardized mean di
 the expected value of the confidence interval is sufficiently narrow, optionally with a 
 \code{degree.of.certainty}.}
 
-\usage{ss.aipe.smd(delta, conf.level, width, which.width="Full", degree.of.certainty=NULL, ...)
+\usage{ss.aipe.smd(delta, conf.level, width, which.width="Full", 
+degree.of.certainty=NULL, ...)
 
 }
 
@@ -25,7 +26,7 @@ the expected value of the confidence interval is sufficiently narrow, optionally
 }
 
 \value{
-Returns the necessary sample size \bold{per group} in order to achieve the desired degree of precision.
+Returns the necessary sample size \bold{per group} in order to achieve the desired degree of accuracy (i.e., the sufficiently narrow confidence interval).
 }
 
 \references{
@@ -50,8 +51,8 @@ no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum.
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
 
 \note{The function \code{ss.aipe.smd} is the preferred function, and is the one that is recommended for widespread use.
-The functions \code{ss.aipe.smd.lower}, \code{ss.aipe.smd.upper} and \code{ss.aipe.smd.full} are called from the
-\code{ss.aipe.smd} function. This code was adapted from code written by Ken Kelley and Joseph R. Rausch 
+The functions \code{ss.aipe.smd.lower}, \code{ss.aipe.smd.upper} and 
+\code{ss.aipe.smd.full} are called from the \code{ss.aipe.smd} function. This code was adapted from code written by Ken Kelley and Joseph R. Rausch 
 (University of Notre Dame) in the spring of 2003.}
 
 \section{Warning}{Finding sample size for lower and uppper confidence limits is approximate, but very close to being exact. The \code{pt()} function is limited to accurate values 

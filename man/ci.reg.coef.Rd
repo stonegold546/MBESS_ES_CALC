@@ -5,9 +5,10 @@
 regression coefficient of interest using the standard approach and the noncentral
 approach when the regression coefficients are standardized.}
 \usage{
-ci.reg.coef(b.j, SE.b.j=NULL, s.Y=NULL, s.X=NULL, N, p, R2.Y_X=NULL, R2.j_X.without.j=NULL, 
-conf.level=0.95, R2.Y_X.without.j=NULL, t.value=NULL, alpha.lower=NULL, alpha.upper=NULL,
-Noncentral=TRUE, Suppress.Statement=FALSE, ...)}
+ci.reg.coef(b.j, SE.b.j=NULL, s.Y=NULL, s.X=NULL, N, p, R2.Y_X=NULL,
+R2.j_X.without.j=NULL, conf.level=0.95, R2.Y_X.without.j=NULL, 
+t.value=NULL, alpha.lower=NULL, alpha.upper=NULL, Noncentral=TRUE, 
+Suppress.Statement=FALSE, ...)}
 \arguments{
   \item{b.j}{value of the regression coefficient for the \code{j}th predictor variable}
   \item{SE.b.j}{standard error for the \code{j}th predictor variable}
@@ -30,7 +31,18 @@ Noncentral=TRUE, Suppress.Statement=FALSE, ...)}
   ~~ If necessary, more details than the description above ~~
 }
 \value{Returns the confidence limits specified for the regression coefficient of interest from the standard approach to confidence interval formation or from the noncentral approach to confidence interval formation using the noncentral t-distribution.}
-\references{ ~put references to the literature/web site here ~ }
+\references{
+
+Kelley, K. \& Maxwel, S. E. (2003). Sample size for Multiple Regression: {O}btaining regression coefficients that are accuracy, not simply significant. 
+\emph{Psychological Methods, 8}, 305--321.
+
+Kelley, K. \& Maxwel, S. E. (In press). Power and Accuracy for Omnibus and Targeted Effects: {I}ssues of Sample Size Planning with Applications to
+Multiple Regression \emph{Handbook of Social Research Methods}, J. Brannon, P. Alasuutari, and L. Bickman (Eds.). New York, NY: Sage Publications. 
+
+Smithson, M. (2003). \emph{Confidence intervals}. New York, NY: Sage Publications. 
+
+
+}
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
 \note{Not all of the values need to be specified, only those that
 contain all of the necessary information in order to compute the
