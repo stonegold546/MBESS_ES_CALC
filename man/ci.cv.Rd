@@ -32,8 +32,11 @@ Uses the noncentral \code{t}-distribution to calculate the confidence interval f
 
 }
 \references{
-Johnson, B. L., \& Welch, B. L. (1940). Applications of the non-central \emph{t}-distribution. \emph{Biometrika}, 31, 362--389.}
-
+Johnson, B. L., \& Welch, B. L. (1940). Applications of the non-central \emph{t}-distribution. \emph{Biometrika}, 31, 362--389.
+  
+McKay, A. T. (1932). Distribution of the coefficient of variation and the extended 
+\emph{t} distribution, \emph{Journal of the Royal Statistical Society}, \emph{95}, 695--698.
+}
 
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
 %\note{ ~~further notes~~ 

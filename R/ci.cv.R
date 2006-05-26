@@ -27,7 +27,7 @@ if(is.null(n)) stop("Either input the whole data set using \'data\' or specify t
 k <- sd/mean
 ncp.estimate <- sqrt(n)/k # or (sqrt(n)*x.bar)/sd
 
-CI.NCP <- conf.limits.nct(ncp=ncp.estimate, df=n-1, alpha.lower=alpha.upper, alpha.upper=alpha.lower)
+CI.NCP <- conf.limits.nct(ncp=ncp.estimate, df=n-1, alpha.lower=alpha.upper, alpha.upper=alpha.lower, conf.level=NULL)
 Low.lim <- CI.NCP$Upper.Limit
 Up.lim <- CI.NCP$Lower.Limit
 
@@ -59,7 +59,7 @@ k <- sd.data/mean.data
 
 ncp.estimate <- sqrt(n)/k # or (sqrt(n)*x.bar)/sd
 
-CI.NCP <- conf.limits.nct(ncp=ncp.estimate, df=n-1, alpha.lower=alpha.upper, alpha.upper=alpha.lower)
+CI.NCP <- conf.limits.nct(ncp=ncp.estimate, df=n-1, alpha.lower=alpha.upper, alpha.upper=alpha.lower, conf.level=NULL)
 Low.lim <- CI.NCP$Upper.Limit
 Up.lim <- CI.NCP$Lower.Limit
 
@@ -90,7 +90,7 @@ if(!is.null(sd)) stop("Since you specified the coefficient of variation (\'cv\')
 
 ncp.estimate <- sqrt(n)/k
 
-CI.NCP <- conf.limits.nct(ncp=ncp.estimate, df=n-1, alpha.lower=alpha.upper, alpha.upper=alpha.lower)
+CI.NCP <- conf.limits.nct(ncp=ncp.estimate, df=n-1, alpha.lower=alpha.upper, alpha.upper=alpha.lower, conf.level=NULL)
 Low.lim <- CI.NCP$Upper.Limit
 Up.lim <- CI.NCP$Lower.Limit
 

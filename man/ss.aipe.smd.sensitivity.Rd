@@ -1,6 +1,6 @@
 \name{ss.aipe.smd.sensitivity}
 \alias{ss.aipe.smd.sensitivity}
-\title{Sensitivity analysis for sample size given Accuracy in Parameter Estimation Goals.}
+\title{Sensitivity analysis for sample size given the Accuracy in Parameter Estimation approach for the standardized mean difference.}
 \description{
 Performs sensitivity analysis for sample size determination for the standardized mean difference 
 given a population and an standardized mean difference. Allows one to determine the effect of being
@@ -17,27 +17,25 @@ conf.level = 0.95, G = 10000, print.iter = TRUE, ...)
   \item{estimated.delta}{estimated standardized mean difference; can be \code{true.delta} to perform standard simulations}
   \item{desired.width}{describe full width for the confidence interval around the population standardized mean difference}
   \item{selected.n}{selected sample size to use in order to determine distributional properties of at a given value of sample size}
-  \item{certainty}{parameter to ensure confidence interval width with a specified degree of certainty (must be NULL or between zero and unity}
+  \item{certainty}{parameter to ensure confidence interval width with a specified degree of certainty (must be NULL or between zero and unity)}
   \item{conf.level}{the desired degree of confidence (i.e., 1-Type I error rate).}
   \item{G}{number of generations (i.e., replications) of the simulation}
   \item{print.iter}{to print the current value of the iterations}
-  \item{...}{for modifying parameters of functions this function calls upon}
+  \item{...}{for modifying parameters of functions this function calls}
 }
 \details{
-
 For sensitivity analysis when planning sample size given the desire to obtain narrow confidence intervals
-around the population standardized mean difference. Given a population value and an estimated value, one can determine
+for the population standardized mean difference. Given a population value and an estimated value, one can determine
 the effects of incorrectly specifying the population standardized mean difference (\code{true.delta}) on the 
 obtained widths of the confidence intervals. Also, one can evaluate the percent of the confidence intervals
 that are less than the desired width (especially when modifying the \code{certainty} parameter); see \code{ss.aipe.smd})
 
 Alternatively, one can specify \code{selected.n} to determine the results at a particular sample size (when doing this \code{estimated.delta} cannot be specified).
-
 }
 \value{
   \item{Results}{list of the results in \code{G}-length vector form}
   \item{Specifications}{specification of the function}
-  \item{Summary}{summary measures of some important descriptives}
+  \item{Summary}{summary measures of some important descriptive statistics}
 \item{d}{contained in \code{Results} list: vector of the observed \code{d} values}
 \item{Full.Width}{contained in \code{Results} list: vector of }
 \item{Width.from.d.Upper}{contained in \code{Results} list: vector of the observed upper widths of the confidence interval (upper limit minus observed standardized mean difference)}
@@ -82,8 +80,9 @@ no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum.
 \examples{
 # Since 'true.delta' equals 'estimated.delta', this usage 
 # returns the results of a correctly specified situation.
+# Note that 'G' should be large (50 is used to make the example run easily)
 Res.1 <- ss.aipe.smd.sensitivity(true.delta=.5, estimated.delta=.5, 
-desired.width=.30, certainty=NULL, conf.level=.95, G=100,
+desired.width=.30, certainty=NULL, conf.level=.95, G=50,
 print.iter=FALSE)
 
 # Lists contained in Res.1.
@@ -103,7 +102,7 @@ Res.1$Summary
 # True standardized mean difference is .4, but specified at .5.
 # Change 'G' to some large number (e.g., G=5,000)
 Res.2 <- ss.aipe.smd.sensitivity(true.delta=.4, estimated.delta=.5, 
-desired.width=.30, certainty=NULL, conf.level=.95, G=100, 
+desired.width=.30, certainty=NULL, conf.level=.95, G=50, 
 print.iter=FALSE)
 
 # The effect of the misspecification on mean confidence intervals is:
@@ -111,7 +110,7 @@ Res.2$Summary$mean.full.width
 
 # True standardized mean difference is .5, but specified at .4.
 Res.3 <- ss.aipe.smd.sensitivity(true.delta=.5, estimated.delta=.4, 
-desired.width=.30, certainty=NULL, conf.level=.95, G=100, 
+desired.width=.30, certainty=NULL, conf.level=.95, G=50, 
 print.iter=FALSE)
 
 # The effect of the misspecification on mean confidence intervals is:

@@ -34,7 +34,7 @@ coefficient, so that the covariance/correlation structure can be specified when 
 \value{\item{Results}{a matrix containing the empirical results from each of the \code{G} replication of the simulation}
   \item{Specifications}{a list of the input specifications and the required sample size}
   \item{Summary.of.Results}{summary values for the results of the sensitivity analysis (simulation study) given the input specification}}
-\references{Kelley, K. \& Maxwel, S. E. (2003). Sample size for Multiple Regression: {O}btaining regression coefficients that are accuracy, not simply significant. 
+\references{Kelley, K. \& Maxwell, S. E. (2003). Sample size for Multiple Regression: {O}btaining regression coefficients that are accuracy, not simply significant. 
 \emph{Psychological Methods, 8}, 305--321.}
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
 \note{Note that when \code{True.Rho.YX}=\code{Estimated.Rho.YX} and \code{True.RHO.XX}=\code{Estimated.RHO.XX}, the results are not

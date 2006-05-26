@@ -1,0 +1,32 @@
+\name{cv}
+\alias{cv}
+\title{Function to calculate the regular (and biased) estimate of the coefficient of variation or the unbiased estimate of the coefficient of variation.}
+\description{Returns the estimated coefficient of variation or the unbiased estimate of the coefficient of variation.}
+\usage{
+cv(mean=NULL, sd=NULL, N=NULL, C.of.V=NULL, unbiased=FALSE)
+}
+\arguments{
+  \item{mean}{observed mean}
+  \item{sd}{observed standard deviation (based on N-1 in the denominator of the variance)}
+  \item{N}{sample size}
+  \item{C.of.V}{Usual estimate of the coefficient of variation (\code{C.of.V=sd/mean})}
+  \item{unbiased}{return the unbiased estimate of the coefficient of variation}
+}
+\details{
+A function to calculate the usual estimate of the coefficient of variation or its unbiased estimate.
+}
+\value{
+Returns the unbiased estimate for the standard deviation.
+}
+\references{
+
+}
+\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+%\note{}
+%\seealso{}
+\examples{
+cv(mean=100, sd=15)
+cv(mean=100, sd=15, N=50, unbiased=TRUE)
+cv(C.of.V=.15, N=2, unbiased=TRUE)}
+\keyword{design}
+\keyword{htest}

@@ -13,8 +13,13 @@ the value of the test statistic can be obtained.
 }
 \usage{
 Rsquare2F(R2 = NULL, df.1 = NULL, df.2 = NULL, p = NULL, N = NULL)
+
+F2Rsquare(F.value = NULL, df.1 = NULL, df.2 = NULL)
+
 Lambda2Rsquare(Lambda = NULL, N = NULL)
+
 Rsquare2Lambda(R2 = NULL, N = NULL)
+
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -23,6 +28,7 @@ Rsquare2Lambda(R2 = NULL, N = NULL)
   \item{df.2}{degrees of freedom for the denominator of the \code{F}-distribution}
   \item{p}{number of predictor variables for \code{R2}}
   \item{N}{sample size}
+  \item{F.value}{The obtained F value from a test of significance for the squared multiple correlation coefficient}
   \item{Lambda}{The noncentral parameter from an \code{F}-distribution}
 }
 \details{

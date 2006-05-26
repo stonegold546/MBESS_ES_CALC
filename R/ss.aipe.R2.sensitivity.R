@@ -1,4 +1,4 @@
-ss.aipe.R2.sensitivity <- function(True.R2=NULL, Estimated.R2=NULL, w=NULL, p=NULL, Selected.N=NULL, degree.of.certainty=NULL, conf.level=.95, rho.yx=.3, rho.xx=.3, G=10000, print.iter=TRUE, ...)
+ss.aipe.R2.sensitivity <- function(True.R2=NULL, Estimated.R2=NULL, w=NULL, p=NULL, Random.Predictors=TRUE, Selected.N=NULL, degree.of.certainty=NULL, conf.level=.95, rho.yx=.3, rho.xx=.3, G=10000, print.iter=TRUE, ...)
 {
 if(True.R2>=1 | True.R2<=0) stop("The values of \'True.R2\' (i.e., the squared multiple correlation coefficient (R^2)) must be between zero and one.")
 if(w==0 | w>=1) stop("The width is not specified correctly.")
@@ -12,7 +12,7 @@ options(warn=-1)
 if(!is.null(Estimated.R2))
 {
 if(Estimated.R2>=1 | Estimated.R2<=0) stop("The values of \'Estimated.R2\' (i.e., the squared multiple correlation coefficient (R^2)) must be between zero and one.")
-N <- ss.aipe.R2(Population.R2=Estimated.R2, conf.level=conf.level, width=w, which.width="Full", p=p, degree.of.certainty=degree.of.certainty)$Required.Sample.Size
+N <- ss.aipe.R2(Population.R2=Estimated.R2, conf.level=conf.level, width=w, which.width="Full", p=p, degree.of.certainty=degree.of.certainty, Random.Predictors=Random.Predictors)$Required.Sample.Size
 }
 else
 {
