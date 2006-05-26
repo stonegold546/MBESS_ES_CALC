@@ -1,109 +1,100 @@
-conf.limits.nct <- function(ncp, df, conf.level=NULL, alpha.lower=NULL, alpha.upper=NULL, tol=1e-9, ...)
-{       
-tval <- abs(ncp)
-###################################################################################################################
+conf.limits.nct <- function(ncp, df, conf.level=.95, alpha.lower=NULL, alpha.upper=NULL, tol=1e-9, sup.int.warns=TRUE, method="all", ...)
+{
+
+if(!(method=="all" | method=="ALL" | method=="All" | method==1 | method==2 | method==3)) stop("You need to specify the method to use; the default is \'all\'")
+
 if(df <= 0) stop("The degrees of freedom must be some positive value.", call.=FALSE)
-if(tol > 1e-7) warning("Your specified tolerance may not be restrictive enough (i.e., \'tol\' may be too large); your solutions may not be accurate.", call.=FALSE)
 if((!is.null(alpha.lower) | !is.null(alpha.upper)) & !is.null(conf.level)) stop("You must choose either to use \'conf.level\' or define the \'lower.alpha\' and \'upper.alpha\' values, but not both", call.=FALSE)
 
-############################This section determines the lower bound for the confidence interval####################
-
-# To solve a tricky problem when the 'ncp' is zero and 'alpha.lower' and 'alpha.upper' are null.
-if(!is.null(conf.level) & ncp==0)
+if(!is.null(conf.level))
 {
 alpha.lower <- (1-conf.level)/2
 alpha.upper <- (1-conf.level)/2
-conf.level <- NULL
 }
 
-if(is.null(conf.level)) ulim <- 1 - alpha.lower
-if(is.null(alpha.lower) & is.null(alpha.upper)) ulim <- 1 - (1-conf.level)/2
-# This first part finds a lower value from which to start.
-if(tval!=0)
+if(method=="all" | method=="ALL" | method=="All")
 {
-lc <- c(-tval,tval/2,tval)
-    while(pt(tval,df,lc[1])<ulim)    
-         {
-         lc <- c(lc[1]-tval,lc[1],lc[3])
-         }
+Res.M1 <- NULL
+Res.M2 <- NULL
+Res.M3 <- NULL
 
-# This next part finds the lower limit for the ncp.
-diff <- 1
-    while(diff > tol)
-         {
-         if(pt(tval,df,lc[2])<ulim)
-         lc <- c(lc[1],(lc[1]+lc[2])/2,lc[2])
-         else lc <- c(lc[2],(lc[2]+lc[3])/2,lc[3])
-         if(abs(lc[2]) > 37.62) print("The noncentrality parameter of the noncentral t-distribution has exceeded 37.62 in magnitude (R's limitation for accurate probabilities from the noncentral t-distribution) in the function's iterative search for the appropriate value(s). The results are likely fine, but they also may be somewhat inaccurate.")
-         diff <- abs(pt(tval,df,lc[2]) - ulim)
-         ucdf <- pt(tval,df,lc[2])
-         }
-res.1 <- ifelse(ncp >= 0,lc[2],-lc[2])
+try(Res.M1 <- conf.limits.nct.M1(ncp=ncp, df=df, conf.level=NULL, alpha.lower=alpha.lower, alpha.upper=alpha.upper, tol=tol), silent=TRUE)
+if(length(Res.M1)!=4) Res.M1 <- NULL
+
+try(Res.M2 <- conf.limits.nct.M2(ncp=ncp, df=df, conf.level=NULL, alpha.lower=alpha.lower, alpha.upper=alpha.upper, tol=tol), silent=TRUE)
+if(length(Res.M2)!=4) Res.M2 <- NULL
+
+try(Res.M3 <- conf.limits.nct.M3(ncp=ncp, df=df, conf.level=NULL, alpha.lower=alpha.lower, alpha.upper=alpha.upper, tol=tol), silent=TRUE)
+if(length(Res.M3)!=4) Res.M3 <- NULL
+
+Low.M1 <- Res.M1$Lower.Limit
+Prob.Low.M1 <- Res.M1$Prob.Less.Lower
+Upper.M1 <- Res.M1$Upper.Limit
+Prob.Upper.M1 <- Res.M1$Prob.Greater.Upper
+
+Low.M2 <- Res.M2$Lower.Limit
+Prob.Low.M2 <- Res.M2$Prob.Less.Lower
+Upper.M2 <- Res.M2$Upper.Limit
+Prob.Upper.M2 <- Res.M2$Prob.Greater.Upper
+
+Low.M3 <- Res.M3$Lower.Limit
+Prob.Low.M3 <- Res.M3$Prob.Less.Lower
+Upper.M3 <- Res.M3$Upper.Limit
+Prob.Upper.M3 <- Res.M3$Prob.Greater.Upper
+
+Min.for.Best.Low <- min((c(Prob.Low.M1, Prob.Low.M2, Prob.Low.M3)-alpha.lower)^2)
+
+if(!is.null(Res.M1)){if(Min.for.Best.Low==(Prob.Low.M1-alpha.lower)^2) Best.Low <- 1}
+if(!is.null(Res.M2)){if(Min.for.Best.Low==(Prob.Low.M2-alpha.lower)^2) Best.Low <- 2}
+if(!is.null(Res.M3)){if(Min.for.Best.Low==(Prob.Low.M3-alpha.lower)^2) Best.Low <- 3}
+
+Min.for.Best.Up <- min((c(Prob.Upper.M1, Prob.Upper.M2, Prob.Upper.M3)-alpha.upper)^2)
+
+if(!is.null(Res.M1)){if(Min.for.Best.Up==(Prob.Upper.M1-alpha.upper)^2) Best.Up <- 1}
+if(!is.null(Res.M2)){if(Min.for.Best.Up==(Prob.Upper.M2-alpha.upper)^2) Best.Up <- 2}
+if(!is.null(Res.M3)){if(Min.for.Best.Up==(Prob.Upper.M3-alpha.upper)^2) Best.Up <- 3}
+
+if(is.null(Res.M1)) {Low.M1 <- NA; Prob.Low.M1 <- NA; Upper.M1 <- NA; Prob.Upper.M1 <- NA}
+if(is.null(Res.M2)) {Low.M2 <- NA; Prob.Low.M2 <- NA; Upper.M2 <- NA; Prob.Upper.M2 <- NA}
+if(is.null(Res.M3)) {Low.M3 <- NA; Prob.Low.M3 <- NA; Upper.M3 <- NA; Prob.Upper.M3 <- NA}
+
+Result <- list(Lower.Limit=c(Low.M1, Low.M2, Low.M3)[Best.Low], Prob.Less.Lower=c(Prob.Low.M1, Prob.Low.M2, Prob.Low.M3)[Best.Low], Upper.Limit=c(Upper.M1, Upper.M2, Upper.M3)[Best.Up], Prob.Greater.Upper=c(Prob.Upper.M1, Prob.Upper.M2, Prob.Upper.M3)[Best.Up])
 }
 
-############################This section determines the upper bound for the confidence interval#####################
-
-if(is.null(conf.level)) llim <- alpha.upper
-if(is.null(alpha.lower) & is.null(alpha.upper)) llim <- (1-conf.level)/2
-# This first part finds an upper value from which to start.
-if(tval!=0)
+if(method==1)
 {
-uc <- c(tval,1.5*tval,2*tval)
-   while(pt(tval,df,uc[3])>llim)   
-        {
-        uc <- c(uc[1],uc[3],uc[3]+tval)
-        }
+Res.M1 <- NULL
 
-# This next part finds the upper limit for the ncp.
-diff <- 1
-    while(diff > tol)         
-         {
-         if(pt(tval,df,uc[2])<llim) uc <- c(uc[1],(uc[1]+uc[2])/2,uc[2])
-         else uc <- c(uc[2],(uc[2]+uc[3])/2,uc[3])
-         if(abs(uc[3]) > 37.62) print("The noncentrality parameter of the noncentral t-distribution has exceeded 37.62 in magnitude (R's limitation for accurate probabilities from the noncentral t-distribution) in the function's iterative search for the appropriate value(s). The results are likely fine, but they also may be somewhat inaccurate.")
-         diff <- abs(pt(tval,df,uc[2]) - llim)
-         lcdf <- pt(tval,df,uc[2])
-         }
-res <- ifelse(ncp >= 0,uc[2],-uc[2])
+try(Res.M1 <- conf.limits.nct.M1(ncp=ncp, df=df, conf.level=NULL, alpha.lower=alpha.lower, alpha.upper=alpha.upper, tol=tol), silent=TRUE)
+if(length(Res.M1)!=4) Res.M1 <- NULL
+
+if(is.null(Res.M1)) stop("There was a problem with Method 1 in this situation; try another method.")
+
+Result <- list(Lower.Limit=Res.M1$Lower.Limit, Prob.Less.Lower=Res.M1$Prob.Less.Lower, Upper.Limit=Res.M1$Upper.Limit, Prob.Greater.Upper=Res.M1$Prob.Greater.Upper)
 }
 
-#################################This part Compiles the results into a vector#######################################
-# Note that 1-ucdf is used rather than ucdf because ucdf gives the probability of greater than the ncp for a 
-# distribution whose noncentrality parameter is Lower.Limit. Likewise, 1-lcdf is used rather than lcdf because
-# ucdf gives the probability of greater than 'ncp' for a t-distribution whose noncentrality parameter is Upper.Limit.
-# We are interested in the confidence limits for ncp, thus taking 1-ucdf and 1-lcdf
-if(!is.null(conf.level) | (!is.null(alpha.lower) & !is.null(alpha.upper) & tval!=0))
+if(method==2)
 {
-Result <- list(Lower.Limit=min(res,res.1), Prob.Less.Lower=1-ucdf, Upper.Limit=max(res,res.1), Prob.Greater.Upper=lcdf)
+Res.M2 <- NULL
+
+try(Res.M2 <- conf.limits.nct.M2(ncp=ncp, df=df, conf.level=NULL, alpha.lower=alpha.lower, alpha.upper=alpha.upper, tol=tol), silent=TRUE)
+if(length(Res.M2)!=4) Res.M2 <- NULL
+
+if(is.null(Res.M2)) stop("There was a problem with Method 2 in this situation; try another method.")
+
+Result <- list(Lower.Limit=Res.M2$Lower.Limit, Prob.Less.Lower=Res.M2$Prob.Less.Lower, Upper.Limit=Res.M2$Upper.Limit, Prob.Greater.Upper=Res.M2$Prob.Greater.Upper)
 }
 
-if(is.null(conf.level))
+if(method==3)
 {
-if(!is.null(alpha.lower) & alpha.upper!=0 & alpha.lower==0)
-{
-if(tval==0) Result <- list(Lower.Limit=-Inf, Prob.Less.Lower=0, Upper.Limit=qt(1-llim, df), Prob.Greater.Upper=llim)
+Res.M3 <- NULL
 
-if(tval!=0) Result <- list(Lower.Limit=-Inf, Prob.Less.Lower=0, Upper.Limit=max(res,res.1), Prob.Greater.Upper=lcdf)
-}
-}
+try(Res.M3 <- conf.limits.nct.M3(ncp=ncp, df=df, conf.level=NULL, alpha.lower=alpha.lower, alpha.upper=alpha.upper, tol=tol), silent=TRUE)
+if(length(Res.M3)!=4) Res.M3 <- NULL
 
-if(is.null(conf.level))
-{
-if(!is.null(alpha.upper) & alpha.lower!=0 & alpha.upper==0)
-{
-if(tval==0) Result <- list(Lower.Limit=qt(1-ulim, df), Prob.Less.Lower=1-ulim, Upper.Limit=Inf, Prob.Greater.Upper=0)
+if(is.null(Res.M3)) stop("There was a problem with Method 3 in this situation; try another method.")
 
-if(tval!=0) Result <- list(Lower.Limit=min(res,res.1), Prob.Less.Lower=1-ucdf, Upper.Limit=Inf, Prob.Greater.Upper=0)
-}
-}
-
-
-if(is.null(conf.level))
-{
-if(alpha.lower!=0 & alpha.upper!=0)
-{
-if(tval==0) Result <- list(Lower.Limit=qt(1-ulim, df), Prob.Less.Lower=1-ulim, Upper.Limit=qt(1-llim, df), Prob.Greater.Upper=llim)
-}
+Result <- list(Lower.Limit=Res.M3$Lower.Limit, Prob.Less.Lower=Res.M3$Prob.Less.Lower, Upper.Limit=Res.M3$Upper.Limit, Prob.Greater.Upper=Res.M3$Prob.Greater.Upper)
 }
 
 return(Result)

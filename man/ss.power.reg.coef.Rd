@@ -41,7 +41,12 @@ for several options.}
   \item{Noncentral.t.Parm}{value of the noncentral distribution for the appropriate \code{t}-distribution}
    \item{Effect.Size.NC.t}{effect size for the noncentral \code{t}-distribution; this is the square root of \code{Cohen.f2}, because \code{Cohen.f2} is the effect size using an \code{F}-distribution}
 }
-\references{ ~put references to the literature/web site here ~ }
+\references{
+
+Maxwell, S. E. (2000). Sample size for multiple regression. \emph{Psychological Methods, 4}, 434--458.
+
+Cohen, J. (1988). \emph{Statistical power analysis for the behavioral sciences} (2nd ed.). Hillsdale, NJ: Erlbaum.
+}
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
 \seealso{\code{ss.aipe.reg.coef}, \code{ss.power.R2}, \code{conf.limits.ncf}}
 \examples{

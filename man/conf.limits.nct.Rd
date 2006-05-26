@@ -4,32 +4,38 @@
 \title{Confidence limits for a noncentrality parameter from a t-distribution}
 
 \description{
-Function to determine the noncentrality parameters necessary to form a confidence interval around the population noncentrality parameter.
-This function is especially helpful when forming confidence intervals around standardized mean 
-differences (e.g., Cohen's d; Glass's g; Hedges g', etc.)
+Function to determine the noncentrality parameters necessary to form a confidence interval around the population noncentrality parameter and related parameters.
+Due to the difficulties in estimating the necessary values, three different methods are implemented within the present function (\code{conf.limits.nct.M1}, \code{conf.limits.nct.M2}, and \code{conf.limits.nct.M3}) and the best set of results are taken.
 }
 
 \usage{
-conf.limits.nct(ncp, df, conf.level=NULL, alpha.lower=NULL, 
-alpha.upper=NULL, tol=1e-9, ...)
-
+conf.limits.nct(ncp, df, conf.level = 0.95, alpha.lower = NULL, alpha.upper = NULL, tol = 1e-09, sup.int.warns = TRUE, method = "all", ...)
 }
+%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{ncp}{the noncentrality parameter (e.g., observed t-value) of interest.}
+ \item{ncp}{the noncentrality parameter (e.g., observed t-value) of interest.}
   \item{df}{the degrees of freedom.}
   \item{conf.level}{the level of confidence for a symmetric confidence interval.}
   \item{alpha.lower}{the proportion of values beyond the lower limit of the confidence interval (cannot be used with \code{conf.level}).}
   \item{alpha.upper}{the proportion of values beyond the upper limit of the confidence interval (cannot be used with \code{conf.level}).}
   \item{tol}{is the tolerance of the iterative method for determining the critical values.}
+  \item{sup.int.warns}{Suppress internal warnings (from internal functions): TRUE or FALSE}
+  \item{method}{which of the three methods should be used: "all", "1", "2", "3" ("all" is default).}
   \item{\dots}{ allows one to potentially include parameter values for inner functions}
 }
 \details{
-Function for finding the upper and lower confidence limits for a noncentral parameter from a noncentral t-distribution with \code{df} degrees of freedom. 
-This function is especially helpful when forming confidence intervals around standardized mean differences (i.e., Cohen's d; Glass's g; Hedges g')
-The \code{Lower.Limit} and the \code{Upper.Limit} values correspond to the noncentral parameters of a \emph{t}-distribution with \code{df} degrees of
+Function for finding the upper and lower confidence limits for a noncentral parameter from a noncentral \emph{t}-distribution with \code{df} degrees of freedom. 
+This function is especially helpful when forming confidence intervals around standardized mean differences (i.e., Cohen's d; Glass's g; Hedges g'), standardized regression coefficients, and 
+coefficients of variations. The \code{Lower.Limit} and the \code{Upper.Limit} values correspond to the noncentral parameters of a \emph{t}-distribution with \code{df} degrees of
 freedom whose upper and lower tails contain the desired proportion of the curves, respectively.
 When \code{ncp} is zero, the \code{Lower.Limit} and \code{Upper.Limit} are simply the desired quantiles of the
-central t-distribution with \code{df} degrees of freedom.
+central \emph{t}-distribution with \code{df} degrees of freedom.
+
+See the documentation and code for each of the three methods (if interested). Each of the three methods 
+should reach the same values for the confidence limits. However, due to the iterative nature of the functions, 
+one function may arrive at a more optimal solution. Furthermore, in some situations one (or more) 
+functions could fail to find the optimum values, which necessitates the use of multiple methods to (essentially) ensure
+that optimal values are found. 
 }
 
 \value{ 
@@ -50,8 +56,6 @@ S. Muliak, \& J. Steiger (Eds.), \emph{What if there were no significance tests?
 
 }
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
-\note{This code was adapted from code written by Ken Kelley and Joseph R. Rausch (University of Notre Dame; \email{JRausch@ND.Edu}), which was adapted from
-code written by Michael Smithson (Australian National University; \email{Michael.Smithson@ANU.Edu.AU}).}
 
 \section{Warning}{At the present time, the largest \code{ncp} that R can accurately handle is 37.62.
 }

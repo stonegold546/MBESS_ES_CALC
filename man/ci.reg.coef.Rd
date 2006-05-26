@@ -25,18 +25,19 @@ Suppress.Statement=FALSE, ...)}
   \item{alpha.upper}{the Type I error rate for the upper confidence interval limit}
   \item{Noncentral}{\code{TRUE}/\code{FALSE} statement specifying whether or not the noncentral approach to confidence intervals should be used}
   \item{Suppress.Statement}{\code{TRUE}/\code{FALSE} statement specifying whether or not a statement should be printed that identifies the type of confidence interval formed}
-  \item{...}{optional addinal specifications for nested functions}
+  \item{...}{optional additional specifications for nested functions}
 }
 \details{
-  ~~ If necessary, more details than the description above ~~
-}
-\value{Returns the confidence limits specified for the regression coefficient of interest from the standard approach to confidence interval formation or from the noncentral approach to confidence interval formation using the noncentral t-distribution.}
+For standardized variables, do not specify the standard deviation of the variables and input the standardized
+regression coefficient for \code{b.j}.}
+
+\value{Returns the confidence limits specified for the regression coefficient of interest from the standard approach to confidence interval formation or from the noncentral approach to confidence interval formation using the noncentral \emph{t}-distribution.}
 \references{
 
-Kelley, K. \& Maxwel, S. E. (2003). Sample size for Multiple Regression: {O}btaining regression coefficients that are accuracy, not simply significant. 
+Kelley, K. \& Maxwell, S. E. (2003). Sample size for Multiple Regression: {O}btaining regression coefficients that are accuracy, not simply significant. 
 \emph{Psychological Methods, 8}, 305--321.
 
-Kelley, K. \& Maxwel, S. E. (In press). Power and Accuracy for Omnibus and Targeted Effects: {I}ssues of Sample Size Planning with Applications to
+Kelley, K. \& Maxwell, S. E. (In press). Power and Accuracy for Omnibus and Targeted Effects: {I}ssues of Sample Size Planning with Applications to
 Multiple Regression \emph{Handbook of Social Research Methods}, J. Brannon, P. Alasuutari, and L. Bickman (Eds.). New York, NY: Sage Publications. 
 
 Smithson, M. (2003). \emph{Confidence intervals}. New York, NY: Sage Publications. 

@@ -1,0 +1,42 @@
+\name{conf.limits.nct.M1}
+\alias{conf.limits.nct.M1}
+
+\title{Confidence limits for a noncentrality parameter from a t-distribution (Method 1 of 3)}
+
+\description{
+Function to determine the noncentrality parameters necessary to form a confidence interval around the population noncentrality parameter and related parameters.
+Method 1 uses the \code{optimize} function to determine the critical values.
+}
+
+\usage{
+conf.limits.nct.M1(ncp, df, conf.level = NULL, alpha.lower = NULL, alpha.upper = NULL, min.ncp = -3 * ncp, max.ncp = 3 * ncp, tol = 1e-09, sup.int.warns = TRUE, ...)
+}
+%- maybe also 'usage' for other objects documented here.
+\arguments{
+
+ \item{ncp}{the noncentrality parameter (e.g., observed t-value) of interest}
+  \item{df}{the degrees of freedom}
+  \item{conf.level}{the level of confidence for a symmetric confidence interval}
+  \item{alpha.lower}{the proportion of values beyond the lower limit of the confidence interval (cannot be used with \code{conf.level})}
+  \item{alpha.upper}{the proportion of values beyond the upper limit of the confidence interval (cannot be used with \code{conf.level})}
+  \item{min.ncp}{lower noncentral parameter from which to start the search process}
+  \item{max.ncp}{lower noncentral parameter from which to start the search process}
+  \item{tol}{is the tolerance of the iterative method for determining the critical values}
+  \item{sup.int.warns}{Suppress internal warnings (from internal functions): TRUE or FALSE}
+  \item{\dots}{ allows one to potentially include parameter values for inner functions}
+ }
+
+
+\value{ 
+  \item{Lower.Limit}{Value of the distribution with \code{Lower.Limit} noncentral value that has at its specified quantile \code{F.value}}
+  \item{Prob.Less.Lower}{Proportion of the distribution beyond (i.e., less than) \code{Lower.Limit}}
+  \item{Upper.Limit}{Value of the distribution with \code{Upper.Limit} noncentral value that has at its specified quantile \code{F.value}}
+  \item{Prob.Greater.Upper}{Proportion of the distribution beyond (i.e., larger than) \code{Upper.Limit}}
+  }
+
+\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+
+\seealso{\code{conf.limits.nct}, \code{optimize}}
+
+\keyword{models}
+\keyword{htest}

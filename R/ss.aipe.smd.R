@@ -26,17 +26,15 @@ if(degree.of.certainty <= .50) stop("The 'degree.of.certainty' should be > .5 (b
 
 if(which.width == "Full") 
 {
-n0 <- ss.aipe.smd(delta=delta, conf.level=conf.level, width=width, which.width="Full")
+n0 <- ss.aipe.smd(delta=delta, conf.level=conf.level, width=width, which.width="Full", ...)
 
 Limit.2.Sided <- ci.smd(smd=delta, n.1=n0, n.2=n0, conf.level=NULL, alpha.lower=(1-degree.of.certainty)/2, 
-     alpha.upper=(1-degree.of.certainty)/2)$Upper
+     alpha.upper=(1-degree.of.certainty)/2, ...)$Upper
 
-Limit.1.Sided <- ci.smd(smd=delta, n.1=n0, n.2=n0, conf.level=NULL, alpha.lower=0, alpha.upper=1-degree.of.certainty)$Upper
+Limit.1.Sided <- ci.smd(smd=delta, n.1=n0, n.2=n0, conf.level=NULL, alpha.lower=0, alpha.upper=1-degree.of.certainty, ...)$Upper
 
-determine.limit <- function(current.delta.limit=current.delta.limit, delta=delta, degree.of.certainty=degree.of.certainty)
+determine.limit <- function(current.delta.limit=current.delta.limit, samp.size=n0, delta=delta, degree.of.certainty=degree.of.certainty)
 {
-samp.size <- ss.aipe.smd(delta=current.delta.limit, conf.level=1-alpha, width=width, which.width="Full", degree.of.certainty=NULL)
-
 Less <- pt(q=delta2lambda(delta=-current.delta.limit, n.1=samp.size, n.2=samp.size), df=2*samp.size-2, ncp=delta2lambda(delta=delta, n.1=samp.size, n.2=samp.size))
 Greater <- 1 - pt(q=delta2lambda(delta=current.delta.limit, n.1=samp.size, n.2=samp.size), df=2*samp.size-2, ncp=delta2lambda(delta=delta, n.1=samp.size, n.2=samp.size))
 Expected.Widths.Too.Large <- Less + Greater
@@ -44,7 +42,7 @@ return((Expected.Widths.Too.Large - (1-degree.of.certainty))^2)
 }
 
 Optimize.Result <- optimize(f=determine.limit, interval=c(Limit.1.Sided, Limit.2.Sided), delta=delta, degree.of.certainty=degree.of.certainty)
-n <- ss.aipe.smd(delta=Optimize.Result$minimum, conf.level=1-alpha, width=width, which.width="Full", degree.of.certainty=NULL)
+n <- ss.aipe.smd(delta=Optimize.Result$minimum, conf.level=1-alpha, width=width, which.width="Full", degree.of.certainty=NULL, ...)
 
 }
 
