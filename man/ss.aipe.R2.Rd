@@ -8,8 +8,7 @@ sufficiently narrow. Optionally, there is a certainty parameter that allows one 
 a specified percent certain that the observed interval will be no wider than specified.}
 \usage{ss.aipe.R2(Population.R2 = NULL, conf.level = .95, width = NULL, 
 Random.Predictors=TRUE, which.width = "Full", p = NULL, 
-degree.of.certainty = NULL, 
-Tol = 1e-09, ...)}
+degree.of.certainty = NULL, Tol = 1e-09, start.N=NULL, ...)}
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{Population.R2}{value of the population multiple correlation coefficient}
@@ -20,6 +19,7 @@ Tol = 1e-09, ...)}
   \item{p}{the number of predictor variables}
   \item{degree.of.certainty}{value with which confidence can be placed that describes the likelihood of obtaining a confidence interval less than the value specified (e.g., .80, .90, .95)}
   \item{Tol}{the tolerance of the iterative function \code{conf.limits.nct} for convergence}
+  \item{start.N}{the sample size from which to start (rather than starting at a small sample size); not generally recommended}
   \item{\dots}{for modifying parameters of functions this function calls }
 }
 

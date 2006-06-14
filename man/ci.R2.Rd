@@ -3,7 +3,7 @@
 \title{Confidence intervals for the multiple correlation coefficient}
 \description{A function to calculate the exact confidence interval for the multiple correlation coefficient.}
 \usage{
-ci.R2(R2 = NULL, df.1 = NULL, df.2 = NULL, conf.level = NULL, 
+ci.R2(R2 = NULL, df.1 = NULL, df.2 = NULL, conf.level = .95, 
 Random.Predictors=TRUE, F.value = NULL, N = NULL, p = NULL,
 alpha.lower = NULL, alpha.upper = NULL, tol = 1e-09)}
 %- maybe also 'usage' for other objects documented here.

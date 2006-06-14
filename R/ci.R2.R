@@ -1,4 +1,4 @@
-ci.R2 <- function(R2=NULL, df.1=NULL, df.2=NULL, conf.level=NULL, Random.Predictors=TRUE, F.value=NULL, N=NULL, p=NULL, alpha.lower=NULL, alpha.upper=NULL, tol=1e-9)
+ci.R2 <- function(R2=NULL, df.1=NULL, df.2=NULL, conf.level=.95, Random.Predictors=TRUE, F.value=NULL, N=NULL, p=NULL, alpha.lower=NULL, alpha.upper=NULL, tol=1e-9)
 {
 if((!is.null(N) | !is.null(p)) & (!is.null(df.1) | !is.null(df.2))) stop("Either specify \'df.1\' and \'df.2\' or \'N\' and \'p,\' but not both combinations.")
 
@@ -83,9 +83,12 @@ x1 <- .000001
 x3 <- .5
 diff3 <- 1
 
+ulrhosq <- .5
+llrhosq <- .5
+
 if(pul!=0)
 {
-while(abs(diff3) > .00001)
+while((abs(diff3) > .00001) & (round(ulrhosq, 5) <1))
 {
 x3 <- (x1 + x2)/2
 yy <- x3/(1-x3)
@@ -132,7 +135,7 @@ LAMBDA.U <- yy*GAMMA*(sqrt(df1*df2))/(g^2)
 limit <- df2*R2.Tilda/(nu*g)
 diff3 <- pf(limit, nu, df2, ncp=LAMBDA.U) - pll
 
-while(abs(diff3) > .00001)
+while((abs(diff3) > .00001) & (round(llrhosq, 5) < 1))
 {
 x3 <- (x1 + x2)/2
 yy <- x3/(1-x3)
@@ -160,9 +163,12 @@ llrhosq <- x3
 }
 }
 
+if(round(llrhosq, 5)==1 & llrhosq>R2) llrhosq <- 0
+
+if(llrhosq > ulrhosq) warning("There is a problem; the lower limit is greater than the upper limit (Are you at one of the boundries of Rho^2?).")
+
 if(pll==1) return(list(Lower.Conf.Limit.R2=0, Prob.Less.Lower=0, Upper.Conf.Limit.R2=ulrhosq, Prob.Greater.Upper=pul))
 if(pul==0) return(list(Lower.Conf.Limit.R2=llrhosq, Prob.Less.Lower=1-pll, Upper.Conf.Limit.R2=1, Prob.Greater.Upper=0))
 return(list(Lower.Conf.Limit.R2=llrhosq, Prob.Less.Lower=1-pll, Upper.Conf.Limit.R2=ulrhosq, Prob.Greater.Upper=pul))
 }
-
 }
