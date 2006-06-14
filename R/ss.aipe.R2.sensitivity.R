@@ -2,10 +2,14 @@ ss.aipe.R2.sensitivity <- function(True.R2=NULL, Estimated.R2=NULL, w=NULL, p=NU
 {
 if(True.R2>=1 | True.R2<=0) stop("The values of \'True.R2\' (i.e., the squared multiple correlation coefficient (R^2)) must be between zero and one.")
 if(w==0 | w>=1) stop("The width is not specified correctly.")
+if(w==0 | w>=1) stop("The width is not specified correctly.")
 
 if(is.null(Estimated.R2) & is.null(Selected.N)) stop("You must specify either \'Estimated.R2\' or \'Selected.N\'.", call.=FALSE)
-if(!is.null(Estimated.R2) & !is.null(Selected.N)) stop("You must specify either \'Estimated.R2\' or \'Selected.N\', but not both.", call.=FALSE)
 
+if(!is.null(degree.of.certainty))
+{
+if(degree.of.certainty<0 | degree.of.certainty>1) stop("You must specify either \'degree.of.certainty\' to be a value between 0 and 1.", call.=FALSE)
+}
 
 options(warn=-1)
 
@@ -51,7 +55,7 @@ Regression.Results <- lm(DATA[,1] ~ DATA[,-1])
 Summary.Regression.Results <- summary(Regression.Results)
 
 R.Square.Results[i,2] <- Summary.Regression.Results$r.squared
-CI.Limits.R2 <- ci.R2(R2 = R.Square.Results[i,2], conf.level = conf.level, N = N, p = p)
+CI.Limits.R2 <- ci.R2(R2 = R.Square.Results[i,2], conf.level = conf.level, N = N, p = p, Random.Predictors=Random.Predictors)
 
 R.Square.Results[i,1] <- CI.Limits.R2$Lower.Conf.Limit.R2
 R.Square.Results[i,3] <- CI.Limits.R2$Upper.Conf.Limit.R2

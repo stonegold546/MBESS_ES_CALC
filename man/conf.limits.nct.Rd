@@ -60,7 +60,7 @@ S. Muliak, \& J. Steiger (Eds.), \emph{What if there were no significance tests?
 \section{Warning}{At the present time, the largest \code{ncp} that R can accurately handle is 37.62.
 }
 
-\seealso{'pt', 'qt', 'ci.smd', 'ci.smd.c', 'ss.aipe'}
+\seealso{'pt', 'qt', 'ci.smd', 'ci.smd.c', 'ss.aipe', 'conf.limits.ncf', 'conf.limits.nc.chisq'}
 \examples{
 
 # Suppose observed t-value based on 'df'=126 is 2.83. Finding the lower 
