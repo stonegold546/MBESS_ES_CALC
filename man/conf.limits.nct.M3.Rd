@@ -4,12 +4,16 @@
 \title{Confidence limits for a noncentrality parameter from a t-distribution (Method 3 of 3)}
 
 \description{
-Function to determine the noncentrality parameters necessary to form a confidence interval around the population noncentrality parameter and related parameters.
-Method 3 uses an iterative scheme in order to determine the critical values.
+Largely internal function to determine the noncentrality parameters necessary to form a confidence interval around the population noncentrality parameter and related parameters.
+Method 3 uses an iterative scheme in order to determine the critical values. This function 
+requires the \code{ncp} to be positive, but the function that should be used \code{conf.limits.nct}
+does not.
 }
 
 \usage{
-conf.limits.nct.M3(ncp, df, conf.level = NULL, alpha.lower = NULL, alpha.upper = NULL, tol = 1e-09, sup.int.warns = TRUE, max.steps = 2500, ...)
+conf.limits.nct.M3(ncp, df, conf.level = NULL, alpha.lower = NULL, 
+alpha.upper = NULL, tol = 1e-09, sup.int.warns = TRUE, 
+max.steps = 2500, ...)
 }
 \arguments{
  \item{ncp}{the noncentrality parameter (e.g., observed t-value) of interest}
@@ -41,4 +45,3 @@ code written by Michael Smithson (Australian National University; \email{Michael
 
 \keyword{models}
 \keyword{htest}
-

@@ -83,11 +83,11 @@ desired.power=.80)
 
 # Power given a specified N and squared multiple correlation coefficients.
 ss.power.reg.coef(Rho2.Y_X=0.7826786, Rho2.Y_X.without.j=0.7363697, Specified.N=25,
-p=5, alpha.level=.05, Directional=FALSE, desired.power=.80)
+p=5, alpha.level=.05, Directional=FALSE)
 
 # Power given a specified N and effect size.
 ss.power.reg.coef(alpha.level=.05, Cohen.f2=0.2130898, p=5, Specified.N=25,
-Directional=FALSE, desired.power=.80)
+Directional=FALSE)
 
 # Reproducing Maxwell's (2000, p. 445) Example
 Cor.Mat.Maxwell <- rbind(

@@ -5,8 +5,8 @@
 \description{
 Function to calculate the confidence interval for the population coefficient of variation using the noncentral \code{t}-distribution.}
 \usage{
-ci.cv(mean = NULL, sd = NULL, n = NULL, data = NULL, cv=NULL, conf.level = 0.95, 
-alpha.lower = NULL, alpha.upper = NULL, ...)
+ci.cv(mean = NULL, sd = NULL, n = NULL, data = NULL, cv=NULL, 
+conf.level = 0.95, alpha.lower = NULL, alpha.upper = NULL, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

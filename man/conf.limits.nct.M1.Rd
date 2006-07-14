@@ -4,12 +4,16 @@
 \title{Confidence limits for a noncentrality parameter from a t-distribution (Method 1 of 3)}
 
 \description{
-Function to determine the noncentrality parameters necessary to form a confidence interval around the population noncentrality parameter and related parameters.
-Method 1 uses the \code{optimize} function to determine the critical values.
+Largely internal function to determine the noncentrality parameters necessary to form a confidence interval for the population noncentrality parameter and related parameters.
+Method 1 uses the \code{optimize} function to determine the critical values. This function requires
+the \code{ncp} to be positive, but the function that should be used \code{conf.limits.nct}
+does not.
 }
 
 \usage{
-conf.limits.nct.M1(ncp, df, conf.level = NULL, alpha.lower = NULL, alpha.upper = NULL, min.ncp = -3 * ncp, max.ncp = 3 * ncp, tol = 1e-09, sup.int.warns = TRUE, ...)
+conf.limits.nct.M1(ncp, df, conf.level = NULL, alpha.lower = NULL, 
+alpha.upper = NULL, min.ncp = -3 * ncp, max.ncp = 3 * ncp, 
+tol = 1e-09, sup.int.warns = TRUE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

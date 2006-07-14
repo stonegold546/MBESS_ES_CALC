@@ -9,7 +9,8 @@ Due to the difficulties in estimating the necessary values, three different meth
 }
 
 \usage{
-conf.limits.nct(ncp, df, conf.level = 0.95, alpha.lower = NULL, alpha.upper = NULL, tol = 1e-09, sup.int.warns = TRUE, method = "all", ...)
+conf.limits.nct(ncp, df, conf.level = 0.95, alpha.lower = NULL, 
+alpha.upper = NULL, tol = 1e-09, sup.int.warns = TRUE, method = "all", ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
