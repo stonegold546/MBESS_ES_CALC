@@ -55,7 +55,8 @@ Regression.Results <- lm(DATA[,1] ~ DATA[,-1])
 Summary.Regression.Results <- summary(Regression.Results)
 
 R.Square.Results[i,2] <- Summary.Regression.Results$r.squared
-CI.Limits.R2 <- ci.R2(R2 = R.Square.Results[i,2], conf.level = conf.level, N = N, p = p, Random.Predictors=Random.Predictors)
+
+CI.Limits.R2 <- try(ci.R2(R2 = R.Square.Results[i,2], conf.level = conf.level, N = N, p = p, Random.Predictors=Random.Predictors))
 
 R.Square.Results[i,1] <- CI.Limits.R2$Lower.Conf.Limit.R2
 R.Square.Results[i,3] <- CI.Limits.R2$Upper.Conf.Limit.R2

@@ -30,7 +30,7 @@ if(pf(q=F.value, df1=df.1, df2=df.2, ncp=LL.0) < (1-alpha.lower))
 FAILED <- if(pf(q=F.value, df1=df.1, df2=df.2, ncp=0) < 1-alpha.lower) 
 LL.0 <- .00000001
 if(pf(q=F.value, df1=df.1, df2=df.2, ncp=LL.0) < 1-alpha.lower) FAILED <- TRUE
-if(FAILED==TRUE) warning("The size of the effect combined with the degrees of freedom is too small to determine a lower confidence limit for the \'alpha.lower\' (or the (1/2)(1-\'conf.level\') symmetric) value specified (set to zero).", call. = FALSE)
+#if(FAILED==TRUE) warning("The size of the effect combined with the degrees of freedom is too small to determine a lower confidence limit for the \'alpha.lower\' (or the (1/2)(1-\'conf.level\') symmetric) value specified (set to zero).", call. = FALSE)
 }
 
 if(is.null(FAILED))
@@ -87,7 +87,7 @@ Diff <- pf(q=F.value, df1=df.1, df2=df.2, ncp=UL.0)-alpha.upper
 if(Diff < 0) 
 {
 FAILED.Up <- TRUE
-warning("The size of the effect combined with the degrees of freedom is too small to determine an upper confidence limit for the \'alpha.upper\' (or (1/2)(1-\'conf.level\') symmetric) value specified.", call. = FALSE)
+# warning("The size of the effect combined with the degrees of freedom is too small to determine an upper confidence limit for the \'alpha.upper\' (or (1/2)(1-\'conf.level\') symmetric) value specified.", call. = FALSE)
 }
 
 if(is.null(FAILED.Up))

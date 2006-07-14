@@ -3,7 +3,9 @@ conf.limits.nct.M1 <- function(ncp, df, conf.level=NULL, alpha.lower=NULL, alpha
 
 if(sup.int.warns==TRUE) Orig.warn <- options()$warn; options(warn=-1)
 
+if(ncp < 0) stop("\'conf.limits.nct.M1\' should not be given negative values for the noncentral parameter. Use \'conf.limits.nct\' instead.")
 
+# No longer necessary, given the above restriction.
 ncp.orig <- ncp
 ncp <- abs(ncp)
 

@@ -4,12 +4,15 @@
 \title{Confidence limits for a noncentrality parameter from a t-distribution (Method 2 of 3)}
 
 \description{
-Function to determine the noncentrality parameters necessary to form a confidence interval around the population noncentrality parameter and related parameters.
-Method 2 uses the \code{nlm} function to determine the critical values.
+Largely internal function to determine the noncentrality parameters necessary to form a confidence interval around the population noncentrality parameter and related parameters.
+Method 2 uses the \code{nlm} function to determine the critical values. This function requires
+the \code{ncp} to be positive, but the function that should be used \code{conf.limits.nct}
+does not.
 }
 
 \usage{
-conf.limits.nct.M2(ncp = ncp, df = df, conf.level = NULL, alpha.lower = NULL, alpha.upper = NULL, tol = 1e-09, sup.int.warns = TRUE, ...)
+conf.limits.nct.M2(ncp = ncp, df = df, conf.level = NULL, alpha.lower = NULL, 
+alpha.upper = NULL, tol = 1e-09, sup.int.warns = TRUE, ...)
 }
 
 \arguments{
@@ -36,4 +39,3 @@ conf.limits.nct.M2(ncp = ncp, df = df, conf.level = NULL, alpha.lower = NULL, al
 
 \keyword{models}
 \keyword{htest}
-

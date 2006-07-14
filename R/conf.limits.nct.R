@@ -1,15 +1,31 @@
 conf.limits.nct <- function(ncp, df, conf.level=.95, alpha.lower=NULL, alpha.upper=NULL, tol=1e-9, sup.int.warns=TRUE, method="all", ...)
 {
-
 if(!(method=="all" | method=="ALL" | method=="All" | method==1 | method==2 | method==3)) stop("You need to specify the method to use; the default is \'all\'")
 
 if(df <= 0) stop("The degrees of freedom must be some positive value.", call.=FALSE)
-if((!is.null(alpha.lower) | !is.null(alpha.upper)) & !is.null(conf.level)) stop("You must choose either to use \'conf.level\' or define the \'lower.alpha\' and \'upper.alpha\' values, but not both", call.=FALSE)
 
-if(!is.null(conf.level))
+# Removed restriction so that if alpha.lower and alpha.upper specified, it doesn't matter how conf.level is specified.
+# if((!is.null(alpha.lower) | !is.null(alpha.upper)) & !is.null(conf.level)) stop("You must choose either to use \'conf.level\' or define the \'lower.alpha\' and \'upper.alpha\' values, but not both", call.=FALSE)
+
+if(!is.null(alpha.lower) & is.null(alpha.upper)) stop("Since \'alpha.lower\' is specified, \'alpha.upper\' also needs to be specified (even if it is zero).")
+if(!is.null(alpha.upper) & is.null(alpha.lower)) stop("Since \'alpha.upper\' is specified, \'alpha.lower\' also needs to be specified (even if it is zero).")
+
+orig.ncp <- ncp
+ncp <- abs(ncp)
+
+if(is.null(alpha.lower) & is.null(alpha.upper))
 {
 alpha.lower <- (1-conf.level)/2
 alpha.upper <- (1-conf.level)/2
+}
+
+# So that a reversal can be used, see the final comment.
+if(orig.ncp < 0)
+{
+alpha.lower.orig <- alpha.lower
+alpha.upper.orig <- alpha.upper
+alpha.upper <- alpha.lower.orig
+alpha.lower <- alpha.upper.orig
 }
 
 if(method=="all" | method=="ALL" | method=="All")
@@ -95,6 +111,13 @@ if(length(Res.M3)!=4) Res.M3 <- NULL
 if(is.null(Res.M3)) stop("There was a problem with Method 3 in this situation; try another method.")
 
 Result <- list(Lower.Limit=Res.M3$Lower.Limit, Prob.Less.Lower=Res.M3$Prob.Less.Lower, Upper.Limit=Res.M3$Upper.Limit, Prob.Greater.Upper=Res.M3$Prob.Greater.Upper)
+}
+
+# If reversal is necessary do to negative noncentral values.
+if(orig.ncp < 0)
+{
+Opposite.Result <- Result
+Result <- list(Lower.Limit=-1*Result$Upper.Limit, Prob.Less.Lower=Result$Prob.Greater.Upper, Upper.Limit=-1*Result$Lower.Limit, Prob.Greater.Upper=Result$Prob.Less.Lower)
 }
 
 return(Result)

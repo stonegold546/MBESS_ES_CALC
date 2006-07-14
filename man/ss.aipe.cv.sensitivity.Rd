@@ -8,7 +8,9 @@ given a population coefficient of variation (or population mean and standard dev
 sample size procedure. Allows one to determine the effect of being wrong when estimating the 
 population coefficient of variation in terms of the width of the obtained (two-sided) confidence intervals. }
 \usage{
-ss.aipe.cv.sensitivity(True.C.of.V = NULL, Estimated.C.of.V = NULL, width = NULL, degree.of.certainty = NULL, mean = 100, Specified.N = NULL, conf.level = 0.95, G = 1000, print.iter = TRUE)
+ss.aipe.cv.sensitivity(True.C.of.V = NULL, Estimated.C.of.V = NULL,
+width = NULL, degree.of.certainty = NULL, mean = 100,
+Specified.N = NULL, conf.level = 0.95, G = 1000, print.iter = TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

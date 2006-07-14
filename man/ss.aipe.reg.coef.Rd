@@ -2,10 +2,12 @@
 \alias{ss.aipe.reg.coef}
 \title{sample size necessary for the accuracy in parameter estimation approach for a regression coefficient of interest}
 \description{A function used to plan sample size from the accuracy in parameter estimation approach for a regression coefficient of interest given the input specification.}
-\usage{ss.aipe.reg.coef(Rho2.Y_X=NULL, Rho2.j_X.without.j=NULL, p=NULL, b.j=NULL,
-width, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=NULL, Rho.YX=NULL, 
-which.predictor=NULL, Noncentral=FALSE, alpha.lower=NULL, alpha.upper=NULL, 
-conf.level=1-0.05, degree.of.certainty=NULL, Suppress.Statement=FALSE)}
+\usage{ss.aipe.reg.coef(Rho2.Y_X=NULL, Rho2.j_X.without.j=NULL, p=NULL, 
+b.j=NULL, width, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=NULL, 
+Rho.YX=NULL, which.predictor=NULL, Noncentral=FALSE, alpha.lower=NULL,
+alpha.upper=NULL, conf.level=1-0.05, degree.of.certainty=NULL, 
+Suppress.Statement=FALSE)}
+
 \arguments{\item{Rho2.Y_X}{Population value of the squared multiple correlation coefficient}
   \item{Rho2.j_X.without.j}{Population value of the squared multiple correlation coefficient predicting the \code{j}th predictor variable from the remaining \code{p}-1 predictor variables}
   \item{p}{the number of predictor variables}

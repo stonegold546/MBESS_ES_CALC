@@ -6,12 +6,13 @@
 A function to help visualize individual trajectories in a longitudinal (i.e., analysis of change) context.
 }
 \usage{
-vit(id = "", occasion = "", score = "", Data = NULL, group = NULL, subset.ids = NULL, 
-pct.rand = NULL, All.in.One = TRUE,  ylim = NULL, xlim = NULL, ylab = "Score", 
-xlab = "Occasion", main = "", plot.points = TRUE, draw.which.lines = "Observed", 
-predicted.id = NULL, predicted.occasion = NULL, predicted.score = NULL, 
+vit(id = "", occasion = "", score = "", Data = NULL, group = NULL,
+subset.ids = NULL, pct.rand = NULL, All.in.One = TRUE,  ylim = NULL,
+xlim = NULL, ylab = "Score", xlab = "Occasion", main = "", 
+plot.points = TRUE, draw.which.lines = "Observed", predicted.id = NULL,
+predicted.occasion = NULL, predicted.score = NULL, 
 predicted.data = NULL, pch = 16, points.cex = 0.7, lty = 1, lwd = 1, 
-per.page.layout = rbind(c(1, 2, 3), c(4, 5, 6), c(7, 8, 9), c(10, 11, 12)), 
+per.page.layout = rbind(c(1, 2, 3), c(4, 5, 6), c(7, 8, 9), c(10, 11, 12)),
 points.col = "Black", lines.col = "Black", mar = c(2.2, 2, 1, 1), 
 mgp = c(2.2, 1, 0), pty = "s", ...)
 }
@@ -67,7 +68,8 @@ At present, the use of predicted statements is limited (and not recommended).
 \examples{
 data(Gardner.LD)
 
-# Although many options are possible, a simple call to \code{vit} is of the form:
+# Although many options are possible, a simple call to
+# \'vit\' is of the form:
 vit(id="ID", occasion="Trial", score="Score", Data=Gardner.LD)
 
 # Now line color is conditional on group membership.

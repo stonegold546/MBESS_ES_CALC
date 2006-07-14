@@ -5,9 +5,9 @@
 for the coefficient of variation will be sufficiently narrow, optionally with a desired degree of 
 certainty that the interval is not wider than desired.}
 \usage{
-ss.aipe.cv(C.of.V = NULL, width = NULL, conf.level = 0.95, degree.of.certainty = NULL, 
-mu = NULL, sigma = NULL, alpha.lower = NULL, alpha.upper = NULL, Suppress.Statement = TRUE,
-sup.int.warns = TRUE, ...)
+ss.aipe.cv(C.of.V = NULL, width = NULL, conf.level = 0.95, 
+degree.of.certainty = NULL, mu = NULL, sigma = NULL, alpha.lower = NULL, 
+alpha.upper = NULL, Suppress.Statement = TRUE, sup.int.warns = TRUE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

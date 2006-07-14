@@ -39,7 +39,8 @@ If the function fails (or if a function relying upon this function fails), adjus
 conf.limits.nc.chisq(Chi.Square=30, conf.level=.95, df=15)
 
 # A one sided (upper) confidence interval.
-conf.limits.nc.chisq(Chi.Square=30, alpha.lower=0, alpha.upper=.05, conf.level=NULL, df=15)
+conf.limits.nc.chisq(Chi.Square=30, alpha.lower=0, alpha.upper=.05, 
+conf.level=NULL, df=15)
 }
 \keyword{design}
 \keyword{multivariate}

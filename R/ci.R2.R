@@ -14,10 +14,12 @@ N <- df.1 + df.2 + 1
 p <- df.1
 }
 
-if(!is.null(conf.level))
+if(!is.null(conf.level) & is.null(alpha.lower) & is.null(alpha.upper))
 {
-if(conf.level >=1 | conf.level <= 0) stop("Your confidence level (\'conf.level\') must be between 0 and 1.")
+#if(conf.level >=1 | conf.level <= 0) stop("Your confidence level (\'conf.level\') must be between 0 and 1.")
+if(!is.null(alpha.lower) | !is.null(alpha.upper)) stop("Since conf.level has been specified (which is done by default), you cannot specifiy \'alpha.lower\' and \'alpha.upper\'. If you want to specify \'alpha.lower\' or \'alpha.upper\', set \'conf.level=NULL\'")
 alpha.lower <- alpha.upper <- (1-conf.level)/2
+conf.level <- NULL
 }
 
 if(is.null(F.value))
@@ -165,7 +167,9 @@ llrhosq <- x3
 
 if(round(llrhosq, 5)==1 & llrhosq>R2) llrhosq <- 0
 
-if(llrhosq > ulrhosq) warning("There is a problem; the lower limit is greater than the upper limit (Are you at one of the boundries of Rho^2?).")
+if(pll==1) llrhosq <- 0
+if(pul==0) ulrhosq <- 1
+if(llrhosq > ulrhosq) warning("There is a problem; the lower limit is greater than the upper limit (Are you at one of the boundries of Rho^2 or is alpha very large?).")
 
 if(pll==1) return(list(Lower.Conf.Limit.R2=0, Prob.Less.Lower=0, Upper.Conf.Limit.R2=ulrhosq, Prob.Greater.Upper=pul))
 if(pul==0) return(list(Lower.Conf.Limit.R2=llrhosq, Prob.Less.Lower=1-pll, Upper.Conf.Limit.R2=1, Prob.Greater.Upper=0))

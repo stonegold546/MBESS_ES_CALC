@@ -10,9 +10,9 @@ evaluates the effect of a misspecified \code{True.R2} on the width of obtained c
 }
 \usage{
 ss.aipe.R2.sensitivity(True.R2 = NULL, Estimated.R2 = NULL, w = NULL, 
-p = NULL, Random.Predictors=TRUE, Selected.N=NULL, degree.of.certainty = NULL, 
-conf.level = 0.95, rho.yx = 0.3, rho.xx = 0.3,  G = 10000, 
-print.iter = TRUE, ...)
+p = NULL, Random.Predictors=TRUE, Selected.N=NULL, 
+degree.of.certainty = NULL, conf.level = 0.95, rho.yx = 0.3, 
+rho.xx = 0.3,  G = 10000, print.iter = TRUE, ...)
 }
 \arguments{
   \item{True.R2}{value of the population squared multiple correlation coefficient}
