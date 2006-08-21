@@ -15,8 +15,8 @@ educational, and social sciences.
 \tabular{ll}{
 Package: \tab MBESS\cr
 Type: \tab Package\cr
-Version: \tab 0.0.5 \cr
-Date: \tab 2006-07-14\cr
+Version: \tab 0.0.7 \cr
+Date: \tab 2006-08-21\cr
 License: \tab General Public License 2 or more recent.\cr
 }
 Please read the manual and visit the corresponding web site 

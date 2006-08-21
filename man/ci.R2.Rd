@@ -1,10 +1,10 @@
 \name{ci.R2}
 \alias{ci.R2}
-\title{Confidence intervals for the multiple correlation coefficient}
+\title{Confidence intervals for the squared multiple correlation coefficient}
 \description{A function to calculate the exact confidence interval for the multiple correlation coefficient.}
 \usage{
 ci.R2(R2 = NULL, df.1 = NULL, df.2 = NULL, conf.level = .95, 
-Random.Predictors=TRUE, F.value = NULL, N = NULL, p = NULL,
+Random.Predictors=TRUE, Random.Regressors, F.value = NULL, N = NULL, p = NULL,
 alpha.lower = NULL, alpha.upper = NULL, tol = 1e-09)}
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -13,6 +13,7 @@ alpha.lower = NULL, alpha.upper = NULL, tol = 1e-09)}
   \item{df.2}{denominator degrees of freedom}
   \item{conf.level}{confidence interval coverage; 1-Type I error rate}
   \item{Random.Predictors}{whether or not the predictor variables are random or fixed (random is default)}
+  \item{Random.Regressors}{an alias for \code{Random.Predictors}; \code{Random.Regressors} overrides \code{Random.Predictors}}
   \item{F.value}{obtained \code{F}-value}
   \item{N}{sample size}
   \item{p}{number of predictors}
@@ -27,7 +28,7 @@ and social sciences predictor variables are random, which is the default in this
 
 For random predictors, the function implements the procedure of Lee (1971), which was implemented by 
 Algina and Olejnik (2000; specifically in their \emph{ci.smcc.bisec.sas} SAS script). When \'Random.Predictors=TRUE\',
-the function implements code that is based on the Alginia and Olejnik SAS script. 
+the function implements code that is in part based on the Alginia and Olejnik (2000) SAS script. 
 
 When Random.Predictors=FALSE, and thus the predictors are planned and thus fixed in 
 hypothetical replications of the study, the confidence limits are based on a
@@ -59,21 +60,25 @@ and hypothesis testing for the squared multiple correlation. \emph{Behavior rese
 \examples{
 # For random predictor variables.
 ci.R2(R2=.25, N=100, p=5, conf.level=.95, Random.Predictors=TRUE)
+
 ci.R2(F.value=6.266667, N=100, p=5, conf.level=.95, Random.Predictors=TRUE)
 
 # For fixed predictor variables.
 ci.R2(R2=.25, N=100, p=5, conf.level=.95, Random.Predictors=TRUE)
+
 ci.R2(F.value=6.266667, N=100, p=5, conf.level=.95, Random.Predictors=TRUE)
 
 # One sided confidence intervals when predictors are random.
 ci.R2(R2=.25, N=100, p=5, alpha.lower=.05, alpha.upper=0, conf.level=NULL,
 Random.Predictors=TRUE)
+
 ci.R2(R2=.25, N=100, p=5, alpha.lower=0, alpha.upper=.05, conf.level=NULL,
 Random.Predictors=TRUE)
 
 # One sided confidence intervals when predictors are fixed.
 ci.R2(R2=.25, N=100, p=5, alpha.lower=.05, alpha.upper=0, conf.level=NULL,
 Random.Predictors=FALSE)
+
 ci.R2(R2=.25, N=100, p=5, alpha.lower=0, alpha.upper=.05, conf.level=NULL,
 Random.Predictors=FALSE)
 }
