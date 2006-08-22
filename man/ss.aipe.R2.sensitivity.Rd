@@ -11,7 +11,8 @@ evaluates the effect of a misspecified \code{True.R2} on the width of obtained c
 \usage{
 ss.aipe.R2.sensitivity(True.R2 = NULL, Estimated.R2 = NULL, w = NULL, 
 p = NULL, Random.Predictors=TRUE, Selected.N=NULL, 
-degree.of.certainty = NULL, conf.level = 0.95, rho.yx = 0.3, 
+degree.of.certainty = NULL, conf.level = 0.95, 
+Generate.Random.Predictors=TRUE, rho.yx = 0.3, 
 rho.xx = 0.3,  G = 10000, print.iter = TRUE, ...)
 }
 \arguments{
@@ -23,6 +24,7 @@ rho.xx = 0.3,  G = 10000, print.iter = TRUE, ...)
   \item{Selected.N}{selected sample size to use in order to determine distributional properties of at a given value of sample size}
   \item{degree.of.certainty}{parameter to ensure confidence interval width with a specified degree of certainty}
   \item{conf.level}{confidence interval coverage (symmetric coverage)}
+  \item{Generate.Random.Predictors}{specify whether the simulation should be based on random (default) or fixed regressors.}
   \item{rho.yx}{value of the correlation between \code{y} (dependent variable) and each of the \code{x} variables (independent variables)}
   \item{rho.xx}{value of the correlation among the \code{x} variables (independent variables)}
   \item{G}{number of generations (i.e., replications) of the simulation}
@@ -38,10 +40,13 @@ yet the function assumes random multivariate normal predictors (having a \code{p
 power analysis (recall this function is used in the context of precision), there is little difference in the outcome.
 
 In the behavioral, educational, and social sciences, predictor variables are almost always random, and thus \'Random.Predictors\' should generally be used.
-When \code{Random.Predictors=TRUE}, both the sample size planning procedure and the internal simulation are based on random predictor variables.
-However, when \code{Random.Predictors=FALSE}, only the sample size planning procedure is based on 
-fixed predictors, as the internal simulation uses random predictor variables. Thus, only the sample size procedure is affected by specifying Random.Predictors,
-as the internal simulation is based on random predictors regardless. 
+\code{Random.Predictors=TRUE} specifies how both the sample size planning procedure and the confidence intervals are calculated based on the random predictors/regressors. The internal 
+simulation generates random or fixed predictors/regressors based on whether variables predictor variables are random or fixed.
+However, when \code{Random.Predictors=FALSE}, only the sample size planning procedure and the confidence intervals are calculated based on
+the parameter. The parameter \code{Generate.Random.Predictors} (where the default is \code{TRUE} so that random predictors/regressors are generated) allows 
+random or fixed predictor variables to be generated. Because the sample size planning procedure and 
+the internal simulation are both specified, for purposes of sensitivity analysis random/fixed can be crossed to examine the effects of specifying sample size based on one but using it on 
+data based on the other. 
 }
 \value{
   \item{Results}{a list containing vectors of the empirical results}
@@ -49,11 +54,20 @@ as the internal simulation is based on random predictors regardless.
   \item{Summary}{summary values for the results of the sensitivity analysis (simulation study)}
 }
 \references{
+Algina, J. \& Olejnik, S. (2000) Determining Sample Size for Accurate Estimation of the Squared
+Multiple Correlation Coefficient. \emph{Multivariate Behavioral Research, 35}, 119--136.
+
 Gatsonis, C. \& Sampson, A. R. (1989). Multiple Correlation: Exact power and sample size calculations. \emph{Psychological Bulletin, 106}, 516--524.
 
-Steiger, J. H. \& Fouladi, R. T. (1992). R2: A computer program for interval estimation, power calculation,
+Steiger, J. H. \& Fouladi, R. T. (1992) R2: {A} computer program for interval estimation, power calculation,
 and hypothesis testing for the squared multiple correlation. \emph{Behavior research methods, instruments and computers, 4}, 581--582.
 
+Kelley, K. Sample size planning for the squared multiple correlation coefficient:
+Accuracy in parameter estimation via narrow confidence intervals, \emph{manuscripted submitted for publication}.
+
+Kelley, K. \& Maxwell, S. E. (In press) Power and Accuracy for Omnibus and Targeted Effects: 
+Issues of sample size planning with applications to multiple regression. In P. Alasuuta, J. Brannen, \& L. Bickman (Eds.),
+\textit{Handbook of Social Research Methods}. Newbury Park, CA: Sage.
 }
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
 

@@ -1,4 +1,4 @@
-ss.aipe.R2.sensitivity <- function(True.R2=NULL, Estimated.R2=NULL, w=NULL, p=NULL, Random.Predictors=TRUE, Selected.N=NULL, degree.of.certainty=NULL, conf.level=.95, rho.yx=.3, rho.xx=.3, G=10000, print.iter=TRUE, ...)
+ss.aipe.R2.sensitivity <- function(True.R2=NULL, Estimated.R2=NULL, w=NULL, p=NULL, Random.Predictors=TRUE, Selected.N=NULL, degree.of.certainty=NULL, conf.level=.95, Generate.Random.Predictors=TRUE, rho.yx=.3, rho.xx=.3, G=10000, print.iter=TRUE, ...)
 {
 if(True.R2>=1 | True.R2<=0) stop("The values of \'True.R2\' (i.e., the squared multiple correlation coefficient (R^2)) must be between zero and one.")
 if(w==0 | w>=1) stop("The width is not specified correctly.")
@@ -46,6 +46,8 @@ Sigma <- rbind(c(sigma.Y, sigma.YX), cbind(sigma.XY, Sigma.XX))
 R.Square.Results <- matrix(NA, G, 3)
 colnames(R.Square.Results) <- c("Lower.CI.Limit.R2", "Observed.R2", "Upper.CI.Limit.R2")
 
+if(Generate.Random.Predictors==TRUE)
+{
 for(i in 1:G)
 {
 if(print.iter==TRUE) cat(c(i),"\n")
@@ -61,6 +63,34 @@ CI.Limits.R2 <- try(ci.R2(R2 = R.Square.Results[i,2], conf.level = conf.level, N
 R.Square.Results[i,1] <- CI.Limits.R2$Lower.Conf.Limit.R2
 R.Square.Results[i,3] <- CI.Limits.R2$Upper.Conf.Limit.R2
 }
+}
+
+if(Generate.Random.Predictors==FALSE)
+{
+DATA.Pop.Cov.Structure <- mvrnorm(N, mu=MU, Sigma=Sigma, empirical = TRUE)[,-1]
+BETA <- cbind(c(sigma.YX%*%solve(Sigma.XX)))
+True.Y <- DATA.Pop.Cov.Structure%*%BETA
+
+for(i in 1:G)
+{
+if(print.iter==TRUE) cat(c(i),"\n")
+
+# So, only Y is random from sample to sample.
+Obs.Y <- True.Y + rnorm(N, 0, sqrt(sigma.Y*(1-True.R2)))
+
+Regression.Results <- lm(Obs.Y ~ DATA.Pop.Cov.Structure)
+
+Summary.Regression.Results <- summary(Regression.Results)
+
+R.Square.Results[i,2] <- Summary.Regression.Results$r.squared
+print(Summary.Regression.Results$r.squared)
+CI.Limits.R2 <- try(ci.R2(R2 = R.Square.Results[i,2], conf.level = conf.level, N = N, p = p, Random.Predictors=Random.Predictors))
+
+R.Square.Results[i,1] <- CI.Limits.R2$Lower.Conf.Limit.R2
+R.Square.Results[i,3] <- CI.Limits.R2$Upper.Conf.Limit.R2
+}
+}
+
 
 #Summary Section
 Lower.Type.I.Error <- mean(True.R2 <= R.Square.Results[,1])
@@ -77,7 +107,7 @@ Lower.Width.CI=Lower.Width.CI, Upper.Width.CI=Upper.Width.CI, Width.CI=Width.CI)
 
 Num.Probs.with.CIs <- G-length(na.omit(Results$Width))
 
-Specifications <- list(Desired.width=w, True.R2=True.R2, Estimated.R2=Estimated.R2, Num.of.Predictors=p, N=N, degree.of.certainty=degree.of.certainty, Num.of.Replications=G, Conf.Level=conf.level)
+Specifications <- list(Desired.width=w, True.R2=True.R2, Estimated.R2=Estimated.R2, Num.of.Predictors=p, N=N, degree.of.certainty=degree.of.certainty, Num.of.Replications=G, Conf.Level=conf.level, Random.Predictors=Random.Predictors, Generate.Random.Predictors=Generate.Random.Predictors)
 
 Summary <- list(mean.low.lim.R2=mean(Results$Lower.Limit.R2, na.rm=TRUE), median.low.lim.R2=median(Results$Lower.Limit.R2, na.rm=TRUE), sd.low.lim.R2=sqrt(var(Results$Lower.Limit.R2, na.rm=TRUE)),
 mean.up.lim.R2=mean(Results$Upper.Limit.R2, na.rm=TRUE), median.up.lim.R2=median(Results$Upper.Limit.R2, na.rm=TRUE), sd.up.lim.R2=sqrt(var(Results$Upper.Limit.R2, na.rm=TRUE)),

@@ -1,5 +1,7 @@
 Thanks to Joe Rausch (University of Minnesota) for comments and suggestions throughout this 
 project.
 
+Thanks to those that work so tirelessly on the R-Project from around the world (especially the R Development Core Team).
+
 Thanks to Benjamin Nagengast (Friedrich-Schiller-University Jena) for noticing a bug in ci.R2()
 (May 18, 2006).

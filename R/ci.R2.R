@@ -1,5 +1,8 @@
-ci.R2 <- function(R2=NULL, df.1=NULL, df.2=NULL, conf.level=.95, Random.Predictors=TRUE, F.value=NULL, N=NULL, p=NULL, alpha.lower=NULL, alpha.upper=NULL, tol=1e-9)
+ci.R2 <- function(R2=NULL, df.1=NULL, df.2=NULL, conf.level=.95, Random.Predictors=TRUE, 
+Random.Regressors, F.value=NULL, N=NULL, p=NULL, alpha.lower=NULL, alpha.upper=NULL, tol=1e-9)
 {
+if(!missing(Random.Regressors)) Random.Predictors <- Random.Regressors
+
 if((!is.null(N) | !is.null(p)) & (!is.null(df.1) | !is.null(df.2))) stop("Either specify \'df.1\' and \'df.2\' or \'N\' and \'p,\' but not both combinations.")
 
 if(!is.null(N) & !is.null(p) & is.null(df.1) & is.null(df.2))
