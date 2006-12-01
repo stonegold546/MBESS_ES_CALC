@@ -4,8 +4,8 @@
 \description{A function to calculate the exact confidence interval for the multiple correlation coefficient.}
 \usage{
 ci.R2(R2 = NULL, df.1 = NULL, df.2 = NULL, conf.level = .95, 
-Random.Predictors=TRUE, Random.Regressors, F.value = NULL, N = NULL, p = NULL,
-alpha.lower = NULL, alpha.upper = NULL, tol = 1e-09)}
+Random.Predictors=TRUE, Random.Regressors, F.value = NULL, N = NULL, p = NULL, 
+K, alpha.lower = NULL, alpha.upper = NULL, tol = 1e-09)}
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{R2}{multiple correlation coefficient}
@@ -17,6 +17,7 @@ alpha.lower = NULL, alpha.upper = NULL, tol = 1e-09)}
   \item{F.value}{obtained \code{F}-value}
   \item{N}{sample size}
   \item{p}{number of predictors}
+  \item{K}{alias for \code{p}, the number of predictors}
   \item{alpha.lower}{Type I error for the lower confidence limit}
   \item{alpha.upper}{Type I error for the upper confidence limit}
   \item{tol}{tolerance for iterative convergence}}

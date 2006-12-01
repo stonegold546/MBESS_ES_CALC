@@ -10,7 +10,7 @@ Due to the difficulties in estimating the necessary values, three different meth
 
 \usage{
 conf.limits.nct(ncp, df, conf.level = 0.95, alpha.lower = NULL, 
-alpha.upper = NULL, tol = 1e-09, sup.int.warns = TRUE, method = "all", ...)
+alpha.upper = NULL, t.value, tol = 1e-09, sup.int.warns = TRUE, method = "all", ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -19,6 +19,7 @@ alpha.upper = NULL, tol = 1e-09, sup.int.warns = TRUE, method = "all", ...)
   \item{conf.level}{the level of confidence for a symmetric confidence interval.}
   \item{alpha.lower}{the proportion of values beyond the lower limit of the confidence interval (cannot be used with \code{conf.level}).}
   \item{alpha.upper}{the proportion of values beyond the upper limit of the confidence interval (cannot be used with \code{conf.level}).}
+  \item{t.value}{alias for \code{ncp}}
   \item{tol}{is the tolerance of the iterative method for determining the critical values.}
   \item{sup.int.warns}{Suppress internal warnings (from internal functions): TRUE or FALSE}
   \item{method}{which of the three methods should be used: "all", "1", "2", "3" ("all" is default).}

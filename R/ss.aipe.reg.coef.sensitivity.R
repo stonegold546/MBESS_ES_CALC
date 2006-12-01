@@ -1,6 +1,6 @@
 "ss.aipe.reg.coef.sensitivity" <-function(True.Var.Y=NULL,True.Cov.YX=NULL, True.Cov.XX=NULL, 
 Estimated.Var.Y=NULL, Estimated.Cov.YX=NULL, Estimated.Cov.XX=NULL, Specified.N=NULL, 
-which.predictor=1, w=NULL, Noncentral=TRUE, Standardize=TRUE, conf.level=.95, 
+which.predictor=1, w=NULL, Noncentral=FALSE, Standardize=FALSE, conf.level=.95, 
 degree.of.certainty=NULL, G=1000, print.iter=TRUE)
 {
 

@@ -1,5 +1,5 @@
 "ci.reg.coef" <-
-function(b.j, SE.b.j=NULL, s.Y=NULL, s.X=NULL, N, p, R2.Y_X=NULL, R2.j_X.without.j=NULL, conf.level=.95, R2.Y_X.without.j=NULL, t.value=NULL, alpha.lower=NULL, alpha.upper=NULL, Noncentral=TRUE, Suppress.Statement=FALSE, ...)
+function(b.j, SE.b.j=NULL, s.Y=NULL, s.X=NULL, N, p, R2.Y_X=NULL, R2.j_X.without.j=NULL, conf.level=.95, R2.Y_X.without.j=NULL, t.value=NULL, alpha.lower=NULL, alpha.upper=NULL, Noncentral=FALSE, Suppress.Statement=FALSE, ...)
 {
 
 # Determine if NC was used instead of Noncentral
@@ -26,6 +26,9 @@ if(is.null(s.Y) & is.null(s.X) & Noncentral==TRUE)
     s.Y <- 1
     s.X <- 1
     }
+
+if(is.null(s.Y) | is.null(s.X)) stop("You need to specify 's.Y' and 's.X'.")
+
 SE.b.j <- sqrt(((1-R2.Y_X)/((1-R2.j_X.without.j)*(N-p-1))))*(s.Y/s.X)
 }
 if(!is.null(t.value) & !is.null(b.j)) SE.b.j <- b.j/t.value

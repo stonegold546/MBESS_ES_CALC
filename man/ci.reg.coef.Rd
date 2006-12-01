@@ -7,7 +7,7 @@ approach when the regression coefficients are standardized.}
 \usage{
 ci.reg.coef(b.j, SE.b.j=NULL, s.Y=NULL, s.X=NULL, N, p, R2.Y_X=NULL,
 R2.j_X.without.j=NULL, conf.level=0.95, R2.Y_X.without.j=NULL, 
-t.value=NULL, alpha.lower=NULL, alpha.upper=NULL, Noncentral=TRUE, 
+t.value=NULL, alpha.lower=NULL, alpha.upper=NULL, Noncentral=FALSE, 
 Suppress.Statement=FALSE, ...)}
 \arguments{
   \item{b.j}{value of the regression coefficient for the \code{j}th predictor variable}

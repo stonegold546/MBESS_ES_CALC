@@ -1,4 +1,4 @@
-conf.limits.nct <- function(ncp, df, conf.level=.95, alpha.lower=NULL, alpha.upper=NULL, tol=1e-9, sup.int.warns=TRUE, method="all", ...)
+conf.limits.nct <- function(ncp, df, conf.level=.95, alpha.lower=NULL, alpha.upper=NULL, t.value, tol=1e-9, sup.int.warns=TRUE, method="all", ...)
 {
 if(!(method=="all" | method=="ALL" | method=="All" | method==1 | method==2 | method==3)) stop("You need to specify the method to use; the default is \'all\'")
 
@@ -9,6 +9,8 @@ if(df <= 0) stop("The degrees of freedom must be some positive value.", call.=FA
 
 if(!is.null(alpha.lower) & is.null(alpha.upper)) stop("Since \'alpha.lower\' is specified, \'alpha.upper\' also needs to be specified (even if it is zero).")
 if(!is.null(alpha.upper) & is.null(alpha.lower)) stop("Since \'alpha.upper\' is specified, \'alpha.lower\' also needs to be specified (even if it is zero).")
+
+if(!missing(t.value)) ncp <- t.value
 
 orig.ncp <- ncp
 ncp <- abs(ncp)
