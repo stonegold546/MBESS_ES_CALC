@@ -8,7 +8,7 @@ This function is thus to determine the confidence bounds for the population
 quantity of what is generally referred to as Cohen's \emph{d} (delta being 
 that population quantity).}
 \usage{
-ci.smd(ncp=NULL, smd=NULL, n.1=NULL, n.2=NULL, conf.level=NULL, 
+ci.smd(ncp=NULL, smd=NULL, n.1=NULL, n.2=NULL, conf.level=.95, 
 alpha.lower=NULL, alpha.upper=NULL, tol=1e-9, ...)
 
 }

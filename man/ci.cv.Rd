@@ -5,16 +5,16 @@
 \description{
 Function to calculate the confidence interval for the population coefficient of variation using the noncentral \code{t}-distribution.}
 \usage{
-ci.cv(mean = NULL, sd = NULL, n = NULL, data = NULL, cv=NULL, 
+ci.cv(cv=NULL, mean = NULL, sd = NULL, n = NULL, data = NULL, 
 conf.level = 0.95, alpha.lower = NULL, alpha.upper = NULL, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
+  \item{cv}{coefficient of variation}
   \item{mean}{sample mean}
   \item{sd}{sample standard deviation (square root of the unbiased estimate of the variance)}
   \item{n}{sample size}
   \item{data}{vector of data for which the confidence interval for the coefficient of variation is to be calculated}
-  \item{cv}{coefficient of variation}
   \item{conf.level}{desired confidence level (1-Type I error rate)}
   \item{alpha.lower}{the proportion of values beyond the lower limit of the confidence interval (cannot be used with \code{conf.level}).}
   \item{alpha.upper}{the proportion of values beyond the upper limit of the confidence interval (cannot be used with \code{conf.level}).}

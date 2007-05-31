@@ -1,4 +1,4 @@
-conf.limits.nct.M2 <- function(ncp=ncp, df=df, conf.level=NULL, alpha.lower=NULL, alpha.upper=NULL, tol=1e-9, sup.int.warns=TRUE, ...)
+conf.limits.nct.M2 <- function(ncp=ncp, df=df, conf.level=.95, alpha.lower=NULL, alpha.upper=NULL, tol=1e-9, sup.int.warns=TRUE, ...)
 {
 if(sup.int.warns==TRUE) Orig.warn <- options()$warn; options(warn=-1)
 

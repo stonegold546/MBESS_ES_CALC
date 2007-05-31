@@ -1,4 +1,4 @@
-conf.limits.nct.M1 <- function(ncp, df, conf.level=NULL, alpha.lower=NULL, alpha.upper=NULL, min.ncp=-3*ncp, max.ncp=3*ncp, tol=1e-9, sup.int.warns=TRUE, ...)
+conf.limits.nct.M1 <- function(ncp, df, conf.level=.95, alpha.lower=NULL, alpha.upper=NULL, min.ncp=-3*ncp, max.ncp=3*ncp, tol=1e-9, sup.int.warns=TRUE, ...)
 {
 
 if(sup.int.warns==TRUE) Orig.warn <- options()$warn; options(warn=-1)

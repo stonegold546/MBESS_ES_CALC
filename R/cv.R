@@ -1,4 +1,4 @@
-cv <- function(mean=NULL, sd=NULL, N=NULL, C.of.V=NULL, unbiased=FALSE)
+cv <- function(C.of.V=NULL, mean=NULL, sd=NULL, N=NULL, unbiased=FALSE)
 {
 
 if(!is.null(mean) & !is.null(sd))

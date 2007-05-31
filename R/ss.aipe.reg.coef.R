@@ -1,5 +1,20 @@
-"ss.aipe.reg.coef" <- function(Rho2.Y_X=NULL, Rho2.j_X.without.j=NULL, p=NULL, b.j=NULL, width, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=NULL, Rho.YX=NULL, which.predictor=NULL, Noncentral=FALSE, alpha.lower=NULL, alpha.upper=NULL, conf.level=1-.05, degree.of.certainty=NULL, Suppress.Statement=FALSE)
+"ss.aipe.reg.coef" <- function(Rho2.Y_X=NULL, Rho2.j_X.without.j=NULL, p=NULL, b.j=NULL, width, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=NULL, Rho.YX=NULL, which.predictor=NULL, Noncentral=FALSE, alpha.lower=NULL, alpha.upper=NULL, conf.level=.95, 
+degree.of.certainty=NULL, assurance=NULL, certainty=NULL, Suppress.Statement=FALSE)
 {
+
+if(!is.null(certainty)& is.null(degree.of.certainty)&is.null(assurance)) degree.of.certainty<-certainty
+if (is.null(assurance) && !is.null (degree.of.certainty)& is.null(certainty)) assurance <-degree.of.certainty
+if (!is.null(assurance) && is.null (degree.of.certainty)& is.null(certainty)) assurance -> degree.of.certainty
+
+if(!is.null(assurance) && !is.null (degree.of.certainty) && assurance!=degree.of.certainty) 
+stop("The arguments 'assurance' and 'degree.of.certainty' must have the same value.")
+
+if(!is.null(assurance) && !is.null (certainty) && assurance!=certainty) 
+stop("The arguments 'assurance' and 'certainty' must have the same value.")
+
+if(!is.null(degree.of.certainty) && !is.null (certainty) && degree.of.certainty!=certainty) 
+stop("The arguments 'degree.of.certainty' and 'certainty' must have the same value.")
+
 # Expected value of R^2 given Population.R2, N, and p.
 Expected.R2 <- function(Population.R2, N, p)
 {

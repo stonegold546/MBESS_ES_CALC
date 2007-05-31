@@ -3,8 +3,9 @@
 \docType{data}
 \title{ Complete Data Set of Holzinger and Swineford's (1939) Study}
 \description{
-The complete data set of scores of 301 subjects on 26 tests in Holzinger and Swineford's (1939) study.
+The \emph{complete} data set of scores of 301 subjects in 26 tests in Holzinger and Swineford's (1939) study.
 }
+
 \usage{data(HS.data)}
 \format{
   A data frame with 301 observations on the following 32 variables.
@@ -18,7 +19,7 @@ The complete data set of scores of 301 subjects on 26 tests in Holzinger and Swi
     \item{\code{visual}}{scores on visual perception test, test 1}
     \item{\code{cubes}}{scores on cubes test, test 2}
     \item{\code{paper}}{scores on paper form board test, test 3}
-    \item{\code{flags}}{scores on flages test, test 26}
+    \item{\code{flags}}{scores on lozenges test, test 4}
     \item{\code{general}}{scores on general information test, test 5}
     \item{\code{paragrap}}{scores on paragraph comprehension test, test 6}
     \item{\code{sentence}}{scores on sentence completion test, test 7}
@@ -40,12 +41,34 @@ The complete data set of scores of 301 subjects on 26 tests in Holzinger and Swi
     \item{\code{series}}{scores on series comopletion test, test 23}
     \item{\code{arithmet}}{scores on Woody-McCall mixed fundamentals, form I test, test 24}
     \item{\code{paperrev}}{scores on additional paper form board test, test 25}
-    \item{\code{flagssub}}{scores on lozenges test, test 4}
+    \item{\code{flagssub}}{scores on flags test, test 26}
   }
 }
 
 \details{
-A total number of 301 pupils from Paster School and Grant-White School participated in Holzinger and Swineford's (1939) study. This study consists of 26 tests, which are used to measure the subjects' spatial, verbal, mental speed, memory, and mathematical ability. 
+Holzinger and Swineford (1939) data is a widely-cited one, but almost always only a part of the dataset,
+ the scores for Grant-White School, were used. The present dataset contains the complete data of Holzinger and 
+ Swineford (1939).
+ 
+ A total number of 301 pupils from Paster School and Grant-White School participated in Holzinger and 
+Swineford's (1939) study. This study consists of 26 tests, which are used to measure 
+the subjects' spatial, verbal, mental speed, memory, and mathematical ability. 
+
+The spatial tests consist of \code{visual}, \code{cubes}, \code{paper}, \code{flags}, \code{paperrev}, 
+and \code{flagssub}. The test 25, paper form board test (\code{paperrev}), can be used as a subsitute for 
+test 3, paper form board test (\code{paper}). The test 26, flags test (\code{flagssub}), is a possible
+ substitute for test 4, lozenges test (\code{flags}).
+ 
+The verbal tests consist of \code{general}, \code{paragrap}, \code{sentence}, \code{wordc}, and \code{wordm}.
+
+The speed tests consist of \code{addition}, \code{code}, \code{counting}, and \code{straight}.
+
+The memory tests consist of \code{wordr}, \code{numberr}, \code{figurer}, \code{object}, \code{numberf}, 
+and \code{figurew}.
+
+The mathematical-ability tests consis of \code{deduct}, \code{numeric}, \code{problemr}, 
+\code{series}, and \code{arithmet}.
+
 }
 
 \source{

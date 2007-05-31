@@ -32,6 +32,7 @@ For standardized variables, do not specify the standard deviation of the variabl
 regression coefficient for \code{b.j}.}
 
 \value{Returns the confidence limits specified for the regression coefficient of interest from the standard approach to confidence interval formation or from the noncentral approach to confidence interval formation using the noncentral \emph{t}-distribution.}
+
 \references{
 
 Kelley, K. \& Maxwell, S. E. (2003). Sample size for Multiple Regression: {O}btaining regression coefficients that are accuracy, not simply significant. 
@@ -41,14 +42,26 @@ Kelley, K. \& Maxwell, S. E. (In press). Power and Accuracy for Omnibus and Targ
 Multiple Regression \emph{Handbook of Social Research Methods}, J. Brannon, P. Alasuutari, and L. Bickman (Eds.). New York, NY: Sage Publications. 
 
 Smithson, M. (2003). \emph{Confidence intervals}. New York, NY: Sage Publications. 
-
-
 }
+
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+
 \note{Not all of the values need to be specified, only those that
 contain all of the necessary information in order to compute the
 confidence interval (options are thus given for the values that need
-to be specified).}
-\seealso{ss.aipe.reg.coef, conf.limits.nct}
+to be specified).
+
+The function \code{ci.rc} in MBESS also calculates the confidence interval
+for the population (unstandardized) regression coefficient. The 
+function \code{ci.src} also calculates the confidence interval
+for the population (standardized) regression coefficient. These two 
+functions perform the same tasks as \code{ci.reg.coef} does, and 
+are preferred to it because of simpler arguments.
+}
+
+\seealso{
+\code{ss.aipe.reg.coef}, \code{conf.limits.nct}, \code{ci.rc}, \code{ci.src}
+}
+
 %\examples{}
 \keyword{htest}

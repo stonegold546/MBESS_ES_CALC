@@ -1,5 +1,17 @@
-ss.aipe.cv.sensitivity <- function(True.C.of.V=NULL, Estimated.C.of.V=NULL, width=NULL, degree.of.certainty=NULL, mean=100, Specified.N=NULL, conf.level=.95, G=1000, print.iter=TRUE)
+ss.aipe.cv.sensitivity <- function(True.C.of.V=NULL, Estimated.C.of.V=NULL, width=NULL, degree.of.certainty=NULL, assurance=NULL, certainty=NULL, mean=100, Specified.N=NULL, conf.level=.95, G=1000, print.iter=TRUE)
 {
+if(!is.null(certainty)& is.null(degree.of.certainty)&is.null(assurance)) degree.of.certainty<-certainty
+if (is.null(assurance) && !is.null (degree.of.certainty)& is.null(certainty)) assurance <-degree.of.certainty
+if (!is.null(assurance) && is.null (degree.of.certainty)& is.null(certainty)) assurance -> degree.of.certainty
+
+if(!is.null(assurance) && !is.null (degree.of.certainty) && assurance!=degree.of.certainty) 
+stop("The arguments 'assurance' and 'degree.of.certainty' must have the same value.")
+
+if(!is.null(assurance) && !is.null (certainty) && assurance!=certainty) 
+stop("The arguments 'assurance' and 'certainty' must have the same value.")
+
+if(!is.null(degree.of.certainty) && !is.null (certainty) && degree.of.certainty!=certainty) 
+stop("The arguments 'degree.of.certainty' and 'certainty' must have the same value.")
 
 if(is.null(Estimated.C.of.V))
 {

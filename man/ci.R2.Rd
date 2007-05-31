@@ -24,16 +24,17 @@ K, alpha.lower = NULL, alpha.upper = NULL, tol = 1e-09)}
 
 \details{
 This function can be used with random predictor variables (\code{Random.Predictors=TRUE}) or when predictor
-variables are fixed (\emph{Random.Predictors=FALSE}). In most applications in the behavioral, educational,
-and social sciences predictor variables are random, which is the default in this function. 
+variables are fixed (\code{Random.Predictors=FALSE}). In most applications in the \emph{behavioral, educational,
+and social sciences} predictor variables are random, which is the default in this function. 
 
 For random predictors, the function implements the procedure of Lee (1971), which was implemented by 
-Algina and Olejnik (2000; specifically in their \emph{ci.smcc.bisec.sas} SAS script). When \'Random.Predictors=TRUE\',
+Algina and Olejnik (2000; specifically in their \emph{ci.smcc.bisec.sas} SAS script). When \code{Random.Predictors=TRUE},
 the function implements code that is in part based on the Alginia and Olejnik (2000) SAS script. 
 
-When Random.Predictors=FALSE, and thus the predictors are planned and thus fixed in 
+When \code{Random.Predictors=FALSE}, and thus the predictors are planned and thus fixed in 
 hypothetical replications of the study, the confidence limits are based on a
-noncentral \code{F}-distribution (see \code{conf.limits.ncf}).}
+noncentral \code{F}-distribution (see \code{conf.limits.ncf}).
+}
 
 \value{
   \item{Lower.Conf.Limit.R2 }{upper limit of the confidence interval around the population multiple correlation coefficient}
@@ -60,27 +61,27 @@ and hypothesis testing for the squared multiple correlation. \emph{Behavior rese
 \seealso{'ss.aipe.R2', 'conf.limits.nct'}
 \examples{
 # For random predictor variables.
-ci.R2(R2=.25, N=100, p=5, conf.level=.95, Random.Predictors=TRUE)
+ci.R2(R2=.25, N=100, K=5, conf.level=.95, Random.Predictors=TRUE)
 
-ci.R2(F.value=6.266667, N=100, p=5, conf.level=.95, Random.Predictors=TRUE)
+ci.R2(F.value=6.266667, N=100, K=5, conf.level=.95, Random.Predictors=TRUE)
 
 # For fixed predictor variables.
-ci.R2(R2=.25, N=100, p=5, conf.level=.95, Random.Predictors=TRUE)
+ci.R2(R2=.25, N=100, K=5, conf.level=.95, Random.Predictors=TRUE)
 
-ci.R2(F.value=6.266667, N=100, p=5, conf.level=.95, Random.Predictors=TRUE)
+ci.R2(F.value=6.266667, N=100, K=5, conf.level=.95, Random.Predictors=TRUE)
 
 # One sided confidence intervals when predictors are random.
-ci.R2(R2=.25, N=100, p=5, alpha.lower=.05, alpha.upper=0, conf.level=NULL,
+ci.R2(R2=.25, N=100, K=5, alpha.lower=.05, alpha.upper=0, conf.level=NULL,
 Random.Predictors=TRUE)
 
-ci.R2(R2=.25, N=100, p=5, alpha.lower=0, alpha.upper=.05, conf.level=NULL,
+ci.R2(R2=.25, N=100, K=5, alpha.lower=0, alpha.upper=.05, conf.level=NULL,
 Random.Predictors=TRUE)
 
 # One sided confidence intervals when predictors are fixed.
-ci.R2(R2=.25, N=100, p=5, alpha.lower=.05, alpha.upper=0, conf.level=NULL,
+ci.R2(R2=.25, N=100, K=5, alpha.lower=.05, alpha.upper=0, conf.level=NULL,
 Random.Predictors=FALSE)
 
-ci.R2(R2=.25, N=100, p=5, alpha.lower=0, alpha.upper=.05, conf.level=NULL,
+ci.R2(R2=.25, N=100, K=5, alpha.lower=0, alpha.upper=.05, conf.level=NULL,
 Random.Predictors=FALSE)
 }
 \keyword{multivariate}

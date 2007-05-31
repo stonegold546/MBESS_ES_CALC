@@ -35,7 +35,8 @@ alpha.lower <- (1-conf.level)/2
 alpha.upper <- (1-conf.level)/2
 }
 
-if(is.null(N)) stop("You must specify the total sample size ('N').")
+if(is.null(N)&& is.null(n)) stop("You must specify the either total sample size ('N'), or sample sizes per group('n').")
+if(is.null(N) && !is.null(n)) N <- sum(n)
 if(is.null(df.error)) df.2 <- N - length(means)
 
 CV.up <- qt(1-alpha.upper, df=df.2, ncp = 0, lower.tail = TRUE, log.p = FALSE)

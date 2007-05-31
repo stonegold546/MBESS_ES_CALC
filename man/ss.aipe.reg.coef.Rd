@@ -5,8 +5,8 @@
 \usage{ss.aipe.reg.coef(Rho2.Y_X=NULL, Rho2.j_X.without.j=NULL, p=NULL, 
 b.j=NULL, width, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=NULL, 
 Rho.YX=NULL, which.predictor=NULL, Noncentral=FALSE, alpha.lower=NULL,
-alpha.upper=NULL, conf.level=1-0.05, degree.of.certainty=NULL, 
-Suppress.Statement=FALSE)}
+alpha.upper=NULL, conf.level=.95, degree.of.certainty=NULL, assurance=NULL, 
+certainty=NULL, Suppress.Statement=FALSE)}
 
 \arguments{\item{Rho2.Y_X}{Population value of the squared multiple correlation coefficient}
   \item{Rho2.j_X.without.j}{Population value of the squared multiple correlation coefficient predicting the \code{j}th predictor variable from the remaining \code{p}-1 predictor variables}
@@ -24,6 +24,8 @@ Suppress.Statement=FALSE)}
   \item{alpha.upper}{Type I error rate for the upper confidence interval limit}
   \item{conf.level}{desired level of confidence for the computed interval (i.e., 1 - the Type I error rate)}
   \item{degree.of.certainty}{degree of certainty that the obtained confidence interval will be sufficiently narrow}
+  \item{assurance}{ an alias for \code{degree.of.certainty} }
+\item{certainty}{an alias for \code{degree.of.certainty}}
   \item{Suppress.Statement}{\code{TRUE}/\code{FALSE} statement whether or not a sentence describing the situation defined is printed with the necessary sample size}} 
 \details{Not all of the arguments need to be specified, only those that provide all of the necessary information so that the
 sample size can be determined for the conditions specified.}

@@ -21,11 +21,11 @@ legend.pos="bottomright", legend.on=TRUE, ... )
   \item{b.z}{ regression coefficient for predictor z  }
   \item{b.xz}{ regression coefficient for the interaction of predictors x and z }
   \item{x.min,x.max}{the range of x used in the plot}
-  \item{x}{ a specific predictor vector x, used instead of 'x.min' and 'x.max' }
+  \item{x}{ a specific predictor vector x, used instead of \code{x.min} and \code{x.max} }
   \item{n.x}{number of elements in predictor vector x}
   \item{mean.z}{ mean of predictor z }
   \item{sd.z}{ standard deviation of predictor z }
-  \item{z}{a specific predictor vector z, used instead of 'z.min' and 'z.max' }
+  \item{z}{a specific predictor vector z, used instead of \code{z.min} and \code{z.max} }
   \item{xlab}{ title for the axis which the predictor x is on }
   \item{ylab}{ title for the axis which the dependent y is on }
   \item{sd.plot, sd2.plot, sd_1.plot, sd_2.plot}{ whether or not to plot 
@@ -39,8 +39,8 @@ legend.pos="bottomright", legend.on=TRUE, ... )
 
 }
 \details{
-To input the predictor x, one can use either the limits of x ('x.max' and 'x.min') , or a specific vector x ('x'). 
-To input the predictor z, one can use either the mean and standard deviation of z ('mean.z' and sd.z), or a specific vector z ('z').   
+To input the predictor x, one can use either the limits of x (\code{x.max} and \code{x.min}) , or a specific vector x (\code{x}). 
+To input the predictor z, one can use either the mean and standard deviation of z (\code{mean.z} and \code{sd.z} ), or a specific vector z (\code{z}).   
 }
 %\value{
   

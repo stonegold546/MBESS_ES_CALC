@@ -1,8 +1,20 @@
 "ss.aipe.reg.coef.sensitivity" <-function(True.Var.Y=NULL,True.Cov.YX=NULL, True.Cov.XX=NULL, 
 Estimated.Var.Y=NULL, Estimated.Cov.YX=NULL, Estimated.Cov.XX=NULL, Specified.N=NULL, 
 which.predictor=1, w=NULL, Noncentral=FALSE, Standardize=FALSE, conf.level=.95, 
-degree.of.certainty=NULL, G=1000, print.iter=TRUE)
+degree.of.certainty=NULL, assurance=NULL, certainty=NULL, G=1000, print.iter=TRUE)
 {
+if(!is.null(certainty)& is.null(degree.of.certainty)&is.null(assurance)) degree.of.certainty<-certainty
+if (is.null(assurance) && !is.null (degree.of.certainty)& is.null(certainty)) assurance <-degree.of.certainty
+if (!is.null(assurance) && is.null (degree.of.certainty)& is.null(certainty)) assurance -> degree.of.certainty
+
+if(!is.null(assurance) && !is.null (degree.of.certainty) && assurance!=degree.of.certainty) 
+stop("The arguments 'assurance' and 'degree.of.certainty' must have the same value.")
+
+if(!is.null(assurance) && !is.null (certainty) && assurance!=certainty) 
+stop("The arguments 'assurance' and 'certainty' must have the same value.")
+
+if(!is.null(degree.of.certainty) && !is.null (certainty) && degree.of.certainty!=certainty) 
+stop("The arguments 'degree.of.certainty' and 'certainty' must have the same value.")
 
 if(Noncentral==TRUE & is.null(True.Var.Y)) True.Var.Y <- 1
 

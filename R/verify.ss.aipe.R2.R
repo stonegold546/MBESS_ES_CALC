@@ -4,7 +4,7 @@ which.width="Full", p=NULL, n=NULL, degree.of.certainty=NULL, g=500, G=10000, pr
 # Based on method called for Sample size.
 
 print("An internal Monte Carlo simulation has begun and the results may take some time.")
-print("Please be patient, as thousands and thousands or replications are being performed to")
+print("Please be patient, as thousands and thousands of replications are being performed")
 print("to ensure the returned value of sample size is the exact value to satisfy the specified goals.")
 
 Summary.of.SS <- ss.aipe.R2.sensitivity(Selected.N=n,

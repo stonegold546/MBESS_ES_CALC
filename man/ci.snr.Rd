@@ -23,7 +23,9 @@ ci.snr(F.value = NULL, df.1 = NULL, df.2 = NULL, N = NULL, conf.level = 0.95,
   \item{\dots}{ allows one to potentially include parameter values for inner functions }
 }
 \details{
-The confidence level must be specified in one of following two ways: using confidence interval coverage ('conf.level'), or lower and upper confidence limits ('alpha.lower' and 'alpha.upper').
+The confidence level must be specified in one of following two ways: using 
+confidence interval coverage (\code{conf.level}), or lower and upper confidence 
+limits (\code{alpha.lower} and \code{alpha.upper}).
 
 This function uses the confidence interval transformation principle (Steiger, 2004) to transform the confidence limits for the noncentality parameter to the confidence limits for the population's signal-to-noise ratio. The confidence interval for noncentral \emph{F} parameter can be abtained from function 'conf.limits.ncf' in MBESS, which is used within this function.
   

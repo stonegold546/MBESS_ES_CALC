@@ -1,5 +1,20 @@
-ss.aipe.R2.sensitivity <- function(True.R2=NULL, Estimated.R2=NULL, w=NULL, p=NULL, Random.Predictors=TRUE, Selected.N=NULL, degree.of.certainty=NULL, conf.level=.95, Generate.Random.Predictors=TRUE, rho.yx=.3, rho.xx=.3, G=10000, print.iter=TRUE, ...)
+ss.aipe.R2.sensitivity <- function(True.R2=NULL, Estimated.R2=NULL, w=NULL, p=NULL, 
+Random.Predictors=TRUE, Selected.N=NULL, degree.of.certainty=NULL, assurance=NULL, certainty=NULL, conf.level=.95, 
+Generate.Random.Predictors=TRUE, rho.yx=.3, rho.xx=.3, G=10000, print.iter=TRUE, ...)
 {
+if(!is.null(certainty)& is.null(degree.of.certainty)&is.null(assurance)) degree.of.certainty<-certainty
+if (is.null(assurance) && !is.null (degree.of.certainty)& is.null(certainty)) assurance <-degree.of.certainty
+if (!is.null(assurance) && is.null (degree.of.certainty)& is.null(certainty)) assurance -> degree.of.certainty
+
+if(!is.null(assurance) && !is.null (degree.of.certainty) && assurance!=degree.of.certainty) 
+stop("The arguments 'assurance' and 'degree.of.certainty' must have the same value.")
+
+if(!is.null(assurance) && !is.null (certainty) && assurance!=certainty) 
+stop("The arguments 'assurance' and 'certainty' must have the same value.")
+
+if(!is.null(degree.of.certainty) && !is.null (certainty) && degree.of.certainty!=certainty) 
+stop("The arguments 'degree.of.certainty' and 'certainty' must have the same value.")
+
 if(True.R2>=1 | True.R2<=0) stop("The values of \'True.R2\' (i.e., the squared multiple correlation coefficient (R^2)) must be between zero and one.")
 if(w==0 | w>=1) stop("The width is not specified correctly.")
 if(w==0 | w>=1) stop("The width is not specified correctly.")
