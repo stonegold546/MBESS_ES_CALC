@@ -1,5 +1,19 @@
-"ss.aipe.smd" <- function(delta, conf.level, width, which.width="Full", degree.of.certainty=NULL, ...)
-{
+"ss.aipe.smd" <- function(delta, conf.level=.95, width, which.width="Full", degree.of.certainty=NULL, 
+assurance=NULL, certainty=NULL, ...)
+{options(warn=-10)
+if(!is.null(certainty)& is.null(degree.of.certainty)&is.null(assurance)) degree.of.certainty<-certainty
+if (is.null(assurance) && !is.null (degree.of.certainty)& is.null(certainty)) assurance <-degree.of.certainty
+if (!is.null(assurance) && is.null (degree.of.certainty)& is.null(certainty)) assurance -> degree.of.certainty
+
+if(!is.null(assurance) && !is.null (degree.of.certainty) && assurance!=degree.of.certainty) 
+stop("The arguments 'assurance' and 'degree.of.certainty' must have the same value.")
+
+if(!is.null(assurance) && !is.null (certainty) && assurance!=certainty) 
+stop("The arguments 'assurance' and 'certainty' must have the same value.")
+
+if(!is.null(degree.of.certainty) && !is.null (certainty) && degree.of.certainty!=certainty) 
+stop("The arguments 'degree.of.certainty' and 'certainty' must have the same value.")
+
 char.expand(which.width, c("Full", "Lower", "Upper"), nomatch = stop("Problems with 'which.width' specification. You must choose either 'Full', 'Lower', or 'Upper'.", call.=FALSE))
 alpha <- 1-conf.level
 

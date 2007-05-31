@@ -11,7 +11,7 @@ does not.
 }
 
 \usage{
-conf.limits.nct.M2(ncp = ncp, df = df, conf.level = NULL, alpha.lower = NULL, 
+conf.limits.nct.M2(ncp = ncp, df = df, conf.level = .95, alpha.lower = NULL, 
 alpha.upper = NULL, tol = 1e-09, sup.int.warns = TRUE, ...)
 }
 

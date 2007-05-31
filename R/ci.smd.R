@@ -1,4 +1,4 @@
-ci.smd <- function(ncp=NULL, smd=NULL, n.1=NULL, n.2=NULL, conf.level=NULL, alpha.lower=NULL, alpha.upper=NULL, tol=1e-9, ...)
+ci.smd <- function(ncp=NULL, smd=NULL, n.1=NULL, n.2=NULL, conf.level=.95, alpha.lower=NULL, alpha.upper=NULL, tol=1e-9, ...)
 {
 
 if(is.null(ncp) & is.null(smd)) stop("You must specify either the estimated noncentral parameter 'ncp' (generally the observed t-statistic) or the standardized mean difference 'smd' (as might be obtained from the 'smd' function.).", call.=FALSE)

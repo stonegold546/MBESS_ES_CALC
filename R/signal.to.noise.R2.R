@@ -30,7 +30,7 @@ if(m>=6)
 Theta.NL <- Theta.L + ((2*(n-2)*(n-m-3)*(m-5))/((n+2)*(n-m-1)*(n-m+1)*(n-m+3)))*(1/Y)
 Theta.NL <- max(Theta.NL, 0)
 }
-else(Theta.NL <- "p must be >= 5 in order to calculate \'f2.UMVUE.NL\'")
+else(Theta.NL <- "p must be >= 5 in order to calculate \'phi2.UMVUE.NL\'")
 }
-return(list(f2.hat=Y, f2.adj.hat=Y.Adj, f2.UMVUE=Theta.U, f2.UMVUE.L=Theta.L, f2.UMVUE.NL=Theta.NL))
+return(list(phi2.hat=Y, phi2.adj.hat=Y.Adj, phi2.UMVUE=Theta.U, phi2.UMVUE.L=Theta.L, phi2.UMVUE.NL=Theta.NL))
 }

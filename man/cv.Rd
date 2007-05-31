@@ -3,13 +3,14 @@
 \title{Function to calculate the regular (and biased) estimate of the coefficient of variation or the unbiased estimate of the coefficient of variation.}
 \description{Returns the estimated coefficient of variation or the unbiased estimate of the coefficient of variation.}
 \usage{
-cv(mean=NULL, sd=NULL, N=NULL, C.of.V=NULL, unbiased=FALSE)
+cv(C.of.V=NULL, mean=NULL, sd=NULL, N=NULL, unbiased=FALSE)
 }
 \arguments{
+  \item{C.of.V}{Usual estimate of the coefficient of variation (\code{C.of.V=sd/mean})}
   \item{mean}{observed mean}
   \item{sd}{observed standard deviation (based on N-1 in the denominator of the variance)}
   \item{N}{sample size}
-  \item{C.of.V}{Usual estimate of the coefficient of variation (\code{C.of.V=sd/mean})}
+
   \item{unbiased}{return the unbiased estimate of the coefficient of variation}
 }
 \details{
@@ -18,9 +19,8 @@ A function to calculate the usual estimate of the coefficient of variation or it
 \value{
 Returns the unbiased estimate for the standard deviation.
 }
-\references{
+%\references{}
 
-}
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
 %\note{}
 %\seealso{}

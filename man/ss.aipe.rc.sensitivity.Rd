@@ -13,7 +13,7 @@ ss.aipe.rc.sensitivity(True.Var.Y = NULL, True.Cov.YX = NULL,
 True.Cov.XX = NULL, Estimated.Var.Y = NULL, Estimated.Cov.YX = NULL, 
 Estimated.Cov.XX = NULL, Specified.N = NULL, which.predictor = 1, 
 w = NULL, Noncentral = FALSE, Standardize = FALSE, conf.level = 0.95, 
-degree.of.certainty = NULL, G = 1000, print.iter = TRUE)
+degree.of.certainty = NULL, assurance=NULL, certainty=NULL, G = 1000, print.iter = TRUE)
 }
 
 \arguments{
@@ -36,6 +36,8 @@ will be standardized; default is TRUE }
   \item{conf.level}{ desired level of confidence for the computed interval (i.e., 1 - the Type I error
 rate) }
   \item{degree.of.certainty}{ degree of certainty that the obtained confidence interval will be sufficiently narrow (i.e., the probability that the observed interval will be no larger than desired). }
+  \item{assurance}{ an alias for \code{degree.of.certainty} }
+\item{certainty}{an alias for \code{degree.of.certainty}}
   \item{G}{ the number of generations/replication of the simulation student within the function }
   \item{print.iter}{ specify with a TRUE/FALSE statement if the iteration number should be printed
 as the simulation within the function runs}

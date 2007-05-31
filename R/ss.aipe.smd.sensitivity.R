@@ -1,6 +1,11 @@
-ss.aipe.smd.sensitivity <- function(true.delta=NULL, estimated.delta=NULL, desired.width=NULL, selected.n=NULL, certainty=NULL, conf.level=.95, G=10000, print.iter=TRUE, ...)
+ss.aipe.smd.sensitivity <- function(true.delta=NULL, estimated.delta=NULL, desired.width=NULL, selected.n=NULL, 
+assurance=NULL, certainty=NULL, conf.level=.95, G=10000, print.iter=TRUE, ...)
 {
+if (is.null(assurance) && !is.null (certainty)) assurance <-certainty
+if (!is.null(assurance) && is.null (certainty)) assurance -> certainty
 
+if(!is.null(assurance) && !is.null (certainty) )
+	{if (assurance!=certainty)  stop("The arguments 'assurance' and 'certainty' must have the same value.")}
 
 if(is.null(estimated.delta) & is.null(selected.n)) stop("You must specify either \'estimated.delta\' or \'selected.n\' (i.e., the per group sample size).", call.=FALSE)
 if(!is.null(estimated.delta) & !is.null(selected.n)) stop("You must specify either \'estimated.delta\' or \'selected.n\' (i.e., the per group sample size), but not both.", call.=FALSE)

@@ -9,8 +9,8 @@ sample size procedure. Allows one to determine the effect of being wrong when es
 population coefficient of variation in terms of the width of the obtained (two-sided) confidence intervals. }
 \usage{
 ss.aipe.cv.sensitivity(True.C.of.V = NULL, Estimated.C.of.V = NULL,
-width = NULL, degree.of.certainty = NULL, mean = 100,
-Specified.N = NULL, conf.level = 0.95, G = 1000, print.iter = TRUE)
+width = NULL, degree.of.certainty = NULL, assurance=NULL, certainty=NULL, 
+mean = 100, Specified.N = NULL, conf.level = 0.95, G = 1000, print.iter = TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -18,6 +18,8 @@ Specified.N = NULL, conf.level = 0.95, G = 1000, print.iter = TRUE)
   \item{Estimated.C.of.V}{estimated coefficient of variation}
   \item{width}{desired confidence interval width}
   \item{degree.of.certainty}{parameter to ensure confidence interval width with a specified degree of certainty (must be NULL or between zero and unity)}
+  \item{assurance}{ the alias for \code{degree.of.certainty} }
+\item{certainty}{an alias for \code{degree.of.certainty}}
   \item{mean}{Some arbitray value that the simulation uses to generate data (the variace of the data is determined by the mean and the coefficient of variation)}
   \item{Specified.N}{selected sample size to use in order to determine distributional properties of at a given value of sample size (not used with \code{Estimated.C.of.V})}
   \item{conf.level}{the desired degree of confidence (i.e., 1-Type I error rate).}

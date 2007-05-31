@@ -35,11 +35,12 @@ if (N<=0 || N<=df.1+df.2) stop ("N must be larger than df.1+df.2")
 Lims <- conf.limits.ncf(F.value = F.value, conf.level = NULL, df.1 = df.1, 
         df.2 = df.2, alpha.lower = alpha.lower, alpha.upper = alpha.upper, ...)
 
+if (is.null(Lims$Lower.Limit)) {Lims$Lower.Limit <- 0}
 Lower.lim <- Lims$Lower.Limit/(Lims$Lower.Limit+N)
 Upper.lim <- Lims$Upper.Limit/(Lims$Upper.Limit+N)
+
 
 print(paste("The", 1-(alpha.lower + alpha.upper), "confidennce limits for the proportion of variance of the dependent variable accounted for by knowing group status are given as:"))
 
 return(list(Lower.Limit.Proportion.of.Variance.Accounted.for=Lower.lim, Upper.Limit.Proportion.of.Variance.Accounted.for=Upper.lim))
 }
-

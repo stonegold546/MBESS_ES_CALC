@@ -1,4 +1,4 @@
-ci.cv <- function(mean=NULL, sd=NULL, n=NULL, data=NULL, cv=NULL, conf.level=.95, alpha.lower=NULL, alpha.upper=NULL, ...)
+ci.cv <- function(cv=NULL, mean=NULL, sd=NULL, n=NULL, data=NULL, conf.level=.95, alpha.lower=NULL, alpha.upper=NULL, ...)
 {
 
 if(is.null(conf.level))

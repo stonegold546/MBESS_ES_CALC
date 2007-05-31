@@ -11,7 +11,7 @@ does not.
 }
 
 \usage{
-conf.limits.nct.M3(ncp, df, conf.level = NULL, alpha.lower = NULL, 
+conf.limits.nct.M3(ncp, df, conf.level = .95, alpha.lower = NULL, 
 alpha.upper = NULL, tol = 1e-09, sup.int.warns = TRUE, 
 max.steps = 2500, ...)
 }

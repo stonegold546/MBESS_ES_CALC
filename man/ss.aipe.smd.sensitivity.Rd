@@ -9,7 +9,7 @@ width of the obtained (two-sided) confidence intervals.
 }
 \usage{
 ss.aipe.smd.sensitivity(true.delta = NULL, estimated.delta = NULL, 
-desired.width = NULL, selected.n=NULL, certainty = NULL, 
+desired.width = NULL, selected.n=NULL, assurance=NULL, certainty = NULL, 
 conf.level = 0.95, G = 10000, print.iter = TRUE, ...)
 }
 \arguments{
@@ -17,7 +17,8 @@ conf.level = 0.95, G = 10000, print.iter = TRUE, ...)
   \item{estimated.delta}{estimated standardized mean difference; can be \code{true.delta} to perform standard simulations}
   \item{desired.width}{describe full width for the confidence interval around the population standardized mean difference}
   \item{selected.n}{selected sample size to use in order to determine distributional properties of at a given value of sample size}
-  \item{certainty}{parameter to ensure confidence interval width with a specified degree of certainty (must be NULL or between zero and unity)}
+\item{assurance}{parameter to ensure confidence interval width with a specified degree of certainty (must be NULL or between zero and unity)}
+  \item{certainty}{an alias for \code{assurance}}
   \item{conf.level}{the desired degree of confidence (i.e., 1-Type I error rate).}
   \item{G}{number of generations (i.e., replications) of the simulation}
   \item{print.iter}{to print the current value of the iterations}

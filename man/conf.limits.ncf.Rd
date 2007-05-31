@@ -6,7 +6,7 @@ Function to determine the noncentral parameter that leads to the observed \code{
 so that a confidence interval around the population \code{F}-value can be conducted. Used for forming confidence intervals around noncentral parameters (given the monotonic relationship between the \code{F}-value and the noncentral value).
 }
 \usage{
-conf.limits.ncf(F.value = NULL, conf.level = NULL, df.1 = NULL, 
+conf.limits.ncf(F.value = NULL, conf.level = .95, df.1 = NULL, 
 df.2 = NULL, alpha.lower = NULL, alpha.upper = NULL, tol = 1e-09,
 Jumping.Prop = 0.1)
 }

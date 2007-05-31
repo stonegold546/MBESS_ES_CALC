@@ -11,8 +11,9 @@ regression coefficient of interest given the input specification.
 ss.aipe.rc(Rho2.Y_X = NULL, Rho2.k_X.without.k = NULL, 
 K = NULL, b.k = NULL, width, which.width = "Full", sigma.Y = 1, 
 sigma.X.k = 1, RHO.XX = NULL, Rho.YX = NULL, which.predictor = NULL, 
-alpha.lower = NULL, alpha.upper = NULL, conf.level = 1 - 0.05, 
-degree.of.certainty = NULL, Suppress.Statement = FALSE)
+alpha.lower = NULL, alpha.upper = NULL, conf.level = .95, 
+degree.of.certainty = NULL, assurance=NULL,  certainty=NULL, 
+Suppress.Statement = FALSE)
 }
 
 \arguments{
@@ -36,6 +37,8 @@ and the \emph{K} independent variables }
   \item{conf.level}{ desired level of confidence for the computed interval (i.e., 1 - the Type I error
 rate) }
   \item{degree.of.certainty}{ degree of certainty that the obtained confidence interval will be sufficiently narrow }
+  \item{assurance}{ an alias for \code{degree.of.certainty} }
+\item{certainty}{an alias for \code{degree.of.certainty}}
   \item{Suppress.Statement}{ TRUE/FALSE statement whether or not a sentence describing the situation defined
 is printed with the necessary sample size }
 }

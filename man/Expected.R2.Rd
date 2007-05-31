@@ -15,7 +15,7 @@ Expected.R2(Population.R2, N, p)
 }
 \details{
 Uses the hypergeometric function as discussed in and section 28 of Stuart, Ord, and Arnold (1999) in order to obtain the \emph{correct}
-value for the squared multiple correlation coefficient. Many times an approximate value is given that ignores the hypergeometric function. 
+value for the squared multiple correlation coefficient. Many times an exact value is given that ignores the hypergeometric function. 
 This function yields the correct value. 
 }
 \value{

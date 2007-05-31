@@ -8,10 +8,11 @@ regression coefficient of interest given the input specification.
 }
 \usage{
 ss.aipe.src(Rho2.Y_X = NULL, Rho2.k_X.without.k = NULL, K = NULL, 
-b.k = NULL, width, which.width = "Full", sigma.Y = 1, sigma.X.k = 1, 
+beta.k = NULL, width, which.width = "Full", sigma.Y = 1, sigma.X.k = 1, 
 RHO.XX = NULL, Rho.YX = NULL, which.predictor = NULL, 
-alpha.lower = NULL, alpha.upper = NULL, conf.level = 1 - 0.05, 
-degree.of.certainty = NULL, Suppress.Statement = FALSE)
+alpha.lower = NULL, alpha.upper = NULL, conf.level = .95, 
+degree.of.certainty = NULL, assurance=NULL, certainty=NULL, 
+Suppress.Statement = FALSE)
 }
 
 \arguments{
@@ -19,7 +20,7 @@ degree.of.certainty = NULL, Suppress.Statement = FALSE)
   \item{Rho2.k_X.without.k}{ Population value of the squared multiple correlation coefficient predicting the
 \emph{k}th predictor variable from the remaining \emph{p}-1 predictor variables }
   \item{K}{ the number of predictor variables }
-  \item{b.k}{ the regression coefficient for the \emph{k}th predictor variable (i.e., the predictor of
+  \item{beta.k}{ the regression coefficient for the \emph{k}th predictor variable (i.e., the predictor of
 interest) }
   \item{width}{ the desired width of the confidence interval }
   \item{which.width}{ which width (¡°Full", ¡°Lower", or ¡°Upper") the width refers to (at present, only
@@ -38,6 +39,8 @@ rate) }
   \item{degree.of.certainty}{ degree of certainty that the obtained confidence interval will be sufficiently narrow, which 
   yields an approximate sample size to be verified with function 'ss.aipe.reg.coef.sensitivity'
 to determine if it is appropriate. }
+ \item{assurance}{ an alias for \code{degree.of.certainty} }
+\item{certainty}{an alias for \code{degree.of.certainty}}
   \item{Suppress.Statement}{ TRUE/FALSE statement whether or not a sentence describing the situation defined
 is printed with the necessary sample size }
 }

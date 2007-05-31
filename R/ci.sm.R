@@ -47,15 +47,11 @@ ncp <- SM*sqrt(N)
 }
 
 Conf.Limits <- conf.limits.nct(ncp=ncp, df=(N-1), conf.level = NULL, alpha.lower = alpha.lower, alpha.upper = alpha.upper)
-print(Conf.Limits)
-print(ncp)
 
 LL <- Conf.Limits$Lower.Limit/sqrt(N)
 UL <- Conf.Limits$Upper.Limit/sqrt(N)
 
 Result <- list(Lower.Conf.Limit.Standardized.Mean=LL, Standardized.Mean=SM, Upper.Conf.Limit.Standardized.Mean=UL)
 print(paste("The", 1-(alpha.lower+alpha.upper),"confidence limits for the standardized mean are given as:"))
-print(Result)
 return(Result)
 }
-

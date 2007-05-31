@@ -1,5 +1,5 @@
 "conf.limits.ncf" <-
-function(F.value=NULL, conf.level=NULL, df.1=NULL, df.2=NULL, alpha.lower=NULL, alpha.upper=NULL, tol=1e-9, Jumping.Prop=.10)
+function(F.value=NULL, conf.level=.95, df.1=NULL, df.2=NULL, alpha.lower=NULL, alpha.upper=NULL, tol=1e-9, Jumping.Prop=.10)
 {
 if(Jumping.Prop <=0 | Jumping.Prop >= 1) stop("The Jumping Proportion (\'Jumping.Prop\') must be between zero and one.")
 if(is.null(F.value)) stop("Your \'F.value\' is not correctly specified.")

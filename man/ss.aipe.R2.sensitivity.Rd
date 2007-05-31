@@ -11,8 +11,8 @@ evaluates the effect of a misspecified \code{True.R2} on the width of obtained c
 \usage{
 ss.aipe.R2.sensitivity(True.R2 = NULL, Estimated.R2 = NULL, w = NULL, 
 p = NULL, Random.Predictors=TRUE, Selected.N=NULL, 
-degree.of.certainty = NULL, conf.level = 0.95, 
-Generate.Random.Predictors=TRUE, rho.yx = 0.3, 
+degree.of.certainty = NULL, assurance=NULL, certainty=NULL, 
+conf.level = 0.95, Generate.Random.Predictors=TRUE, rho.yx = 0.3, 
 rho.xx = 0.3,  G = 10000, print.iter = TRUE, ...)
 }
 \arguments{
@@ -23,6 +23,8 @@ rho.xx = 0.3,  G = 10000, print.iter = TRUE, ...)
   \item{Random.Predictors}{whether or not the sample size procedure and the simulation itself should be based on random (set to TRUE) or fixed predictors (set to FALSE)}
   \item{Selected.N}{selected sample size to use in order to determine distributional properties of at a given value of sample size}
   \item{degree.of.certainty}{parameter to ensure confidence interval width with a specified degree of certainty}
+  \item{assurance}{ an alias for \code{degree.of.certainty} }
+\item{certainty}{an alias for \code{degree.of.certainty}}
   \item{conf.level}{confidence interval coverage (symmetric coverage)}
   \item{Generate.Random.Predictors}{specify whether the simulation should be based on random (default) or fixed regressors.}
   \item{rho.yx}{value of the correlation between \code{y} (dependent variable) and each of the \code{x} variables (independent variables)}
@@ -33,13 +35,13 @@ rho.xx = 0.3,  G = 10000, print.iter = TRUE, ...)
 }
 \details{
 When \code{Estimated.R2}=\code{True.R2}, the results are that of a simulation study when all assumptions
-are satisfied. Rather than specifying \code{Estimated.R2}, one can specify \code{Selected.N} to determine the results of a particular sample size (when doing this \'Estimated.R2\' cannot be specified).
+are satisfied. Rather than specifying \code{Estimated.R2}, one can specify \code{Selected.N} to determine the results of a particular sample size (when doing this \code{Estimated.R2} cannot be specified).
 
 The sample size estimation procedure technically assumes multivariate normal variables (\code{p}+1) with fixed predictors (\code{x}/indepdent variables), 
 yet the function assumes random multivariate normal predictors (having a \code{p}+1 multivariate distribution). As Gatsonis and Sampson (1989) note in the context of statistical 
 power analysis (recall this function is used in the context of precision), there is little difference in the outcome.
 
-In the behavioral, educational, and social sciences, predictor variables are almost always random, and thus \'Random.Predictors\' should generally be used.
+In the behavioral, educational, and social sciences, predictor variables are almost always random, and thus \code{Random.Predictors} should generally be used.
 \code{Random.Predictors=TRUE} specifies how both the sample size planning procedure and the confidence intervals are calculated based on the random predictors/regressors. The internal 
 simulation generates random or fixed predictors/regressors based on whether variables predictor variables are random or fixed.
 However, when \code{Random.Predictors=FALSE}, only the sample size planning procedure and the confidence intervals are calculated based on

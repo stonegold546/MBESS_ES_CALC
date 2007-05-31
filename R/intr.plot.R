@@ -1,7 +1,8 @@
 "intr.plot" <-
 function(b.0, b.x, b.z, b.xz, x.min=NULL, x.max=NULL, z.min=NULL, z.max=NULL, n.x=50, n.z=50, 
-x=NULL, z=NULL, col="lightblue", hor.angle=-45, vert.angle=15,
-xlab="Value of X", zlab="Value of Z", ylab="Dependent Variable", expand=0.5, lines.plot=TRUE, col.line="red", line.wd=2, gray.scale=FALSE, ...)
+x=NULL, z=NULL, col="lightblue", hor.angle=-60, vert.angle=15,
+xlab="Value of X", zlab="Value of Z", ylab="Dependent Variable", expand=0.5, lines.plot=TRUE, 
+col.line="red", line.wd=2, gray.scale=FALSE, ticktype="detailed",  ...)
 {
 
 
@@ -67,7 +68,7 @@ col.line="black"
     y.plot <- outer(x, z, Pred.Eq)
 
     persp(x, z, y.plot, theta=hor.angle, phi=vert.angle, expand=expand, col=col, 
-    xlab = xlab, ylab = zlab, zlab = ylab, ...)-> surface
+    xlab = xlab, ylab = zlab, zlab = ylab, ticktype=ticktype, ...)-> surface
 
 
 if(lines.plot){
@@ -77,7 +78,7 @@ if(lines.plot){
         z2<- z0+2*sd.z
         z_1<- z0-sd.z
         z_2<- z0-2*sd.z
-        lines.legend<- paste("Plotted regression lines are ")
+        lines.legend<- paste("Plotted regression lines are \n")
         
         if( z_2>min(z) && z_2<max(z) ){
         lines(trans3d(x, y=z_2, z=b.0+b.x*x+b.z*z_2+b.xz*x*z_2, surface), col=col.line,lwd=line.wd)
@@ -102,22 +103,13 @@ if(lines.plot){
         }
         
         lines(trans3d(x, y=z0, z=b.0+b.x*x+b.z*z0+b.xz*x*z0, surface), col=col.line,lwd=line.wd)
-        lines.legend<- paste(lines.legend, "and 0 " )
+        lines.legend<- paste(lines.legend, "and 0 \n" )
         
-        lines.legend<- paste(lines.legend, "standard deviations above z's mean. " )
+        lines.legend<- paste(lines.legend, "standard deviations above z's mean." )
 
 }
 
+angle<- paste("horizonal angle=", hor.angle,";", "vertical angle=", vert.angle)
 
-if(b.x>=0) bx<-paste("+",b.x) else bx<-b.x
-if(b.z>=0) bz<-paste("+",b.z) else bz<-b.z
-if(b.xz>=0) bxz<-paste("+",b.xz) else bxz<- b.xz
-Title<- paste("Regression Surface of y=", b.0, bx,"x",bz,"z",bxz,"xz")
-angle<- paste("horizonal angle=", hor.angle,";  ", "vertical angle=", vert.angle)
-
-if(lines.plot){ title(main=Title, sub=lines.legend) } 
-else { title(main=Title, sub=angle)}
-
-
+title(main=angle, sub=lines.legend)
 }
-
