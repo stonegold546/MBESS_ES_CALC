@@ -42,7 +42,7 @@ Glass, G. (1976). Primary, secondary, and meta-analysis of research. \emph{Educa
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
 
 \seealso{
-'smd', 'conf.limits.nct'}
+\code{smd}, \code{conf.limits.nct}}
 \examples{
 # Generate sample data.
 set.seed(113)

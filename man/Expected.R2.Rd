@@ -22,17 +22,17 @@ This function yields the correct value.
 Returns the expected value of the squared multiple correlation coefficient.
 }
 \references{
+Olkin, I. \& Pratt, J. W. (1958). Unbiased estimation of certain correlation coefficients. \emph{Annals of Mathematical statistics, 29}, 201--211.
+
 Stuart, A., Ord, J. K., \& Arnold, S. (1999). \emph{Kendall's advanced theory of statistics: {C}lassical inference and the linear model} (Volume 2A, 2nd Edition).
 New York, NY: Oxford University Press. 
-
-Olkin, I. \& Pratt, J. W. (1958). Unbiased estimation of certain correlation coefficients. \emph{Annals of Mathematical statistics, 29}, 201--211.
 }
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
 
 \note{
 Uses package \code{gsl} and its \code{hyperg_2F1} function.
 }
-\seealso{'ss.aipe.R2', 'ci.R2', 'Variance.R2'}
+\seealso{\code{ss.aipe.R2}, \code{ci.R2}, \code{Variance.R2}}
 \examples{
 Expected.R2(.5, 10, 5)
 Expected.R2(.5, 25, 5)

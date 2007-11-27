@@ -1,4 +1,5 @@
-ss.aipe.sc.sensitivity <- function(true.psi=NULL, estimated.psi=NULL, c.weights, desired.width=NULL, selected.n=NULL, 
+`ss.aipe.sc.sensitivity` <-
+function(true.psi=NULL, estimated.psi=NULL, c.weights, desired.width=NULL, selected.n=NULL, 
 assurance=NULL, certainty=NULL, conf.level=.95, G=10000, print.iter=TRUE, detail=TRUE, ...)
 { if(is.null(estimated.psi) & is.null(selected.n)) stop("You must specify either \'estimated.psi\' or \'selected.n\' (i.e., the sample size per group ).", call.=FALSE)
 if(!is.null(estimated.psi) & !is.null(selected.n)) stop("You must specify either \'estimated.psi\' or \'selected.n\' (i.e., the per group sample size), but not both.", call.=FALSE)
@@ -31,14 +32,14 @@ psi.pop<- true.psi
 
 # Create population group means for group 1 to group J 
 signal=TRUE
-mu<-rep(NA, J)
-for(m in 1:J)
-    {if(c.weights[m]>0 & signal)
-        { mu[m]<- psi.pop/c.weights[m]
+mu.c <-rep(NA, J)
+for(cw in 1:J)
+    {if(c.weights[cw] > 0 & signal)
+        { mu.c[cw] <- psi.pop/c.weights[cw]
         signal=FALSE
         }
         
-    else{mu[m]<-0}
+    else{mu.c[cw] <- 0}
     }
 
 for (i in 1:G)
@@ -50,7 +51,7 @@ for (i in 1:G)
     sd.group<- rep(NA, J)
     
     for(p in 1:J)
-        {group.data[,p]<- rnorm(n, mean=mu[p], sd=1)
+        {group.data[,p]<- rnorm(n, mean=mu.c[p], sd=1)
         x.bar[p]<- mean(group.data[,p])
         sd.group[p]<- sd(group.data[,p])
         }

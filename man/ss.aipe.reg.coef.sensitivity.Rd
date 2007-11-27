@@ -43,5 +43,5 @@ coefficient, so that the covariance/correlation structure can be specified when 
 \note{Note that when \code{True.Rho.YX}=\code{Estimated.Rho.YX} and \code{True.RHO.XX}=\code{Estimated.RHO.XX}, the results are not
 literally from a sensitivity analysis, rather the function performs a standard simulation study. A simulation study 
 can be helpful in order to determine if the sample size procedure under or overestimates necessary sample size.} 
-\seealso{ss.aipe.reg.coef, ci.reg.coef}
+\seealso{\code{ss.aipe.reg.coef}, \code{ci.reg.coef}}
 \keyword{design}

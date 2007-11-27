@@ -1,15 +1,16 @@
-\name{ss.aipe.c.sensitivity.ancova}
-\alias{ss.aipe.c.sensitivity.ancova}
+\name{ss.aipe.c.ancova.sensitivity}
+\alias{ss.aipe.c.ancova.sensitivity}
 \title{Sensitivity analysis for sample size planning for the (unstandardized) contrast in randomized ANCOVA
  from the Accuracy in Parameter Estimation (AIPE) Perspective }
 \description{Performs a sensitivity analysis when planning sample size from 
 the Accuracy in Parameter Estimation (AIPE) Perspective for the (unstandardized) contrast in randomized ANCOVA design.
 }
 \usage{
-ss.aipe.c.sensitivity.ancova(true.error.var.ancova = NULL, est.error.var.ancova = NULL, 
-true.error.var.anova = NULL, est.error.var.anova = NULL, rho, est.rho = NULL, G = 10000, 
-mu.y, sigma.y, mu.x, sigma.x, c.weights, width, conf.level = 0.95, assurance = NULL, 
-certainty=NULL)
+ss.aipe.c.ancova.sensitivity(true.error.var.ancova = NULL, 
+est.error.var.ancova = NULL, true.error.var.anova = NULL, 
+est.error.var.anova = NULL, rho, est.rho = NULL, G = 10000, 
+mu.y, sigma.y, mu.x, sigma.x, c.weights, width,
+conf.level = 0.95, assurance = NULL, certainty=NULL)
 }
 \arguments{
   \item{true.error.var.ancova}{population error variance of the ANCOVA model }
@@ -77,11 +78,11 @@ ANCOVA.
 %\seealso{ }
 
 \examples{
-ss.aipe.c.sensitivity.ancova(true.error.var.ancova=30, 
+ss.aipe.c.ancova.sensitivity(true.error.var.ancova=30, 
 est.error.var.ancova=30, rho=.2, mu.y=c(10,12,15,13), mu.x=2, 
 G=10, sigma.x=1.3, sigma.y=2, c.weights=c(1,0,-1,0), width=3)
 
-ss.aipe.c.sensitivity.ancova(true.error.var.anova=36, 
+ss.aipe.c.ancova.sensitivity(true.error.var.anova=36, 
 est.error.var.anova=36, rho=.2, est.rho=.2, G=10, 
 mu.y=c(10,12,15,13), mu.x=2, sigma.x=1.3, sigma.y=6, 
 c.weights=c(1,0,-1,0), width=3, assurance=NULL)

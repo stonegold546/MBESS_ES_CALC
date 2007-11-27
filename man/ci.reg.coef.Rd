@@ -10,16 +10,16 @@ R2.j_X.without.j=NULL, conf.level=0.95, R2.Y_X.without.j=NULL,
 t.value=NULL, alpha.lower=NULL, alpha.upper=NULL, Noncentral=FALSE, 
 Suppress.Statement=FALSE, ...)}
 \arguments{
-  \item{b.j}{value of the regression coefficient for the \code{j}th predictor variable}
-  \item{SE.b.j}{standard error for the \code{j}th predictor variable}
+  \item{b.j}{value of the regression coefficient for the \emph{\code{j}}th predictor variable}
+  \item{SE.b.j}{standard error for the \emph{\code{j}}th predictor variable}
   \item{s.Y}{standard deviation of \code{Y}, the dependent variable}
   \item{s.X}{standard deviation of \code{X}, the predictor variable of interest}
   \item{N}{sample size}
   \item{p}{the number of predictors}
   \item{R2.Y_X}{the squared multiple correlation coefficient predicting \code{Y} from the \code{p} predictor variables}
-  \item{R2.j_X.without.j}{the squared multiple correlation coefficient predicting the \code{j}th predictor variable (i.e., the predictor of interest) from the remaining \code{p}-1 predictor variables}
+  \item{R2.j_X.without.j}{the squared multiple correlation coefficient predicting the \emph{\code{j}}th predictor variable (i.e., the predictor of interest) from the remaining \code{p}-1 predictor variables}
   \item{conf.level}{desired level of confidence for the computed interval (i.e., 1 - the Type I error rate)}
-  \item{R2.Y_X.without.j}{the squared multiple correlation coefficient predicting \code{Y} from the \code{p}-1 predictor variable with the \code{j}th predictor of interest excluded}
+  \item{R2.Y_X.without.j}{the squared multiple correlation coefficient predicting \code{Y} from the \emph{\code{p}}-1 predictor variable with the \code{j}th predictor of interest excluded}
   \item{t.value}{the t-value evaluating the null hypothesis that the population regression coefficient for the \code{j}th predictor equals zero}
   \item{alpha.lower}{the Type I error rate for the lower confidence interval limit}
   \item{alpha.upper}{the Type I error rate for the upper confidence interval limit}
@@ -38,8 +38,7 @@ regression coefficient for \code{b.j}.}
 Kelley, K. \& Maxwell, S. E. (2003). Sample size for Multiple Regression: {O}btaining regression coefficients that are accuracy, not simply significant. 
 \emph{Psychological Methods, 8}, 305--321.
 
-Kelley, K. \& Maxwell, S. E. (In press). Power and Accuracy for Omnibus and Targeted Effects: {I}ssues of Sample Size Planning with Applications to
-Multiple Regression \emph{Handbook of Social Research Methods}, J. Brannon, P. Alasuutari, and L. Bickman (Eds.). New York, NY: Sage Publications. 
+Kelley, K. \& Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, \& L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166-192). Newbury Park, CA: Sage.
 
 Smithson, M. (2003). \emph{Confidence intervals}. New York, NY: Sage Publications. 
 }

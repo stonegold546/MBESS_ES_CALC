@@ -24,7 +24,8 @@ Suppress.Statement = FALSE)
   \item{b.k}{ the regression coefficient for the \emph{k}th predictor variable (i.e., the predictor of
 interest) }
   \item{width}{ the desired width of the confidence interval }
-  \item{which.width}{which width ("Full", "Lower", or "Upper") the width refers to (at present, only "Full" can be specified) }
+  \item{which.width}{which width (\code{"Full"}, \code{"Lower"}, or \code{"Upper"}) the width refers to (at 
+  present, only \code{"Full"} can be specified) }
   \item{sigma.Y}{ the population standard deviation of \emph{Y} (i.e., the dependent variables) }
   \item{sigma.X.k}{ the population standard deviation of the \emph{k}th \emph{X} variable (i.e., the predictor variable
 of interest) }
@@ -60,10 +61,12 @@ coefficients that are accuracy, not simply significant. \emph{Psychological Meth
 
 \author{Ken Kelley (Indiana University; KKIII@Indiana.Edu) }
 \note{ 
-This function calls upon 'ss.aipe.reg.coef' in MBESS but has a different naming scheme. See 'ss.aipe.reg.coef' 
+This function calls upon \code{ss.aipe.reg.coef} in MBESS but has a different naming scheme. See \code{ss.aipe.reg.coef} 
 for more details. 
 }
-\seealso{ 'ss.aipe.reg.coef.sensitivity', 'conf.limits.nct', 'ss.aipe.reg.coef', 'ss.aipe.src' }
+\seealso{ \code{ss.aipe.reg.coef.sensitivity}, \code{conf.limits.nct}, 
+
+\code{ss.aipe.reg.coef}, \code{ss.aipe.src} }
 
 \examples{
 # Exchangable correlation structure

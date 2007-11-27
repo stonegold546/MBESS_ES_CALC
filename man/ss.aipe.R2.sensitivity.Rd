@@ -67,13 +67,11 @@ and hypothesis testing for the squared multiple correlation. \emph{Behavior rese
 Kelley, K. Sample size planning for the squared multiple correlation coefficient:
 Accuracy in parameter estimation via narrow confidence intervals, \emph{manuscripted submitted for publication}.
 
-Kelley, K. \& Maxwell, S. E. (In press) Power and Accuracy for Omnibus and Targeted Effects: 
-Issues of sample size planning with applications to multiple regression. In P. Alasuuta, J. Brannen, \& L. Bickman (Eds.),
-\textit{Handbook of Social Research Methods}. Newbury Park, CA: Sage.
+Kelley, K. \& Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, \& L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166-192). Newbury Park, CA: Sage.
 }
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
 
-\seealso{'ci.R2', 'conf.limits.nct', 'ss.aipe.R2'}
+\seealso{\code{ci.R2}, \code{conf.limits.nct}, \code{ss.aipe.R2}}
 \examples{
 # Change 'G' to some large number (e.g., G=10,000)
 ss.aipe.R2.sensitivity(True.R2=.5, Estimated.R2=.4, w=.10, p=5, conf.level=0.95,

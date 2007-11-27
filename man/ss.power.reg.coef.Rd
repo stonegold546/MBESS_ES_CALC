@@ -44,9 +44,7 @@ for several options.}
 \references{
 Cohen, J. (1988). \emph{Statistical power analysis for the behavioral sciences} (2nd ed.). Hillsdale, NJ: Erlbaum.
 
-Kelley, K. & Maxwell, S. E. (In press). Power and accuracy for omnibus and targeted effects:
-Issues of sample size planning with applications to Multiple Regression. \emph{Handbook of Social Research
-Methods,} J. Brannon, P. Alasuutari, and L. Bickman (Eds.). New York, NY: Sage Publications.
+Kelley, K. \& Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, \& L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166-192). Newbury Park, CA: Sage.
 
 Maxwell, S. E. (2000). Sample size for multiple regression. \emph{Psychological Methods, 4}, 434--458.
 

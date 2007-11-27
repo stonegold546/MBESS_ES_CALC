@@ -8,7 +8,6 @@ sample size, and the number of predictors.
 \usage{
 Variance.R2(Population.R2, N, p)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{Population.R2}{population squared multiple correlation coefficient}
   \item{N}{sample size}
@@ -28,7 +27,7 @@ New York, NY: Oxford University Press.}
 \note{
 Uses package \code{gsl} and its \code{hyperg_2F1} function.
 }
-\seealso{'Expected.R2', 'ci.R2', 'ss.aipe.R2'}
+\seealso{\code{Expected.R2}, \code{ci.R2}, \code{ss.aipe.R2}}
 \examples{
 Variance.R2(.5, 10, 5)
 Variance.R2(.5, 25, 5)

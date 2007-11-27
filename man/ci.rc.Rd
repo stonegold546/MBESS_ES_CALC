@@ -39,7 +39,7 @@ that identifies the type of confidence interval formed}
 }
 
 \details{
-This function calls upon 'ci.reg.coef' in MBESS, but has a different naming system. See 'ci.reg.coef' for more details.
+This function calls upon \code{ci.reg.coef} in MBESS, but has a different naming system. See \code{ci.reg.coef} for more details.
 
 For standardized variables, do not specify the standard deviation of the variables and input the
 standardized regression coefficient for b.k.
@@ -71,7 +71,7 @@ in order to compute the confidence interval (options are thus given for the valu
 specified).
 }
 
-\seealso{ 'ss.aipe.reg.coef', 'conf.limits.nct', 'ci.reg.coef', 'ci.src' }
+\seealso{ \code{ss.aipe.reg.coef}, \code{conf.limits.nct}, \code{ci.reg.coef}, \code{ci.src} }
 
 %\examples{
 }

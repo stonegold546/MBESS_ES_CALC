@@ -51,7 +51,7 @@ no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum.
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
 
 \seealso{
-'smd.c', 'conf.limits.nct', 'ss.aipe'
+\code{smd.c}, \code{conf.limits.nct}, \code{ss.aipe}
 }
 \examples{
 # Generate sample data.

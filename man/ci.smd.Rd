@@ -39,11 +39,10 @@ based on central and noncentral distributions, \emph{Educational and Psychologic
 
 Hedges, L. V. (1981). Distribution theory for Glass's Estimator of effect size and related estimators. \emph{Journal of Educational Statistics, 2}, 107--128.
 
+Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
+
 Kelley, K., Maxwell, S. E., \& Rausch, J. R. (2003) Obtaining Power or Obtaining Precision: Delineating Methods
 of Sample-Size Planning, \emph{Evaluation and the Health Professions, 26}, 258--287.
-
-Kelley, K. (2005) The effects of nonnormal distributions on confidence intervals around the standardized mean
-difference: Bootstrap and parametric confidence intervals, \emph{Educational and Psychological Measurement, 65}, 51--69.
 
 Steiger, J. H., \& Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
 statistical methods. In L. L. Harlow, S. A. Mulaik,&J.H. Steiger (Eds.), \emph{What if there where
@@ -61,7 +60,7 @@ Running the function \code{conf.limits.nct} directly will report the actual prob
 done if any modification to \code{tol} is necessary in order to ensure acceptable confidence limits for the noncentral-\emph{t} parameter have been achieved.
 }
 
-\seealso{'smd.c', 'smd', 'ci.smd.c', 'conf.limits.nct'}
+\seealso{\code{smd.c}, \code{smd}, \code{ci.smd.c}, \code{conf.limits.nct}}
 \examples{
 # Examples Steiger and Fouladi example values.
 ci.smd(ncp=2.6, n.1=10, n.2=10, conf.level=1-.05)

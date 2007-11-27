@@ -41,7 +41,8 @@ if(is.null(Estimated.Cov.XX)) Estimated.Cov.XX <- True.Cov.XX
 if(is.null(Estimated.Cov.YX)) Estimated.Cov.YX <- True.Cov.YX
 
 Estimated.Sigma <- cbind(c(Estimated.Var.Y, Estimated.Cov.YX), rbind(Estimated.Cov.YX, Estimated.Cov.XX))
-
+sigma.Y<- sqrt(Estimated.Sigma[1,1])
+sigma.X<- sqrt(Estimated.Sigma[(1+which.predictor),(1+which.predictor)])
 Estimated.Rho2.Y_X <- (Estimated.Cov.YX%*%solve(Estimated.Cov.XX)%*%Estimated.Cov.YX)/(sigma.Y^2)
 Estimated.Rho2.j_X.without.j <- 1 - ((solve(Estimated.Cov.XX)[which.predictor,which.predictor]*Estimated.Cov.XX)[which.predictor,which.predictor])^(-1)
 Estimated.b.j <- (solve(Estimated.Cov.XX)%*%Estimated.Cov.YX)[which.predictor]

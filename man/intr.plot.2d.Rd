@@ -33,7 +33,9 @@ legend.pos="bottomright", legend.on=TRUE, ... )
   Default values are all TRUE. }
   \item{type.sd, type.sd2, type.sd_1, type.sd_2}{ types of lines to be plotted holding z at values 1, 2,
   -1, and -2 standard deviations above the mean, respectively. Default are line type 2,3,4, and 5, respectively. }
-  \item{legend.pos}{ position of the legend; possible options are "bottomright", "bottom", "bottomleft", "left", "center", "right", "topleft", "top", and "topright". }
+  \item{legend.pos}{ position of the legend; possible options are \code{"bottomright"}, \code{"bottom"}, 
+  \code{"bottomleft"}, \code{"left"}, \code{"center"}, \code{"right"}, \code{"topleft"}, 
+  \code{"top"}, and \code{"topright"}. }
   \item{legend.on}{whether or not to show the legend}
   \item{\dots}{ allows one to potentially include parameter values for inner functions }
 
@@ -46,13 +48,15 @@ To input the predictor z, one can use either the mean and standard deviation of 
   
 }
 \references{Cohen, J., Cohen, P., West, S. G. and Aiken, L. S. (2003). \emph{Applied multiple regression/correlation analysis for the behavioral sciences} (3rd ed.). Mahwah, NJ: Erlbaum. }
-\author{ Keke Lai (Indiana University <laik@indiana.edu>), Ken Kelley (Indiana University <kkiii@indiana.edu>)  }
+\author{ Keke Lai (Indiana University <laik@indiana.edu>), 
+
+Ken Kelley (Indiana University <kkiii@indiana.edu>)  }
 
 \note{ Sometimes some of the regression lines are outside the default scope of the coordinates 
 and thus cannot be seen; in such situations, one needs to, by entering additional arguments, adjust the scope to
 let proper sections of regression lines be seen. Refer to examples below for more details.
 }
-\seealso{ 'intr.plot' }
+\seealso{ \code{intr.plot} }
 \examples{
 ## A situation where one regression line is outside the default scope of the coordinates
 intr.plot.2d(b.0=16, b.x=2.2, b.z=2.6, b.xz=.4, x.min=0, x.max=20, mean.z=0, sd.z=3)

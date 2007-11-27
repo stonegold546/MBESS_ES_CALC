@@ -42,8 +42,10 @@ alpha.lower = NULL, alpha.upper = NULL, df.error = NULL, ...)
 }
 
 \references{ 
-Kelley, K. (2006). Constructing confidence intervals for standardized effect sizes: Theory, 
-application, and implementation. \emph{Manuscript submitted for publication}.
+Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
+
+Lai, K., \& Kelley, K. (2007). Sample size planning for standardized ANCOVA and ANOVA 
+contrasts: Obtaining narrow confidence intervals. \emph{Manuscript submitted for publication}.
 
 Steiger, J. H. (2004). Beyond the \emph{F} Test: Effect size confidence intervals and tests of close fit in the 
 Analysis of Variance and Contrast Analysis. \emph{Psychological Methods, 9}, 164--182.  
@@ -54,7 +56,7 @@ Analysis of Variance and Contrast Analysis. \emph{Psychological Methods, 9}, 164
 
 \note{ Be sure to use the error varaince and not its square root (i.e., the standard deviation of the errors).
 }
-\seealso{ 'conf.limits.nct', 'ci.src', 'ci.smd', 'ci.smd.c', 'ci.sm', 'ci.c' }
+\seealso{ \code{conf.limits.nct}, \code{ci.src}, \code{ci.smd}, \code{ci.smd.c}, \code{ci.sm}, \code{ci.c} }
 \examples{
 ci.sc(means=c(2, 4, 9, 13), error.variance=1, c.weights=c(1, -1, -1, 1), 
 n=c(3, 3, 3, 3), N=12, conf.level=.95)

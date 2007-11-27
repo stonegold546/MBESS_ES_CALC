@@ -40,8 +40,7 @@ Glass, G. V. (1976) Primary, secondary, and meta-analysis of research. \emph{Edu
 
 Hedges, L. V. (1981) Distribution theory for Glass's Estimator of effect size and related estimators. \emph{Journal of Educational Statistics, 2}, 107--128.
 
-Kelley, K. (2005) The effects of nonnormal distributions on confidence intervals around the standardized mean
-difference: Bootstrap and parametric confidence intervals, \emph{Educational and Psychological Measurement, 65}, 51--69.
+Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
 
 Steiger, J. H., \& Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
 statistical methods. In L. L. Harlow, S. A. Mulaik,&J.H. Steiger (Eds.), \emph{What if there where
@@ -60,7 +59,7 @@ done if any modification to \code{tol} is necessary in order to ensure acceptabl
 parameter have been achieved.
 }
 
-\seealso{'smd.c', 'smd', 'ci.smd', 'conf.limits.nct'}
+\seealso{\code{smd.c}, \code{smd}, \code{ci.smd}, \code{conf.limits.nct}}
 \examples{
 ci.smd.c(smd.c=.5, n.C=100, conf.level=.95, n.E=100)
 }

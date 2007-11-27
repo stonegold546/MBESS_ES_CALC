@@ -6,10 +6,12 @@
 Determine the necessary sample size for a targeted regression coefficient or determine the degree of power given a specified sample size}
 }
 \usage{
-ss.power.rc(Rho2.Y_X = NULL, Rho2.Y_X.without.k = NULL, K = NULL, desired.power = 0.85, 
-alpha.level = 0.05, Directional = FALSE, beta.k = NULL, sigma.X = NULL, sigma.Y = NULL, 
-Rho2.k_X.without.k = NULL, RHO.XX = NULL, Rho.YX = NULL, which.predictor = NULL, 
-Cohen.f2 = NULL, Specified.N = NULL, Print.Progress = FALSE)
+ss.power.rc(Rho2.Y_X = NULL, Rho2.Y_X.without.k = NULL, K = NULL, 
+desired.power = 0.85, alpha.level = 0.05, Directional = FALSE, 
+beta.k = NULL, sigma.X = NULL, sigma.Y = NULL, 
+Rho2.k_X.without.k = NULL, RHO.XX = NULL, Rho.YX = NULL, 
+which.predictor = NULL, Cohen.f2 = NULL, Specified.N = NULL, 
+Print.Progress = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

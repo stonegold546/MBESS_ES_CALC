@@ -46,9 +46,8 @@ The \emph{complete} data set of scores of 301 subjects in 26 tests in Holzinger 
 }
 
 \details{
-Holzinger and Swineford (1939) data is a widely-cited one, but almost always only a part of the dataset,
- the scores for Grant-White School, were used. The present dataset contains the complete data of Holzinger and 
- Swineford (1939).
+Holzinger and Swineford (1939) data is widely cited, but generally only the Grant-White School data 
+is used. The present dataset contains the complete data of Holzinger and Swineford (1939).
  
  A total number of 301 pupils from Paster School and Grant-White School participated in Holzinger and 
 Swineford's (1939) study. This study consists of 26 tests, which are used to measure 

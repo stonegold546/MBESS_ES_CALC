@@ -1,4 +1,4 @@
-ss.aipe.c.sensitivity.ancova<- function(true.error.var.ancova=NULL, est.error.var.ancova=NULL, true.error.var.anova=NULL, 
+ss.aipe.c.ancova.sensitivity<- function(true.error.var.ancova=NULL, est.error.var.ancova=NULL, true.error.var.anova=NULL, 
 est.error.var.anova=NULL, rho, est.rho=NULL, G=10000, mu.y, sigma.y, mu.x, sigma.x, c.weights, width, conf.level=.95, 
 assurance=NULL, certainty=NULL)
 {library(MASS)

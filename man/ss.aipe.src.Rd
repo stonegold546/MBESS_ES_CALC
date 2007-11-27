@@ -23,11 +23,11 @@ Suppress.Statement = FALSE)
   \item{beta.k}{ the regression coefficient for the \emph{k}th predictor variable (i.e., the predictor of
 interest) }
   \item{width}{ the desired width of the confidence interval }
-  \item{which.width}{ which width (¡°Full", ¡°Lower", or ¡°Upper") the width refers to (at present, only
-¡°Full" can be specified) }
+  \item{which.width}{ which width (\code{"Full"}, \code{"Lower"}, or \code{"Upper"}) the width refers 
+  to (at present, only \code{"Full"} can be specified) }
   \item{sigma.Y}{ the population standard deviation of \emph{Y} (i.e., the dependent variables) }
-  \item{sigma.X.k}{ the population standard deviation of the \emph{k}th \emph{X} variable (i.e., the predictor variable
-of interest) }
+  \item{sigma.X.k}{ the population standard deviation of the \emph{k}th \emph{X} variable (i.e., the 
+  predictor variable of interest) }
   \item{RHO.XX}{ Population correlation matrix for the \emph{p} predictor variables }
   \item{Rho.YX}{ Population \emph{p} length vector of correlation between the dependent variable (\emph{Y})
 and the \emph{p} independent variables }
@@ -37,7 +37,7 @@ and the \emph{p} independent variables }
   \item{conf.level}{ desired level of confidence for the computed interval (i.e., 1 - the Type I error
 rate) }
   \item{degree.of.certainty}{ degree of certainty that the obtained confidence interval will be sufficiently narrow, which 
-  yields an approximate sample size to be verified with function 'ss.aipe.reg.coef.sensitivity'
+  yields an approximate sample size to be verified with function \code{ss.aipe.reg.coef.sensitivity}
 to determine if it is appropriate. }
  \item{assurance}{ an alias for \code{degree.of.certainty} }
 \item{certainty}{an alias for \code{degree.of.certainty}}
@@ -54,17 +54,20 @@ satisfied for the confidence interval for a particular regression coefficient gi
 }
 \references{ 
 Kelley, K. & Maxwel, S. E. (2003). Sample size for Multiple Regression: Obtaining regression
-coefficients that are accuracy, not simply significant. \emph{Psychological Methods, 8}, 305--321.}
+coefficients that are accuracy, not simply significant. \emph{Psychological Methods, 8}, 305-321.
 
+Kelley, K. \& Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, \& L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166-192). Newbury Park, CA: Sage.
+}
 \author{Ken Kelley (Indiana University; KKIII@Indiana.Edu)}
 
 \note{ 
-This function calls upon 'ss.aipe.reg.coef' in MBESS but has a different naming scheme. See 'ss.aipe.reg.coef' 
-for more details. 
+This function calls upon \code{ss.aipe.reg.coef} in MBESS but has a different naming scheme. 
+See \code{ss.aipe.reg.coef} for more details. 
 
-\section{Warning }{ As discussed in Kelley and Maxwell (in press), the sample size planning approach from the AIPE perspective used in this function is only an approximation. }
+\section{Warning }{ As discussed in Kelley and Maxwell (2008), the sample size planning approach from the AIPE perspective used in this function is only an approximation. }
 }
-\seealso{ 'ss.aipe.reg.coef.sensitivity', 'conf.limits.nct', 'ss.aipe.reg.coef', 'ss.aipe.rc' }
+\seealso{ \code{ss.aipe.reg.coef.sensitivity}, \code{conf.limits.nct}, 
+\code{ss.aipe.reg.coef}, \code{ss.aipe.rc} }
 \examples{
 # Exchangable correlation structure
 Rho.YX <- c(.3, .3, .3, .3, .3)

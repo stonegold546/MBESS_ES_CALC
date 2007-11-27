@@ -19,7 +19,8 @@ N = NULL, K=NULL, alpha.lower = NULL, alpha.upper = NULL, ...)
   \item{df.2}{ denominator degrees of freedom }
   \item{conf.level}{ confidence interval coverage (i.e., 1- Type I error rate); default is .95 }
   \item{Random.Predictors}{ whether or not the predictor variables are random or fixed (random is default) }
-  \item{Random.Regressors}{ an alias for \code{Random.Predictors}; \code{Random.Regressors} overrides \code{Random.Predictors} }
+  \item{Random.Regressors}{ an alias for \code{Random.Predictors}; \code{Random.Regressors} overrides
+   \code{Random.Predictors} }
   \item{F.value}{ obtained \emph{F}-value }
   \item{N}{ sample size }
   \item{K}{ number of predictors }
@@ -29,21 +30,21 @@ N = NULL, K=NULL, alpha.lower = NULL, alpha.upper = NULL, ...)
 }
 
 \details{
-This function is based on the function 'ci.R2' in MBESS package.
+This function is based on the function \code{ci.R2} in MBESS package.
 
-This function can be used with random predictor variables (Random.Predictors=TRUE) or
-when predictor variables are fixed (Random.Predictors=FALSE). In most applications in the behavioral,
+This function can be used with random predictor variables (\code{Random.Predictors=TRUE}) or
+when predictor variables are fixed (\code{Random.Predictors=FALSE}). In most applications in the behavioral,
 educational, and social sciences predictor variables are random, which is the default for this
 function.
 
 For random predictors, the function implements the procedure of Lee (1971), which was implemented
 by Algina and Olejnik (2000; specifically in their ci.smcc.bisec.sas SAS script). When 
-'Random.Predictors=TRUE', the function implements code that is in part based on the Alginia and
+\code{Random.Predictors=TRUE}, the function implements code that is in part based on the Alginia and
 Olejnik (2000) SAS script.
 
-When Random.Predictors=FALSE, and thus the predictors are planned and thus fixed in hypothetical
+When \code{Random.Predictors=FALSE}, and thus the predictors are planned and thus fixed in hypothetical
 replications of the study, the confidence limits are based on a noncentral \emph{F}-distribution (see
-conf.limits.ncf).
+\code{conf.limits.ncf}).
   
 }
 \value{
@@ -73,11 +74,8 @@ instruments and computers, 4}, 581--582.
 }
 
 \author{ Ken Kelley (Indiana University, <KKIII@Indiana.edu>)}
-%\note{ 
-}
-\seealso{ 'ci.R2', 'ss.aipe.R2', 'conf.limits.nct' }
-%\examples{
-
-}
+%\note{ }
+\seealso{ \code{ci.R2}, \code{ss.aipe.R2}, \code{conf.limits.nct} }
+%\examples{}
 \keyword{ design }% at least one, from doc/KEYWORDS
 \keyword{ regression }% __ONLY ONE__ keyword per line
