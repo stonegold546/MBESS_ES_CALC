@@ -10,7 +10,8 @@ population coefficient of variation in terms of the width of the obtained (two-s
 \usage{
 ss.aipe.cv.sensitivity(True.C.of.V = NULL, Estimated.C.of.V = NULL,
 width = NULL, degree.of.certainty = NULL, assurance=NULL, certainty=NULL, 
-mean = 100, Specified.N = NULL, conf.level = 0.95, G = 1000, print.iter = TRUE)
+mean = 100, Specified.N = NULL, conf.level = 0.95, 
+G = 1000, print.iter = TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

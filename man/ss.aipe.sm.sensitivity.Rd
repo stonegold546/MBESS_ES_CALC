@@ -6,16 +6,18 @@ Perspective }
 Perspective for the standardized mean.
 }
 \usage{
-ss.aipe.sm.sensitivity(true.sm = NULL, estimated.sm = NULL, desired.width = NULL, 
-selected.n = NULL, assurance = NULL, certainty=NULL, conf.level = 0.95, 
-G = 10000, print.iter = TRUE, detail = TRUE, ...)
+ss.aipe.sm.sensitivity(true.sm = NULL, estimated.sm = NULL, 
+desired.width = NULL, selected.n = NULL, assurance = NULL, 
+certainty=NULL, conf.level = 0.95, G = 10000, print.iter = TRUE, 
+detail = TRUE, ...)
 }
 \arguments{
   \item{true.sm}{ population standardized mean }
   \item{estimated.sm}{ estimated standardized mean }
   \item{desired.width}{ desired full width of the confidence interval for the population standardized mean }
   \item{selected.n}{ selected sample size to use in order to determine distributional properties of at a given value of sample size }
-  \item{assurance}{ parameter to ensure that the obtained confidence interval width is narrower than the desired width with a specified degree of certainty (must be NULL or between zero and unity) }
+  \item{assurance}{ parameter to ensure that the obtained confidence interval width is narrower 
+  than the desired width with a specified degree of certainty (must be \code{NULL} or between zero and unity) }
   \item{certainty}{an alias for \code{assurance}}
   \item{conf.level}{the desired confidence interval coverage, (i.e., 1 - Type I error rate)}
   \item{G}{ number of generations (i.e., replications) of the simulation}
@@ -62,8 +64,8 @@ Hedges, L. V. (1981). Distribution theory for Glass's Estimator of effect size a
 Kelley, K. (2005) The effects of nonnormal distributions on confidence intervals around the standardized mean
 difference: Bootstrap and parametric confidence intervals, \emph{Educational and Psychological Measurement, 65}, 51--69.
 
-Kelley, K. (In press). Constructing confidence intervals for standardized effect sizes: Theory, application, 
-and implementation. \emph{Journal of Statistical Software}.
+Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, 
+and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
 
 Kelley, K., & Rausch, J. R. (2006). Sample size planning for the standardized mean difference: 
 Accuracy in Parameter Estimation via narrow confidence intervals. P\emph{sychological Methods, 11(4)}, 363-385.

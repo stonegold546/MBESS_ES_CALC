@@ -33,7 +33,7 @@ If the function fails (or if a function relying upon this function fails), adjus
 %\references{ ~put references to the literature/web site here ~ }
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
 
-\seealso{'conf.limits.nct', 'conf.limits.ncf'}
+\seealso{\code{conf.limits.nct}, \code{conf.limits.ncf}}
 \examples{
 # A typical call to the function.
 conf.limits.nc.chisq(Chi.Square=30, conf.level=.95, df=15)

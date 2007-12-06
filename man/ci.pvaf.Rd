@@ -8,8 +8,8 @@ Function to obtain the exact confidence limits for the proportion of variance of
 }
 \usage{
 
-ci.pvaf(F.value = NULL, df.1 = NULL, df.2 = NULL, N = NULL, conf.level = 0.95, 
-alpha.lower = NULL, alpha.upper = NULL, ...)
+ci.pvaf(F.value = NULL, df.1 = NULL, df.2 = NULL, N = NULL, 
+conf.level = 0.95, alpha.lower = NULL, alpha.upper = NULL, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -23,9 +23,11 @@ alpha.lower = NULL, alpha.upper = NULL, ...)
   \item{\dots}{ allows one to potentially include parameter values for inner functions }
 }
 \details{
-The confidence level must be specified in one of following two ways: using confidence interval coverage ('conf.level'), or lower and upper confidence limits ('alpha.lower' and 'alpha.upper').
+The confidence level must be specified in one of following two ways: using confidence interval coverage (\code{conf.level}), or lower and upper confidence 
+limits (\code{alpha.lower} and \code{alpha.upper}).
 
-This function uses the confidence interval transformation principle (Steiger, 2004) to transform the confidence limits for the noncentality parameter to the confidence limits for the population proportion of variance accounted for by knowing the group status. The confidence interval for the noncentral \emph{F} parameter can be obtained from the function 'conf.limits.ncf' in MBESS, which is used within this function.
+This function uses the confidence interval transformation principle (Steiger, 2004) to transform the confidence limits for the noncentality parameter to the confidence limits for the population proportion of variance accounted for by knowing the group status. The confidence interval for the noncentral \emph{F} parameter can be obtained from the
+ function \code{conf.limits.ncf} in MBESS, which is used within this function.
   
 }
 \value{
@@ -43,7 +45,7 @@ Analysis of Variance and Contrast Analysis. \emph{Psychological Methods, 9}, 164
 \note{ 
 This function can be used for single or factorial ANOVA designs.
 }
-\seealso{'conf.limits.ncf' }
+\seealso{\code{conf.limits.ncf} }
 \examples{
 
 ## Bargman (1970) gave an example in which a 5-group ANOVA with 11 subjects in each 

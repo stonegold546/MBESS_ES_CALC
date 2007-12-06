@@ -23,7 +23,7 @@ save.jpg = FALSE, file = "", ...)
   \item{save.pdf}{ save a pdf file }
   \item{save.eps}{ save a postscript file }
   \item{save.jpg}{ save a jpg file }
-  \item{file}{ file name and file path for the graph(s) to save, if file="" a file would be saved in the current working directory }
+  \item{file}{ file name and file path for the graph(s) to save, if \code{file=""} a file would be saved in the current working directory }
   \item{\dots}{ optional plotting specifications }
 }
 \details{
@@ -41,15 +41,23 @@ save.jpg = FALSE, file = "", ...)
 \seealso{ par, nlme, lme4, lme, lmer, vit.fitted }
 
 \examples{
+# Note that the following example works fine in R (<=2.6.0), but not in 
+# the development version of R-2.7.0 (the cause can be either in this 
+# function or in the R program)
 
 data(Gardner.LD)
 library(nlme)
-grouped.Gardner.LD <- groupedData(Score ~ Trial|ID, data=Gardner.LD, order.groups=FALSE)    
+Full.grouped.Gardner.LD <- groupedData(Score ~ Trial|ID, data=Gardner.LD, order.groups=FALSE)    
+
+# Examination of the plot reveals that the logistic change model does not adequately describe
+# the trajectories of individuals 6 and 19 (a negative exponential change model would be 
+# more appropriate). Thus we remove these two subjects.
+grouped.Gardner.LD <- Full.grouped.Gardner.LD[!(Full.grouped.Gardner.LD["ID"]==6 | Full.grouped.Gardner.LD["ID"]==19),]
+
 G.L.nlsList<- nlsList(SSlogis,grouped.Gardner.LD)
 G.L.nlme <- nlme(G.L.nlsList)
-
-vit.fitted(G.L.nlme)
-vit.fitted(G.L.nlme, pct.rand = 50)
+# to visualize individual trajectories:  vit.fitted(G.L.nlme)
+# plot 50% random trajectories:  vit.fitted(G.L.nlme, pct.rand = 50)
 }
 
 \keyword{hplot}

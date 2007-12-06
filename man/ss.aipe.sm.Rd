@@ -12,7 +12,8 @@ ss.aipe.sm(sm, width, conf.level = 0.95, assurance = NULL, certainty=NULL, ...)
   \item{sm}{the population standardized mean }
   \item{width}{ the desired full width of the obtained confidence interval }
   \item{conf.level}{the desired confidence interval coverage, (i.e., 1 - Type I error rate)}
-  \item{assurance}{ parameter to ensure that the obtained confidence interval width is narrower than the desired width with a specified degree of certainty (must be NULL or between zero and unity) }
+  \item{assurance}{ parameter to ensure that the obtained confidence interval width is 
+  narrower than the desired width with a specified degree of certainty (must be \code{NULL} or between zero and unity) }
   \item{certainty}{an alias for \code{assurance}}
   \item{\dots}{ allows one to potentially include parameter values for inner functions }
 }
@@ -32,8 +33,7 @@ Hedges, L. V. (1981). Distribution theory for Glass's Estimator of effect size a
 Kelley, K. (2005) The effects of nonnormal distributions on confidence intervals around the standardized mean
 difference: Bootstrap and parametric confidence intervals, \emph{Educational and Psychological Measurement, 65}, 51--69.
 
-Kelley, K. (In press). Constructing confidence intervals for standardized effect sizes: Theory, application, 
-and implementation. \emph{Journal of Statistical Software}.
+Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
 
 Kelley, K., & Rausch, J. R. (2006). Sample size planning for the standardized mean difference: 
 Accuracy in Parameter Estimation via narrow confidence intervals. P\emph{sychological Methods, 11(4)}, 363-385.

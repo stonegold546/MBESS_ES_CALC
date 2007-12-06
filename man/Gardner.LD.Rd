@@ -9,10 +9,10 @@ Repeated measures data on 24 participants, each with 21 trials (each trial based
 \format{
   A data frame where the rows represent the timepoints for the individuals.
   \describe{
-    \item{\code{ID}}{a numeric vector}
-    \item{\code{Trial}}{a numeric vector}
-    \item{\code{Score}}{a numeric vector}
-    \item{\code{Group}}{a numeric vector}
+    \item{\code{ID}}{: a numeric vector}
+    \item{\code{Trial}}{: a numeric vector}
+    \item{\code{Score}}{: a numeric vector}
+    \item{\code{Group}}{: a numeric vector}
   }
 }
 \details{

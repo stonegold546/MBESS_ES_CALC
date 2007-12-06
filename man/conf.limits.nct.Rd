@@ -10,7 +10,8 @@ Due to the difficulties in estimating the necessary values, three different meth
 
 \usage{
 conf.limits.nct(ncp, df, conf.level = 0.95, alpha.lower = NULL, 
-alpha.upper = NULL, t.value, tol = 1e-09, sup.int.warns = TRUE, method = "all", ...)
+alpha.upper = NULL, t.value, tol = 1e-09, sup.int.warns = TRUE, 
+method = "all", ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -22,7 +23,8 @@ alpha.upper = NULL, t.value, tol = 1e-09, sup.int.warns = TRUE, method = "all", 
   \item{t.value}{alias for \code{ncp}}
   \item{tol}{is the tolerance of the iterative method for determining the critical values.}
   \item{sup.int.warns}{Suppress internal warnings (from internal functions): TRUE or FALSE}
-  \item{method}{which of the three methods should be used: "all", "1", "2", "3" ("all" is default).}
+  \item{method}{which of the three methods should be used: \code{"all"}, 
+  \code{"1"}, \code{"2"}, \code{"3"} (\code{"all"} is default).}
   \item{\dots}{ allows one to potentially include parameter values for inner functions}
 }
 \details{
@@ -62,7 +64,7 @@ S. Muliak, \& J. Steiger (Eds.), \emph{What if there were no significance tests?
 \section{Warning}{At the present time, the largest \code{ncp} that R can accurately handle is 37.62.
 }
 
-\seealso{'pt', 'qt', 'ci.smd', 'ci.smd.c', 'ss.aipe', 'conf.limits.ncf', 'conf.limits.nc.chisq'}
+\seealso{\code{pt}, \code{qt}, \code{ci.smd}, \code{ci.smd.c}, \code{ss.aipe}, \code{conf.limits.ncf}, \code{conf.limits.nc.chisq}}
 \examples{
 
 # Suppose observed t-value based on 'df'=126 is 2.83. Finding the lower 

@@ -33,7 +33,7 @@ Muirhead, R. J. (1985). Estimating a particular function of the multiple correla
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
 
 \seealso{
-'ci.R2', 'ss.aipe.R2'
+\code{ci.R2}, \code{ss.aipe.R2}
 }
 \examples{
 signal.to.noise.R2(R.Square=.5, N=50, p=2)

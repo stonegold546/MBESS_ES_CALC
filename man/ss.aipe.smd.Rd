@@ -65,8 +65,9 @@ The functions \code{ss.aipe.smd.lower}, \code{ss.aipe.smd.upper} and
 \section{Warning}{Finding sample size for lower and uppper confidence limits is approximate, but very close to being exact. The \code{pt()} function is limited to accurate values 
 when the the noncentral parameter is less than 37.62.} 
 
-\seealso{'smd', 'smd.c', 'ci.smd', 'ci.smd.c', 'conf.limits.nct', 'power.t.test', 
-'ss.aipe.smd.lower', 'ss.aipe.smd.upper', 'ss.aipe.smd.full'}
+\seealso{\code{smd}, \code{smd.c}, \code{ci.smd}, \code{ci.smd.c}, 
+\code{conf.limits.nct}, \code{power.t.test}, \code{ss.aipe.smd.lower}, 
+\code{ss.aipe.smd.upper}, \code{ss.aipe.smd.full}}
 
 \examples{
 ss.aipe.smd(delta=.5, conf.level=.95, width=.30)

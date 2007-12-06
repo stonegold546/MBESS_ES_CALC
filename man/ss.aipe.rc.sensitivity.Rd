@@ -13,7 +13,8 @@ ss.aipe.rc.sensitivity(True.Var.Y = NULL, True.Cov.YX = NULL,
 True.Cov.XX = NULL, Estimated.Var.Y = NULL, Estimated.Cov.YX = NULL, 
 Estimated.Cov.XX = NULL, Specified.N = NULL, which.predictor = 1, 
 w = NULL, Noncentral = FALSE, Standardize = FALSE, conf.level = 0.95, 
-degree.of.certainty = NULL, assurance=NULL, certainty=NULL, G = 1000, print.iter = TRUE)
+degree.of.certainty = NULL, assurance=NULL, certainty=NULL, 
+G = 1000, print.iter = TRUE)
 }
 
 \arguments{
@@ -67,9 +68,11 @@ the results are not literally from a sensitivity analysis, rather the function p
 study. A simulation study can be helpful in order to determine if the sample size procedure
 under or overestimates necessary sample size.
 
-See 'ss.aipe.reg.coef.sensitivity' in MBESS for more details.
+See \code{ss.aipe.reg.coef.sensitivity} in MBESS for more details.
 }
-\seealso{'ss.aipe.reg.coef.sensitivity', 'ss.aipe.src.sensitivity', 'ss.aipe.reg.coef', 'ci.reg.coef' }
+\seealso{\code{ss.aipe.reg.coef.sensitivity}, \code{ss.aipe.src.sensitivity}, 
+
+\code{ss.aipe.reg.coef}, \code{ci.reg.coef} }
 %\examples{
 }
 \keyword{ design }

@@ -9,8 +9,8 @@
 \usage{
 
 
-ci.sm(sm = NULL, Mean = NULL, SD = NULL, ncp = NULL, N = NULL, conf.level = 0.95,
- alpha.lower = NULL, alpha.upper = NULL, ...)
+ci.sm(sm = NULL, Mean = NULL, SD = NULL, ncp = NULL, N = NULL, 
+conf.level = 0.95, alpha.lower = NULL, alpha.upper = NULL, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -26,9 +26,12 @@ ci.sm(sm = NULL, Mean = NULL, SD = NULL, ncp = NULL, N = NULL, conf.level = 0.95
 }
 \details{
 
-The user must specify the standardized mean in one and only one of the three ways: a) mean and standard deviation ('Mean' and 'SD'), b) standardized mean ('sm'), and c) noncentral parameter ('ncp'). The confidence level must be specified in one of following two ways: using confidence interval coverage ('conf.level'), or lower and upper confidence limits ('alpha.lower' and 'alpha.upper').
+The user must specify the standardized mean in one and only one of the three ways: a) mean and standard deviation (\code{Mean} and \code{SD}), b) standardized 
+mean (\code{sm}), and c) noncentral parameter (\code{ncp}). The confidence level must be specified in one of following two ways: using confidence interval 
+coverage (\code{conf.level}), or lower and upper confidence limits (\code{alpha.lower} and \code{alpha.upper}).
 
-This function uses the exact confidence interval method based on noncentral t distribution. The confidence interval for noncentral t parameter can be abtained from function 'conf.limits.nct' in MBESS.
+This function uses the exact confidence interval method based on noncentral t distribution. The confidence interval for noncentral t parameter can be abtained 
+from function \code{conf.limits.nct} in MBESS.
 }
 \value{
   
@@ -38,14 +41,17 @@ This function uses the exact confidence interval method based on noncentral t di
 
 }
 \references{
-Kelley, K. (2006). Constructing confidence intervals for standardized effect sizes: Theory, 
-application, and implementation. \emph{Manuscript submitted for publication}.
+Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
+
+Steiger, J. H., \& Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
+statistical methods. In L. L. Harlow, S. A. Mulaik, & J.H. Steiger (Eds.), \emph{What if there where
+no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum.
 }
 \author{ Ken Kelley (Indiana University;<KKIII@Indiana.Edu>) }
 \note{ 
 The standardized mean is the mean divided by the standard deviation.
 }
-\seealso{ 'conf.limits.nct' }
+\seealso{ \code{conf.limits.nct} }
 \examples{
 ci.sm(sm=2.037905, N=13, conf.level=.95)
 ci.sm(Mean=30, SD=14.721, N=13, conf.level=.95)

@@ -33,7 +33,11 @@ Uses the noncentral \code{t}-distribution to calculate the confidence interval f
 }
 \references{
 Johnson, B. L., \& Welch, B. L. (1940). Applications of the non-central \emph{t}-distribution. \emph{Biometrika}, 31, 362--389.
+
+Kelley, K. (2007). Sample size planning for the coefcient of variation from the accuracy in parameter estimation approach. \emph{Behavior Research Methods, 39} (4), 755-766.
   
+Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
+
 McKay, A. T. (1932). Distribution of the coefficient of variation and the extended 
 \emph{t} distribution, \emph{Journal of the Royal Statistical Society}, \emph{95}, 695--698.
 }
@@ -43,7 +47,7 @@ McKay, A. T. (1932). Distribution of the coefficient of variation and the extend
 %
 % ~Make other sections like Warning with \section{Warning }{....} ~
 %}
-%\seealso{'conf.limits.nct'}
+%\seealso{\code{conf.limits.nct}}
 \examples{
 set.seed(113)
 N <- 15

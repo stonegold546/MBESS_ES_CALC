@@ -7,8 +7,8 @@ A function to calculate the appropriate sample size per group for the (unstandar
 so that the width of the confidence interval is sufficiently narrow. }
 
 \usage{
-ss.aipe.c(error.variance = NULL, c.weights, width, conf.level = 0.95, assurance = NULL, 
-certainty = NULL, MSwithin = NULL, SD = NULL, ...)
+ss.aipe.c(error.variance = NULL, c.weights, width, conf.level = 0.95, 
+assurance = NULL, certainty = NULL, MSwithin = NULL, SD = NULL, ...)
 }
 \arguments{
   \item{error.variance}{the common error variance; i.e., the mean square error}

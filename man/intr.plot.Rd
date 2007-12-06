@@ -23,7 +23,7 @@ line.wd = 2, gray.scale = FALSE, ticktype="detailed", ...)
   \item{n.z}{ number of elements in predictor vector z; number of points to be plotted on the regression surface; default is 50}
  \item{x}{ a specific predictor vector x, used instead of \code{x.max} and \code{x.min}}
   \item{z}{ a specific predictor vector z, used instead of \code{z.max} and \code{z.min} }
-   \item{col}{ color of the regression surface; default is "lightbule"}
+   \item{col}{ color of the regression surface; default is \code{"lightbule"}}
  \item{hor.angle}{ rotate the regression surface horizontally; default is -60 degree }
   \item{vert.angle}{ rotate the regression surface vertically; default is 15 degree }
  \item{xlab}{ title for the axis which the predictor x is on  }
@@ -35,7 +35,7 @@ line.wd = 2, gray.scale = FALSE, ticktype="detailed", ...)
   \item{col.line}{ the color of regression lines plotted on the regression surface; default is red }
   \item{line.wd}{ the width of regression lines plotted on the regression surface; default is 2 }
   \item{gray.scale}{ whether or not to plot the figure black and white; default is FALSE }
- \item{ticktype}{ whether the axes should be plotted with ("detailed") or without ("simple") tick marks}
+ \item{ticktype}{ whether the axes should be plotted with (\code{"detailed"}) or without (\code{"simple"}) tick marks}
  \item{\dots}{ allows one to potentially include parameter values for inner functions }
 }
 
@@ -49,13 +49,15 @@ If the user inputs specific predictor vectors, the function would plot the regre
 
 \references{Cohen, J., Cohen, P., West, S. G. and Aiken, L. S. (2003). \emph{Applied multiple regression/correlation analysis for the behavioral sciences} (3rd ed.). Mahwah, NJ: Erlbaum. }
 
-\author{ Keke Lai (Indiana University <laik@indiana.edu>), Ken Kelley (Indiana University <kkiii@indiana.edu>)  }
+\author{ Keke Lai (Indiana University <laik@indiana.edu>), 
+
+Ken Kelley (Indiana University <kkiii@indiana.edu>)  }
 
 \note{ If the user enters specific vectors instead of the ranges of predictors, please make sure
 elements in those vectors are in ascending order. This is required by function \code{persp}, which 
 is used within this function.  
 }
-\seealso{ 'intr.plot.2d', 'persp' }
+\seealso{ \code{intr.plot.2d}, \code{persp} }
 \examples{
 ##  A way to replicate the example given by Cohen et al. (2003) (pp. 258--263):
 ##  The regression equation with interaction is y=.2X+.6Z+.4XZ+2

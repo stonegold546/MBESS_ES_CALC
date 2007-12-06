@@ -7,8 +7,8 @@ certainty that the interval will not wider than desired.}
 \usage{
 ss.aipe.cv(C.of.V = NULL, width = NULL, conf.level = 0.95, 
 degree.of.certainty = NULL, assurance=NULL, certainty=NULL, 
-mu = NULL, sigma = NULL, alpha.lower = NULL, 
-alpha.upper = NULL, Suppress.Statement = TRUE, sup.int.warns = TRUE, ...)
+mu = NULL, sigma = NULL, alpha.lower = NULL, alpha.upper = NULL, 
+Suppress.Statement = TRUE, sup.int.warns = TRUE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

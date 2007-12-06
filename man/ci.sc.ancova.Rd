@@ -7,8 +7,9 @@ Calculate the confidence interval for a standardized contrast in ANCOVA with one
 or of the ANCOVA model.
 }
 \usage{
-ci.sc.ancova(Psi=NULL, means=NULL, s.anova = NULL, s.ancova, standardizer = "s.ancova", 
-c.weights, n, x.bar, SSwithin.x, conf.level = 0.95)
+ci.sc.ancova(Psi=NULL, means=NULL, s.anova = NULL, s.ancova, 
+standardizer = "s.ancova", c.weights, n, x.bar, SSwithin.x, 
+conf.level = 0.95)
 }
 \arguments{
   \item{Psi}{ unstandardized contrast of adjusted means }
@@ -35,8 +36,18 @@ c.weights, n, x.bar, SSwithin.x, conf.level = 0.95)
 }
 
 \references{ 
-Maxwell, S. E., & Delaney, H. D. (2004). \emph{Designing experiments and analyzing data: A model comparison perspective}. Mahwah, NJ: Erlbaum.
-}
+Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, 
+and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
+
+Kelley, K., \& Rausch, J. R. (2006). Sample size planning for the standardized mean difference: 
+Accuracy in Parameter Estimation via narrow confidence intervals. P\emph{sychological Methods, 11} (4), 363-385.
+
+Lai, K., \& Kelley, K. (2007). Sample size planning for standardized ANCOVA and ANOVA 
+contrasts: Obtaining narrow confidence intervals. \emph{Manuscript submitted for publication}.
+
+Steiger, J. H., \& Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
+statistical methods. In L. L. Harlow, S. A. Mulaik, & J.H. Steiger (Eds.), \emph{What if there where
+no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum. }
 
 \author{Keke Lai (Indiana University; \email{LaiK@Indiana.Edu})}
 

@@ -24,24 +24,24 @@ degree.of.certainty = NULL, assurance=NULL, certainty=NULL,
 variable (Y) }
   \item{True.Cov.XX}{ Population covariance matrix of the p predictor variables }
   \item{Estimated.Var.Y}{ Estimated variance of the dependent variable (Y) }
-  \item{Estimated.Cov.YX}{Estimated covariances vector between the p predictor variables and the dependent
+  \item{Estimated.Cov.YX}{Estimated covariances vector between the \emph{p} predictor variables and the dependent
 variable (Y) }
   \item{Estimated.Cov.XX}{ Estimated Population covariance matrix of the p predictor variables }
   \item{Specified.N}{Directly specified sample size (instead of using Estimated.Rho.YX and
 Estimated.RHO.XX)}
-  \item{which.predictor}{ identifies which of the p predictors is of interest }
+  \item{which.predictor}{ identifies which of the \emph{p} predictors is of interest }
   \item{w}{ desired confidence interval width for the regression coefficient of interest }
-  \item{Noncentral}{ specify with a TRUE/FALSE statement whether or not the noncentral approach
+  \item{Noncentral}{ specify with a \code{TRUE/FALSE} statement whether or not the noncentral approach
 to sample size planning should be used}
-  \item{Standardize}{ specify with a TRUE/FALSE statement whether or not the regression coefficient
-will be standardized; default is TRUE  }
+  \item{Standardize}{ specify with a \code{TRUE/FALSE} statement whether or not the regression coefficient
+will be standardized; default is \code{TRUE}  }
   \item{conf.level}{ desired level of confidence for the computed interval (i.e., 1 - the Type I error
 rate) }
    \item{degree.of.certainty}{degree of certainty that the obtained confidence interval will be sufficiently narrow }
   \item{assurance}{ an alias for \code{degree.of.certainty} }
 \item{certainty}{an alias for \code{degree.of.certainty}}
   \item{G}{ the number of generations/replication of the simulation study within the function }
-  \item{print.iter}{ specify with a TRUE/FALSE statement if the iteration number should be printed
+  \item{print.iter}{ specify with a \code{TRUE/FALSE} statement if the iteration number should be printed
 as the simulation within the function runs }
 }
 
@@ -61,7 +61,7 @@ given the input specification}
 
 \references{ 
 Kelley, K. & Maxwell, S. E. (2003). Sample size for Multiple Regression: Obtaining regression
-coefficients that are accuracy, not simply significant.\emph{ Psychological Methods, 8}, 305¨C321.
+coefficients that are accuracy, not simply significant.\emph{ Psychological Methods, 8}, 305-321.
 }
 \author{ Ken Kelley (Indiana University; KKIII@Indiana.Edu) }
 
@@ -71,9 +71,11 @@ the results are not literally from a sensitivity analysis, rather the function p
 study. A simulation study can be helpful in order to determine if the sample size procedure
 under or overestimates necessary sample size.
 
-See 'ss.aipe.reg.coef.sensitivity' in MBESS for more details.
+See \code{ss.aipe.reg.coef.sensitivity} in MBESS for more details.
 }
-\seealso{ 'ss.aipe.reg.coef.sensitivity', 'ss.aipe.rc.sensitivity', 'ss.aipe.reg.coef', 'ci.reg.coef'}
+\seealso{ \code{ss.aipe.reg.coef.sensitivity}, \code{ss.aipe.rc.sensitivity}, 
+
+\code{ss.aipe.reg.coef}, \code{ci.reg.coef}}
 
 %\examples{
 }

@@ -28,7 +28,7 @@ Either the value of delta given lambda or \code{lambda} given \code{delta} (and 
 
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
 
-\seealso{'smd', 'ci.smd', 'ss.aipe.smd'}
+\seealso{\code{smd}, \code{ci.smd}, \code{ss.aipe.smd}}
 \examples{
 lambda2delta(lambda=2, n.1=113, n.2=113)
 delta2lambda(delta=.266076, n.1=113, n.2=113)

@@ -4,8 +4,8 @@
 \description{A function to calculate the exact confidence interval for the multiple correlation coefficient.}
 \usage{
 ci.R2(R2 = NULL, df.1 = NULL, df.2 = NULL, conf.level = .95, 
-Random.Predictors=TRUE, Random.Regressors, F.value = NULL, N = NULL, p = NULL, 
-K, alpha.lower = NULL, alpha.upper = NULL, tol = 1e-09)}
+Random.Predictors=TRUE, Random.Regressors, F.value = NULL, N = NULL, 
+p = NULL, K, alpha.lower = NULL, alpha.upper = NULL, tol = 1e-09)}
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{R2}{multiple correlation coefficient}
@@ -13,7 +13,8 @@ K, alpha.lower = NULL, alpha.upper = NULL, tol = 1e-09)}
   \item{df.2}{denominator degrees of freedom}
   \item{conf.level}{confidence interval coverage; 1-Type I error rate}
   \item{Random.Predictors}{whether or not the predictor variables are random or fixed (random is default)}
-  \item{Random.Regressors}{an alias for \code{Random.Predictors}; \code{Random.Regressors} overrides \code{Random.Predictors}}
+  \item{Random.Regressors}{an alias for \code{Random.Predictors}; \code{Random.Regressors} overrides 
+  \code{Random.Predictors}}
   \item{F.value}{obtained \code{F}-value}
   \item{N}{sample size}
   \item{p}{number of predictors}
@@ -58,7 +59,7 @@ and hypothesis testing for the squared multiple correlation. \emph{Behavior rese
 }
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
 
-\seealso{'ss.aipe.R2', 'conf.limits.nct'}
+\seealso{\code{ss.aipe.R2}, \code{conf.limits.nct}}
 \examples{
 # For random predictor variables.
 ci.R2(R2=.25, N=100, K=5, conf.level=.95, Random.Predictors=TRUE)

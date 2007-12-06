@@ -6,9 +6,9 @@
 Function to calculate the exact confidence interval for a contrast in a fixed effects analysis of variance context.
 }
 \usage{
-ci.c(means = NULL, error.variance = NULL, c.weights = NULL, n = NULL, N = NULL, 
-Psi = NULL, conf.level = 0.95, alpha.lower = NULL, alpha.upper = NULL, 
-df.error = NULL, ...)
+ci.c(means = NULL, error.variance = NULL, c.weights = NULL, n = NULL, 
+N = NULL, Psi = NULL, conf.level = 0.95, alpha.lower = NULL, 
+alpha.upper = NULL, df.error = NULL, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -24,9 +24,7 @@ df.error = NULL, ...)
   \item{df.error}{ the degrees of freedom for the error. In one-way designs, this is simply \emph{N}-length (means) and need not be specified; it must be specified if the design has multiple factors. }
   \item{\dots}{ allows one to potentially include parameter values for inner functions }
 }
-\details{
-  
-}
+%\details{}
 \value{
 Returns the confidence limits for the contrast: 
   
@@ -35,15 +33,18 @@ Returns the confidence limits for the contrast:
   \item{Upper.Conf.Limit.Contrast}{The upper confidence limit for the contrast effect}
 }
 \references{
+Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
+
 Steiger, J. H. (2004). Beyond the \emph{F} Test: Effect size confidence intervals and tests of close fit in the 
-Analysis of Variance and Contrast Analysis. \emph{Psychological Methods, 9}, 164--182.}
+Analysis of Variance and Contrast Analysis. \emph{Psychological Methods, 9}, 164--182.
+}
 
 \author{ Ken Kelley (Indiana University, <KKIII@Indiana.edu>) }
 
 \note{ Be sure to use the error varaince and not its square root (i.e., the standard deviation of the errors).
 }
 
-\seealso{ 'conf.limits.nct', 'ci.sc', 'ci.src', 'ci.smd', 'ci.smd.c', 'ci.sm'}
+\seealso{ \code{conf.limits.nct}, \code{ci.sc}, \code{ci.src}, \code{ci.smd}, \code{ci.smd.c}, \code{ci.sm}}
 
 \examples{
 ci.c(means=c(2, 4, 9, 13), error.variance=1, c.weights=c(1, -1, -1, 1), 

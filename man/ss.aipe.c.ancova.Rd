@@ -6,8 +6,9 @@ A function to calculate the appropriate sample size per group for the (unstandar
 ANCOVA, so that the width of the confidence interval is sufficiently narrow. 
 }
 \usage{
-ss.aipe.c.ancova(error.var.ancova = NULL, error.var.anova = NULL, rho = NULL, c.weights, 
-width, conf.level = 0.95, assurance = NULL, certainty = NULL)
+ss.aipe.c.ancova(error.var.ancova = NULL, error.var.anova = NULL, 
+rho = NULL, c.weights, width, conf.level = 0.95, 
+assurance = NULL, certainty = NULL)
 }
 \arguments{
   \item{error.var.ancova}{the population error variance of the ANCOVA model (i.e., the mean square within of the ANCOVA model)}

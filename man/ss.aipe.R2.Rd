@@ -10,9 +10,10 @@ sufficiently narrow. Optionally, there is a certainty parameter that allows one 
 a specified percent certain that the observed interval will be no wider than desired.
 }
 \usage{
-ss.aipe.R2(Population.R2 = NULL, conf.level = 0.95, width = NULL, Random.Predictors = TRUE, 
-Random.Regressors, which.width = "Full", p = NULL, K, degree.of.certainty = NULL, 
-assurance=NULL, certainty=NULL, verify.ss = FALSE, Tol = 1e-09, ...)
+ss.aipe.R2(Population.R2 = NULL, conf.level = 0.95, width = NULL, 
+Random.Predictors = TRUE, Random.Regressors, which.width = "Full", p = NULL, 
+K, degree.of.certainty = NULL, assurance=NULL, certainty=NULL, 
+verify.ss = FALSE, Tol = 1e-09, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -20,7 +21,8 @@ assurance=NULL, certainty=NULL, verify.ss = FALSE, Tol = 1e-09, ...)
   \item{conf.level}{ confidence interval level (e.g., .95, .99, .90); 1-Type I error rate }
   \item{width}{width of the confidence interval (see \code{which.width}) }
   \item{Random.Predictors}{ whether or not the predictor variables are random (set to TRUE) or are fixed (set to FALSE) }
-  \item{Random.Regressors}{ an alias for \code{Random.Predictors}; \code{Random.Regressors} overrides \code{Random.Predictors} }
+  \item{Random.Regressors}{ an alias for \code{Random.Predictors}; \code{Random.Regressors} 
+  overrides \code{Random.Predictors} }
   \item{which.width}{ defines the width that \code{width} refers to }
   \item{p}{ the number of predictor variables }
   \item{K}{ an alias for \code{p}; \code{K} overrides \code{p} }
@@ -32,17 +34,20 @@ assurance=NULL, certainty=NULL, verify.ss = FALSE, Tol = 1e-09, ...)
   \item{\dots}{for modifying the parameters of functions this function calls upon}
 }
 \details{
-This function determines a necessary sample size so that the expected confidence interval width for
-the squared multiple correlation coefficient is sufficiently 
-narrow (when \code{degree.of.certainty=NULL}) or so that the obtained confidence interval
-is no larger than the value specified with some desired degree 
-of certainty (i.e., a probability that the obtained width is less than the specified width). The 
-method depends on whether or not the regressors are regarded as fixed or random. This is the case because the distribution theory for the two cases is different and thus 
-the confidence interval procedure is conditional the type of regressors. The default methods are approximate
-but can be made exact with the specification of verify.ss=TRUE, which performs an a priori
-Monte Carlo simulation study .Kelley (2007) and Kelley \& Maxwell (In press) detail the 
-methods used in the function, with the former focusing on random regressors and the latter 
-on fixed regressors.
+This function determines a necessary sample size so that the expected confidence 
+interval width for the squared multiple correlation coefficient is sufficiently 
+
+narrow (when \code{degree.of.certainty=NULL}) 
+so that the obtained confidence 
+interval is no larger than the value specified with some desired degree of 
+certainty (i.e., a probability that the obtained width is less than the specified 
+width). The method depends on whether or not the regressors are regarded as fixed 
+or random. This is the case because the distribution theory for the two cases is 
+different and thus the confidence interval procedure is conditional the type of 
+regressors. The default methods are approximate but can be made exact with the 
+specification of verify.ss=TRUE, which performs an a priori Monte Carlo simulation 
+study. Kelley (2007) and Kelley \& Maxwell (2008) detail the methods used in the 
+function, with the former focusing on random regressors and the latter on fixed regressors.
 
 It is recommended that the option \code{verify.ss} should always be used! Doing so uses the method impled sample size as an estimate
 and then evaluates with an internal Monte Carlo simulation (i.e., via "brute-force" methods) the exact 
@@ -82,7 +87,7 @@ Issues of sample size planning with applications to multiple regression. In P. A
 }
 
 
-\seealso{ 'ci.R2', 'conf.limits.nct', 'ss.aipe.R2.sensitivity' }
+\seealso{ \code{ci.R2}, \code{conf.limits.nct}, \code{ss.aipe.R2.sensitivity} }
 
 
 \examples{

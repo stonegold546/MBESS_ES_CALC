@@ -280,15 +280,15 @@ colnames(Quality.of.Fit) <<- list("ID","R-SQUARE","RMSE")
 if(class(fit.Model)[1]!="lmer")
 {
 observed.data <- all.data[all.data[[".type"]]=="original",][,-4]
-fitted.data <<- cbind(as.data.frame(observed.data[,2]),as.data.frame(observed.data[,1]),as.data.frame(observed.data[,3]),as.data.frame(fit.Model$fit)[,2])
-colnames(fitted.data) <<- list(names(fit.Model$groups),xlab,ylab,"fitted")
+fitted.data <- cbind(as.data.frame(observed.data[,2]),as.data.frame(observed.data[,1]),as.data.frame(observed.data[,3]),as.data.frame(fit.Model$fit)[,2])
+colnames(fitted.data) <- list(names(fit.Model$groups),xlab,ylab,"fitted")
 }
 
 if(class(fit.Model)[1]=="lmer")
 {
-ID <<- as.data.frame(all.data[,3])
-fitted.data <<- cbind(as.data.frame(all.data[,3]),as.data.frame(all.data[,2]),as.data.frame(all.data[,1]),y.hat)
-colnames(fitted.data) <<- list(names(all.data)[3],xlab,ylab,"fitted")
+ID <- as.data.frame(all.data[,3])
+fitted.data <- cbind(as.data.frame(all.data[,3]),as.data.frame(all.data[,2]),as.data.frame(all.data[,1]),y.hat)
+colnames(fitted.data) <- list(names(all.data)[3],xlab,ylab,"fitted")
 }
 
 print("Type \'Quality.of.Fit\' to see the quality of fit.")

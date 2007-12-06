@@ -27,7 +27,8 @@ The confidence level must be specified in one of following two ways: using
 confidence interval coverage (\code{conf.level}), or lower and upper confidence 
 limits (\code{alpha.lower} and \code{alpha.upper}).
 
-This function uses the confidence interval transformation principle (Steiger, 2004) to transform the confidence limits for the noncentality parameter to the confidence limits for the population's signal-to-noise ratio. The confidence interval for noncentral \emph{F} parameter can be abtained from function 'conf.limits.ncf' in MBESS, which is used within this function.
+This function uses the confidence interval transformation principle (Steiger, 2004) to transform the confidence limits for the noncentality parameter to the confidence limits for the population's signal-to-noise ratio. The confidence interval for noncentral \emph{F} parameter can be abtained 
+from function \code{conf.limits.ncf} in MBESS, which is used within this function.
   
 }
 \value{
@@ -39,6 +40,8 @@ Returns the confidence limits for the signal-to-noise ratio.
 }
 
 \references{ 
+Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
+
 Fleishman, A. I. (1980). Confidence intervals for correlation ratios. \emph{Educational and Psychological Measurement, 40}, 659--670.
 
 Steiger, J. H. (2004). Beyond the \emph{F} Test: Effect size confidence intervals and tests of close fit in the Analysis of Variance and Contrast Analysis.  \emph{Psychological Methods, 9}, 164--182. }
@@ -47,7 +50,7 @@ Steiger, J. H. (2004). Beyond the \emph{F} Test: Effect size confidence interval
 \note{ 
 The signal to noise ratio is defined as the variance due to the particular factor over the error variance (i.e., the mean square error).
 }
-\seealso{ 'ci.srsnr', 'conf.limits.ncf' }
+\seealso{ \code{ci.srsnr}, \code{conf.limits.ncf} }
 \examples{
 
 ## Bargman (1970) gave an example in which a 5-group ANOVA with 11 subjects in each 

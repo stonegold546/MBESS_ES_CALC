@@ -5,8 +5,8 @@
 To calculate the confidence interval for an unstandardized contrast in the one-covariate ANCOVA.
 }
 \usage{
-ci.c.ancova(Psi, means, error.var.ancova = NULL, c.weights, n, x.bar, SSwithin.x, 
-conf.level = 0.95, ...)
+ci.c.ancova(Psi, means, error.var.ancova = NULL, c.weights, n,
+x.bar, SSwithin.x, conf.level = 0.95, ...)
 }
 \arguments{
   \item{Psi}{ the unstandardized contrast of adjusted means}
@@ -30,7 +30,10 @@ conf.level = 0.95, ...)
 }
 
 \references{
-Maxwell, S. E., & Delaney, H. D. (2004). \emph{Designing experiments and analyzing data: A model comparison perspective}. Mahwah, NJ: Erlbaum. }
+Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
+
+Maxwell, S. E., \& Delaney, H. D. (2004). \emph{Designing experiments and analyzing data: A model comparison perspective}. Mahwah, NJ: Erlbaum. 
+}
 
 \author{Keke Lai (Indiana University; \email{LaiK@Indiana.Edu})}
 

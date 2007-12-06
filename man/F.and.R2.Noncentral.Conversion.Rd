@@ -43,7 +43,7 @@ Returns the converted value from the specified function.
 %\note{ ~~further notes~~ 
 % ~Make other sections like Warning with \section{Warning }{....} ~
 %}
-\seealso{'ss.aipe.R2', 'ci.R2', 'conf.limits.nct', 'conf.limits.ncf'}
+\seealso{\code{ss.aipe.R2}, \code{ci.R2}, \code{conf.limits.nct}, \code{conf.limits.ncf}}
 \examples{Rsquare2Lambda(R2=.5, N=100)}
 \keyword{multivariate}
 \keyword{design}

@@ -13,7 +13,8 @@ certainty=NULL, Suppress.Statement=FALSE)}
   \item{p}{the number of predictor variables}
   \item{b.j}{the regression coefficient for the \code{j}th predictor variable (i.e., the predictor of interest)}
   \item{width}{the desired width of the confidence interval}
-  \item{which.width}{which width (``Full", ``Lower", or ``Upper") the width refers to (at present, only ``Full" can be specified)}
+  \item{which.width}{which width (\code{"Full"}, \code{"Lower"}, or \code{"Upper"}) the width refers 
+  to (at present, only \code{"Full"} can be specified)}
   \item{sigma.Y}{the population standard deviation of \code{Y} (i.e., the dependent variables)}
   \item{sigma.X}{the population standard deviation of the \code{j}th \code{X} variable (i.e., the predictor variable of interest)}
   \item{RHO.XX}{Population correlation matrix for the \code{p} predictor variables}
@@ -39,7 +40,7 @@ specifications.}
 %\note{ ~~further notes~~
 % ~Make other sections like Warning with \section{Warning }{....} ~
 %}
-\seealso{ss.aipe.reg.coef.sensitivity, conf.limits.nct}
+\seealso{\code{ss.aipe.reg.coef.sensitivity}, \code{conf.limits.nct}}
 \examples{
 # Exchangable correlation structure
 Rho.YX <- c(.3, .3, .3, .3, .3)

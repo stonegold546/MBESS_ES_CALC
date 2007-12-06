@@ -8,7 +8,7 @@ cv(C.of.V=NULL, mean=NULL, sd=NULL, N=NULL, unbiased=FALSE)
 \arguments{
   \item{C.of.V}{Usual estimate of the coefficient of variation (\code{C.of.V=sd/mean})}
   \item{mean}{observed mean}
-  \item{sd}{observed standard deviation (based on N-1 in the denominator of the variance)}
+  \item{sd}{observed standard deviation (based on \code{N}-1 in the denominator of the variance)}
   \item{N}{sample size}
 
   \item{unbiased}{return the unbiased estimate of the coefficient of variation}

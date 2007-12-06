@@ -6,7 +6,8 @@ A function to calculate the appropriate sample size per group for the standardiz
 width of the confidence interval is sufficiently narrow. 
 }
 \usage{
-ss.aipe.sc(psi, c.weights, width, conf.level = 0.95, assurance = NULL, certainty = NULL, ...)
+ss.aipe.sc(psi, c.weights, width, conf.level = 0.95, 
+assurance = NULL, certainty = NULL, ...)
 }
 \arguments{
   \item{psi}{ population standardized contrast }
@@ -31,11 +32,14 @@ Hedges, L. V. (1981). Distribution theory for Glass's Estimator of effect size a
 Kelley, K. (2005) The effects of nonnormal distributions on confidence intervals around the standardized mean
 difference: Bootstrap and parametric confidence intervals, \emph{Educational and Psychological Measurement, 65}, 51--69.
 
-Kelley, K. (In press). Constructing confidence intervals for standardized effect sizes: Theory, application, 
-and implementation. \emph{Journal of Statistical Software}.
+Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, 
+and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
 
 Kelley, K., & Rausch, J. R. (2006). Sample size planning for the standardized mean difference: 
 Accuracy in Parameter Estimation via narrow confidence intervals. \emph{Psychological Methods, 11(4)}, 363-385.
+
+Lai, K., \& Kelley, K. (2007). Sample size planning for standardized ANCOVA and ANOVA 
+contrasts: Obtaining narrow confidence intervals. \emph{Manuscript submitted for publication}.
 
 Steiger, J. H., \& Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
 statistical methods. In L. L. Harlow, S. A. Mulaik,&J.H. Steiger (Eds.), \emph{What if there where

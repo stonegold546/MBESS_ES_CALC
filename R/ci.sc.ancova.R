@@ -1,4 +1,5 @@
-ci.sc.ancova<-function(Psi=NULL, means=NULL, s.anova=NULL, s.ancova, standardizer="s.ancova", c.weights, n, x.bar, SSwithin.x, conf.level=.95)
+`ci.sc.ancova` <-
+function(Psi=NULL, means=NULL, s.anova=NULL, s.ancova, standardizer="s.ancova", c.weights, n, x.bar, SSwithin.x, conf.level=.95)
 {options(warn=-1)
 if(standardizer=="s.anova")
     {if(is.null(s.anova)) stop("'s.anova' is needed to standardized the contrast")}
@@ -36,8 +37,7 @@ if(standardizer=="s.ancova")
     }
 
 if(standardizer=="s.anova")
-    {if(s.anova<=s.ancova) stop("'s.anova' should be larger than 's.ancova'")
-    psi<-Psi/s.anova
+    {psi<-Psi/s.anova
     lambda.obs<-psi/(ratio*sqrt(sample.size.weighted+(f.x.numerater/f.x.denominator)))
     lambda.limits<-conf.limits.nct(ncp=lambda.obs, df=nu, conf.level=1-alpha)
     
@@ -47,3 +47,4 @@ if(standardizer=="s.anova")
 
 list(stadardizer=standardizer, psi.limit.lower=psi.limit.lower, psi.limit.upper=psi.limit.upper)
 }
+

@@ -3,8 +3,8 @@ function(b.j, SE.b.j=NULL, s.Y=NULL, s.X=NULL, N, p, R2.Y_X=NULL, R2.j_X.without
 {
 
 # Determine if NC was used instead of Noncentral
-tmp <- try(is.null(NC), silent=TRUE)
-if(tmp==TRUE | tmp==FALSE) Noncentral <- NC
+#tmp <- try(is.null(NC), silent=TRUE)
+#if(tmp==TRUE | tmp==FALSE) Noncentral <- NC
 
 if(!is.null(t.value))
 {

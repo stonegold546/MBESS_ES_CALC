@@ -37,7 +37,7 @@ This function is the relied upon by the \code{ci.R2} and \code{ss.aipe.R2}. If t
 %\references{ ~put references to the literature/web site here ~ }
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
 
-\seealso{'ss.aipe.R2', 'ci.R2', 'conf.limits.nct'}
+\seealso{\code{ss.aipe.R2}, \code{ci.R2}, \code{conf.limits.nct}}
 \examples{
 conf.limits.ncf(F.value = 5, conf.level = .95, df.1 = 5, 
 df.2 = 100)

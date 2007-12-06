@@ -57,14 +57,15 @@ no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum.
 
 \author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
 
-\note{The function \code{ss.aipe.smd} is the function users should generally use. The function \code{ss.aipe.smd} calls upon
-these functions as needed. They can be thought of loosely as internal MBESS functions.}
+\note{The function \code{ss.aipe.smd} is the function users should generally use. The function
+ \code{ss.aipe.smd} calls upon these functions as needed. They can be thought of loosely 
+ as internal MBESS functions.}
 
 \section{Warning}{The returned value is the sample size \bold{per group}. Currently only
 \code{ss.aipe.smd.full} returns the exact value. However, \code{ss.aipe.smd.lower} and \code{ss.aipe.smd.upper}
 provide approximate sample size values.} 
 
-\seealso{'ss.aipe.smd'}
+\seealso{\code{ss.aipe.smd}}
 
 \keyword{design}
 \keyword{htest}
