@@ -12,3 +12,6 @@ documentation, and for contributed functions.
 
 Thanks to Benjamin Nagengast (Friedrich-Schiller-University Jena) for noticing a bug in ci.R2()
 (May 18, 2006).
+
+Thanks to Jeromy Anglim (The University of Melbourne, Australia) for
+comments on the function cor2cov() (Dec, 2007).

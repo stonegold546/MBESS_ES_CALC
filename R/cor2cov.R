@@ -1,5 +1,5 @@
 `cor2cov` <-
-function(cor.mat, sd)
+function(cor.mat, sd, discrepancy=1e-5)
 {
 if(dim(cor.mat)[1]!=dim(cor.mat)[2]) stop("'cor.mat' should be a square matrix")
 
@@ -11,7 +11,8 @@ if(length(sd[sd>0])!= n) stop("The elements in 'sd' shuold all be positive")
 for(j in 1:n)
     {for(i in 1:n)
         {if(i==j)
-            {if(cor.mat[i,j]!=1) stop ("The elements on the main diagonal of 'cor.mat' should all be 1")
+            {if( abs(cor.mat[i,j]-1)>discrepancy) 
+            stop ("The elements on the main diagonal of 'cor.mat' shuold be in the specified neiboughood of 1")
             }
     
         if(cor.mat[i,j]!=cor.mat[j,i])
@@ -24,4 +25,3 @@ for(j in 1:n)
 
 diag(sd)  %*% cor.mat  %*% diag(sd)
 }
-
