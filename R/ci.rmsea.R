@@ -1,27 +1,20 @@
 ci.rmsea <- function(rmsea, df, N, conf.level=.95, alpha.lower=NULL, alpha.upper=NULL)
 {
-if(is.null(conf.level)) 
- 				  {
- 				  if(sum(alpha.lower,alpha.upper)>=1) 
- 				  			{
- 				  			stop("There is a problem with the specified confidence limits (their sum should not be greater than 1).",call.=FALSE)
- 				  			}
-				  if (alpha.lower >= 1 | alpha.lower < 0)
-				  			{
-				  			stop("'alpha.lower' is not correctly specified.",call.=FALSE)
-				  			}
-             if (alpha.upper >= 1 | alpha.upper < 0)
-             			{
-             			stop("'alpha.upper' is not correctly specified.",call.=FALSE)
-             			}
-             }
+if(!is.null(alpha.lower)| !is.null(alpha.upper))
+    {if(is.null(alpha.upper) | is.null(alpha.lower)) stop("Both 'alpha.lower' and 'alpha.upper' must be specified")
+    if(sum(alpha.lower,alpha.upper)>=1) stop("There is a problem with the specified confidence limits (their sum should not be greater than 1).",call.=FALSE)
+    if (alpha.lower >= 1 | alpha.lower < 0) stop("'alpha.lower' is not correctly specified.",call.=FALSE)
+    if (alpha.upper >= 1 | alpha.upper < 0) stop("'alpha.upper' is not correctly specified.",call.=FALSE)
+    print ("Since 'alpha.lower' and 'alpha.upper' have been specified, they override the default 'conf.level=.95'") 
+    conf.level<-NULL  
+    }
              
 if(!is.null(conf.level)) 
              {
              if (!is.null(alpha.lower) | !is.null(alpha.upper))
-             		{
-             		stop("Since conf.level has been specified (which is done by default), you cannot specifiy 'alpha.lower' and 'alpha.upper'. If you want to specify 				           'alpha.lower' or 'alpha.upper', set 'conf.level=NULL'.",call.=FALSE)
-             		}
+                    {
+                    stop("Since conf.level has been specified (which is done by default), you cannot specifiy 'alpha.lower' and 'alpha.upper'. If you want to specify 'alpha.lower' or 'alpha.upper', set 'conf.level=NULL'.",call.=FALSE)
+                    }
              alpha.lower <- (1 - conf.level)/2
              alpha.upper <- (1 - conf.level)/2
              }
