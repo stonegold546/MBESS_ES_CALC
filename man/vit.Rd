@@ -46,7 +46,7 @@ plot.points = TRUE, save.pdf = FALSE, save.eps = FALSE,
 
 %\references{ }
 
-\author{ Ken Kelley (Indiana University; \email{KKIII@indiana.edu}) and Po-Ju Wu (Indiana University; \email{pojwu@indiana.edu})  }
+\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) and Po-Ju Wu (Indiana University; \email{pojwu@indiana.edu})  }
 %\note{ }
 
 \seealso{ par, nlme, vit.fitted,  }
@@ -57,28 +57,28 @@ data(Gardner.LD)
 
 # Although many options are possible, a simple call to
 # 'vit' is of the form:
-vit(id="ID", occasion= "Trial", score= "Score", Data=Gardner.LD)
+# vit(id="ID", occasion= "Trial", score= "Score", Data=Gardner.LD)
 
 # Now color is conditional on group membership.
-vit(id="ID", occasion= "Trial", score="Score", Data=Gardner.LD, 
-group="Group")
+# vit(id="ID", occasion= "Trial", score="Score", Data=Gardner.LD, 
+# group="Group")
 
 # Now randomly selects 50% of the sample to plot
-vit(id="ID", occasion= "Trial", score="Score", Data=Gardner.LD, 
-pct.rand=50, group="Group")
+# vit(id="ID", occasion= "Trial", score="Score", Data=Gardner.LD, 
+# pct.rand=50, group="Group")
 
 # Specified individuals are plotted (by group)
-vit(id="ID", occasion= "Trial", score="Score", Data=Gardner.LD, 
-subset.ids=c(1, 4, 8, 13, 17, 21), group="Group")
+# vit(id="ID", occasion= "Trial", score="Score", Data=Gardner.LD, 
+# subset.ids=c(1, 4, 8, 13, 17, 21), group="Group")
 
 # Now colors for groups are changed .
-vit(id="ID", occasion= "Trial", score="Score", Data=Gardner.LD, 
-group="Group",subset.ids=c(1, 4, 8, 13, 17, 21), col=c("Green", "Blue"))
+# vit(id="ID", occasion= "Trial", score="Score", Data=Gardner.LD, 
+# group="Group",subset.ids=c(1, 4, 8, 13, 17, 21), col=c("Green", "Blue"))
 
 # Now each individual specified is plotted seperately.
-vit(id="ID", occasion= "Trial", score="Score", Data=Gardner.LD, 
-group="Group",subset.ids=c(1, 4, 8, 13, 17, 21), col=c("Green", "Blue"),
-All.in.One=FALSE)
+# vit(id="ID", occasion= "Trial", score="Score", Data=Gardner.LD, 
+# group="Group",subset.ids=c(1, 4, 8, 13, 17, 21), col=c("Green", "Blue"),
+# All.in.One=FALSE)
 
 }
 

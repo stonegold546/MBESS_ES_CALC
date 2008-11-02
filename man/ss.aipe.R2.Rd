@@ -79,7 +79,7 @@ Kelley, K. \& Maxwell, S. E. (In press) Power and accuracy for omnibus and targe
 Issues of sample size planning with applications to multiple regression. In P. Alasuuta, J. Brannen, \& L. Bickman (Eds.),
 \textit{Handbook of Social Research Methods}. Newbury Park, CA: Sage. }
 
-\author{ Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu}) }
+\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) }
 
 \note{ This function without verify.SS=FALSE can be slow to converge when
  \code{verify.SS=TRUE}, the function can take some time to converge (e.g., 15 minutes). 
@@ -93,8 +93,8 @@ Issues of sample size planning with applications to multiple regression. In P. A
 \examples{
 # Returned sample size should be considered approximate; exact sample
 # size is obtained by specifying the argument 'verify.ss=TRUE' (see below).
-ss.aipe.R2(Population.R2=.50, conf.level=.95, width=.10, which.width="Full",
-p=5, Random.Predictors=TRUE)
+# ss.aipe.R2(Population.R2=.50, conf.level=.95, width=.10, which.width="Full",
+# p=5, Random.Predictors=TRUE)
 # Uncomment to run in order to get exact sample size.
 # ss.aipe.R2(Population.R2=.50, conf.level=.95, width=.10, which.width="Full",
 # p=5, Random.Predictors=TRUE, verify.ss=TRUE)
@@ -103,8 +103,8 @@ p=5, Random.Predictors=TRUE)
 # Same as above, except the predictor variables are considered fixed.
 # Returned sample size should be considered approximate; exact sample
 # size is obtained by specifying the argument 'verify.ss=TRUE'.
-ss.aipe.R2(Population.R2=.50, conf.level=.95, width=.10, which.width="Full",
-p=5, Random.Predictors=FALSE)
+# ss.aipe.R2(Population.R2=.50, conf.level=.95, width=.10, which.width="Full",
+# p=5, Random.Predictors=FALSE)
 # Uncomment to run in order to get exact sample size.
 #ss.aipe.R2(Population.R2=.50, conf.level=.95, width=.10, which.width="Full",
 #p=5, Random.Predictors=FALSE, verify.ss=TRUE)
@@ -112,8 +112,8 @@ p=5, Random.Predictors=FALSE)
 
 # Returned sample size should be considered approximate; exact sample
 # size is obtained by specifying the argument 'verify.ss=TRUE'.
-ss.aipe.R2(Population.R2=.50, conf.level=.95, width=.10, which.width="Full",
-p=5, degree.of.certainty=.85, Random.Predictors=TRUE)
+# ss.aipe.R2(Population.R2=.50, conf.level=.95, width=.10, which.width="Full",
+# p=5, degree.of.certainty=.85, Random.Predictors=TRUE)
 # Uncomment to run in order to get exact sample size.
 #ss.aipe.R2(Population.R2=.50, conf.level=.95, width=.10, which.width="Full",
 #p=5, degree.of.certainty=.85, Random.Predictors=TRUE, verify.ss=TRUE)
@@ -122,8 +122,8 @@ p=5, degree.of.certainty=.85, Random.Predictors=TRUE)
 # Same as above, except the predictor variables are considered fixed.
 # Returned sample size should be considered approximate; exact sample
 # size is obtained by specifying the argument 'verify.ss=TRUE'.
-ss.aipe.R2(Population.R2=.50, conf.level=.95, width=.10, which.width="Full",
-p=5, degree.of.certainty=.85, Random.Predictors=FALSE)
+# ss.aipe.R2(Population.R2=.50, conf.level=.95, width=.10, which.width="Full",
+# p=5, degree.of.certainty=.85, Random.Predictors=FALSE)
 # Uncomment to run in order to get exact sample size.
 #ss.aipe.R2(Population.R2=.50, conf.level=.95, width=.10, which.width="Full",
 #p=5, degree.of.certainty=.85, Random.Predictors=FALSE, verify.ss=TRUE)

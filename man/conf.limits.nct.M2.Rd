@@ -33,7 +33,7 @@ alpha.upper = NULL, tol = 1e-09, sup.int.warns = TRUE, ...)
   \item{Prob.Greater.Upper}{Proportion of the distribution beyond (i.e., larger than) \code{Upper.Limit}}
   }
   
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 
 \seealso{\code{conf.limits.nct}, \code{nlm}}
 

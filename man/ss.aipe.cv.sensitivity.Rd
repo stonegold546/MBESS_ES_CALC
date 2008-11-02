@@ -45,7 +45,7 @@ Alternatively, one can specify \code{Specified.N} to determine the results at a 
 
 %\references{ ~put references to the literature/web site here ~ }
 
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 \note{Returns three lists, where each list has multiple components.}
 
 \seealso{\code{cv}, \code{ss.aipe.cv}}

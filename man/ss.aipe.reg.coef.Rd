@@ -36,29 +36,29 @@ interval for a particular regression coefficient given the input
 specifications.}
 \references{Kelley, K. \& Maxwel, S. E. (2003). Sample size for Multiple Regression: {O}btaining regression coefficients that are accuracy, not simply significant. 
 \emph{Psychological Methods, 8}, 305--321.}
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 %\note{ ~~further notes~~
 % ~Make other sections like Warning with \section{Warning }{....} ~
 %}
 \seealso{\code{ss.aipe.reg.coef.sensitivity}, \code{conf.limits.nct}}
 \examples{
 # Exchangable correlation structure
-Rho.YX <- c(.3, .3, .3, .3, .3)
-RHO.XX <- rbind(c(1, .5, .5, .5, .5), c(.5, 1, .5, .5, .5), c(.5, .5, 1, .5, .5), 
-c(.5, .5, .5, 1, .5), c(.5, .5, .5, .5, 1))
-ss.aipe.reg.coef(width=.1, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=RHO.XX,
-Rho.YX=Rho.YX, which.predictor=1, Noncentral=FALSE, conf.level=1-.05, 
-degree.of.certainty=NULL, Suppress.Statement=FALSE)
+# Rho.YX <- c(.3, .3, .3, .3, .3)
+# RHO.XX <- rbind(c(1, .5, .5, .5, .5), c(.5, 1, .5, .5, .5), c(.5, .5, 1, .5, .5), 
+# c(.5, .5, .5, 1, .5), c(.5, .5, .5, .5, 1))
+# ss.aipe.reg.coef(width=.1, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=RHO.XX,
+# Rho.YX=Rho.YX, which.predictor=1, Noncentral=FALSE, conf.level=1-.05, 
+# degree.of.certainty=NULL, Suppress.Statement=FALSE)
 
-ss.aipe.reg.coef(width=.1, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=RHO.XX,
-Rho.YX=Rho.YX, which.predictor=1, Noncentral=FALSE, conf.level=1-.05, 
-degree.of.certainty=.85, Suppress.Statement=FALSE)
+# ss.aipe.reg.coef(width=.1, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=RHO.XX,
+# Rho.YX=Rho.YX, which.predictor=1, Noncentral=FALSE, conf.level=1-.05, 
+# degree.of.certainty=.85, Suppress.Statement=FALSE)
 
-ss.aipe.reg.coef(width=.1, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=RHO.XX,
-Rho.YX=Rho.YX, which.predictor=1, Noncentral=TRUE, conf.level=1-.05,
-degree.of.certainty=NULL, Suppress.Statement=FALSE)
+# ss.aipe.reg.coef(width=.1, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=RHO.XX,
+# Rho.YX=Rho.YX, which.predictor=1, Noncentral=TRUE, conf.level=1-.05,
+# degree.of.certainty=NULL, Suppress.Statement=FALSE)
 
-ss.aipe.reg.coef(width=.1, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=RHO.XX, 
-Rho.YX=Rho.YX, which.predictor=1, Noncentral=TRUE, conf.level=1-.05, 
-degree.of.certainty=.85, Suppress.Statement=FALSE)}
+# ss.aipe.reg.coef(width=.1, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=RHO.XX, 
+# Rho.YX=Rho.YX, which.predictor=1, Noncentral=TRUE, conf.level=1-.05, 
+# degree.of.certainty=.85, Suppress.Statement=FALSE)}
 \keyword{design}% at least one, from doc/KEYWORDS

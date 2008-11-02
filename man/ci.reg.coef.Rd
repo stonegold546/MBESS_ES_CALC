@@ -43,7 +43,7 @@ Kelley, K. \& Maxwell, S. E. (2008). Sample Size Planning with applications to m
 Smithson, M. (2003). \emph{Confidence intervals}. New York, NY: Sage Publications. 
 }
 
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) }
 
 \note{Not all of the values need to be specified, only those that
 contain all of the necessary information in order to compute the

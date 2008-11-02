@@ -32,14 +32,18 @@ degree.of.certainty = NULL, assurance=NULL, certainty=NULL,
   \item{G}{the number of generations/replication of the simulation student within the function}
   \item{print.iter}{specify with a \code{TRUE}/\code{FALSE} statement if the iteration number should be printed as the simulation within the function runts}
 }
+  
   \details{ Direct specification of True.Rho.YX and True.RHO.XX is necessary, even if one is interested in a single regression
 coefficient, so that the covariance/correlation structure can be specified when when the simulation student within the function runs.} 
 \value{\item{Results}{a matrix containing the empirical results from each of the \code{G} replication of the simulation}
   \item{Specifications}{a list of the input specifications and the required sample size}
   \item{Summary.of.Results}{summary values for the results of the sensitivity analysis (simulation study) given the input specification}}
+
 \references{Kelley, K. \& Maxwell, S. E. (2003). Sample size for Multiple Regression: {O}btaining regression coefficients that are accuracy, not simply significant. 
 \emph{Psychological Methods, 8}, 305--321.}
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
+
 \note{Note that when \code{True.Rho.YX}=\code{Estimated.Rho.YX} and \code{True.RHO.XX}=\code{Estimated.RHO.XX}, the results are not
 literally from a sensitivity analysis, rather the function performs a standard simulation study. A simulation study 
 can be helpful in order to determine if the sample size procedure under or overestimates necessary sample size.} 

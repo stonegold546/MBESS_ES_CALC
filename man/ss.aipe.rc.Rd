@@ -59,7 +59,7 @@ Kelley, K. & Maxwel, S. E. (2003). Sample size for Multiple Regression: Obtainin
 coefficients that are accuracy, not simply significant. \emph{Psychological Methods, 8}, 305--321.
  }
 
-\author{Ken Kelley (Indiana University; KKIII@Indiana.Edu) }
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) }
 \note{ 
 This function calls upon \code{ss.aipe.reg.coef} in MBESS but has a different naming scheme. See \code{ss.aipe.reg.coef} 
 for more details. 
@@ -70,15 +70,15 @@ for more details.
 
 \examples{
 # Exchangable correlation structure
-Rho.YX <- c(.3, .3, .3, .3, .3)
-RHO.XX <- rbind(c(1, .5, .5, .5, .5), c(.5, 1, .5, .5, .5), c(.5, .5, 1, .5, .5),
-c(.5, .5, .5, 1, .5), c(.5, .5, .5, .5, 1))
+# Rho.YX <- c(.3, .3, .3, .3, .3)
+# RHO.XX <- rbind(c(1, .5, .5, .5, .5), c(.5, 1, .5, .5, .5), c(.5, .5, 1, .5, .5),
+# c(.5, .5, .5, 1, .5), c(.5, .5, .5, .5, 1))
 
-ss.aipe.rc(width=.1, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=RHO.XX,
-Rho.YX=Rho.YX, which.predictor=1, conf.level=1-.05)
+# ss.aipe.rc(width=.1, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=RHO.XX,
+# Rho.YX=Rho.YX, which.predictor=1, conf.level=1-.05)
 
-ss.aipe.rc(width=.1, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=RHO.XX,
-Rho.YX=Rho.YX, which.predictor=1,  conf.level=1-.05, degree.of.certainty=.85)
+# ss.aipe.rc(width=.1, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=RHO.XX,
+# Rho.YX=Rho.YX, which.predictor=1,  conf.level=1-.05, degree.of.certainty=.85)
 
 }
 \keyword{ design }

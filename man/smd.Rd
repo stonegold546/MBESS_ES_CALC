@@ -48,7 +48,7 @@ statistical methods. In L. L. Harlow, S. A. Mulaik,&J.H. Steiger (Eds.), \emph{W
 no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum.
 
 }
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 
 \seealso{
 \code{smd.c}, \code{conf.limits.nct}, \code{ss.aipe}

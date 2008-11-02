@@ -46,7 +46,7 @@ Fleishman, A. I. (1980). Confidence intervals for correlation ratios. \emph{Educ
 
 Steiger, J. H. (2004). Beyond the \emph{F} Test: Effect size confidence intervals and tests of close fit in the Analysis of Variance and Contrast Analysis.  \emph{Psychological Methods, 9}, 164--182. }
 
-\author{ Ken Kelley (Indiana University;<KKIII@Indiana.Edu>) }
+\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) }
 \note{ 
 The signal to noise ratio is defined as the variance due to the particular factor over the error variance (i.e., the mean square error).
 }

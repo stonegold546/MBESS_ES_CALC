@@ -56,7 +56,7 @@ statistical methods. In L. L. Harlow, S. A. Mulaik, & J. H. Steiger (Eds.), \emp
 no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum.
 }
 
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 
 \note{The function \code{ss.aipe.smd} is the preferred function, and is the one that is recommended for widespread use.
 The functions \code{ss.aipe.smd.lower}, \code{ss.aipe.smd.upper} and 
@@ -70,9 +70,9 @@ when the the noncentral parameter is less than 37.62.}
 \code{ss.aipe.smd.upper}, \code{ss.aipe.smd.full}}
 
 \examples{
-ss.aipe.smd(delta=.5, conf.level=.95, width=.30)
-ss.aipe.smd(delta=.5, conf.level=.95, width=.30, degree.of.certainty=.8)
-ss.aipe.smd(delta=.5, conf.level=.95, width=.30, degree.of.certainty=.95)
+# ss.aipe.smd(delta=.5, conf.level=.95, width=.30)
+# ss.aipe.smd(delta=.5, conf.level=.95, width=.30, degree.of.certainty=.8)
+# ss.aipe.smd(delta=.5, conf.level=.95, width=.30, degree.of.certainty=.95)
 }
 \keyword{design}
 \keyword{htest}

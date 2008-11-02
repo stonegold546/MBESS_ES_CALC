@@ -58,7 +58,7 @@ coefficients that are accuracy, not simply significant. \emph{Psychological Meth
 
 Kelley, K. \& Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, \& L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166-192). Newbury Park, CA: Sage.
 }
-\author{Ken Kelley (Indiana University; KKIII@Indiana.Edu)}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 
 \note{ 
 This function calls upon \code{ss.aipe.reg.coef} in MBESS but has a different naming scheme. 
@@ -70,14 +70,14 @@ See \code{ss.aipe.reg.coef} for more details.
 \code{ss.aipe.reg.coef}, \code{ss.aipe.rc} }
 \examples{
 # Exchangable correlation structure
-Rho.YX <- c(.3, .3, .3, .3, .3)
-RHO.XX <- rbind(c(1, .5, .5, .5, .5), c(.5, 1, .5, .5, .5), c(.5, .5, 1, .5, .5),
-c(.5, .5, .5, 1, .5), c(.5, .5, .5, .5, 1))
+# Rho.YX <- c(.3, .3, .3, .3, .3)
+# RHO.XX <- rbind(c(1, .5, .5, .5, .5), c(.5, 1, .5, .5, .5), c(.5, .5, 1, .5, .5),
+# c(.5, .5, .5, 1, .5), c(.5, .5, .5, .5, 1))
 
-ss.aipe.src(width=.1, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=RHO.XX,
-Rho.YX=Rho.YX, which.predictor=1, conf.level=1-.05)
+# ss.aipe.src(width=.1, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=RHO.XX,
+# Rho.YX=Rho.YX, which.predictor=1, conf.level=1-.05)
 
-ss.aipe.src(width=.1, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=RHO.XX,
-Rho.YX=Rho.YX, which.predictor=1, conf.level=1-.05, degree.of.certainty=.85)
+# ss.aipe.src(width=.1, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=RHO.XX,
+# Rho.YX=Rho.YX, which.predictor=1, conf.level=1-.05, degree.of.certainty=.85)
 }
 \keyword{ design }

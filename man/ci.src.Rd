@@ -59,7 +59,7 @@ Steiger, J. H. (2004). Beyond the \emph{F} Test: Effect size confidence interval
 Analysis of Variance and Contrast Analysis. \emph{Psychological Methods, 9}, 164--182.
 }
 
-\author{ Ken Kelley (Indiana University; KKIII@Indiana.Edu) }
+\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) }
 
 \note{ 
 This function calls upon \code{ci.reg.coef} in MBESS, but has a different naming scheme. See  \code{ci.reg.coef} for more details.

@@ -34,7 +34,7 @@ save.jpg = FALSE, file = "", ...)
 
 %\references{ }
 
-\author{ Ken Kelley (Indiana University; \email{KKIII@indiana.edu}) and Po-Ju Wu (Indiana University; \email{pojwu@indiana.edu}) }
+\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) and Po-Ju Wu (Indiana University; \email{pojwu@indiana.edu}) }
 
 %\note{ }
 
@@ -45,18 +45,18 @@ save.jpg = FALSE, file = "", ...)
 # the development version of R-2.7.0 (the cause can be either in this 
 # function or in the R program)
 
-data(Gardner.LD)
-library(nlme)
-Full.grouped.Gardner.LD <- groupedData(Score ~ Trial|ID, data=Gardner.LD, order.groups=FALSE)    
+# data(Gardner.LD)
+# library(nlme)
+# Full.grouped.Gardner.LD <- groupedData(Score ~ Trial|ID, data=Gardner.LD, order.groups=FALSE)    
 
 # Examination of the plot reveals that the logistic change model does not adequately describe
 # the trajectories of individuals 6 and 19 (a negative exponential change model would be 
 # more appropriate). Thus we remove these two subjects.
-grouped.Gardner.LD <- Full.grouped.Gardner.LD[!(Full.grouped.Gardner.LD["ID"]==6 | 
-  Full.grouped.Gardner.LD["ID"]==19),]
+# grouped.Gardner.LD <- Full.grouped.Gardner.LD[!(Full.grouped.Gardner.LD["ID"]==6 | 
+#   Full.grouped.Gardner.LD["ID"]==19),]
 
-G.L.nlsList<- nlsList(SSlogis,grouped.Gardner.LD)
-G.L.nlme <- nlme(G.L.nlsList)
+# G.L.nlsList<- nlsList(SSlogis,grouped.Gardner.LD)
+# G.L.nlme <- nlme(G.L.nlsList)
 # to visualize individual trajectories:  vit.fitted(G.L.nlme)
 # plot 50 percent random trajectories:  vit.fitted(G.L.nlme, pct.rand = 50)
 }

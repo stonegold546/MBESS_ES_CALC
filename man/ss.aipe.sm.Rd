@@ -43,7 +43,7 @@ statistical methods. In L. L. Harlow, S. A. Mulaik,&J.H. Steiger (Eds.), \emph{W
 no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum. }
 }
 
-\author{ Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu}), Keke Lai }
+\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}); Keke Lai <Lai.15@ND.Edu> }
 
 %\note{}
 
@@ -57,7 +57,7 @@ no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum. }
 # obtained in the study will be, with 90% assurance, no wider than 2.5, 
 # the function should be specified as follows. 
 
-ss.aipe.sm(sm=10, width=2.5, conf.level=.95, assurance=.90)
+# ss.aipe.sm(sm=10, width=2.5, conf.level=.95, assurance=.90)
 }
 
 \keyword{ design }

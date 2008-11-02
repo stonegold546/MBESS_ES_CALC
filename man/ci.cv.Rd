@@ -42,7 +42,7 @@ McKay, A. T. (1932). Distribution of the coefficient of variation and the extend
 \emph{t} distribution, \emph{Journal of the Royal Statistical Society}, \emph{95}, 695--698.
 }
 
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 %\note{ ~~further notes~~ 
 %
 % ~Make other sections like Warning with \section{Warning }{....} ~

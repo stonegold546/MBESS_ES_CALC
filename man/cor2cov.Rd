@@ -21,7 +21,7 @@ returned is always a symmetric matrix.}
 
 %\references{  }
 
-\author{ Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu}), Keke Lai }
+\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}), Keke Lai }
 
 \note{ The correlation matrix input should be a square matrix, and the length of \code{sd} should be equal to
 the number of variables in the correlation matrix (i.e., the number of rows/columns). Sometimes the correlation

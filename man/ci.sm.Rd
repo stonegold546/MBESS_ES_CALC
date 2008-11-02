@@ -47,7 +47,7 @@ Steiger, J. H., \& Fouladi, R. T. (1997) Noncentrality interval estimation and t
 statistical methods. In L. L. Harlow, S. A. Mulaik, & J.H. Steiger (Eds.), \emph{What if there where
 no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum.
 }
-\author{ Ken Kelley (Indiana University;<KKIII@Indiana.Edu>) }
+\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) }
 \note{ 
 The standardized mean is the mean divided by the standard deviation.
 }

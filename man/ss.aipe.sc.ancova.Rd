@@ -56,7 +56,7 @@ contrasts: Obtaining narrow confidence intervals. \emph{Manuscript submitted for
 Steiger, J. H., & Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
 statistical methods. In L. L. Harlow, S. A. Mulaik, & J.H. Steiger (Eds.), \emph{What if there where
 no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum. }}
-\author{ Keke Lai <LaiK@Indiana.Edu> }
+\author{ Keke Lai (University of Notre Dame, \email{Lai.15@ND.Edu}) }
 
 \note{ 
 When \code{divisor="s.anova"} and the argument \code{assurance} is specified, the necessary
@@ -68,11 +68,11 @@ function \code{\link{ss.aipe.sc.ancova.sensitivity}}, as discussed in Lai & Kell
 
 \seealso{ \code{ss.aipe.sc}, \code{ss.aipe.sc.ancova.sensitivity} }
 \examples{
-ss.aipe.sc.ancova(psi=.8, width=.5, c.weights=c(.5, .5, 0, -1))
+# ss.aipe.sc.ancova(psi=.8, width=.5, c.weights=c(.5, .5, 0, -1))
 
-ss.aipe.sc.ancova(psi=.8, ratio=.6, width=.5, c.weights=c(.5, .5, 0, -1), divisor="s.anova")
+# ss.aipe.sc.ancova(psi=.8, ratio=.6, width=.5, c.weights=c(.5, .5, 0, -1), divisor="s.anova")
 
-ss.aipe.sc.ancova(psi=.5, rho=.4, width=.3, c.weights=c(.5, .5, 0, -1), divisor="s.anova")
+# ss.aipe.sc.ancova(psi=.5, rho=.4, width=.3, c.weights=c(.5, .5, 0, -1), divisor="s.anova")
 
 }
 

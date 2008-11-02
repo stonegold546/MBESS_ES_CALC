@@ -84,7 +84,7 @@ statistical methods. In L. L. Harlow, S. A. Mulaik, & J.H. Steiger (Eds.), \emph
 no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum. }
 }
 
-\author{ Keke Lai <LaiK@Indiana.Edu> }
+\author{ Keke Lai (University of Notre Dame, \email{Lai.15@ND.Edu}) }
 
 %\note{ }
 

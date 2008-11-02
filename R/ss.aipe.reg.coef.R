@@ -1,6 +1,16 @@
 "ss.aipe.reg.coef" <- function(Rho2.Y_X=NULL, Rho2.j_X.without.j=NULL, p=NULL, b.j=NULL, width, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=NULL, Rho.YX=NULL, which.predictor=NULL, Noncentral=FALSE, alpha.lower=NULL, alpha.upper=NULL, conf.level=.95, 
 degree.of.certainty=NULL, assurance=NULL, certainty=NULL, Suppress.Statement=FALSE)
-{
+{current.package<- search()
+lib <- library()
+if( sum(current.package=="package:gsl")!=1 ) {
+    if( sum(lib$results[,1]=="gsl")==1 ) library(gsl)
+    else stop("This function depends on the 'gsl' package. Please install the 'gsl' package 
+    as you installed the 'MBESS' package")
+    
+    if( sum(lib$results[,1]=="MASS")==1 ) library(MASS)
+    else stop("This function depends on the 'MASS' package. Please install the 'MASS' package 
+    as you installed the 'MBESS' package")
+    }
 
 if(!is.null(certainty)& is.null(degree.of.certainty)&is.null(assurance)) degree.of.certainty<-certainty
 if (is.null(assurance) && !is.null (degree.of.certainty)& is.null(certainty)) assurance <-degree.of.certainty

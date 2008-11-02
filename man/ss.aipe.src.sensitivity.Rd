@@ -63,7 +63,7 @@ given the input specification}
 Kelley, K. & Maxwell, S. E. (2003). Sample size for Multiple Regression: Obtaining regression
 coefficients that are accuracy, not simply significant.\emph{ Psychological Methods, 8}, 305-321.
 }
-\author{ Ken Kelley (Indiana University; KKIII@Indiana.Edu) }
+\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) }
 
 \note{
 Note that when True.Rho.YX=Estimated.Rho.YX and True.RHO.XX=Estimated.RHO.XX,

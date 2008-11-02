@@ -39,7 +39,7 @@ Steiger, J. H. (2004). Beyond the \emph{F} Test: Effect size confidence interval
 Analysis of Variance and Contrast Analysis. \emph{Psychological Methods, 9}, 164--182.
 }
 
-\author{ Ken Kelley (Indiana University, <KKIII@Indiana.edu>) }
+\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) }
 
 \note{ Be sure to use the error varaince and not its square root (i.e., the standard deviation of the errors).
 }

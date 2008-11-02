@@ -35,7 +35,7 @@ Kelley, K. (2007). Constructing confidence intervals for standardized effect siz
 Maxwell, S. E., \& Delaney, H. D. (2004). \emph{Designing experiments and analyzing data: A model comparison perspective}. Mahwah, NJ: Erlbaum. 
 }
 
-\author{Keke Lai (Indiana University; \email{LaiK@Indiana.Edu})}
+\author{Keke Lai (University of Notre Dame; \email{Lai.15@ND.Edu})}
 
 \note{ 
 Be sure to use the error varaince and not its square root (i.e., the standard deviation of the errors).

@@ -31,7 +31,7 @@ Determine the necessary sample size given a particular \code{Population.R2}, \co
   \item{Sample.Size}{returns either \code{Necessary.Sample.Size} or \code{Specified.Sample.Size}, depending on if sample size is being determined for a desired degree of statistical power analysis or if statistical power is being determined given a specified sample size, respectively}
   \item{Actual.Power}{Actual power of the situation described}
 }
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 \note{
 When determining sample size for a desired degree of power, there will always be a 
 slightly larger degree of actual power. This is the case because the algorithm employed 
@@ -42,10 +42,10 @@ procedures that return whole numbers for necessary sample size.
 }
 \seealso{\code{ss.aipe.R2}, \code{ss.power.reg.coef}, \code{conf.limits.ncf}}
 \examples{
-ss.power.R2(Population.R2=.5, alpha.level=.05, desired.power=.85, p=5)
-ss.power.R2(Cohen.f2=1, alpha.level=.05, desired.power=.85, p=5)
-ss.power.R2(Population.R2=.5, Specified.N=15, alpha.level=.05, 
-desired.power=.85, p=5)
-ss.power.R2(Cohen.f2=1, Specified.N=15, alpha.level=.05, desired.power=.85, p=5)
+# ss.power.R2(Population.R2=.5, alpha.level=.05, desired.power=.85, p=5)
+# ss.power.R2(Cohen.f2=1, alpha.level=.05, desired.power=.85, p=5)
+# ss.power.R2(Population.R2=.5, Specified.N=15, alpha.level=.05, 
+# desired.power=.85, p=5)
+# ss.power.R2(Cohen.f2=1, Specified.N=15, alpha.level=.05, desired.power=.85, p=5)
 }
 \keyword{design}

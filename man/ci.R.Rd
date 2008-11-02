@@ -73,7 +73,7 @@ instruments and computers, 4}, 581--582.
 
 }
 
-\author{ Ken Kelley (Indiana University, <KKIII@Indiana.edu>)}
+\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 %\note{ }
 \seealso{ \code{ci.R2}, \code{ss.aipe.R2}, \code{conf.limits.nct} }
 %\examples{}
