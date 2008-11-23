@@ -36,7 +36,7 @@ Maxwell, S. E., & Delaney, H. D. (2004). \emph{Designing experiments and analyzi
 comparison perspective}. Mahwah, NJ: Erlbaum.
 }
 
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu}), Keke Lai }
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}); Keke Lai <Lai.15@ND.Edu> }
 
 \note{
 Be sure to use the error varaince and not its square root (i.e., the standard deviation of the errors).

@@ -31,7 +31,7 @@ Suppress.Statement = TRUE, sup.int.warns = TRUE, ...)
 %\references{
 
 }
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 %\note{}
 \seealso{\code{ss.aipe.cv.sensitivity}, \code{cv}}
 \examples{

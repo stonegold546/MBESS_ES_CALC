@@ -39,7 +39,7 @@ max.steps = 2500, ...)
 \note{This code was adapted from code written by Ken Kelley and Joseph R. Rausch (University of Notre Dame; \email{JRausch@ND.Edu}), which was adapted from
 code written by Michael Smithson (Australian National University; \email{Michael.Smithson@ANU.Edu.AU}).}
 
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 
 \seealso{\code{conf.limits.nct}}
 

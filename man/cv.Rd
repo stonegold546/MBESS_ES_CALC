@@ -21,7 +21,7 @@ Returns the unbiased estimate for the standard deviation.
 }
 %\references{}
 
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 %\note{}
 %\seealso{}
 \examples{

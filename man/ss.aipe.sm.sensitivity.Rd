@@ -74,7 +74,7 @@ Steiger, J. H., \& Fouladi, R. T. (1997) Noncentrality interval estimation and t
 statistical methods. In L. L. Harlow, S. A. Mulaik,&J.H. Steiger (Eds.), \emph{What if there where
 no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum. }
 
-\author{ Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu}), Keke Lai }
+\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}); Keke Lai (University of Notre Dame) }
 %\note{ }
 
 \seealso{ \code{ss.aipe.sm}}
@@ -84,26 +84,26 @@ no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum. }
 # returns the results of a correctly specified situation.
 # Note that 'G' should be large (10 is used to make the 
 # example run easily)
-Res.1 <- ss.aipe.sm.sensitivity(true.sm=10, estimated.sm=10, 
-desired.width=.5, assurance=.95, conf.level=.95, G=10,
-print.iter=FALSE)
+# Res.1 <- ss.aipe.sm.sensitivity(true.sm=10, estimated.sm=10, 
+# desired.width=.5, assurance=.95, conf.level=.95, G=10,
+# print.iter=FALSE)
 
 # Lists contained in Res.1.
-names(Res.1) 
+# names(Res.1) 
 
 #Objects contained in the 'Results' lists.
-names(Res.1$Results) 
+# names(Res.1$Results) 
 
 #How many obtained full widths are narrower than the desired one?
-Res.1$Summary$Pct.Width.obs.NARROWER.than.desired
+# Res.1$Summary$Pct.Width.obs.NARROWER.than.desired
 
 # True standardized mean difference is 10, but specified at 12.
 # Change 'G' to some large number (e.g., G=20)
-Res.2 <- ss.aipe.sm.sensitivity(true.sm=10, estimated.sm=12, 
-desired.width=.5, assurance=NULL, conf.level=.95, G=20)
+# Res.2 <- ss.aipe.sm.sensitivity(true.sm=10, estimated.sm=12, 
+# desired.width=.5, assurance=NULL, conf.level=.95, G=20)
 
 # The effect of the misspecification on mean confidence intervals is:
-Res.2$Summary$mean.full.width
+# Res.2$Summary$mean.full.width
 
 }
 

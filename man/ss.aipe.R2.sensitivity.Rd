@@ -69,12 +69,12 @@ Accuracy in parameter estimation via narrow confidence intervals, \emph{manuscri
 
 Kelley, K. \& Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, \& L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166-192). Newbury Park, CA: Sage.
 }
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 
 \seealso{\code{ci.R2}, \code{conf.limits.nct}, \code{ss.aipe.R2}}
 \examples{
 # Change 'G' to some large number (e.g., G=10,000)
-ss.aipe.R2.sensitivity(True.R2=.5, Estimated.R2=.4, w=.10, p=5, conf.level=0.95,
-G=25)
+# ss.aipe.R2.sensitivity(True.R2=.5, Estimated.R2=.4, w=.10, p=5, conf.level=0.95,
+# G=25)
 }
 \keyword{design}

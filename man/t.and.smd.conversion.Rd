@@ -26,11 +26,11 @@ context of forming confidence intervals around the population standardized mean 
 Either the value of delta given lambda or \code{lambda} given \code{delta} (and the per-group sample sizes).
 }
 
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 
 \seealso{\code{smd}, \code{ci.smd}, \code{ss.aipe.smd}}
 \examples{
-lambda2delta(lambda=2, n.1=113, n.2=113)
-delta2lambda(delta=.266076, n.1=113, n.2=113)
+# lambda2delta(lambda=2, n.1=113, n.2=113)
+# delta2lambda(delta=.266076, n.1=113, n.2=113)
 }
 \keyword{design}

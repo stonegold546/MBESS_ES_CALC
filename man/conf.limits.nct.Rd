@@ -59,7 +59,7 @@ Steiger, J. \& Fouladi, T. (1997) Noncentrality interval estimation and the eval
 S. Muliak, \& J. Steiger (Eds.), \emph{What if there were no significance tests?}. Mahwah, NJ: Lawrence Erlbaum.
 
 }
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 
 \section{Warning}{At the present time, the largest \code{ncp} that R can accurately handle is 37.62.
 }

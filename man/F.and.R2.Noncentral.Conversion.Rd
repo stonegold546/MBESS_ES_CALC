@@ -38,7 +38,7 @@ convert to and from related quantities.}
 Returns the converted value from the specified function.
 }
 %\references{}
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 
 %\note{ ~~further notes~~ 
 % ~Make other sections like Warning with \section{Warning }{....} ~

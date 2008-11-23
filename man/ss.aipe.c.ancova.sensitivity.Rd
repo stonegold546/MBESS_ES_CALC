@@ -71,7 +71,7 @@ ANCOVA.
 
 %\references{}
 
-\author{Keke Lai (Indiana University; \email{LaiK@Indiana.Edu})}
+\author{Keke Lai (University of Notre Dame; \email{Lai.15@ND.Edu})}
 
 %\note{ }
 

@@ -23,15 +23,16 @@ Returns the variance of the of the squared multiple correlation coefficient.
 Stuart, A., Ord, J. K., \& Arnold, S. (1999). \emph{Kendall's advanced theory of statistics: {C}lassical inference and the linear model} (Volume 2A, 2nd Edition).
 New York, NY: Oxford University Press.}
 
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 \note{
 Uses package \code{gsl} and its \code{hyperg_2F1} function.
 }
 \seealso{\code{Expected.R2}, \code{ci.R2}, \code{ss.aipe.R2}}
 \examples{
-Variance.R2(.5, 10, 5)
-Variance.R2(.5, 25, 5)
-Variance.R2(.5, 50, 5)
-Variance.R2(.5, 100, 5)
+# library(gsl)
+# Variance.R2(.5, 10, 5)
+# Variance.R2(.5, 25, 5)
+# Variance.R2(.5, 50, 5)
+# Variance.R2(.5, 100, 5)
 }
 \keyword{design}

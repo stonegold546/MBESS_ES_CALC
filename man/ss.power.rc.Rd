@@ -50,7 +50,7 @@ Maxwell, S. E. (2000). Sample size for multiple regression. \emph{Psychological 
 
 Cohen, J. (1988). \emph{Statistical power analysis for the behavioral sciences} (2nd ed.). Hillsdale, NJ: Erlbaum.
 }
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 \seealso{\code{ss.aipe.reg.coef}, \code{ss.power.R2}, \code{conf.limits.ncf}}
 
 \examples{
@@ -66,33 +66,33 @@ RHO.XX <- Cor.Mat[2:6,2:6]
 Rho.YX <- Cor.Mat[1,2:6]
 
 # Method 1
-ss.power.rc(Rho2.Y_X=0.7826786, Rho2.Y_X.without.k=0.7363697, K=5,
-alpha.level=.05, Directional=FALSE, desired.power=.80)
+# ss.power.rc(Rho2.Y_X=0.7826786, Rho2.Y_X.without.k=0.7363697, K=5,
+# alpha.level=.05, Directional=FALSE, desired.power=.80)
 
 # Method 2
-ss.power.rc(alpha.level=.05, RHO.XX=RHO.XX, Rho.YX=Rho.YX, 
-which.predictor=5, Directional=FALSE, desired.power=.80)
+# ss.power.rc(alpha.level=.05, RHO.XX=RHO.XX, Rho.YX=Rho.YX, 
+# which.predictor=5, Directional=FALSE, desired.power=.80)
 
 # Method 3
 # Here, beta.j is the standardized regression coefficient. Had beta.j 
 # been the unstandardized regression coefficient, sigma.X and sigma.Y 
 # would have been the standard deviation for the 
 # X variable of interest and Y, respectively.
-ss.power.rc(Rho2.Y_X=0.7826786, Rho2.k_X.without.k=0.3652136, 
-beta.k=0.2700964, K=5, alpha.level=.05,  sigma.X=1, sigma.Y=1, 
-Directional=FALSE, desired.power=.80)
+# ss.power.rc(Rho2.Y_X=0.7826786, Rho2.k_X.without.k=0.3652136, 
+# beta.k=0.2700964, K=5, alpha.level=.05,  sigma.X=1, sigma.Y=1, 
+# Directional=FALSE, desired.power=.80)
 
 # Method 4
-ss.power.rc(alpha.level=.05, Cohen.f2=0.2130898, K=5, 
-Directional=FALSE, desired.power=.80)
+# ss.power.rc(alpha.level=.05, Cohen.f2=0.2130898, K=5, 
+# Directional=FALSE, desired.power=.80)
 
 # Power given a specified N and squared multiple correlation coefficients.
-ss.power.rc(Rho2.Y_X=0.7826786, Rho2.Y_X.without.k=0.7363697, 
-Specified.N=25, K=5, alpha.level=.05, Directional=FALSE)
+# ss.power.rc(Rho2.Y_X=0.7826786, Rho2.Y_X.without.k=0.7363697, 
+# Specified.N=25, K=5, alpha.level=.05, Directional=FALSE)
 
 # Power given a specified N and effect size.
-ss.power.rc(alpha.level=.05, Cohen.f2=0.2130898, K=5, Specified.N=25,
-Directional=FALSE)
+# ss.power.rc(alpha.level=.05, Cohen.f2=0.2130898, K=5, Specified.N=25,
+# Directional=FALSE)
 
 # Reproducing Maxwell's (2000, p. 445) Example
 Cor.Mat.Maxwell <- rbind(
@@ -117,8 +117,8 @@ Rho.YX.Maxwell.no.1%*%solve(RHO.XX.Maxwell.no.1)%*%Rho.YX.Maxwell.no.1
 # This seems to be the case becuase of rounding error in calculations 
 # and tables (Cohen, 1988) used. The present procedure is correct and 
 # contains no rounding error in the application of the method.
-ss.power.rc(Rho2.Y_X=R2.Maxwell, Rho2.Y_X.without.k=R2.Maxwell.no.1, K=5,
-alpha.level=.05, Directional=FALSE, desired.power=.80)
+# ss.power.rc(Rho2.Y_X=R2.Maxwell, Rho2.Y_X.without.k=R2.Maxwell.no.1, K=5,
+# alpha.level=.05, Directional=FALSE, desired.power=.80)
 }
 
 

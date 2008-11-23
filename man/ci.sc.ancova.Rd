@@ -49,7 +49,7 @@ Steiger, J. H., \& Fouladi, R. T. (1997) Noncentrality interval estimation and t
 statistical methods. In L. L. Harlow, S. A. Mulaik, & J.H. Steiger (Eds.), \emph{What if there where
 no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum. }
 
-\author{Keke Lai (Indiana University; \email{LaiK@Indiana.Edu})}
+\author{Keke Lai (University of Notre Dame; \email{Lai.15@ND.Edu})}
 
 \note{
 Be sure to use the error varaince and not its square root (i.e., the standard deviation of the errors).

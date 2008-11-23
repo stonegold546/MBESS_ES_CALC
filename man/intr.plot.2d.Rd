@@ -48,9 +48,9 @@ To input the predictor z, one can use either the mean and standard deviation of 
   
 }
 \references{Cohen, J., Cohen, P., West, S. G. and Aiken, L. S. (2003). \emph{Applied multiple regression/correlation analysis for the behavioral sciences} (3rd ed.). Mahwah, NJ: Erlbaum. }
-\author{ Keke Lai (Indiana University <laik@indiana.edu>), 
+\author{ Keke Lai (University of Notre Dame <Lai.15@ND.edu>), 
 
-Ken Kelley (Indiana University <kkiii@indiana.edu>)  }
+Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})  }
 
 \note{ Sometimes some of the regression lines are outside the default scope of the coordinates 
 and thus cannot be seen; in such situations, one needs to, by entering additional arguments, adjust the scope to

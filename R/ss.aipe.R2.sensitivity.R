@@ -2,6 +2,18 @@ ss.aipe.R2.sensitivity <- function(True.R2=NULL, Estimated.R2=NULL, w=NULL, p=NU
 Random.Predictors=TRUE, Selected.N=NULL, degree.of.certainty=NULL, assurance=NULL, certainty=NULL, conf.level=.95, 
 Generate.Random.Predictors=TRUE, rho.yx=.3, rho.xx=.3, G=10000, print.iter=TRUE, ...)
 {
+current.package<- search()
+lib <- library()
+if( sum(current.package=="package:gsl")!=1 ) {
+    if( sum(lib$results[,1]=="gsl")==1 ) library(gsl)
+    else stop("This function depends on the 'gsl' package. Please install the 'gsl' package 
+    as you installed the 'MBESS' package")
+    
+    if( sum(lib$results[,1]=="MASS")==1 ) library(MASS)
+    else stop("This function depends on the 'MASS' package. Please install the 'MASS' package 
+    as you installed the 'MBESS' package")
+    }
+
 if(!is.null(certainty)& is.null(degree.of.certainty)&is.null(assurance)) degree.of.certainty<-certainty
 if (is.null(assurance) && !is.null (degree.of.certainty)& is.null(certainty)) assurance <-degree.of.certainty
 if (!is.null(assurance) && is.null (degree.of.certainty)& is.null(certainty)) assurance -> degree.of.certainty

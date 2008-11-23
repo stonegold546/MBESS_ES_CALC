@@ -31,7 +31,7 @@ If the function fails (or if a function relying upon this function fails), adjus
   \item{Prob.Greater.Upper}{Proportion of cases falling above \code{Upper.Limit}}
 }
 %\references{ ~put references to the literature/web site here ~ }
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 
 \seealso{\code{conf.limits.nct}, \code{conf.limits.ncf}}
 \examples{

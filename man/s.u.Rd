@@ -23,7 +23,7 @@ The unbiased estimate for the standard deviation.
 Holtzman, W. H. (1950). The unbiased estimate of the population variance and standard deviation. \emph{American 
 Journal of Psychology}, \emph{63}, 615--617.
 }
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 %\note{}
 %\seealso{}
 \examples{

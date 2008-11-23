@@ -57,33 +57,33 @@ Steiger, J. H. \& Fouladi, R. T. (1992) R2: {A} computer program for interval es
 and hypothesis testing for the squared multiple correlation. \emph{Behavior research methods, instruments and computers, 4}, 581--582.
 
 }
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 
 \seealso{\code{ss.aipe.R2}, \code{conf.limits.nct}}
 \examples{
 # For random predictor variables.
-ci.R2(R2=.25, N=100, K=5, conf.level=.95, Random.Predictors=TRUE)
+# ci.R2(R2=.25, N=100, K=5, conf.level=.95, Random.Predictors=TRUE)
 
-ci.R2(F.value=6.266667, N=100, K=5, conf.level=.95, Random.Predictors=TRUE)
+# ci.R2(F.value=6.266667, N=100, K=5, conf.level=.95, Random.Predictors=TRUE)
 
 # For fixed predictor variables.
-ci.R2(R2=.25, N=100, K=5, conf.level=.95, Random.Predictors=TRUE)
+# ci.R2(R2=.25, N=100, K=5, conf.level=.95, Random.Predictors=TRUE)
 
-ci.R2(F.value=6.266667, N=100, K=5, conf.level=.95, Random.Predictors=TRUE)
+# ci.R2(F.value=6.266667, N=100, K=5, conf.level=.95, Random.Predictors=TRUE)
 
 # One sided confidence intervals when predictors are random.
-ci.R2(R2=.25, N=100, K=5, alpha.lower=.05, alpha.upper=0, conf.level=NULL,
-Random.Predictors=TRUE)
+# ci.R2(R2=.25, N=100, K=5, alpha.lower=.05, alpha.upper=0, conf.level=NULL,
+# Random.Predictors=TRUE)
 
-ci.R2(R2=.25, N=100, K=5, alpha.lower=0, alpha.upper=.05, conf.level=NULL,
-Random.Predictors=TRUE)
+# ci.R2(R2=.25, N=100, K=5, alpha.lower=0, alpha.upper=.05, conf.level=NULL,
+# Random.Predictors=TRUE)
 
 # One sided confidence intervals when predictors are fixed.
-ci.R2(R2=.25, N=100, K=5, alpha.lower=.05, alpha.upper=0, conf.level=NULL,
-Random.Predictors=FALSE)
+# ci.R2(R2=.25, N=100, K=5, alpha.lower=.05, alpha.upper=0, conf.level=NULL,
+# Random.Predictors=FALSE)
 
-ci.R2(R2=.25, N=100, K=5, alpha.lower=0, alpha.upper=.05, conf.level=NULL,
-Random.Predictors=FALSE)
+# ci.R2(R2=.25, N=100, K=5, alpha.lower=0, alpha.upper=.05, conf.level=NULL,
+# Random.Predictors=FALSE)
 }
 \keyword{multivariate}
 \keyword{htest}

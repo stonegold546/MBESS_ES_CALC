@@ -21,11 +21,11 @@ Returns the necessary total sample size in order to achieve the desired
 degree of accuracy (i.e., the sufficiently narrow confidence interval). 
 }
 %\references{  }
-\author{Ken Kelley (Indiana University; \email{KKIII@Indiana.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 %\note{}
 \seealso{ \code{\link{ci.rmsea}}}
 \examples{
-ss.aipe.rmsea(RMSEA=.035, df=50, width=.05, conf.level=.95)
+# ss.aipe.rmsea(RMSEA=.035, df=50, width=.05, conf.level=.95)
 }
 
 \keyword{ design }

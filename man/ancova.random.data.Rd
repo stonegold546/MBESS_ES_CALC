@@ -35,7 +35,7 @@ in the argument. The first \code{J} columns of the matrix contains the random da
 the second \code{J} columns of the matrix contains the random data for the covariate.
 }
 %\references{  }
-\author{ Keke Lai <LaiK@indiana.edu> }
+\author{ Keke Lai <Lai.15@ND.edu> }
 %\note{}
 \seealso{ \code{mvrnorm} in the \code{MASS} package }
 \examples{

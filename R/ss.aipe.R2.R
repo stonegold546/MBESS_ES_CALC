@@ -3,7 +3,18 @@ function (Population.R2 = NULL, conf.level = 0.95, width = NULL,
     Random.Predictors = TRUE, Random.Regressors, which.width = "Full", 
     p = NULL, K, degree.of.certainty = NULL, assurance = NULL, 
     certainty = NULL, verify.ss = FALSE, Tol = 1e-09, ...) 
-{
+{current.package<- search()
+lib <- library()
+if( sum(current.package=="package:gsl")!=1 ) {
+    if( sum(lib$results[,1]=="gsl")==1 ) library(gsl)
+    else stop("This function depends on the 'gsl' package. Please install the 'gsl' package 
+    as you installed the 'MBESS' package")
+    
+    if( sum(lib$results[,1]=="MASS")==1 ) library(MASS)
+    else stop("This function depends on the 'MASS' package. Please install the 'MASS' package 
+    as you installed the 'MBESS' package")
+    }
+
     if (!is.null(certainty) & is.null(degree.of.certainty) & 
         is.null(assurance)) 
         degree.of.certainty <- certainty

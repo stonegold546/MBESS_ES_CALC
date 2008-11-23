@@ -52,7 +52,7 @@ Analysis of Variance and Contrast Analysis. \emph{Psychological Methods, 9}, 164
 
 }
 
-\author{ Ken Kelley (Indiana University, <KKIII@Indiana.edu>) }
+\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) }
 
 \note{ Be sure to use the error varaince and not its square root (i.e., the standard deviation of the errors).
 }
