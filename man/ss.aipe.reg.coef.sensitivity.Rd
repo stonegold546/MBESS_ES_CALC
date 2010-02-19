@@ -39,7 +39,7 @@ coefficient, so that the covariance/correlation structure can be specified when 
   \item{Specifications}{a list of the input specifications and the required sample size}
   \item{Summary.of.Results}{summary values for the results of the sensitivity analysis (simulation study) given the input specification}}
 
-\references{Kelley, K. \& Maxwell, S. E. (2003). Sample size for Multiple Regression: {O}btaining regression coefficients that are accuracy, not simply significant. 
+\references{Kelley, K. \& Maxwell, S. E. (2003). Sample size for Multiple Regression: Obtaining regression coefficients that are accuracy, not simply significant. 
 \emph{Psychological Methods, 8}, 305--321.}
 
 \author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}

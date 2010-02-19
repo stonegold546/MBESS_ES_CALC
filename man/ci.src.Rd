@@ -75,7 +75,6 @@ specified).
 
 \seealso{ \code{ss.aipe.reg.coef}, \code{conf.limits.nct}, \code{ci.reg.coef}, \code{ci.rc} }
 
-%\examples{
-}
+%\examples{}
 
 \keyword{ design }

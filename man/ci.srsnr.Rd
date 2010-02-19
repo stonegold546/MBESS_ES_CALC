@@ -12,7 +12,7 @@
 ci.srsnr(F.value = NULL, df.1 = NULL, df.2 = NULL, N = NULL, 
 conf.level = 0.95, alpha.lower = NULL, alpha.upper = NULL, ...)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{F.value}{ observed \emph{F}-value from the analysis of variance }
   \item{df.1}{ numerator degrees of freedom }
@@ -51,8 +51,7 @@ Steiger, J. H. (2004). Beyond the \emph{F} Test: Effect size confidence interval
 
 \author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) }
 
-% \note{ 
-}
+% \note{ }
 \seealso{ \code{ci.snr}, \code{conf.limits.ncf} }
 \examples{
 ## To illustrate the calculation of the confidence interval for noncentral 

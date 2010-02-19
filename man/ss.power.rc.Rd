@@ -4,7 +4,7 @@
 
 \description{
 Determine the necessary sample size for a targeted regression coefficient or determine the degree of power given a specified sample size}
-}
+
 \usage{
 ss.power.rc(Rho2.Y_X = NULL, Rho2.Y_X.without.k = NULL, K = NULL, 
 desired.power = 0.85, alpha.level = 0.05, Directional = FALSE, 

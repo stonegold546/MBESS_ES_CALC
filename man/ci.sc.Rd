@@ -33,8 +33,7 @@ alpha.lower = NULL, alpha.upper = NULL, df.error = NULL, ...)
   
   \item{\dots}{ optional additional specifications for nested functions }
 }
-%\details{
-}
+%\details{}
 \value{
   \item{Lower.Conf.Limit.Standardized.Contrast }{the lower confidence limit for the standardized contrast}
   \item{Standardized.contrast }{standardized contrast}

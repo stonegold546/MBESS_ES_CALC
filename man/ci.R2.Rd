@@ -53,7 +53,7 @@ Lee, Y. S. (1971). Some results on the sampling distribution of the multiple cor
 
 Smithson, M. (2003). \emph{Confidence intervals}. New York, NY: Sage Publications. 
 
-Steiger, J. H. \& Fouladi, R. T. (1992) R2: {A} computer program for interval estimation, power calculation,
+Steiger, J. H. \& Fouladi, R. T. (1992) R2: A computer program for interval estimation, power calculation,
 and hypothesis testing for the squared multiple correlation. \emph{Behavior research methods, instruments and computers, 4}, 581--582.
 
 }

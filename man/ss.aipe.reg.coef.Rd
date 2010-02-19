@@ -34,7 +34,7 @@ sample size can be determined for the conditions specified.}
 accuracy in parameter estimation to be satisfied for the confidence
 interval for a particular regression coefficient given the input
 specifications.}
-\references{Kelley, K. \& Maxwel, S. E. (2003). Sample size for Multiple Regression: {O}btaining regression coefficients that are accuracy, not simply significant. 
+\references{Kelley, K. \& Maxwel, S. E. (2003). Sample size for Multiple Regression: Obtaining regression coefficients that are accuracy, not simply significant. 
 \emph{Psychological Methods, 8}, 305--321.}
 \author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 %\note{ ~~further notes~~

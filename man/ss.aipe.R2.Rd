@@ -68,7 +68,7 @@ the \code{verify.ss.aipe.R2} function for arguments that can be passed from \cod
 Algina, J. \& Olejnik, S. (2000) Determining sample size for accurate estimation of the squared
 multiple correlation coefficient. \emph{Multivariate Behavioral Research, 35}, 119--136.
 
-Steiger, J. H. \& Fouladi, R. T. (1992) R2: {A} computer program for interval estimation, power calculation,
+Steiger, J. H. \& Fouladi, R. T. (1992) R2: A computer program for interval estimation, power calculation,
 and hypothesis testing for the squared multiple correlation. \emph{Behavior research methods, instruments and computers, 4}, 581--582.
 
 Kelley, K. (2007) Sample size planning for the squared multiple correlation coefficient:
@@ -77,7 +77,7 @@ Accuracy in parameter estimation via narrow confidence intervals,
 
 Kelley, K. \& Maxwell, S. E. (In press) Power and accuracy for omnibus and targeted effects: 
 Issues of sample size planning with applications to multiple regression. In P. Alasuuta, J. Brannen, \& L. Bickman (Eds.),
-\textit{Handbook of Social Research Methods}. Newbury Park, CA: Sage. }
+\emph{Handbook of Social Research Methods}. Newbury Park, CA: Sage. }
 
 \author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) }
 

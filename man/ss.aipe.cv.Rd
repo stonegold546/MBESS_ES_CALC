@@ -1,6 +1,8 @@
 \name{ss.aipe.cv}
 \alias{ss.aipe.cv}
-\title{Sample size planning for the coefficient of variation given the goal of Accuracy in Parameter Estimation approach to sample size planning.}}
+\title{Sample size planning for the coefficient of variation given the goal of Accuracy in Parameter Estimation approach to sample 
+size planning}
+
 \description{Determines the necessary sample size so that the expected confidence interval width
 for the coefficient of variation will be sufficiently narrow, optionally with a desired degree of 
 certainty that the interval will not wider than desired.}
@@ -28,9 +30,7 @@ Suppress.Statement = TRUE, sup.int.warns = TRUE, ...)
 }
 %\details{}
 \value{Returns the necessary sample size given the input specifications.}
-%\references{
-
-}
+%\references{}
 \author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 %\note{}
 \seealso{\code{ss.aipe.cv.sensitivity}, \code{cv}}

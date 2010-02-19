@@ -60,12 +60,11 @@ Kelley, K. \& Maxwell, S. E. (2008). Sample Size Planning with applications to m
 }
 \author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 
-\note{ 
-This function calls upon \code{ss.aipe.reg.coef} in MBESS but has a different naming scheme. 
-See \code{ss.aipe.reg.coef} for more details. 
+\note{This function calls upon \code{\link{ss.aipe.reg.coef}} in MBESS but has a different naming 
+scheme. See \code{\link{ss.aipe.reg.coef}} for more details.}
 
-\section{Warning }{ As discussed in Kelley and Maxwell (2008), the sample size planning approach from the AIPE perspective used in this function is only an approximation. }
-}
+\section{Warning }{As discussed in Kelley and Maxwell (2008), the sample size planning approach from the AIPE perspective used in this function is only an approximation.}
+
 \seealso{ \code{ss.aipe.reg.coef.sensitivity}, \code{conf.limits.nct}, 
 \code{ss.aipe.reg.coef}, \code{ss.aipe.rc} }
 \examples{

@@ -61,7 +61,7 @@ Multiple Correlation Coefficient. \emph{Multivariate Behavioral Research, 35}, 1
 
 Gatsonis, C. \& Sampson, A. R. (1989). Multiple Correlation: Exact power and sample size calculations. \emph{Psychological Bulletin, 106}, 516--524.
 
-Steiger, J. H. \& Fouladi, R. T. (1992) R2: {A} computer program for interval estimation, power calculation,
+Steiger, J. H. \& Fouladi, R. T. (1992) R2: A computer program for interval estimation, power calculation,
 and hypothesis testing for the squared multiple correlation. \emph{Behavior research methods, instruments and computers, 4}, 581--582.
 
 Kelley, K. Sample size planning for the squared multiple correlation coefficient:

@@ -27,7 +27,7 @@ sample size per group. When using the error variance of the ANOVA model to plan 
 of the response and the covariate is also needed.}
 
 \value{
-  \item{n}{the necessary sample size \bf{per group}}
+  \item{n}{the necessary sample size \emph{per group}}
 }
 
 \references{ 
