@@ -1,17 +1,9 @@
 ci.R2 <- function(R2=NULL, df.1=NULL, df.2=NULL, conf.level=.95, Random.Predictors=TRUE, 
 Random.Regressors, F.value=NULL, N=NULL, p=NULL, K, alpha.lower=NULL, alpha.upper=NULL, tol=1e-9)
 {
-current.package<- search()
-lib <- library()
-if( sum(current.package=="package:gsl")!=1 ) {
-    if( sum(lib$results[,1]=="gsl")==1 ) library(gsl)
-    else stop("This function depends on the 'gsl' package. Please install the 'gsl' package 
-    as you installed the 'MBESS' package")
-    
-    if( sum(lib$results[,1]=="MASS")==1 ) library(MASS)
-    else stop("This function depends on the 'MASS' package. Please install the 'MASS' package 
-    as you installed the 'MBESS' package")
-    }
+
+if(!require(gsl)) stop("This function depends on the 'gsl' package. Please install the 'gsl' package first")
+if(!require(MASS)) stop("This function depends on the 'MASS' package. Please install the 'MASS' package first")
     
 # So that k or p can be specified.
 tmp <- try(is.null(K), silent=TRUE)

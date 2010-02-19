@@ -6,15 +6,9 @@ mediation <- function(x, mediator, dv, S=NULL, N=NULL, x.location.S=NULL, mediat
 
 
 if(bootstrap==TRUE)
-{
-  current.package <- search()
-    lib <- library()
-    if (sum(current.package == "package:boot") != 1) {
-        if (sum(lib$results[, 1] == "boot") == 1) 
-            library(gsl)
-        else stop("This function depends on the 'boot' package. Please install the 'boot' package \n    as you installed the 'MBESS' package")
-    }
-}   
+	{if (!require(boot)) stop("This function depends on the 'boot' package. Please install the 'boot' package first")
+  
+	}   
     
     
 
@@ -399,7 +393,7 @@ mean.x=mean.x, mean.m=mean.m, mean.dv=mean.dv, conf.level=conf.level))
 
 if(bootstrap==TRUE)
 {
-if( sum(search()=="package:boot")!=1 ) stop("This function depends on the package 'boot'")
+if(!require(boot)) stop("This function depends on the package 'boot'. Please install the 'boot' package first.")
 
 if(!is.null(S)) stop("For the bootstrap procedures to be implemented, you must supply raw data (i.e., not a covariance matrix).")
 

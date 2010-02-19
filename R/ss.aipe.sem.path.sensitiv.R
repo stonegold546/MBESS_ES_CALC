@@ -1,17 +1,9 @@
 `ss.aipe.sem.path.sensitiv` <-
 function(est.model, est.Sigma, true.Sigma=est.Sigma, which.path,
 desired.width, conf.level=.95, assurance=NULL, G=1000, ...){
-cur.package<- search()
-lib <- library()
-if(sum(cur.package=="package:MASS") !=1 ) {
-    if( sum(lib$results[,1]=="MASS")==1 ) library(MASS)
-    else stop("This function depends on the 'MASS' package. Please install the 'MASS' package.")
-    }
 
-if(sum(cur.package=="package:sem") !=1 ) {
-    if( sum(lib$results[,1]=="sem")==1 ) library(sem)
-    else stop("This function depends on the 'sem' package. Please install the 'sem' package.") 
-    }
+if(!require(MASS)) stop("This function depends on the 'MASS' package. Please install the 'MASS' package first.")
+if(!require(sem)) stop("This function depends on the 'sem' package. Please install the 'sem' package first.") 
 
 result.plan <- ss.aipe.sem.path(model=est.model, Sigma=est.Sigma, desired.width=desired.width, 
 which.path=which.path, conf.level=conf.level, assurance=assurance, ...)

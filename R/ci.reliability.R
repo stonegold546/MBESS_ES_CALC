@@ -1,12 +1,7 @@
 `ci.reliability` <- function(S=NULL, data=NULL, N=NULL, model="True-Score Equivalent", type="Factor Analytic", conf.level=.95)
 
-{current.package<- search()
-lib <- library()
-if( sum(current.package=="package:sem")!=1 ) {
-    if( sum(lib$results[,1]=="sem")==1 ) library(sem)
-    else stop("This function depends on the 'sem' package. Please install the 'sem' package 
-    as you installed the 'MBESS' package")
-    }
+{
+if(!require(sem)) stop("This function depends on the 'sem' package. Please install the 'sem' package first")
 
 model.type1 <- c("Parallel", "SB", "Spearman Brown", "Spearman-Brown", "sb", "parallel")
 model.type2 <- c("True Score", "True Score Equivalent", "True-Score Equivalent", "Equivalent", "Tau Equivalent", "Chronbach", "Cronbach", "cronbach", "alpha", "true score", "tau-equivalent", "Tau-Equivalent", "True-Score", "true-score")  
