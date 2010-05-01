@@ -1,19 +1,17 @@
 \name{ss.aipe.rmsea}
 \alias{ss.aipe.rmsea}
-\title{ Sample siza planning for population root mean square 
-error of approximation }
+\title{ Sample size planning for RMSEA in SEM}
 \description{
-Sample siza planning for population root mean square error of approximation 
-from the Accuracy in Parameter Estimation (AIPE) perspective
+Sample size planning for the population root mean square error of approximation (RMSEA) from the accuracy in parameter estimation (AIPE) perspective. The sample size is planned so that the expected width of a confidence interval for the population RMSEA is no larger than desired.
 }
 \usage{
 ss.aipe.rmsea(RMSEA, df, width, conf.level = 0.95)
 }
 \arguments{
-  \item{RMSEA}{population root mean square error of approximation }
+  \item{RMSEA}{the input RMSEA value }
   \item{df}{degrees of freedom of the model}
   \item{width}{desired confidence interval width}
-  \item{conf.level}{desired confidence level (e.g., .90, .95, .99)}
+  \item{conf.level}{desired confidence level (e.g., .90, .95, .99, etc.)}
 }
 %\details{}
 \value{
@@ -21,7 +19,7 @@ Returns the necessary total sample size in order to achieve the desired
 degree of accuracy (i.e., the sufficiently narrow confidence interval). 
 }
 %\references{  }
-\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}); Keke Lai (University of Notre Dame; \email{KLai1@ND.Edu})}
 %\note{}
 \seealso{ \code{\link{ci.rmsea}}}
 \examples{

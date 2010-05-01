@@ -32,7 +32,7 @@ Specified.N=NULL, Print.Progress = FALSE)
 \details{
 Determine the necessary sample size given a desired level of statistical power. Alternatively, determines the statistical power for a given a specified sample size.
 There are a number of ways that the specification regarding the size of the regression coefficient can be entered. The most basic, and often the simplest, is to specify \code{Rho2.Y_X} and \code{Rho2.Y_X.without.j}. See the examples section 
-for several options.} 
+for several options.
 }
 
 \value{

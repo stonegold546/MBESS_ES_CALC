@@ -73,7 +73,6 @@ specified).
 
 \seealso{ \code{ss.aipe.reg.coef}, \code{conf.limits.nct}, \code{ci.reg.coef}, \code{ci.src} }
 
-%\examples{
-}
+%\examples{}
 
 \keyword{ design }% at least one, from doc/KEYWORDS

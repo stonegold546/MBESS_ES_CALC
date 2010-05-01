@@ -22,13 +22,12 @@ power.equivalence.md(alpha, logscale, ltheta1, ltheta2, ldiff, sigma, n, nu)
   \item{n}{ number of subjects per treatment (number of total subjects for crossover design) }
   \item{nu}{ degrees of freedom for \code{sigma} }
 }
+
 %\details{}
 
 \value{
-
-  \item{power}{Power of TOST (probability that (1- 2*\code{alpha}) confidence interval will lie 
-  within (\code{theta1}, \code{theta2}) given \code{sigma}, \code{n}, and \code{nu})}
- }
+  \item{power}{Power of TOST; the probability that the confidence interval will lie within ['theta1', 'theta2'] given 'sigma', 'n', and 'nu'}
+  }
  
  
 \references{ 

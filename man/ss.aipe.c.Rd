@@ -25,7 +25,7 @@ assurance = NULL, certainty = NULL, MSwithin = NULL, SD = NULL, ...)
 %\details{}
 
 \value{
-    \item{n}{the necessary sample size \bf{per group}}
+    \item{n}{the necessary sample size \emph{per group}}
 }
 
 \references{

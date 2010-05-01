@@ -23,8 +23,7 @@ power.density.equivalence.md(power_sigma, alpha = alpha, theta1 = theta1, theta2
 %\details{}
 
 \value{
-
-  \item{power_density} {density at diff for power of TOST (probability that (1-2*\code{alpha}) confidence interval will lie within (\code{theta1},\code{theta2}), given \code{sigma}, \code{n}, and \code{nu})}
+\item{power_density}{density at diff for power of TOST: the probability that the confidence interval will lie within ['theta1', 'theta2']}
 }
 
 \references{ 

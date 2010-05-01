@@ -55,7 +55,9 @@ contrasts: Obtaining narrow confidence intervals. \emph{Manuscript submitted for
 
 Steiger, J. H., & Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
 statistical methods. In L. L. Harlow, S. A. Mulaik, & J.H. Steiger (Eds.), \emph{What if there where
-no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum. }}
+no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum.}
+
+
 \author{ Keke Lai (University of Notre Dame, \email{Lai.15@ND.Edu}) }
 
 \note{ 

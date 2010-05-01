@@ -4,8 +4,9 @@
 \title{Confidence limits for the standardized mean difference using the control
 group standard deviation as the divisor.}
 \description{
-Function to calculate the confidence limits for the standardized mean difference using the control group standard deviation as the divisor (Glass's g).}
-}
+Function to calculate the confidence limits for the standardized mean difference using the control group standard deviation 
+as the divisor (Glass's g).}
+
 \usage{
 ci.smd.c(ncp = NULL, smd.c = NULL, n.C = NULL, n.E = NULL, 
 conf.level = 0.95, alpha.lower = NULL, alpha.upper = NULL, 

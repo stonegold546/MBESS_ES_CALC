@@ -23,5 +23,7 @@ for(j in 1:n)
         }  
     }
 
-diag(sd)  %*% cor.mat  %*% diag(sd)
+cov.mat <- diag(sd)  %*% cor.mat  %*% diag(sd)
+colnames(cov.mat)<- rownames(cov.mat)<- colnames(cor.mat)
+return(cov.mat)
 }

@@ -82,7 +82,5 @@ analysis: The stability of a bi-factor solution. \emph{Supplementary Education
 Monographs, 48}. University of Chicago.
 }
 
-%\examples{
-
-}
+%\examples{}
 \keyword{datasets}

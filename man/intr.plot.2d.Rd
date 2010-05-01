@@ -44,10 +44,11 @@ legend.pos="bottomright", legend.on=TRUE, ... )
 To input the predictor x, one can use either the limits of x (\code{x.max} and \code{x.min}) , or a specific vector x (\code{x}). 
 To input the predictor z, one can use either the mean and standard deviation of z (\code{mean.z} and \code{sd.z} ), or a specific vector z (\code{z}).   
 }
-%\value{
-  
-}
-\references{Cohen, J., Cohen, P., West, S. G. and Aiken, L. S. (2003). \emph{Applied multiple regression/correlation analysis for the behavioral sciences} (3rd ed.). Mahwah, NJ: Erlbaum. }
+%\value{}
+\references{Cohen, J., Cohen, P., West, S. G. and Aiken, L. S. (2003). \emph{Applied multiple regression/correlation 
+analysis for the behavioral sciences} (3rd ed.). Mahwah, NJ: Erlbaum.}
+
+
 \author{ Keke Lai (University of Notre Dame <Lai.15@ND.edu>), 
 
 Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})  }

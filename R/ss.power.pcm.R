@@ -20,7 +20,7 @@
 
 # sample size longitudinal reandomized design.
 
-ss.power.lrd <- function(beta, tau, level.1.variance, frequency, duration, desired.power=NULL, N=NULL, alpha.level=.05, standardized=TRUE, directional=FALSE)
+ss.power.pcm <- function(beta, tau, level.1.variance, frequency, duration, desired.power=NULL, N=NULL, alpha.level=.05, standardized=TRUE, directional=FALSE)
 {
 if(is.null(desired.power) & is.null(N)) stop("You must specify either 'desired.power' or 'N'.")
 if(!is.null(desired.power) & !is.null(N)) stop("You must specify either 'desired.power' or 'N', but not both.")
@@ -116,13 +116,13 @@ Noncentral.t.parameter=sqrt(Lambda))))
 }
 
 # Example from Raudenbush and Liu (2001)
-ss.power.lrd(beta=-.4, tau=.003, level.1.variance=.0262, frequency=2, duration=2, desired.power=.80, alpha.level=.05, standardized=TRUE, directional=FALSE)
-ss.power.lrd(beta=-.4, tau=.003, level.1.variance=.0262, frequency=2, duration=2, N=238, alpha.level=.05, standardized=TRUE, directional=FALSE)
+ss.power.pcm(beta=-.4, tau=.003, level.1.variance=.0262, frequency=2, duration=2, desired.power=.80, alpha.level=.05, standardized=TRUE, directional=FALSE)
+ss.power.pcm(beta=-.4, tau=.003, level.1.variance=.0262, frequency=2, duration=2, N=238, alpha.level=.05, standardized=TRUE, directional=FALSE)
 
 ####
 # The standardized effect size is obtained as beta/sqrt(tau): -.4/sqrt(.003) = -.0219.
-ss.power.lrd(beta=-.0219, tau=.003, level.1.variance=.0262, frequency=2, duration=2, desired.power=.80, alpha.level=.05, standardized=FALSE, directional=FALSE)
-ss.power.lrd(beta=-.0219, tau=.003, level.1.variance=.0262, frequency=2, duration=2, N=238, alpha.level=.05, standardized=FALSE, directional=FALSE)
+ss.power.pcm(beta=-.0219, tau=.003, level.1.variance=.0262, frequency=2, duration=2, desired.power=.80, alpha.level=.05, standardized=FALSE, directional=FALSE)
+ss.power.pcm(beta=-.0219, tau=.003, level.1.variance=.0262, frequency=2, duration=2, N=238, alpha.level=.05, standardized=FALSE, directional=FALSE)
 
 #
 

@@ -44,8 +44,7 @@ The user can input either the limits of x and z, or specific x and z vectors, to
 If the user inputs specific predictor vectors, the function would plot the regression surface based on those vectors. 
 }
 
-%\value{
-}
+%\value{}
 
 \references{Cohen, J., Cohen, P., West, S. G. and Aiken, L. S. (2003). \emph{Applied multiple regression/correlation analysis for the behavioral sciences} (3rd ed.). Mahwah, NJ: Erlbaum. }
 

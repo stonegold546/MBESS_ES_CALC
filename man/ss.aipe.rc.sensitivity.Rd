@@ -73,6 +73,5 @@ See \code{ss.aipe.reg.coef.sensitivity} in MBESS for more details.
 \seealso{\code{ss.aipe.reg.coef.sensitivity}, \code{ss.aipe.src.sensitivity}, 
 
 \code{ss.aipe.reg.coef}, \code{ci.reg.coef} }
-%\examples{
-}
+%\examples{}
 \keyword{ design }
