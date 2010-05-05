@@ -1,12 +1,7 @@
 `ss.aipe.sem.path` <-
 function(model, Sigma, desired.width, which.path, conf.level=.95, assurance=NULL, ...){
 
-current.package<- search()
-lib <- library()
-if( sum(current.package=="package:sem")!=1 ) {
-    if( sum(lib$results[,1]=="sem")==1 ) library(sem)
-    else stop("This function depends on the 'sem' package. Please install the 'sem' package first")
-    }
+if(!require(sem)) stop("This function depends on the 'sem' package. Please install the 'sem' package first")
 
 Sigma[upper.tri(Sigma)]<-0 
 N<-1000000

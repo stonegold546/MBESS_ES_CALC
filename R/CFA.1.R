@@ -1,11 +1,6 @@
 CFA.1 <- function(S, N, equal.loading=FALSE, equal.error=FALSE) 
-{current.package<- search()
-lib <- library()
-if( sum(current.package=="package:sem")!=1 ) {
-    if( sum(lib$results[,1]=="sem")==1 ) library(sem)
-    else stop("This function depends on the 'sem' package. Please install the 'sem' package 
-    as you installed the 'MBESS' package")
-    }
+{	
+if(!require(sem)) stop("This function depends on the 'sem' package. Please install the 'sem' package first")
 
 if(!isSymmetric(S, tol=1e-5)) stop ("Input a symmetric covariance or correlation matrix 'S'")
 

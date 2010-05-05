@@ -99,11 +99,10 @@ Sobel, M. E. (1982). Asymptotic confidence intervals for indirect effects in str
 \examples{
 # Using the Jessor data discussed in Preacher and Kelley (2010), to illustrate the methods based on summary statistics. 
  
-mediation(S=rbind(c(2.26831107,  0.6615415, -0.08691755), 
-                  c(0.66154147,  2.2763549, -0.22593820), 
-                  c(-0.08691755, -0.2259382,  0.09218055)), 
-N=432, x.location.S=1, mediator.location.S=2, dv.location.S=3, mean.x=7.157645, mean.m=5.892785, mean.dv=1.649316, conf.level=.95)
-
+# mediation(S=rbind(c(2.26831107,  0.6615415, -0.08691755), 
+#  c(0.66154147,  2.2763549, -0.22593820), 
+#  c(-0.08691755, -0.2259382,  0.09218055)), 
+# N=432, x.location.S=1, mediator.location.S=2, dv.location.S=3, mean.x=7.157645, mean.m=5.892785, mean.dv=1.649316, conf.level=.95)
 
 }
 

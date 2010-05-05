@@ -1,17 +1,9 @@
 ci.reliability.bs<- function(data, model="Congeneric", type="Factor Analytic", conf.level=.95, B=100, ...)
-{current.package<- search()
-lib <- library()
-if( sum(current.package=="package:sem")!=1 ) {
-    if( sum(lib$results[,1]=="sem")==1 ) library(sem)
-    else stop("This function depends on the 'sem' package. Please install the 'sem' package 
-    as you installed the 'MBESS' package")
-    }
-if( sum(current.package=="package:boot")!=1 ) {
-    if( sum(lib$results[,1]=="boot")==1 ) library(boot)
-    else stop("This function depends on the 'boot' package. Please install the 'boot' package 
-    as you installed the 'MBESS' package")
-    }
-
+{
+	
+if(!require(sem)) stop("This function depends on the 'sem' package. Please install the 'sem' package first") 
+if(!require(boot)) stop("This function depends on the 'boot' package. Please install the 'boot' package first")
+ 
     # This is an internal MBESS function not meant to be used directly. 
 .bs.reliability.ci <- function(data, g, model=model, type=type, conf.level=conf.level)
         {
