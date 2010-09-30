@@ -6,17 +6,18 @@
 Conduct a priori Monte Carlo simulation to empirically study the effects of (mis)specifications of input information on the calculated sample size. Random data are generated from the true covariance matrix but fit to the proposed model, whereas sample size is calculated based on the input covariance matrix and proposed model. 
 }
 \usage{
-ss.aipe.sem.path.sensitiv(est.model, est.Sigma, true.Sigma = est.Sigma, 
-which.path, desired.width, conf.level = 0.95, assurance = NULL, 
-G = 1000, ...)
+ss.aipe.sem.path.sensitiv(model, est.Sigma, true.Sigma = est.Sigma, 
+which.path, desired.width, N=NULL, conf.level = 0.95, assurance = NULL, 
+G = 100, ...)
 }
 
 \arguments{
-  \item{est.model}{ the model the researcher proposes, may or may not be the true model. This argument should be an RAM (reticular action model; e.g., McArdle & McDonald, 1984) specification of a structural equation model, and should be of class \code{mod}. The model is specified in the same manner as does the \code{\link[sem]{sem}} package; see \code{\link[sem]{sem}} and \code{\link[sem]{specify.model}} for detailed documentation about model specifications in the RAM notation.}
+  \item{model}{ the model the researcher proposes, may or may not be the true model. This argument should be an RAM (reticular action model; e.g., McArdle & McDonald, 1984) specification of a structural equation model, and should be of class \code{mod}. The model is specified in the same manner as does the \code{\link[sem]{sem}} package; see \code{\link[sem]{sem}} and \code{\link[sem]{specify.model}} for detailed documentation about model specifications in the RAM notation.}
   \item{est.Sigma}{ the covariance matrix used to calculate sample size, may or may not be the true covariance matrix. The row names and column names of \code{est.Sigma} should be the same as the manifest variables in \code{est.model}. }
   \item{true.Sigma}{ the true population covariance matrix, which will be used to generate random data for the simulation study. The row names and column names of \code{est.Sigma} should be the same as the manifest variables in \code{est.model}.}
   \item{which.path}{ the name of the model parameter of interest, and must be in a double quote }
   \item{desired.width}{desired confidence interval width for the model parameter of interest }
+  \item{N}{the sample size of random data. If it is \code{NULL}, it will be determined by the sample size planning method}
   \item{conf.level}{ confidence level (i.e., 1- Type I error rate) }
   \item{assurance}{the assurance that the confidence interval obtained in a particular study will be no wider than desired (must be \code{NULL} or a value between 0.50 and 1)  }
   \item{G}{number of replications in the Monte Carlo simulation }
@@ -47,7 +48,7 @@ on how to obtain the model implied covariance matrix in the RAM notation given m
 \references{ 
 Fox, J. (2006). Structural equation modeling with the sem package in R. \emph{Structural Equation Modeling, 13}, 465-486.
 
-Lai, K., & Kelley, K. (2010). Accuracy in parameter estimation for targeted effects in structural equation modeling: Sample size planning for narrow confidence intervals. \emph{Manuscript conditionally accepted by Psychological Methods}.
+Lai, K., & Kelley, K. (in press). Accuracy in parameter estimation for targeted effects in structural equation modeling: Sample size planning for narrow confidence intervals. \emph{Psychological Methods}.
 
 McArdle, J. J., & McDonald, R. P. (1984). Some algebraic properties of the reticular action model. \emph{British Journal of Mathematical and Statistical Psychology, 37}, 234-251.  }
 \author{ Keke Lai (University of Notre Dame; \email{KLai1@ND.Edu}) }

@@ -5,7 +5,12 @@
 \description{ Create a mediation effect plot
 }
 \usage{
-mediation.effect.plot(x, mediator, dv, ylab = "Dependent Variable", xlab = "Mediator", main = "Mediation Effect Plot", pct.from.top.a = 0.05, pct.from.left.c = 0.05, arrow.length.a = 0.05, arrow.length.c = 0.05, legend.loc = "topleft", file = "", pch = 20, xlim = NULL, ylim = NULL, save.pdf = FALSE, save.eps = FALSE, save.jpg = FALSE, ...)
+mediation.effect.plot(x, mediator, dv, ylab = "Dependent Variable", 
+xlab = "Mediator", main = "Mediation Effect Plot", 
+pct.from.top.a = 0.05, pct.from.left.c = 0.05, arrow.length.a = 0.05, 
+arrow.length.c = 0.05, legend.loc = "topleft", file = "", pch = 20, 
+xlim = NULL, ylim = NULL, save.pdf = FALSE, save.eps = FALSE, 
+save.jpg = FALSE, ...)
 }
 
 \arguments{

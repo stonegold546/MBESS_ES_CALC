@@ -1,18 +1,18 @@
 `ss.aipe.sem.path.sensitiv` <-
-function(est.model, est.Sigma, true.Sigma=est.Sigma, which.path,
-desired.width, conf.level=.95, assurance=NULL, G=1000, ...){
+function(model, est.Sigma, true.Sigma=est.Sigma, which.path,
+desired.width, N=NULL, conf.level=0.95, assurance=NULL, G=100, ...){
 
 if(!require(MASS)) stop("This function depends on the 'MASS' package. Please install the 'MASS' package first.")
 if(!require(sem)) stop("This function depends on the 'sem' package. Please install the 'sem' package first.") 
 
-result.plan <- ss.aipe.sem.path(model=est.model, Sigma=est.Sigma, desired.width=desired.width, 
+result.plan <- ss.aipe.sem.path(model=model, Sigma=est.Sigma, desired.width=desired.width, 
 which.path=which.path, conf.level=conf.level, assurance=assurance, ...)
 
 obs.vars<- result.plan$obs.vars
 J <- length(result.plan$parameter)
 alpha <- 1-conf.level
 p <- dim(est.Sigma)[1]
-N<- result.plan$sample.size
+if(is.null(N)) N<- result.plan$sample.size
 j <- result.plan$path.index
 
 Data<- matrix(NA, N,p)
@@ -22,31 +22,29 @@ theta.hat.j <- rep(NA, G)
 SE.theta.hat.j <- rep(NA, G)
 cov.theta.hat <- matrix(NA, J,J)
 
-for(g in 1:G){
-gc()
-    p.rep <- seq(from=1, to=G, by=100)
-    if (any(g==p.rep)) cat("Replication", g, "\n")
-    #singular<- TRUE
-    #while(singular){
-        Data <- mvrnorm(n = N, mu=rep(0,p), Sigma=true.Sigma)  
-        S <- var(Data)
-    #    singular <- ifelse (determinant(S, logarithm = FALSE)$modulus <.04, TRUE, FALSE)
-    #    }
+g<- 0
+while(g<G){
+	gc()
+	cat("successful.iteration = ", g, "\n")
+   Data <- mvrnorm(n = N, mu=rep(0,p), Sigma=true.Sigma)
+   S <- var(Data)  
+   colnames(S) <- rownames(S)<- obs.vars
+   S.fit <- try(sem(ram=model, S=S, N=N), FALSE) 
+   if(inherits(S.fit, "try-error")|| S.fit$convergence>2) g<- g
+   else{
+   		g<- g+1
+   		cov.theta.hat <- S.fit$cov
+      SE.theta.hat.j[g] <- ifelse (any(diag(cov.theta.hat)< 0), NA, sqrt(cov.theta.hat[j,j]))
+      theta.hat.j[g] <- S.fit$coeff[j]
+   		} 
+	}#end of while(suc.rep<G)
+	
     
-    colnames(S) <- rownames(S)<- obs.vars
-    S.fit <- sem(ram=est.model, S=S, N=N, gradtol=0.0001, ...)    
-    
-    cov.theta.hat <- S.fit$cov
-    SE.theta.hat.j[g] <- ifelse (any(diag(cov.theta.hat)< 0), NA, sqrt(cov.theta.hat[j,j]))
-
-    #theta.hat[,,g] <- S.fit$coeff
-    theta.hat.j[g] <- S.fit$coeff[j]
-    }# end of for(g in 1:G)
 CI.upper <- theta.hat.j+ qnorm(1-alpha/2)*SE.theta.hat.j
 CI.lower <- theta.hat.j- qnorm(1-alpha/2)*SE.theta.hat.j
 w <- CI.upper - CI.lower
 
-true.fit <- sem(ram=est.model, S=true.Sigma, N=50000)
+true.fit <- sem(ram=model, S=true.Sigma, N=100000)
 theta.j <- true.fit$coeff[j]
 
 CI.upper <- na.omit(CI.upper)
@@ -59,11 +57,8 @@ alpha.emp.upper <- sum(theta.j>CI.upper)/G
 alpha.emp.lower <- sum(theta.j<CI.lower)/G
 
 result<- list()
-#result$SE.theta.j.hat <- SE.theta.hat.j
 result$w <- w
-#result$theta.j.hat <- theta.hat.j
 result$sample.size <- N
-#result$var.theta.j <- result.plan$var.theta.j
 result$path.of.interest <- which.path
 result$desired.width <- desired.width
 result$mean.width <- mean(w)
@@ -75,9 +70,6 @@ result$Type.I.err.lower <- alpha.emp.lower
 result$Type.I.err <- alpha.emp.upper+alpha.emp.lower
 result$conf.level <- conf.level
 result$rep <- G
-#result$CI.upper<- CI.upper
-#result$CI.lower<- CI.upper
-#result$w <- w
 return(result)  
 }# end of function()
 
