@@ -38,6 +38,8 @@ cov.mat<-read.moments()
 2.429 3.588 4.894 6.951
 3.031 4.390 6.080 7.476 10.313
 
+
+
 tran.cov.mat <- t(cov.mat)
 cov.mat[upper.tri(cov.mat)] <- tran.cov.mat[upper.tri(tran.cov.mat)]
 CFA.1(N=300, S=cov.mat)

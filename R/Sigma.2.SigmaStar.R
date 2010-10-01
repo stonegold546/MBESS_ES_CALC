@@ -1,15 +1,48 @@
 Sigma.2.SigmaStar<- function(model, model.par, latent.var, discrep, ML=TRUE){
 
-cur.package<- search()
-lib <- library()
-if(sum(cur.package=="package:matrixcalc") !=1 ) {
-    if( sum(lib$results[,1]=="matrixcalc")==1 ) library(matrixcalc)
-    else stop("This function depends on the 'matrixcalc' package. Please install the 'matrixcalc' package.")
-    }
-   
 if(is.null(names(model.par))) stop("The elements in 'model.par' must have names")
 if(sum(is.na(names(model.par))) !=0) stop ("Some of the elements in 'model.par' do not have names")
 if(length(unique(names(model.par))) != length(model.par)) stop("More than one element in 'model.par' has the same name")
+
+duplication.matrix <- function (n = 1) 
+{
+    if ((n < 1) | (round(n) != n)) 
+        stop("n must be a positive integer")
+    d <- matrix(0, n * n, n * (n + 1)/2)
+    count = 0
+    for (j in 1:n) {
+        d[(j - 1) * n + j, count + j] = 1
+        if (j < n) {
+            for (i in (j + 1):n) {
+                d[(j - 1) * n + i, count + i] <- 1
+                d[(i - 1) * n + j, count + i] <- 1
+            }
+        }
+        count = count + n - j
+    }
+    return(d)
+}
+
+vech<-function (x) 
+{
+    if (!is.square.matrix(x)) 
+        stop("argument x is not a square numeric matrix")
+    return(t(t(x[!upper.tri(x)])))
+}
+
+is.square.matrix<-function (x) 
+{
+    if (!is.matrix(x)) 
+        stop("argument x is not a matrix")
+    return(nrow(x) == ncol(x))
+}
+
+matrix.trace<-function (x) 
+{
+    if (!is.square.matrix(x)) 
+        stop("argument x is not a square matrix")
+    return(sum(diag(x)))
+}
 
 t<- length(model.par)
 r<- length(latent.var)

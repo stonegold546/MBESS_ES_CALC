@@ -5,7 +5,10 @@
 \description{
 Provides an effect bar plot in the context of simple mediation. }
 \usage{
-mediation.effect.bar.plot(x, mediator, dv, main = "Mediation Effect Bar Plot", width = 1, left.text.adj = 0, right.text.adj = 0, rounding = 3, file = "", save.pdf = FALSE, save.eps = FALSE, save.jpg = FALSE, ...)
+mediation.effect.bar.plot(x, mediator, dv, 
+main = "Mediation Effect Bar Plot", width = 1, left.text.adj = 0, 
+right.text.adj = 0, rounding = 3, file = "", save.pdf = FALSE, 
+save.eps = FALSE, save.jpg = FALSE, ...)
 }
 
 \arguments{

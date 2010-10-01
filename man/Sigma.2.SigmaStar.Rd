@@ -97,7 +97,8 @@ names(theta) <- c("lambda1", "lambda2", "lambda3",
 "delta44", "delta55","delta66",
 "delta77", "delta88","delta99")
 
-# res.matrix <- Sigma.2.SigmaStar(model=model.cfa, model.par=theta, latent.var=c("xi1", "xi2", "xi3"), discrep=0.06)
+res.matrix <- Sigma.2.SigmaStar(model=model.cfa, model.par=theta, 
+latent.var=c("xi1", "xi2", "xi3"), discrep=0.06)
 
 # res.matrix
 
@@ -113,7 +114,8 @@ names(theta) <- c("lambda1", "lambda2", "lambda3",
 # a desired population RMSEA value, one can transform the RMSEA
 # value to the discrepancy value
 
-# res.matrix <- Sigma.2.SigmaStar(model=model.cfa, model.par=theta, latent.var=c("xi1", "xi2", "xi3"), discrep=0.075*0.075*24)
+res.matrix <- Sigma.2.SigmaStar(model=model.cfa, model.par=theta, 
+latent.var=c("xi1", "xi2", "xi3"), discrep=0.075*0.075*24)
 
 # To verify the population RMSEA value
 # res.sem<-sem(model.cfa, res.matrix$Sigma.star, 1000000)
@@ -188,7 +190,8 @@ names(theta) <- c(
 # To construct a covariance matrix so that the model has 
 # a population RMSEA of 0.08
 
-# res.matrix <- Sigma.2.SigmaStar(model=model.5f, model.par=theta, latent.var=c("xi1", "xi2", "xi3", "eta1","eta2"), discrep=0.08*0.08*57)
+res.matrix <- Sigma.2.SigmaStar(model=model.5f, model.par=theta, 
+latent.var=c("xi1", "xi2", "xi3", "eta1","eta2"), discrep=0.08*0.08*57)
 
 # To verify
 # res.sem<- sem(model.5f, res.matrix$Sigma.star, 1000000)

@@ -7,13 +7,13 @@
 }
 
 \usage{
-ss.aipe.rmsea.sensitivity(width, model.est, Sigma.est, 
-Sigma.true = Sigma.est, N = NULL, conf.level = 0.95, G = 1000, ...)
+ss.aipe.rmsea.sensitivity(width, model, Sigma.est, 
+Sigma.true=Sigma.est, N=NULL, conf.level=0.95, G=500, ...)
 }
 
 \arguments{
   \item{width}{desired confidence interval width for the model parameter of interest }
-  \item{model.est}{ the model the researcher proposes, may or may not be the true model. This argument should be an RAM (reticular action model; e.g., McArdle & McDonald, 1984) specification of a structural equation model, and should be of class \code{mod}. The model is specified in the same manner as does the \code{\link[sem]{sem}} package; see \code{\link[sem]{sem}} and \code{\link[sem]{specify.model}} for detailed documentation about model specifications in the RAM notation.}
+  \item{model}{ the model the researcher proposes, may or may not be the true model. This argument should be an RAM (reticular action model; e.g., McArdle & McDonald, 1984) specification of a structural equation model, and should be of class \code{mod}. The model is specified in the same manner as does the \code{\link[sem]{sem}} package; see \code{\link[sem]{sem}} and \code{\link[sem]{specify.model}} for detailed documentation about model specifications in the RAM notation.}
 
   \item{Sigma.est}{ the covariance matrix used to calculate sample size, may or may not be the true covariance matrix. The row names and column names of \code{Sigma.est} should be the same as the manifest variables in \code{model.est}.}
   
@@ -48,7 +48,7 @@ on how to obtain the model implied covariance matrix in the RAM notation given m
 \item{alpha.lower}{the lower empirical Type I error rate}
 \item{alpha}{total empirical Type I error rate}  
 \item{conf.level}{confidence level}
-\item{suc.rep}{successful replications} 
+\item{results_ss.aipe.rmsea.sensitivity.txt}{a text file that saves the simulation results; it updates after each replication}
 }
 
 \references{
@@ -61,16 +61,129 @@ McArdle, J. J., & McDonald, R. P. (1984). Some algebraic properties of the retic
 \author{
 Keke Lai (University of Notre Dame; \email{KLai1@ND.Edu})
 }
-\note{Sometimes the simulation stops in the middle of fitting the model to the random data. The reason is because \code{\link{nlm}}, the 
-function \code{\link[sem]{sem}} calls to fit the model, fails to converge. We suggest using the \code{\link[base]{try}} function in simulation so that
-the simulation can proceed with unsuccessful iterations.
+\note{Sometimes this function jumps out of the loop before it finishes the simulation. The reason is because the 
+ \code{\link[sem]{sem}} function that this function calls to fit the model fails to converge when searching for
+ maximum likelihood estimates of model parameters. Since the results in previous replications are saved, the
+ user can start this function again, and specify the number of replications (i.e., \code{G}) to be the desired
+ total number of replications minus the number of previous successful replications.
 }
 
 
 \seealso{
 \code{\link[sem]{sem}}; \code{\link[sem]{specify.model}}; \code{\link{ss.aipe.rmsea}}; \code{\link{theta.2.Sigma.theta}}
 }
-%\examples{}
+
+\examples{
+# To replicate the simulation in the first panel, second column of 
+# Table 2 (i.e., population RMSEA=0.0268, df=23, desired width=0.02) 
+# in Lai and Kelley (2010), the following steps can be used.
+
+## STEP 1: Obtain the (correct) population covariance matrix implied by Model 2
+# This requires the model and its population model parameter values.
+
+library(sem)
+
+# Specify Model 2 in the RAM notation
+model.2<-specify.model()
+xi1 -> y1, lambda1, 1
+xi1 -> y2, NA, 1
+xi1 -> y3, lambda2, 1
+xi1 -> y4, lambda3, 0.3
+eta1 -> y4, lambda4, 1
+eta1 -> y5, NA, 1
+eta1 -> y6, lambda5, 1
+eta1 -> y7, lambda6, 0.3
+eta2 -> y6, lambda7, 0.3
+eta2 -> y7, lambda8, 1
+eta2 -> y8, NA, 1
+eta2 -> y9, lambda9, 1
+xi1 -> eta1, gamma11, 0.6
+eta1 -> eta2, beta21, 0.6 
+xi1 <-> xi1, phi11, 0.49
+eta1 <-> eta1, psi11, 0.3136
+eta2 <-> eta2, psi22, 0.3136
+y1 <-> y1, delta1, 0.51
+y2 <-> y2, delta2, 0.51
+y3 <-> y3, delta3, 0.51
+y4 <-> y4, delta4, 0.2895
+y5 <-> y5, delta5, 0.51
+y6 <-> y6, delta6, 0.2895
+y7 <-> y7, delta7, 0.2895
+y8 <-> y8, delta8, 0.51
+y9 <-> y9, delta9, 0.51
+
+
+# To inspect the specified model
+model.2
+
+# Specify model parameter values
+theta <- c(1, 1, 0.3, 1,1, 0.3, 0.3, 1, 1, 0.6, 0.6,
+0.49, 0.3136, 0.3136, 0.51, 0.51, 0.51, 0.2895, 0.51, 0.2895, 0.2895, 0.51, 0.51)
+
+names(theta) <- c("lambda1","lambda2","lambda3",
+"lambda4","lambda5","lambda6","lambda7","lambda8","lambda9",
+"gamma11", "beta21",
+"phi11", "psi11", "psi22", 
+"delta1","delta2","delta3","delta4","delta5","delta6","delta7",
+"delta8","delta9")
+
+res<-theta.2.Sigma.theta(model=model.2, theta=theta, 
+latent.vars=c("xi1", "eta1","eta2"))
+
+Sigma.theta <- res$Sigma.theta
+# Then 'Sigma.theta' is the (true) population covariance matrix
+
+## STEP 2: Create a misspecified model
+# The following model is misspecified in the same way as did Lai and Kelley (2010)
+# with the goal to obtain a relatively small population RMSEA
+
+model.2.mis<-specify.model()
+xi1 -> y1, lambda1, 1
+xi1 -> y2, NA, 1
+xi1 -> y3, lambda2, 1
+xi1 -> y4, lambda3, 0.3
+eta1 -> y4, lambda4, 1
+eta1 -> y5, NA, 1
+eta1 -> y6, lambda5, 0.96
+eta2 -> y6, lambda7, 0.33
+eta2 -> y7, lambda8, 1.33
+eta2 -> y8, NA, 1
+eta2 -> y9, lambda9, 1
+xi1 -> eta1, gamma11, 0.6
+eta1 -> eta2, beta21, 0.65 
+xi1 <-> xi1, phi11, 0.49
+eta1 <-> eta1, psi11, 0.3136
+eta2 <-> eta2, psi22, 0.23
+y1 <-> y1, delta1, 0.51
+y2 <-> y2, delta2, 0.51
+y3 <-> y3, delta3, 0.51
+y4 <-> y4, delta4, 0.2895
+y5 <-> y5, delta5, 0.51
+y6 <-> y6, delta6, 0.29
+y7 <-> y7, delta7, 0.22
+y8 <-> y8, delta8, 0.56
+y9 <-> y9, delta9, 0.56
+
+
+# To verify the population RMSEA of this misspecified model
+fit<-sem(model.2.mis, Sigma.theta, 1000000)
+summary(fit)$RMSEA
+
+## STEP 3: Conduct the simulation
+# The number of replications is set to a very small value just to demonstrate
+# and save time. Real simulation studies require a larger number (e.g., 500, 1,000)
+
+ss.aipe.rmsea.sensitivity(width=0.02, model=model.2.mis, Sigma.est=Sigma.theta, G=10)
+
+## STEP 4: In cases where this function stops before it finishes the simulation
+# Suppose it stops at the 7th replication. The text 
+# file "results_ss.aipe.rmsea.sensitivity.txt" saves the results in all 
+# previous replications; in this case it contains 6 replications since
+# the simulation stopped at the 7th. The user can start this function again and specify
+# 'G' to 4 (i.e., 10-6). New results will be appended to previous ones in the same file.
+
+ss.aipe.rmsea.sensitivity(width=0.02, model=model.2.mis, Sigma.est=Sigma.theta, G=4)
+}
 
 \keyword{ design }
 \keyword{ multivariate }
