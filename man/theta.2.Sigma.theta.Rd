@@ -42,6 +42,7 @@ McArdle, J. J., & McDonald, R. P. (1984). Some algebraic properties of the retic
 
 \seealso{\code{\link[sem]{sem}}; \code{\link[sem]{specify.model}}  }
 \examples{
+\dontrun{
 # to obtain the model implied covariance matrix of Model 2 in the simulation 
 # study in Lai and Kelley (2010), one can use the present function in the 
 # following manner.
@@ -95,6 +96,7 @@ res<-theta.2.Sigma.theta(model=model.2, theta=theta,
 latent.vars=c("xi1", "eta1","eta2"))
 
 Sigma.theta <- res$Sigma.theta
+}
 }
 
 \keyword{ multivariate}

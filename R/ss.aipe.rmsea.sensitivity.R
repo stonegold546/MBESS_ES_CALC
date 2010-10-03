@@ -1,11 +1,10 @@
 ss.aipe.rmsea.sensitivity <-
 function(width, model, Sigma.est, Sigma.true=Sigma.est, N=NULL, conf.level=0.95, G=500, ...){
-
+options(warn=-1)
 if(!require(MASS)) stop("This function depends on the 'MASS' package. Please install the 'MASS' package first.")
 print("Simulation results will be saved to a text file after each replication") 
 suppressWarnings(file.exist<-try(read.table("results_ss.aipe.rmsea.sensitivity.txt"), silent=TRUE))
 if(!is.null(dim(file.exist))) cat("A file in the local directory has the same name as the file where simulation","\n", "results will be saved to. Simulation results will be appended to this file.","\n", sep="")
-
 M.fit <- sem(model, Sigma.true, 810000)
 rmsea <- summary(M.fit)$RMSEA[1]
 df <- summary(M.fit)$df
@@ -26,8 +25,13 @@ for (g in 1:G){
    S <- var(Data)
    colnames(S) <- rownames(S)<- rownames(Sigma.est)
    
-   m.fit <- try(sem(model, S, N, gradtol=0.0001), FALSE)
-    if (any(is.na(m.fit$cov)) || inherits(m.fit, "try-error")){
+   m.fit <- suppressWarnings(try(sem(model, S, N, gradtol=0.0001), TRUE))
+    if(!is.list(m.fit)) {
+    	 rmsea.hat[g]<- NA
+        CI.upper[g] <- NA
+        CI.lower[g] <- NA
+    	}else 
+    		if (any(is.nan(m.fit$cov))||any(is.na(m.fit$cov)) || inherits(m.fit, "try-error")){
         rmsea.hat[g]<- NA
         CI.upper[g] <- NA
         CI.lower[g] <- NA

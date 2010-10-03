@@ -45,8 +45,8 @@ McArdle, J. J., & McDonald, R. P. (1984). Some algebraic properties of the retic
 \seealso{\code{\link[sem]{sem}}; \code{\link[sem]{specify.model}}; \code{\link{theta.2.Sigma.theta}} }
 
 \examples{
+\dontrun{
 library(sem)
-# library(matrixcalc)
 
 ###############
 ## EXAMPLE 1; a CFA model with three latent variables and nine indicators.
@@ -196,6 +196,7 @@ latent.var=c("xi1", "xi2", "xi3", "eta1","eta2"), discrep=0.08*0.08*57)
 # To verify
 # res.sem<- sem(model.5f, res.matrix$Sigma.star, 1000000)
 # summary(res.sem)
+}
 }
 
 \keyword{ multivariate }
