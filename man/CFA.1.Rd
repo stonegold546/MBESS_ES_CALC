@@ -29,6 +29,7 @@ CFA.1(S, N, equal.loading = FALSE, equal.error = FALSE)
 
 \seealso{ \code{\link[sem]{sem}}, \code{covmat.from.cfm} }
 \examples{
+\dontrun{
 # Construct covariance matrix
 library(sem)
 cov.mat<-read.moments()
@@ -43,6 +44,7 @@ cov.mat<-read.moments()
 tran.cov.mat <- t(cov.mat)
 cov.mat[upper.tri(cov.mat)] <- tran.cov.mat[upper.tri(tran.cov.mat)]
 CFA.1(N=300, S=cov.mat)
+}
 }
 
 \keyword{ multivariate}

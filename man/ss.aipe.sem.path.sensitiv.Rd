@@ -60,6 +60,7 @@ the simulation can proceed with unsuccessful iterations.}
 \seealso{ \code{\link[sem]{sem}}; \code{\link[sem]{specify.model}}; \code{\link{theta.2.Sigma.theta}}; \code{\link{ss.aipe.sem.path}} }
 
 \examples{
+\dontrun{
 # Suppose the model of interest is Model 2 of the simulation study in 
 # Lai and Kelley (2010), and the goal is to obtain a 95\% confidence 
 # interval for 'beta21' no wider than 0.3.
@@ -133,7 +134,7 @@ Sigma.theta <- res$Sigma.theta
 # var(X)
 # ss.aipe.sem.path.sensitiv(est.model=model.2, est.Sigma=Sigma.theta, 
 # true.Sigma=var(X), which.path="beta21", desired.width=0.3, G=300)
-
+}
 }
 \keyword{ design }
 \keyword{ multivariate }

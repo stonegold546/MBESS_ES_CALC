@@ -74,6 +74,7 @@ Keke Lai (University of Notre Dame; \email{KLai1@ND.Edu})
 }
 
 \examples{
+\dontrun{
 # To replicate the simulation in the first panel, second column of 
 # Table 2 (i.e., population RMSEA=0.0268, df=23, desired width=0.02) 
 # in Lai and Kelley (2010), the following steps can be used.
@@ -175,7 +176,7 @@ summary(fit)$RMSEA
 
 ss.aipe.rmsea.sensitivity(width=0.02, model=model.2.mis, Sigma.est=Sigma.theta, G=10)
 
-## STEP 4: In cases where this function stops before it finishes the simulation
+## STEP 3+: In cases where this function stops before it finishes the simulation
 # Suppose it stops at the 7th replication. The text 
 # file "results_ss.aipe.rmsea.sensitivity.txt" saves the results in all 
 # previous replications; in this case it contains 6 replications since
@@ -183,6 +184,7 @@ ss.aipe.rmsea.sensitivity(width=0.02, model=model.2.mis, Sigma.est=Sigma.theta, 
 # 'G' to 4 (i.e., 10-6). New results will be appended to previous ones in the same file.
 
 ss.aipe.rmsea.sensitivity(width=0.02, model=model.2.mis, Sigma.est=Sigma.theta, G=4)
+}
 }
 
 \keyword{ design }

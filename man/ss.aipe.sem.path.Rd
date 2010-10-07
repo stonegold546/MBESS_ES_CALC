@@ -44,6 +44,7 @@ McArdle, J. J., & McDonald, R. P. (1984). Some algebraic properties of the retic
 %\note{ }
 \seealso{ \code{\link[sem]{sem}}; \code{\link[sem]{specify.model}}; \code{\link{theta.2.Sigma.theta}}; \code{\link{ss.aipe.sem.path.sensitiv}} }
 \examples{
+\dontrun{
 # Suppose the model of interest is Model 2 in the simulation study 
 # in Lai and Kelley (2010), and the goal is to obtain a 95\% confidence 
 # interval for 'beta21' no wider than 0.3. The necessary sample size 
@@ -107,6 +108,7 @@ Sigma.theta <- res$Sigma.theta
 # the necessary sample size can be calculated as follows.
 # ss.aipe.sem.path(model=model.2, Sigma=Sigma.theta, 
 # desired.width=0.3, which.path="beta21")
+}
 }
 
 \keyword{ design }
