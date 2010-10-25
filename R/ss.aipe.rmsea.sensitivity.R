@@ -1,29 +1,32 @@
 ss.aipe.rmsea.sensitivity <-
-function(width, model, Sigma.est, Sigma.true=Sigma.est, N=NULL, conf.level=0.95, G=500, ...){
+function(width, model, Sigma, N=NULL, conf.level=0.95, G=200, save.file="sim.results.txt", ...){
 options(warn=-1)
 if(!require(MASS)) stop("This function depends on the 'MASS' package. Please install the 'MASS' package first.")
+
+result.file<- save.file
+
 print("Simulation results will be saved to a text file after each replication") 
-suppressWarnings(file.exist<-try(read.table("results_ss.aipe.rmsea.sensitivity.txt"), silent=TRUE))
+suppressWarnings(file.exist<-try(read.table(result.file), silent=TRUE))
 if(!is.null(dim(file.exist))) cat("A file in the local directory has the same name as the file where simulation","\n", "results will be saved to. Simulation results will be appended to this file.","\n", sep="")
-M.fit <- sem(model, Sigma.true, 810000)
+M.fit <- sem(model, Sigma, 1000000)
 rmsea <- summary(M.fit)$RMSEA[1]
 df <- summary(M.fit)$df
 
 if (is.null(N)) N <- ss.aipe.rmsea(RMSEA=rmsea, df=df, width=width, conf.level =conf.level) 
-p<- dim(Sigma.true)[1]
+p<- dim(Sigma)[1]
 Data <- matrix(NA, N, p)
 rmsea.hat <- rep(NA, G)
 CI.upper <- rep(NA, G)
 CI.lower <- rep(NA, G)
 
 res.col.names<- cbind("iteration","RMSEA.hat","CI.low","CI.up","width")
-write.table(res.col.names, "results_ss.aipe.rmsea.sensitivity.txt",append=TRUE, sep="      ", row.names=FALSE, col.names=FALSE)
+write.table(res.col.names, result.file,append=TRUE, sep="      ", row.names=FALSE, col.names=FALSE,...)
 for (g in 1:G){
 	gc()
-	cat("iteration = ", g, "\n")
-   Data <- mvrnorm(n = N, mu=rep(0,p), Sigma=Sigma.true)  
+	cat("replication = ", g, "\n")
+   Data <- mvrnorm(n = N, mu=rep(0,p), Sigma=Sigma)  
    S <- var(Data)
-   colnames(S) <- rownames(S)<- rownames(Sigma.est)
+   colnames(S) <- rownames(S)<- rownames(Sigma)
    
    m.fit <- suppressWarnings(try(sem(model, S, N, gradtol=0.0001), TRUE))
     if(!is.list(m.fit)) {
@@ -42,7 +45,7 @@ for (g in 1:G){
         CI.lower[g] <- CI$Lower.Conf.Limit
         CI.upper[g] <- CI$Upper.Conf.Limit
         sim.result<- cbind(g,rmsea.hat[g], CI.lower[g], CI.upper[g], CI.upper[g]-CI.lower[g])
-        write.table(sim.result, "results_ss.aipe.rmsea.sensitivity.txt", append=TRUE, sep="  ", row.names=FALSE, col.names=FALSE)
+        write.table(sim.result, result.file, append=TRUE, sep="  ", row.names=FALSE, col.names=FALSE,...)
         }
 
    #m.fit <- try(sem(model, S, N), FALSE)
@@ -62,20 +65,22 @@ rmsea.hat<- rmsea.hat
 CI.upper <- CI.upper
 CI.lower <- CI.lower
 w <- CI.upper - CI.lower
+suc.rep<-sum(!is.na(w))
 
 result <- list()
 result$w <- w
 result$RMSEA.hat <- rmsea.hat
+result$successful.replication<- suc.rep
 result$sample.size <- N
 result$df <- df
 result$RMSEA.pop <- rmsea
 result$desired.width <- width
 result$mean.width <- mean(w, na.rm=TRUE)
 result$median.width <- median(w, na.rm=TRUE)
-result$assurance <- sum(w< width, na.rm=TRUE)
+result$assurance <- sum(w< width, na.rm=TRUE)/suc.rep
 result$quantile.width <- quantile(w, c(.99, .97, .95, .90, .80, .70, .60), na.rm=TRUE)
-result$alpha.upper <- sum(CI.upper< rmsea, na.rm=TRUE)/G
-result$alpha.lower <- sum(CI.lower> rmsea, na.rm=TRUE)/G
+result$alpha.upper <- sum(CI.upper< rmsea, na.rm=TRUE)/suc.rep
+result$alpha.lower <- sum(CI.lower> rmsea, na.rm=TRUE)/suc.rep
 result$alpha <- result$alpha.upper+result$alpha.lower 
 result$conf.level <- conf.level
 
