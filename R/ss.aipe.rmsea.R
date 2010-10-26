@@ -58,9 +58,9 @@ ss.aipe.rmsea <- function (RMSEA, df, width, conf.level = 0.95)
             }#else warning(warn.msg,immediate. = TRUE)
         }
     
-    print(paste("Necessary sample size so that the expected width of the ", 
-        conf.level * 100, "% confidence interval is no greater than ", 
-        width, ", given a population RMSEA of ", RMSEA, ", is:", 
-        sep = ""))
+    cat("Necessary sample size so that the expected width of the ", 
+        conf.level * 100, "% confidence interval","\n", "is no greater than ", 
+        width, ", given a population RMSEA of ", RMSEA, ", is:", "\n",sep="" 
+        )
     return(N)
 }

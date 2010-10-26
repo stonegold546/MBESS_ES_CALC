@@ -6,7 +6,9 @@ A function to calculate the confidence interval for a reliability coefficient us
 the factor analytic approach or the normal theory approach. 
 }
 \usage{
-ci.reliability(S = NULL, data = NULL, N=NULL, model = "True-Score Equivalent", type = "Factor Analytic", conf.level = .95)
+ci.reliability(S = NULL, data = NULL, N = NULL, 
+model = "True-Score Equivalent", type = "Factor Analytic", conf.level = 0.95, 
+interval = TRUE, Bootstrap = FALSE, B = 10000, BootstrapCI = "BCa")
 }
 
 \arguments{
@@ -17,6 +19,10 @@ ci.reliability(S = NULL, data = NULL, N=NULL, model = "True-Score Equivalent", t
     \code{"congeneric model"}) for a homogeneous single common factor test }
   \item{type}{the type of method to base the formation of the confidence interval on, either the \code{"Factor Analytic"} (McDonald, 1999) or \code{"Normal Theory"} (van Zyl, Neudecker, & Nel, 2000) }
   \item{conf.level}{ the confidence level (i.e., 1-Type I error rate)}
+  \item{interval}{whether or not to compute a confidence interval. If \code{FALSE}, then only a point estimate of the reliability will be returned.}
+  \item{Bootstrap}{ whether or not to use the bootstrap to form a confidence interval. The default is to use analytic methods.}
+  \item{B}{the number of bootstrap replications}
+  \item{BootstrapCI}{the type of bootstrap confidence interval. It can be \code{BCa} or \code{percentile}.}
 }
 \details{
 This function calculates a reliability coefficient for a set of scores based on the measurement model chosen. 
@@ -47,7 +53,7 @@ reliability coefficient estimates. \emph{Psychometrika, 67} (2), 251-259.
 }
 
 \author{Keke Lai (University of Notre Dame); Leann J. Terry (Indiana University; \email{ljterry@Indiana.Edu});
-Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
+Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}); Sunthud Pornprasertmanit (University of Kansas; \email{PSunthud@KU.Edu})}
 
 
 \seealso{ \code{\link{CFA.1}}; \code{\link[sem]{sem}} }
