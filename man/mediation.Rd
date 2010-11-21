@@ -57,9 +57,9 @@ Based on the work of Preacher and Kelley (2010), this function implements (simpl
 
 \item{ab.to.Maximum.Possible.Mediation.Effect_kappa.squared}{the proportion of the maximum possible indirect effect; Uses the indirect effect in the numerator with the maximum possible mediation effect in the denominator (Preacher & Kelley, 2010)}
 
-\item{Mediation.Ratio}{ratio of the indirect effect to the total effect (Freedman, 2001); also known as mediation ratio (Ditlevsen, Christensen, Lynch, Damsgaard, & Keiding, 2005); in epidemiological research and as the relative indirect effect (Huang, Sivaganesan, Succop, & Goodman, 2004); often loosely interpreted as the relative indirect effect}
+\item{Ratio.of.Indirect.to.Total.Effect}{ratio of the indirect effect to the total effect (Freedman, 2001); also known as mediation ratio (Ditlevsen, Christensen, Lynch, Damsgaard, & Keiding, 2005); in epidemiological research and as the relative indirect effect (Huang, Sivaganesan, Succop, & Goodman, 2004); often loosely interpreted as the relative indirect effect}
 
-\item{Indirect.to.Direct}{ratio of the indirect effect to the direct effect (Sobel, 1982)}
+\item{Ratio.of.Indirect.to.Direct.Effect}{ratio of the indirect effect to the direct effect (Sobel, 1982)}
 
 \item{Success.of.Surrogate.Endpoint}{Success of a surrogate endpoint (Buyse & Molenberghs, 1998) }
 
