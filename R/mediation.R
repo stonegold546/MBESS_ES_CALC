@@ -51,12 +51,12 @@ function (x, mediator, dv, S = NULL, N = NULL, x.location.S = NULL,
             e.0Y <- dv - mean.dv
             standardized.e.0M <- s.mediator - 0
             standardized.e.0Y <- s.dv - 0
-			Residual.Based_Gamma <- as.numeric(1 -(sum((e.1M^2 + 
-                e.1Y^2)^.5))/(sum((e.0M^2 + e.0Y^2)^.5)))
+			Residual.Based_Gamma <- as.numeric(1 -(sum(abs(e.1M) + 
+                abs(e.1Y)))/(sum(abs(e.0M) + abs(e.0Y))))
                                 
 			Residual.Based.Standardized_gamma <- as.numeric(1 - 
-              (sum((standardized.e.1M^2 + standardized.e.1Y^2)^.5))/(sum((standardized.e.0M^2 + 
-              standardized.e.0Y^2)^.5)))
+              (sum(abs(standardized.e.1M) + abs(standardized.e.1Y)))/(sum(abs(standardized.e.0M) + 
+              abs(standardized.e.0Y))))
         }
         Cor.Matrix <- cov2cor(Cov.Matrix)
         Dim.Cov.Matrix <- dim(Cov.Matrix)[1]
@@ -246,8 +246,8 @@ function (x, mediator, dv, S = NULL, N = NULL, x.location.S = NULL,
             R2.Y_X))/R2.Y_XM)
         Maximum.Possible.Mediation.Effect <- c(Estimate = From.a)
         ab.to.Maximum.Possible.Mediation.Effect_kappa.squared <- c(Estimate = ab/From.a)
-        Mediation.Ratio <- c(Estimate = 1 - (path.c.prime/path.c))
-        Indirect.to.Direct <- c(Estimate = path.a * path.b/path.c.prime)
+        Ratio.of.Indirect.to.Total.Effect <- c(Estimate = 1 - (path.c.prime/path.c))
+        Ratio.of.Indirect.to.Direct.Effect <- c(Estimate = path.a * path.b/path.c.prime)
         Success.of.Surrogate.Endpoint <- c(Estimate = path.c/path.a)
         SOS <- c(Estimate = R2_4.5/R2.Y_X)
         if (!is.null(S)) {
@@ -257,7 +257,7 @@ function (x, mediator, dv, S = NULL, N = NULL, x.location.S = NULL,
                 Index.of.Mediation = Index.of.Mediation, R2_4.5 = R2_4.5, 
                 R2_4.6 = R2_4.6, R2_4.7 = R2_4.7, Maximum.Possible.Mediation.Effect = Maximum.Possible.Mediation.Effect, 
                 ab.to.Maximum.Possible.Mediation.Effect_kappa.squared = ab.to.Maximum.Possible.Mediation.Effect_kappa.squared, 
-                Mediation.Ratio = Mediation.Ratio, Indirect.to.Direct = Indirect.to.Direct, 
+                Ratio.of.Indirect.to.Total.Effect = Ratio.of.Indirect.to.Total.Effect, Ratio.of.Indirect.to.Direct.Effect = Ratio.of.Indirect.to.Direct.Effect, 
                 Success.of.Surrogate.Endpoint = Success.of.Surrogate.Endpoint, 
                 SOS = SOS)
         }
@@ -269,7 +269,7 @@ function (x, mediator, dv, S = NULL, N = NULL, x.location.S = NULL,
                   Index.of.Mediation = Index.of.Mediation, R2_4.5 = R2_4.5, 
                   R2_4.6 = R2_4.6, R2_4.7 = R2_4.7, Maximum.Possible.Mediation.Effect = Maximum.Possible.Mediation.Effect, 
                   ab.to.Maximum.Possible.Mediation.Effect_kappa.squared = ab.to.Maximum.Possible.Mediation.Effect_kappa.squared, 
-                  Mediation.Ratio = Mediation.Ratio, Indirect.to.Direct = Indirect.to.Direct, 
+                  Ratio.of.Indirect.to.Total.Effect = Ratio.of.Indirect.to.Total.Effect, Ratio.of.Indirect.to.Direct.Effect = Ratio.of.Indirect.to.Direct.Effect, 
                   Success.of.Surrogate.Endpoint = Success.of.Surrogate.Endpoint, 
                   Residual.Based_Gamma = Residual.Based_Gamma, 
                   Residual.Based.Standardized_gamma = Residual.Based.Standardized_gamma, 
@@ -285,7 +285,7 @@ function (x, mediator, dv, S = NULL, N = NULL, x.location.S = NULL,
                   Index.of.Mediation = Index.of.Mediation, R2_4.5 = R2_4.5, 
                   R2_4.6 = R2_4.6, R2_4.7 = R2_4.7, Maximum.Possible.Mediation.Effect = Maximum.Possible.Mediation.Effect, 
                   ab.to.Maximum.Possible.Mediation.Effect_kappa.squared = ab.to.Maximum.Possible.Mediation.Effect_kappa.squared, 
-                  Mediation.Ratio = Mediation.Ratio, Indirect.to.Direct = Indirect.to.Direct, 
+                  Ratio.of.Indirect.to.Total.Effect = Ratio.of.Indirect.to.Total.Effect, Ratio.of.Indirect.to.Direct.Effect = Ratio.of.Indirect.to.Direct.Effect, 
                   Success.of.Surrogate.Endpoint = Success.of.Surrogate.Endpoint, 
                   Residual.Based_Gamma = Residual.Based_Gamma, 
                   Residual.Based.Standardized_gamma = Residual.Based.Standardized_gamma, 
@@ -315,7 +315,7 @@ function (x, mediator, dv, S = NULL, N = NULL, x.location.S = NULL,
                   values$Index.of.Mediation, values$R2_4.5, values$R2_4.6, 
                   values$R2_4.7, values$Maximum.Possible.Mediation.Effect, 
                   values$ab.to.Maximum.Possible.Mediation.Effect_kappa.squared, 
-                  values$Mediation.Ratio, values$Indirect.to.Direct, 
+                  values$Ratio.of.Indirect.to.Total.Effect, values$Ratio.of.Indirect.to.Direct.Effect, 
                   values$Success.of.Surrogate.Endpoint, values$Residual.Based_Gamma, 
                   values$Residual.Based.Standardized_gamma, values$SOS)
             }
@@ -324,9 +324,9 @@ function (x, mediator, dv, S = NULL, N = NULL, x.location.S = NULL,
                   values$Index.of.Mediation, values$R2_4.5, values$R2_4.6, 
                   values$R2_4.7, values$Maximum.Possible.Mediation.Effect, 
                   values$ab.to.Maximum.Possible.Mediation.Effect_kappa.squared, 
-                  values$Mediation.Ratio, values$Indirect.to.Direct, 
+                  values$Ratio.of.Indirect.to.Total.Effect, values$Ratio.of.Indirect.to.Direct.Effect, 
                   values$Success.of.Surrogate.Endpoint, values$Residual.Based_Gamma, 
-                  values$kappa_M.Standardized, values$ES.for.two.groups, 
+                  values$Kris.Standardized, values$ES.for.two.groups, 
                   values$SOS)
             }
             return(Values.to.boot)
@@ -387,17 +387,17 @@ function (x, mediator, dv, S = NULL, N = NULL, x.location.S = NULL,
                 index = c(8), conf = conf.level, type = c("bca"))$bca[4:5]))
         colnames(ab.to.Maximum.Possible.Mediation.Effect_kappa.squared) <- c("Estimate", 
             "CI.Low.Perc", "CI.Up.Perc", "CI.Low.Bca", "CI.Up.BCa")
-        Mediation.Ratio <- rbind(c(Mediation.Results$Mediation.Ratio, 
+        Ratio.of.Indirect.to.Total.Effect <- rbind(c(Mediation.Results$Ratio.of.Indirect.to.Total.Effect, 
             boot.ci(boot.out = boot.out, index = c(9), conf = conf.level, 
                 type = c("perc"))$percent[4:5], boot.ci(boot.out = boot.out, 
                 index = c(9), conf = conf.level, type = c("bca"))$bca[4:5]))
-        colnames(Mediation.Ratio) <- c("Estimate", "CI.Low.Perc", 
+        colnames(Ratio.of.Indirect.to.Total.Effect) <- c("Estimate", "CI.Low.Perc", 
             "CI.Up.Perc", "CI.Low.Bca", "CI.Up.BCa")
-        Indirect.to.Direct <- rbind(c(Mediation.Results$Indirect.to.Direct, 
+        Ratio.of.Indirect.to.Direct.Effect <- rbind(c(Mediation.Results$Ratio.of.Indirect.to.Direct.Effect, 
             boot.ci(boot.out = boot.out, index = c(10), conf = conf.level, 
                 type = c("perc"))$percent[4:5], boot.ci(boot.out = boot.out, 
                 index = c(10), conf = conf.level, type = c("bca"))$bca[4:5]))
-        colnames(Indirect.to.Direct) <- c("Estimate", "CI.Low.Perc", 
+        colnames(Ratio.of.Indirect.to.Direct.Effect) <- c("Estimate", "CI.Low.Perc", 
             "CI.Up.Perc", "CI.Low.Bca", "CI.Up.BCa")
         Success.of.Surrogate.Endpoint <- rbind(c(Mediation.Results$Success.of.Surrogate.Endpoint, 
             boot.ci(boot.out = boot.out, index = c(11), conf = conf.level, 
@@ -430,7 +430,7 @@ function (x, mediator, dv, S = NULL, N = NULL, x.location.S = NULL,
                 Index.of.Mediation = Index.of.Mediation, R2_4.5 = R2_4.5, 
                 R2_4.6 = R2_4.6, R2_4.7 = R2_4.7, Maximum.Possible.Mediation.Effect = Maximum.Possible.Mediation.Effect, 
                 ab.to.Maximum.Possible.Mediation.Effect_kappa.squared = ab.to.Maximum.Possible.Mediation.Effect_kappa.squared, 
-                Mediation.Ratio = Mediation.Ratio, Indirect.to.Direct = Indirect.to.Direct, 
+                Ratio.of.Indirect.to.Total.Effect = Ratio.of.Indirect.to.Total.Effect, Ratio.of.Indirect.to.Direct.Effect = Ratio.of.Indirect.to.Direct.Effect, 
                 Success.of.Surrogate.Endpoint = Success.of.Surrogate.Endpoint, 
                 Residual.Based_Gamma = Residual.Based_Gamma, 
                 Residual.Based.Standardized_gamma = Residual.Based.Standardized_gamma, 
@@ -449,7 +449,7 @@ function (x, mediator, dv, S = NULL, N = NULL, x.location.S = NULL,
                 Index.of.Mediation = Index.of.Mediation, R2_4.5 = R2_4.5, 
                 R2_4.6 = R2_4.6, R2_4.7 = R2_4.7, Maximum.Possible.Mediation.Effect = Maximum.Possible.Mediation.Effect, 
                 ab.to.Maximum.Possible.Mediation.Effect_kappa.squared = ab.to.Maximum.Possible.Mediation.Effect_kappa.squared, 
-                Mediation.Ratio = Mediation.Ratio, Indirect.to.Direct = Indirect.to.Direct, 
+                Ratio.of.Indirect.to.Total.Effect = Ratio.of.Indirect.to.Total.Effect, Ratio.of.Indirect.to.Direct.Effect = Ratio.of.Indirect.to.Direct.Effect, 
                 Success.of.Surrogate.Endpoint = Success.of.Surrogate.Endpoint, 
                 Residual.Based_Gamma = Residual.Based_Gamma, 
                 Residual.Based.Standardized_gamma = Residual.Based.Standardized_gamma, 

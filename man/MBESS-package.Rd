@@ -15,12 +15,12 @@ educational, and social sciences.
 \tabular{ll}{
 Package: \tab MBESS\cr
 Type: \tab Package\cr
-Version: \tab 3.1.1 \cr
-Date: \tab 2010-11-6\cr
+Version: \tab 3.2.0 \cr
+Date: \tab 2010-11-21\cr
 License: \tab GPL(>=2)\cr
 }
 Please read the manual and visit the corresponding web site 
-\url{http://www.nd.edu/~kkelley} 
+\url{http://nd.edu/~kkelley/site/MBESS.html} 
 for information on the capabilities of the \code{MBESS} package. Feel free 
 to contact me if there is a feature you would like to see added if it would 
 complement the goals of the MBESS package.
