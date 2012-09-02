@@ -47,7 +47,7 @@ This function can be used for single or factorial ANOVA designs.
 }
 \seealso{\code{conf.limits.ncf} }
 \examples{
-
+\dontrun{
 ## Bargman (1970) gave an example in which a 5-group ANOVA with 11 subjects in each 
 ## group is conducted and the observed F value is 11.2213. This exmaple was used 
 ## in Venables (1975),  Fleishman (1980), and Steiger (2004). If one wants to calculate the 
@@ -59,6 +59,6 @@ ci.pvaf(F.value=11.221, df.1=4, df.2=50, N=55)
 ci.pvaf(F.value=11.221, df.1=4, df.2=50, N=55, conf.level=.90)
 
 ci.pvaf(F.value=11.221, df.1=4, df.2=50, N=55,  alpha.lower=0, alpha.upper=.05)
-
+}
 }
 \keyword{ design }% at least one, from doc/KEYWORDS

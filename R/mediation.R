@@ -1,15 +1,10 @@
-mediation <- 
-function (x, mediator, dv, S = NULL, N = NULL, x.location.S = NULL, 
-    mediator.location.S = NULL, dv.location.S = NULL, mean.x = NULL, 
-    mean.m = NULL, mean.dv = NULL, conf.level = 0.95, bootstrap = FALSE, 
-    B = 1000) 
+mediation <- function (x, mediator, dv, S = NULL, N = NULL, x.location.S = NULL,  mediator.location.S = NULL, dv.location.S = NULL, mean.x = NULL, 
+    mean.m = NULL, mean.dv = NULL, conf.level = 0.95, bootstrap = FALSE, B = 1000, which.boot="both", save.bs.replicates=FALSE) 
 {
-    if (bootstrap == TRUE) {
-        if (!require(boot)) 
-            stop("This function depends on the 'boot' package. Please install the 'boot' package first")
-    }
+
+# Here is the internal mediation function.
     .mediation <- function(x = x, mediator = mediator, dv = dv, 
-        S = S, N = N, x.location.S = x.location.S, mediator.location.S = mediator.location.S, 
+        S = NULL, N = N, x.location.S = x.location.S, mediator.location.S = mediator.location.S, 
         dv.location.S = dv.location.S, mean.x = mean.x, mean.m = mean.m, 
         mean.dv = mean.dv, conf.level = conf.level) {
         if (!is.null(S)) {
@@ -51,7 +46,7 @@ function (x, mediator, dv, S = NULL, N = NULL, x.location.S = NULL,
             e.0Y <- dv - mean.dv
             standardized.e.0M <- s.mediator - 0
             standardized.e.0Y <- s.dv - 0
-			Residual.Based_Gamma <- as.numeric(1 -(sum(abs(e.1M) + 
+      Residual.Based_Gamma <- as.numeric(1 -(sum(abs(e.1M) + 
                 abs(e.1Y)))/(sum(abs(e.0M) + abs(e.0Y))))
                                 
 			Residual.Based.Standardized_gamma <- as.numeric(1 - 
@@ -73,12 +68,16 @@ function (x, mediator, dv, S = NULL, N = NULL, x.location.S = NULL,
         CI.R2.Y_X <- ci.R2(R2 = R2.Y_X, conf.level = conf.level, 
             Random.Predictors = TRUE, N = N, p = 1)
         Model.F.Y_X <- (R2.Y_X/1)/((1 - R2.Y_X)/(N - 1 - 1))
-        RMSE.Y_X <- sqrt((1 - R2.Y_X) * ((N - 1) * Cov.Matrix[3, 
-            3]/(N - 2)))
+        
+        MSE.Y_X <- (1 - R2.Y_X) * ((N - 1) * Cov.Matrix[3, 3]/(N - 2))
+        RMSE.Y_X <- sqrt(round(MSE.Y_X, 10))
+        
         SE.Y_X <- cbind(c(sqrt((1 - R2.Y_X) * ((N - 1) * Cov.Matrix[3, 
             3]/(N - 2))) * sqrt(1/N + mean.x^2/((N - 1) * S.XX[1, 
             1])), sqrt((1 - R2.Y_X)/(N - 1 - 1)) * sqrt(Cov.Matrix[3, 
             3]/S.XX[1, 1])))
+        
+        
         t.Y_X <- t(B.Y_X)/SE.Y_X
         p.Y_X <- 2 * (pt(-1 * abs(t.Y_X), df = N - 1 - 1))
         CL.Low.Y_X <- t(B.Y_X) - qt(1 - (1 - conf.level)/2, df = N - 
@@ -149,8 +148,11 @@ function (x, mediator, dv, S = NULL, N = NULL, x.location.S = NULL,
         CI.R2.Y_XM <- ci.R2(R2 = R2.Y_XM, conf.level = conf.level, 
             Random.Predictors = TRUE, N = N, p = 2)
         Model.F.Y_XM <- (R2.Y_XM/2)/((1 - R2.Y_XM)/(N - 2 - 1))
-        RMSE.Y_XM <- sqrt((1 - R2.Y_XM) * ((N - 1) * Cov.Matrix[3, 
-            3]/(N - 3)))
+        
+        # Below is necessary so that rounding doesn't lead to a (very slightly) negative number (via rounding) that would not allow the square root to be taken.
+        MSE.Y_XM <- (1 - R2.Y_XM) * ((N - 1) * Cov.Matrix[3, 3]/(N - 3))
+        RMSE.Y_XM <- sqrt(round(MSE.Y_XM, 10))
+        
         x.prime.x <- cbind(c(N, mean.x * N, mean.m * N), c(mean.x * 
             N, (S.XX[1, 1] * (N - 1) + N * mean.x^2), S.XX[1, 
             2] * (N - 1) + N * mean.x * mean.m), c(mean.m * N, 
@@ -183,278 +185,255 @@ function (x, mediator, dv, S = NULL, N = NULL, x.location.S = NULL,
         s.YX <- Cov.Matrix[1, 3]
         s.XM <- Cov.Matrix[2, 1]
         s.YM <- Cov.Matrix[3, 2]
+        
         ab <- path.a * path.b
-        a.contained <- c((s.YM * s.YX + sqrt(s2.M * s2.Y - s.YM^2) * 
-            sqrt(s2.X * s2.Y - s.YX^2))/(s2.X * s2.Y), (s.YM * 
-            s.YX - sqrt(s2.M * s2.Y - s.YM^2) * sqrt(s2.X * s2.Y - 
-            s.YX^2))/(s2.X * s2.Y))
-        if (path.a > 0) {
-            a.contained <- a.contained[a.contained > 0]
-            a.contained <- a.contained[abs(a.contained) == max(abs(a.contained))]
-        }
-        if (path.a < 0) {
-            a.contained <- a.contained[a.contained < 0]
-            a.contained <- a.contained[abs(a.contained) == max(abs(a.contained))]
-        }
-        b.contained <- c(sqrt(s2.X * s2.Y - s.YX^2)/sqrt(s2.X * 
-            s2.M - s.XM^2), -sqrt(s2.X * s2.Y - s.YX^2)/sqrt(s2.X * 
-            s2.M - s.XM^2))
-        if (path.b > 0) {
-            b.contained <- b.contained[b.contained > 0]
-            b.contained <- b.contained[abs(b.contained) == max(abs(b.contained))]
-        }
-        if (path.b < 0) {
-            b.contained <- b.contained[b.contained < 0]
-            b.contained <- b.contained[abs(b.contained) == max(abs(b.contained))]
-        }
-        if (ab > 0) {
-            From.a <- a.contained * c(sqrt(s2.X * s2.Y - s.YX^2)/sqrt(s2.X * 
-                s2.M - s.XM^2), -sqrt(s2.X * s2.Y - s.YX^2)/sqrt(s2.X * 
-                s2.M - s.XM^2))
-            From.a <- From.a[From.a > 0]
-            From.b <- b.contained * c((s.YM * s.YX + sqrt(s2.M * 
-                s2.Y - s.YM^2) * sqrt(s2.X * s2.Y - s.YX^2))/(s2.X * 
-                s2.Y), (s.YM * s.YX - sqrt(s2.M * s2.Y - s.YM^2) * 
-                sqrt(s2.X * s2.Y - s.YX^2))/(s2.X * s2.Y))
-            From.b <- From.b[From.b > 0]
-            From.b <- From.b[abs(From.b) == max(abs(From.b))]
-            From.a <- From.a[abs(From.a) == max(abs(From.a))]
-        }
-        if (ab < 0) {
-            From.a <- a.contained * c(sqrt(s2.X * s2.Y - s.YX^2)/sqrt(s2.X * 
-                s2.M - s.XM^2), -sqrt(s2.X * s2.Y - s.YX^2)/sqrt(s2.X * 
-                s2.M - s.XM^2))
-            From.a <- From.a[From.a < 0]
-            From.b <- b.contained * c((s.YM * s.YX + sqrt(s2.M * 
-                s2.Y - s.YM^2) * sqrt(s2.X * s2.Y - s.YX^2))/(s2.X * 
-                s2.Y), (s.YM * s.YX - sqrt(s2.M * s2.Y - s.YM^2) * 
-                sqrt(s2.X * s2.Y - s.YX^2))/(s2.X * s2.Y))
-            From.b <- From.b[From.b < 0]
-            From.b <- From.b[abs(From.b) == max(abs(From.b))]
-            From.a <- From.a[abs(From.a) == max(abs(From.a))]
-        }
-        Indirect.Effect <- c(Estimate = path.a * path.b)
-        Indirect.Effect.Partially.Standardized <- c(Estimate = path.a * 
-            path.b/sqrt(Cov.Matrix[3, 3]))
-        Index.of.Mediation <- c(Estimate = path.a * path.b * 
-            (sqrt(Cov.Matrix[1, 1])/sqrt(Cov.Matrix[3, 3])))
-        R2_4.5 <- c(Estimate = (Cor.Matrix[3, 2]^2) - (R2.Y_XM - 
-            R2.Y_X))
-        R2_4.6 <- c(Estimate = R2.M_X * (R2.Y_XM - R2.Y_X)/(1 - 
-            R2.Y_X))
-        R2_4.7 <- c(Estimate = (R2.M_X * (R2.Y_XM - R2.Y_X)/(1 - 
-            R2.Y_X))/R2.Y_XM)
-        Maximum.Possible.Mediation.Effect <- c(Estimate = From.a)
-        ab.to.Maximum.Possible.Mediation.Effect_kappa.squared <- c(Estimate = ab/From.a)
-        Ratio.of.Indirect.to.Total.Effect <- c(Estimate = 1 - (path.c.prime/path.c))
-        Ratio.of.Indirect.to.Direct.Effect <- c(Estimate = path.a * path.b/path.c.prime)
-        Success.of.Surrogate.Endpoint <- c(Estimate = path.c/path.a)
-        SOS <- c(Estimate = R2_4.5/R2.Y_X)
+        
+a.contained <- c((s.YM * s.YX + sqrt(s2.M * s2.Y - s.YM^2) * sqrt(s2.X * s2.Y - s.YX^2))/(s2.X * s2.Y), 
+                 (s.YM * s.YX - sqrt(s2.M * s2.Y - s.YM^2) * sqrt(s2.X * s2.Y - s.YX^2))/(s2.X * s2.Y))
+        
+b.contained <- c(sqrt(s2.X * s2.Y - s.YX^2)/sqrt(s2.X * s2.M - s.XM^2), 
+                -sqrt(s2.X * s2.Y - s.YX^2)/sqrt(s2.X * s2.M - s.XM^2)) 
+
+        
+# Determins the M(.) from Preacher and Kelley (2011)
+
+M.ab <- 0
+
+if(round(ab, 10)!=0)
+  {
+  # To find M(a)
+  if(path.a > 0) 
+  {
+to.get.M.a <- a.contained[a.contained > 0]
+  M.a <- max(to.get.M.a)
+  }
+  if(path.a < 0) 
+  {
+to.get.M.a <- a.contained[a.contained < 0]
+  M.a <- min(to.get.M.a)
+  }
+  if(path.a == 0) 
+  {
+  M.a <- 0
+  }
+  # Now to find M(b)  
+  if(path.b > 0) 
+  {
+  to.get.M.b <- b.contained[b.contained > 0]
+  M.b <- max(to.get.M.b)
+  }
+  if(path.b < 0) 
+  {
+  to.get.M.b <- b.contained[b.contained < 0]
+  M.b <- min(to.get.M.b)
+  }
+  if(path.b == 0) 
+  {
+  M.b <- 0
+  }  
+  M.ab <- M.a*M.b
+  } 
+        
+        Indirect.Effect <- c(Estimate = ab)
+        
+        Indirect.Effect.Partially.Standardized <- c(Estimate = ab/sqrt(Cov.Matrix[3, 3]))
+        
+        Index.of.Mediation <- c(Estimate = ab * (sqrt(Cov.Matrix[1, 1])/sqrt(Cov.Matrix[3, 3])))
+        
+        R2_4.5 <- c(Estimate = (Cor.Matrix[3, 2]^2) - (R2.Y_XM-R2.Y_X)) # Equation 13b from P&K
+        
+        R2_4.6 <- c(Estimate = ifelse(R2.Y_X==1, 0, (R2.M_X * (R2.Y_XM - R2.Y_X)/(1-R2.Y_X)))) # Equation 14b from P&K.
+        
+        R2_4.7 <- c(Estimate = ifelse(R2.Y_XM==0, 0, ((R2.M_X * (R2.Y_XM - R2.Y_X))/((1-R2.Y_X)*R2.Y_XM)))) # Equation 15b from P&K.
+
+        Maximum.Possible.Mediation.Effect <- c(Estimate = M.ab)
+        
+        ab.to.Maximum.Possible.Mediation.Effect_kappa.squared <- c(Estimate = ifelse(M.ab==0, 0, ab/M.ab))
+       
+        Ratio.of.Indirect.to.Total.Effect <- c(Estimate = ifelse(path.c==0, 0, (1 - (path.c.prime/path.c))))
+        
+        Ratio.of.Indirect.to.Direct.Effect <- c(Estimate = ab/path.c.prime) # Under regular situations.
+        if(path.a*path.b == 0) Ratio.of.Indirect.to.Direct.Effect <- c(Estimate = 0) # If the numerator is 0
+        if(path.a*path.b != 0 & path.c.prime==0) Ratio.of.Indirect.to.Direct.Effect <- c(Estimate = sign(ab)*999999999999999999) # If the denominator is 0 but the numerator is not (+/- "infinity").
+
+        Ratio.of.Indirect.to.Direct.Effect <- c(Estimate = ifelse(path.a*path.b == 0, 0, ab/path.c.prime))
+        Ratio.of.Indirect.to.Direct.Effect <- c(Estimate = ifelse(path.a*path.b == 0, 0, ab/path.c.prime))
+        
+        
+        Success.of.Surrogate.Endpoint <- c(Estimate = ifelse(path.a==0, 999999999999999999, path.c/path.a))
+        
+        SOS <- c(Estimate = ifelse(R2.Y_X==0, 0, c(Estimate = R2_4.5/R2.Y_X)))
+        
         if (!is.null(S)) {
-            Results.mediation <- list(Y.on.X = Regression.of.Y.on.X, 
-                M.on.X = Regression.of.M.on.X, Y.on.X.and.M = Regression.of.Y.on.X.and.M, 
-                Indirect.Effect = Indirect.Effect, Indirect.Effect.Partially.Standardized = Indirect.Effect.Partially.Standardized, 
-                Index.of.Mediation = Index.of.Mediation, R2_4.5 = R2_4.5, 
-                R2_4.6 = R2_4.6, R2_4.7 = R2_4.7, Maximum.Possible.Mediation.Effect = Maximum.Possible.Mediation.Effect, 
+          
+          Effect.Sizes <- rbind(
+                Indirect.Effect=Indirect.Effect, 
+                Indirect.Effect.Partially.Standardized = Indirect.Effect.Partially.Standardized, 
+                Index.of.Mediation = Index.of.Mediation, 
+                R2_4.5 = R2_4.5, 
+                R2_4.6 = R2_4.6, 
+                R2_4.7 = R2_4.7, 
+                Maximum.Possible.Mediation.Effect = Maximum.Possible.Mediation.Effect, 
                 ab.to.Maximum.Possible.Mediation.Effect_kappa.squared = ab.to.Maximum.Possible.Mediation.Effect_kappa.squared, 
-                Ratio.of.Indirect.to.Total.Effect = Ratio.of.Indirect.to.Total.Effect, Ratio.of.Indirect.to.Direct.Effect = Ratio.of.Indirect.to.Direct.Effect, 
+                Ratio.of.Indirect.to.Total.Effect = Ratio.of.Indirect.to.Total.Effect, 
+                Ratio.of.Indirect.to.Direct.Effect = Ratio.of.Indirect.to.Direct.Effect, 
                 Success.of.Surrogate.Endpoint = Success.of.Surrogate.Endpoint, 
                 SOS = SOS)
+          
+            Results.mediation <- list(
+                Y.on.X = Regression.of.Y.on.X, 
+                M.on.X = Regression.of.M.on.X, 
+                Y.on.X.and.M = Regression.of.Y.on.X.and.M, 
+                Effect.Sizes=Effect.Sizes)
         }
         if (is.null(S)) {
             if (sum(x == 0 | x == 1) != N) {
-                Results.mediation <- list(Y.on.X = Regression.of.Y.on.X, 
-                  M.on.X = Regression.of.M.on.X, Y.on.X.and.M = Regression.of.Y.on.X.and.M, 
-                  Indirect.Effect = Indirect.Effect, Indirect.Effect.Partially.Standardized = Indirect.Effect.Partially.Standardized, 
-                  Index.of.Mediation = Index.of.Mediation, R2_4.5 = R2_4.5, 
-                  R2_4.6 = R2_4.6, R2_4.7 = R2_4.7, Maximum.Possible.Mediation.Effect = Maximum.Possible.Mediation.Effect, 
+              
+              
+              Effect.Sizes <- rbind(
+                  Indirect.Effect = Indirect.Effect, 
+                  Indirect.Effect.Partially.Standardized = Indirect.Effect.Partially.Standardized, 
+                  Index.of.Mediation = Index.of.Mediation, 
+                  R2_4.5 = R2_4.5, 
+                  R2_4.6 = R2_4.6, 
+                  R2_4.7 = R2_4.7, 
+                  Maximum.Possible.Mediation.Effect = Maximum.Possible.Mediation.Effect, 
                   ab.to.Maximum.Possible.Mediation.Effect_kappa.squared = ab.to.Maximum.Possible.Mediation.Effect_kappa.squared, 
-                  Ratio.of.Indirect.to.Total.Effect = Ratio.of.Indirect.to.Total.Effect, Ratio.of.Indirect.to.Direct.Effect = Ratio.of.Indirect.to.Direct.Effect, 
+                  Ratio.of.Indirect.to.Total.Effect = Ratio.of.Indirect.to.Total.Effect, 
+                  Ratio.of.Indirect.to.Direct.Effect = Ratio.of.Indirect.to.Direct.Effect, 
                   Success.of.Surrogate.Endpoint = Success.of.Surrogate.Endpoint, 
-                  Residual.Based_Gamma = Residual.Based_Gamma, 
-                  Residual.Based.Standardized_gamma = Residual.Based.Standardized_gamma, 
+                  Residual.Based_Gamma = c(Estimate=Residual.Based_Gamma), 
+                  Residual.Based.Standardized_gamma = c(Estimate=Residual.Based.Standardized_gamma), 
                   SOS = SOS)
+              
+                Results.mediation <- list(
+                  Y.on.X = Regression.of.Y.on.X, 
+                  M.on.X = Regression.of.M.on.X, 
+                  Y.on.X.and.M = Regression.of.Y.on.X.and.M,
+                  Effect.Sizes = Effect.Sizes)
+                
+                 
             }
             if (sum(x == 0 | x == 1) == N) {
-                ES <- c(Estimate = ((path.a * path.b)/(sqrt(SE.Y_XM[3]^2 * 
-                  path.a^2 + SE.M_X[2]^2 * path.b^2))) * (sqrt(1/sum(x == 
-                  0) + 1/sum(x == 1))))
-                Results.mediation <- list(Y.on.X = Regression.of.Y.on.X, 
-                  M.on.X = Regression.of.M.on.X, Y.on.X.and.M = Regression.of.Y.on.X.and.M, 
-                  Indirect.Effect = Indirect.Effect, Indirect.Effect.Partially.Standardized = Indirect.Effect.Partially.Standardized, 
-                  Index.of.Mediation = Index.of.Mediation, R2_4.5 = R2_4.5, 
-                  R2_4.6 = R2_4.6, R2_4.7 = R2_4.7, Maximum.Possible.Mediation.Effect = Maximum.Possible.Mediation.Effect, 
+              
+                ES <- c(Estimate = ifelse((path.a==0 & path.b==0), 0, (((path.a * path.b)/(sqrt(SE.Y_XM[3]^2 * path.a^2 + SE.M_X[2]^2 * path.b^2))) * (sqrt(1/sum(x == 0) + 1/sum(x == 1))))))
+
+                  Effect.Sizes <- rbind(
+                  Indirect.Effect = Indirect.Effect, 
+                  Indirect.Effect.Partially.Standardized = Indirect.Effect.Partially.Standardized, 
+                  Index.of.Mediation = Index.of.Mediation, 
+                  R2_4.5 = R2_4.5, 
+                  R2_4.6 = R2_4.6, 
+                  R2_4.7 = R2_4.7, 
+                  Maximum.Possible.Mediation.Effect = Maximum.Possible.Mediation.Effect, 
                   ab.to.Maximum.Possible.Mediation.Effect_kappa.squared = ab.to.Maximum.Possible.Mediation.Effect_kappa.squared, 
-                  Ratio.of.Indirect.to.Total.Effect = Ratio.of.Indirect.to.Total.Effect, Ratio.of.Indirect.to.Direct.Effect = Ratio.of.Indirect.to.Direct.Effect, 
+                  Ratio.of.Indirect.to.Total.Effect = Ratio.of.Indirect.to.Total.Effect, 
+                  Ratio.of.Indirect.to.Direct.Effect = Ratio.of.Indirect.to.Direct.Effect, 
                   Success.of.Surrogate.Endpoint = Success.of.Surrogate.Endpoint, 
-                  Residual.Based_Gamma = Residual.Based_Gamma, 
-                  Residual.Based.Standardized_gamma = Residual.Based.Standardized_gamma, 
-                  ES.for.two.groups = ES, SOS = SOS)
+                  Residual.Based_Gamma = c(Estimate=Residual.Based_Gamma), 
+                  Residual.Based.Standardized_gamma = c(Estimate=Residual.Based.Standardized_gamma), 
+                  ES.for.two.groups = ES, 
+                  SOS = SOS)
+                
+                Results.mediation <- list(
+                  Y.on.X = Regression.of.Y.on.X, 
+                  M.on.X = Regression.of.M.on.X, 
+                  Y.on.X.and.M = Regression.of.Y.on.X.and.M, 
+                  Effect.Sizes = Effect.Sizes)
+                
+                
+                  
             }
         }
+        
         return(Results.mediation)
     }
-    if (bootstrap == FALSE) {
-        return(.mediation(x = x, mediator = mediator, dv = dv, 
-            S = S, N = N, x.location.S = x.location.S, mediator.location.S = mediator.location.S, 
-            dv.location.S = dv.location.S, mean.x = mean.x, mean.m = mean.m, 
-            mean.dv = mean.dv, conf.level = conf.level))
-    }
-    if (bootstrap == TRUE) {
-        if (!require(boot)) 
-            stop("This function depends on the package 'boot'. Please install the 'boot' package first.")
-        if (!is.null(S)) 
-            stop("For the bootstrap procedures to be implemented, you must supply raw data (i.e., not a covariance matrix).")
-        Data <- na.omit(cbind(x, mediator, dv))
-        N <- dim(Data)[1]
-        Boot.This <- function(Data, g) {
-            values <- .mediation(x = Data[g, 1], mediator = Data[g, 
-                2], dv = Data[g, 3], S = NULL, conf.level = conf.level)
-            if (sum(x == 0 | x == 1) != N) {
-                Values.to.boot <- c(values$Indirect.Effect, values$Indirect.Effect.Partially.Standardized, 
-                  values$Index.of.Mediation, values$R2_4.5, values$R2_4.6, 
-                  values$R2_4.7, values$Maximum.Possible.Mediation.Effect, 
-                  values$ab.to.Maximum.Possible.Mediation.Effect_kappa.squared, 
-                  values$Ratio.of.Indirect.to.Total.Effect, values$Ratio.of.Indirect.to.Direct.Effect, 
-                  values$Success.of.Surrogate.Endpoint, values$Residual.Based_Gamma, 
-                  values$Residual.Based.Standardized_gamma, values$SOS)
-            }
-            if (sum(x == 0 | x == 1) == N) {
-                Values.to.boot <- c(values$Indirect.Effect, values$Indirect.Effect.Partially.Standardized, 
-                  values$Index.of.Mediation, values$R2_4.5, values$R2_4.6, 
-                  values$R2_4.7, values$Maximum.Possible.Mediation.Effect, 
-                  values$ab.to.Maximum.Possible.Mediation.Effect_kappa.squared, 
-                  values$Ratio.of.Indirect.to.Total.Effect, values$Ratio.of.Indirect.to.Direct.Effect, 
-                  values$Success.of.Surrogate.Endpoint, values$Residual.Based_Gamma, 
-                  values$Kris.Standardized, values$ES.for.two.groups, 
-                  values$SOS)
-            }
-            return(Values.to.boot)
-        }
-        print("Bootstrap resampling has begun. This process may take a considerable amount of time if the number of replications is large, which is optimal for the bootstrap procedure.")
-        boot.out <- boot(data = Data, statistic = Boot.This, 
-            R = B, stype = "i")
-        Mediation.Results <- .mediation(x = x, mediator = mediator, 
-            dv = dv, S = NULL, N = N, x.location.S = x.location.S, 
-            mediator.location.S = mediator.location.S, dv.location.S = dv.location.S, 
-            mean.x = mean.x, mean.m = mean.m, mean.dv = mean.dv, 
-            conf.level = conf.level)
-        Indirect.Effect <- rbind(c(Mediation.Results$Indirect.Effect, 
-            boot.ci(boot.out = boot.out, index = c(1), conf = conf.level, 
-                type = c("perc"))$percent[4:5], boot.ci(boot.out = boot.out, 
-                index = c(1), conf = conf.level, type = c("bca"))$bca[4:5]))
-        colnames(Indirect.Effect) <- c("Estimate", "CI.Low.Perc", 
-            "CI.Up.Perc", "CI.Low.Bca", "CI.Up.BCa")
-        Indirect.Effect.Partially.Standardized <- rbind(c(Mediation.Results$Indirect.Effect.Partially.Standardized, 
-            boot.ci(boot.out = boot.out, index = c(2), conf = conf.level, 
-                type = c("perc"))$percent[4:5], boot.ci(boot.out = boot.out, 
-                index = c(2), conf = conf.level, type = c("bca"))$bca[4:5]))
-        colnames(Indirect.Effect.Partially.Standardized) <- c("Estimate", 
-            "CI.Low.Perc", "CI.Up.Perc", "CI.Low.Bca", "CI.Up.BCa")
-        Index.of.Mediation <- rbind(c(Mediation.Results$Index.of.Mediation, 
-            boot.ci(boot.out = boot.out, index = c(3), conf = conf.level, 
-                type = c("perc"))$percent[4:5], boot.ci(boot.out = boot.out, 
-                index = c(3), conf = conf.level, type = c("bca"))$bca[4:5]))
-        colnames(Index.of.Mediation) <- c("Estimate", "CI.Low.Perc", 
-            "CI.Up.Perc", "CI.Low.Bca", "CI.Up.BCa")
-        R2_4.5 <- rbind(c(Mediation.Results$R2_4.5, boot.ci(boot.out = boot.out, 
-            index = c(4), conf = conf.level, type = c("perc"))$percent[4:5], 
-            boot.ci(boot.out = boot.out, index = c(4), conf = conf.level, 
-                type = c("bca"))$bca[4:5]))
-        colnames(R2_4.5) <- c("Estimate", "CI.Low.Perc", "CI.Up.Perc", 
-            "CI.Low.Bca", "CI.Up.BCa")
-        R2_4.6 <- rbind(c(Mediation.Results$R2_4.6, boot.ci(boot.out = boot.out, 
-            index = c(5), conf = conf.level, type = c("perc"))$percent[4:5], 
-            boot.ci(boot.out = boot.out, index = c(5), conf = conf.level, 
-                type = c("bca"))$bca[4:5]))
-        colnames(R2_4.6) <- c("Estimate", "CI.Low.Perc", "CI.Up.Perc", 
-            "CI.Low.Bca", "CI.Up.BCa")
-        R2_4.7 <- rbind(c(Mediation.Results$R2_4.7, boot.ci(boot.out = boot.out, 
-            index = c(6), conf = conf.level, type = c("perc"))$percent[4:5], 
-            boot.ci(boot.out = boot.out, index = c(6), conf = conf.level, 
-                type = c("bca"))$bca[4:5]))
-        colnames(R2_4.7) <- c("Estimate", "CI.Low.Perc", "CI.Up.Perc", 
-            "CI.Low.Bca", "CI.Up.BCa")
-        Maximum.Possible.Mediation.Effect <- rbind(c(Mediation.Results$Maximum.Possible.Mediation.Effect, 
-            boot.ci(boot.out = boot.out, index = c(7), conf = conf.level, 
-                type = c("perc"))$percent[4:5], boot.ci(boot.out = boot.out, 
-                index = c(7), conf = conf.level, type = c("bca"))$bca[4:5]))
-        colnames(Maximum.Possible.Mediation.Effect) <- c("Estimate", 
-            "CI.Low.Perc", "CI.Up.Perc", "CI.Low.Bca", "CI.Up.BCa")
-        ab.to.Maximum.Possible.Mediation.Effect_kappa.squared <- rbind(c(Mediation.Results$ab.to.Maximum.Possible.Mediation.Effect_kappa.squared, 
-            boot.ci(boot.out = boot.out, index = c(8), conf = conf.level, 
-                type = c("perc"))$percent[4:5], boot.ci(boot.out = boot.out, 
-                index = c(8), conf = conf.level, type = c("bca"))$bca[4:5]))
-        colnames(ab.to.Maximum.Possible.Mediation.Effect_kappa.squared) <- c("Estimate", 
-            "CI.Low.Perc", "CI.Up.Perc", "CI.Low.Bca", "CI.Up.BCa")
-        Ratio.of.Indirect.to.Total.Effect <- rbind(c(Mediation.Results$Ratio.of.Indirect.to.Total.Effect, 
-            boot.ci(boot.out = boot.out, index = c(9), conf = conf.level, 
-                type = c("perc"))$percent[4:5], boot.ci(boot.out = boot.out, 
-                index = c(9), conf = conf.level, type = c("bca"))$bca[4:5]))
-        colnames(Ratio.of.Indirect.to.Total.Effect) <- c("Estimate", "CI.Low.Perc", 
-            "CI.Up.Perc", "CI.Low.Bca", "CI.Up.BCa")
-        Ratio.of.Indirect.to.Direct.Effect <- rbind(c(Mediation.Results$Ratio.of.Indirect.to.Direct.Effect, 
-            boot.ci(boot.out = boot.out, index = c(10), conf = conf.level, 
-                type = c("perc"))$percent[4:5], boot.ci(boot.out = boot.out, 
-                index = c(10), conf = conf.level, type = c("bca"))$bca[4:5]))
-        colnames(Ratio.of.Indirect.to.Direct.Effect) <- c("Estimate", "CI.Low.Perc", 
-            "CI.Up.Perc", "CI.Low.Bca", "CI.Up.BCa")
-        Success.of.Surrogate.Endpoint <- rbind(c(Mediation.Results$Success.of.Surrogate.Endpoint, 
-            boot.ci(boot.out = boot.out, index = c(11), conf = conf.level, 
-                type = c("perc"))$percent[4:5], boot.ci(boot.out = boot.out, 
-                index = c(11), conf = conf.level, type = c("bca"))$bca[4:5]))
-        colnames(Success.of.Surrogate.Endpoint) <- c("Estimate", 
-            "CI.Low.Perc", "CI.Up.Perc", "CI.Low.Bca", "CI.Up.BCa")
-        Residual.Based_Gamma <- rbind(c(Mediation.Results$Residual.Based_Gamma, 
-            boot.ci(boot.out = boot.out, index = c(12), conf = conf.level, 
-                type = c("perc"))$percent[4:5], boot.ci(boot.out = boot.out, 
-                index = c(12), conf = conf.level, type = c("bca"))$bca[4:5]))
-        colnames(Residual.Based_Gamma) <- c("Estimate", "CI.Low.Perc", 
-            "CI.Up.Perc", "CI.Low.Bca", "CI.Up.BCa")
-        Residual.Based.Standardized_gamma <- rbind(c(Mediation.Results$Residual.Based.Standardized_gamma, 
-            boot.ci(boot.out = boot.out, index = c(13), conf = conf.level, 
-                type = c("perc"))$percent[4:5], boot.ci(boot.out = boot.out, 
-                index = c(13), conf = conf.level, type = c("bca"))$bca[4:5]))
-        colnames(Residual.Based.Standardized_gamma) <- c("Estimate", 
-            "CI.Low.Perc", "CI.Up.Perc", "CI.Low.Bca", "CI.Up.BCa")
-        SOS <- rbind(c(Mediation.Results$SOS, boot.ci(boot.out = boot.out, 
-            index = c(14), conf = conf.level, type = c("perc"))$percent[4:5], 
-            boot.ci(boot.out = boot.out, index = c(14), conf = conf.level, 
-                type = c("bca"))$bca[4:5]))
-        colnames(SOS) <- c("Estimate", "CI.Low.Perc", "CI.Up.Perc", 
-            "CI.Low.Bca", "CI.Up.BCa")
-        if (sum(x == 0 | x == 1) != N) {
-            Results.mediation <- list(Y.on.X = Mediation.Results$Y.on.X, 
-                M.on.X = Mediation.Results$M.on.X, Y.on.X.and.M = Mediation.Results$Y.on.X.and.M, 
-                Indirect.Effect = Indirect.Effect, Indirect.Effect.Partially.Standardized = Indirect.Effect.Partially.Standardized, 
-                Index.of.Mediation = Index.of.Mediation, R2_4.5 = R2_4.5, 
-                R2_4.6 = R2_4.6, R2_4.7 = R2_4.7, Maximum.Possible.Mediation.Effect = Maximum.Possible.Mediation.Effect, 
-                ab.to.Maximum.Possible.Mediation.Effect_kappa.squared = ab.to.Maximum.Possible.Mediation.Effect_kappa.squared, 
-                Ratio.of.Indirect.to.Total.Effect = Ratio.of.Indirect.to.Total.Effect, Ratio.of.Indirect.to.Direct.Effect = Ratio.of.Indirect.to.Direct.Effect, 
-                Success.of.Surrogate.Endpoint = Success.of.Surrogate.Endpoint, 
-                Residual.Based_Gamma = Residual.Based_Gamma, 
-                Residual.Based.Standardized_gamma = Residual.Based.Standardized_gamma, 
-                SOS = SOS)
-        }
-        if (sum(x == 0 | x == 1) == N) {
-            ES.for.two.groups <- rbind(c(Mediation.Results$ES.for.two.groups, 
-                boot.ci(boot.out = boot.out, index = c(12), conf = conf.level, 
-                  type = c("perc"))$percent[4:5], boot.ci(boot.out = boot.out, 
-                  index = c(12), conf = conf.level, type = c("bca"))$bca[4:5]))
-            colnames(ES.for.two.groups) <- c("Estimate", "CI.Low.Perc", 
-                "CI.Up.Perc", "CI.Low.Bca", "CI.Up.BCa")
-            Results.mediation <- list(Y.on.X = Mediation.Results$Y.on.X, 
-                M.on.X = Mediation.Results$M.on.X, Y.on.X.and.M = Mediation.Results$Y.on.X.and.M, 
-                Indirect.Effect = Indirect.Effect, Indirect.Effect.Partially.Standardized = Indirect.Effect.Partially.Standardized, 
-                Index.of.Mediation = Index.of.Mediation, R2_4.5 = R2_4.5, 
-                R2_4.6 = R2_4.6, R2_4.7 = R2_4.7, Maximum.Possible.Mediation.Effect = Maximum.Possible.Mediation.Effect, 
-                ab.to.Maximum.Possible.Mediation.Effect_kappa.squared = ab.to.Maximum.Possible.Mediation.Effect_kappa.squared, 
-                Ratio.of.Indirect.to.Total.Effect = Ratio.of.Indirect.to.Total.Effect, Ratio.of.Indirect.to.Direct.Effect = Ratio.of.Indirect.to.Direct.Effect, 
-                Success.of.Surrogate.Endpoint = Success.of.Surrogate.Endpoint, 
-                Residual.Based_Gamma = Residual.Based_Gamma, 
-                Residual.Based.Standardized_gamma = Residual.Based.Standardized_gamma, 
-                ES.for.two.groups = ES.for.two.groups, SOS = SOS)
-        }
-        return(Results.mediation)
-    }
+  
+# Here is the internal bootstrap function.
+.mediation.bs <- function(x, mediator, dv, S=S, conf.level = conf.level, B = B, which.boot="all", ...)
+{
+  
+if(!require(boot)) stop("This function depends on the 'boot' package. Please install the 'boot' package first")
+if(!is.null(S)) stop("For the bootstrap procedures to be implemented, you must supply raw data (i.e., not a covariance matrix).")
+       
+Data <- na.omit(cbind(x, mediator, dv))
+N <- dim(Data)[1]
+
+Effect.Size.Names <- rownames(Result$Effect.Sizes)
+
+       Boot.This <- function(Data, g) 
+         {
+          # Applies the internal mediation function to the data for the rows identified by g.
+          Output.mediation <- .mediation(x = Data[g, 1], mediator = Data[g, 2], dv = Data[g, 3], S = NULL, conf.level = conf.level)
+          as.numeric(Output.mediation$Effect.Sizes) # Returns only the values of effect size estimates
+         }
+        
+print("Bootstrap resampling has begun. This process may take a considerable amount of time if the number of replications is large, which is optimal for the bootstrap procedure.")
+
+boot.out <- boot(data = Data, statistic=Boot.This, R = B, stype = "i")
+
+if(save.bs.replicates==TRUE)
+{
+print("You requested saving the bootstrap replicates; they are available in the object \'Bootstrap.Replicates\' in the workspace.")
+Bootstrap.Replicates <- as.data.frame(boot.out$t)
+colnames(Bootstrap.Replicates) <- Effect.Size.Names
+}
+    
+Number.of.Effect.Sizes <- length(Effect.Size.Names)
+Get.CIs.for.These <- c(1:Number.of.Effect.Sizes) # All estimates of effect size (this is the index for each submitted to a loop)
+
+if(which.boot=="both" | which.boot=="BOTH" | which.boot=="Both" | which.boot=="all" | which.boot=="ALL" | which.boot=="All") which.boot <- "Percentile.and.BCa"
+if(which.boot=="perc" | which.boot=="Percentile" | which.boot=="Perc" | which.boot=="percentile" | which.boot=="PERCENTILE") which.boot <- "Percentile"     
+if(which.boot=="bAc" | which.boot=="baC" | which.boot=="BCa" | which.boot=="Bca" | which.boot=="bca" | which.boot=="BCA") which.boot <- "BCa"     
+ 
+Percentile.BS.Results <- matrix(NA, Number.of.Effect.Sizes, 3)
+colnames(Percentile.BS.Results) <- c("Estimate", "CI.Lower_Percentile", "CI.Upper_Percentile") 
+rownames(Percentile.BS.Results) <- Effect.Size.Names
+
+BCa.BS.Results <- matrix(NA, Number.of.Effect.Sizes, 3)
+colnames(BCa.BS.Results) <- c("Estimate", "CI.Lower_BCa", "CI.Upper_BCa") 
+rownames(BCa.BS.Results) <- Effect.Size.Names
+
+for(k in 1:Number.of.Effect.Sizes)
+{
+  
+if(which.boot=="Percentile.and.BCa" | which.boot=="Percentile")
+{
+BS.Results <- try(boot.ci(boot.out = boot.out, index=Get.CIs.for.These[k], conf = conf.level, type = c("perc"))$percent[4:5], silent=TRUE)
+is.numeric(BS.Results)
+if(is.numeric(BS.Results)==FALSE) BS.Results <- c(NA, NA)
+Percentile.BS.Results[k, 1:3] <- c(Result$Effect.Sizes[k], BS.Results)
+}
+
+
+if(which.boot=="Percentile.and.BCa" | which.boot=="BCa") 
+{
+BS.Results <- c(NA, NA)
+BS.Results <- try(boot.ci(boot.out = boot.out, index=Get.CIs.for.These[k], conf = conf.level, type = c("bca"))$bca[4:5], silent=TRUE)
+if(is.numeric(BS.Results)==FALSE) BS.Results <- c(NA, NA)
+BCa.BS.Results[k, 1:3] <- c(Result$Effect.Sizes[k], BS.Results)
+}
+}
+
+if(which.boot=="Percentile.and.BCa") BS.Output <- cbind(Percentile.BS.Results, BCa.BS.Results[,2:3])
+if(which.boot=="Percentile") BS.Output <- Percentile.BS.Results
+if(which.boot=="BCa") BS.Output <- BCa.BS.Results
+
+return(BS.Output) # Bootstrap statistics are output here.
+}
+    
+    
+
+
+# Result if no bootstrapping is done.
+Result <-   .mediation(x = x, mediator = mediator, dv = dv, S = S, N = N, x.location.S = x.location.S, mediator.location.S = mediator.location.S, 
+            dv.location.S = dv.location.S, mean.x = mean.x, mean.m = mean.m, mean.dv = mean.dv, conf.level = conf.level)
+
+# Result if bootstrapping is done.
+if (bootstrap == TRUE) 
+{
+BS.Result <- .mediation.bs(x=x, mediator=mediator, dv=dv, S=S, conf.level=conf.level, B = B, which.boot=which.boot)
+Result <- list(Y.on.X=Result$Y.on.X, M.on.X=Result$M.on.X, Y.on.X.and.M=Result$Y.on.X.and.M, Bootstrap.Results=BS.Result)
+}
+return(Result)
 }

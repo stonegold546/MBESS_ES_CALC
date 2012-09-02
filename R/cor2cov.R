@@ -8,20 +8,14 @@ if(n!=length(sd)) stop("The length of 'sd' should be the same as the number of r
 
 if(length(sd[sd>0])!= n) stop("The elements in 'sd' shuold all be positive")
 
-for(j in 1:n)
-    {for(i in 1:n)
-        {if(i==j)
-            {if( abs(cor.mat[i,j]-1)>discrepancy) 
-            stop ("The elements on the main diagonal of 'cor.mat' shuold be in the specified neiboughood of 1")
-            }
-    
-        if(cor.mat[i,j]!=cor.mat[j,i])
-            {if (cor.mat[i,j]!=0 & cor.mat[j,i]!=0) stop("'cor.mat' should be either symmetric or triangular")
-            if (cor.mat[i,j]!=0 & cor.mat[j,i]==0) cor.mat[j,i]<-cor.mat[i,j]
-            if (cor.mat[j,i]!=0 & cor.mat[i,j]==0) cor.mat[i,j]<-cor.mat[j,i] 
-            }  
-        }  
-    }
+if(isSymmetric(cor.mat)) IS.symmetric <- TRUE 
+	else IS.symmetric <- FALSE
+p <- dim(cor.mat)[1]
+q <- p*(p-1)/2
+if (isTRUE(all.equal(cor.mat[lower.tri(cor.mat)], rep(0,q))) || isTRUE(all.equal(cor.mat[upper.tri(cor.mat)], rep(0,q)))) 
+	IS.triangular <- TRUE
+	else IS.triangular <- FALSE
+if(!IS.symmetric & !IS.triangular)	stop("The object 'cor.mat' should be either a symmetric or a triangular matrix")
 
 cov.mat <- diag(sd)  %*% cor.mat  %*% diag(sd)
 colnames(cov.mat)<- rownames(cov.mat)<- colnames(cor.mat)

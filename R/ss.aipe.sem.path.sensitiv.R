@@ -29,7 +29,7 @@ while(g<G){
    Data <- mvrnorm(n = N, mu=rep(0,p), Sigma=true.Sigma)
    S <- var(Data)  
    colnames(S) <- rownames(S)<- obs.vars
-   S.fit <- try(sem(ram=model, S=S, N=N), FALSE) 
+   S.fit <- try(sem(model, S, N), FALSE) 
    if(inherits(S.fit, "try-error")|| S.fit$convergence>2) g<- g
    else{
    		g<- g+1
@@ -44,7 +44,7 @@ CI.upper <- theta.hat.j+ qnorm(1-alpha/2)*SE.theta.hat.j
 CI.lower <- theta.hat.j- qnorm(1-alpha/2)*SE.theta.hat.j
 w <- CI.upper - CI.lower
 
-true.fit <- sem(ram=model, S=true.Sigma, N=100000)
+true.fit <- sem(model, true.Sigma, 100000)
 theta.j <- true.fit$coeff[j]
 
 CI.upper <- na.omit(CI.upper)

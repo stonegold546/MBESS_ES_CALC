@@ -47,8 +47,8 @@ s.mediator <- var(mediator)^.5
 
 
 if(save.pdf==TRUE) pdf(file = paste(file, ".pdf", sep = ""), ...)
-if(save.eps == TRUE) jpeg(file = paste(file, ".eps", sep = ""), ...)
-if(save.jpg == TRUE) jpeg(file = paste(file, ".jpg", sep = ""), ...)
+if(save.eps == TRUE) jpeg(filename = paste(file, ".eps", sep = ""), ...)
+if(save.jpg == TRUE) jpeg(filename = paste(file, ".jpg", sep = ""), ...)
 	
 plot(dv~mediator, ylab=ylab, xlab=xlab, ylim=ylim, xlim=xlim, pch=pch, ...)
 

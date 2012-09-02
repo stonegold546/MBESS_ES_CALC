@@ -5,7 +5,7 @@ if(!require(sem)) stop("This function depends on the 'sem' package. Please insta
 
 Sigma[upper.tri(Sigma)]<-0 
 N<-1000000
-result.sem <- sem(ram=model, S=Sigma, N=N, ...)
+result.sem <- sem(model, Sigma, N, ...)
 p <- result.sem$n
 H <- result.sem$cov * N
 
