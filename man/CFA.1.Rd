@@ -7,7 +7,8 @@
 }
 
 \usage{
-CFA.1(S, N, equal.loading = FALSE, equal.error = FALSE)
+CFA.1(S, N, equal.loading = FALSE, equal.error = FALSE, package="sem", 
+	se="standard", ...)
 }
 
 \arguments{
@@ -15,10 +16,13 @@ CFA.1(S, N, equal.loading = FALSE, equal.error = FALSE)
   \item{N}{ total sample size }
   \item{equal.loading}{logical statement indicating whether the path coefficients are the same}
   \item{equal.error}{ logical statement indicating whether the manifest variables have the same error variances}
+  \item{package}{The package used in confirmatory factor analysis ("sem" or "lavaan")}
+  \item{se}{See the \code{\link[lavaan]{cfa}} and check the \code{se} argument}
+  \item{\dots}{Additional arguments for the \code{\link[lavaan]{cfa}} function}
 }
 
 \value{
-  \item{Model }{the factor analysis model specified by the user}
+  \item{Model}{the factor analysis model specified by the user}
   \item{Factor.Loadings}{factor loadings}
   \item{Indicator.var}{the error variances of the indicator variables}
   \item{Parameter.cov}{the covariance matrix of the parameters}
@@ -30,20 +34,15 @@ CFA.1(S, N, equal.loading = FALSE, equal.error = FALSE)
 \seealso{ \code{\link[sem]{sem}}, \code{covmat.from.cfm} }
 \examples{
 \dontrun{
-# Construct covariance matrix
-library(sem)
-cov.mat<-read.moments()
-1.384
-1.484 2.756
-1.988 2.874 4.845
-2.429 3.588 4.894 6.951
-3.031 4.390 6.080 7.476 10.313
+cov.mat<- matrix(
+c(1.384, 1.484, 1.988, 2.429, 3.031,
+1.484, 2.756, 2.874, 3.588, 4.390,
+1.988, 2.874, 4.845, 4.894, 6.080,
+2.429, 3.588, 4.894, 6.951, 7.476,
+3.031, 4.390, 6.080, 7.476, 10.313), nrow=5)
 
 
-
-tran.cov.mat <- t(cov.mat)
-cov.mat[upper.tri(cov.mat)] <- tran.cov.mat[upper.tri(tran.cov.mat)]
-CFA.1(N=300, S=cov.mat)
+CFA.1(N=300, S=cov.mat, package="lavaan")
 }
 }
 

@@ -30,7 +30,7 @@ if(save.jpg==TRUE) stop("Specify one file format at one time")
 postscript(file = paste(file,".eps",sep=""))
 }
 
-if(save.jpg==TRUE) jpeg(file = paste(file,"%d.jpg",sep=""),width = 640, height = 550)
+if(save.jpg==TRUE) jpeg(filename = paste(file,"%d.jpg",sep=""),width = 640, height = 550)
 
 # '%d' is used for plotting more than one page on one of these devices, 
 # it retains files with the sequence numbers.

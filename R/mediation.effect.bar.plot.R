@@ -41,8 +41,8 @@ no.file.name <- TRUE
 }
 
 if(save.pdf==TRUE) pdf(file = paste(file, ".pdf", sep = ""), ...)
-if(save.eps == TRUE) jpeg(file = paste(file, ".eps", sep = ""), ...)
-if(save.jpg == TRUE) jpeg(file = paste(file, ".jpg", sep = ""), ...)
+if(save.eps == TRUE) jpeg(filename = paste(file, ".eps", sep = ""), ...)
+if(save.jpg == TRUE) jpeg(filename = paste(file, ".jpg", sep = ""), ...)
 
 plot(c(-2, 2), seq(0, 1), ylab="", xlab="", xaxt="n", yaxt="n", bty="n", type="n", main=main, ...)
 

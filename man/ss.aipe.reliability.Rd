@@ -9,7 +9,10 @@ is sufficiently narrow (when assurance=NULL) or so that the obtained confidence 
 McDonald's (1999) formula for coefficient alpha, also known as Guttman-Cronbach alpha. It also uses coefficient omega from McDonald (1999). When the 'Parallel' or 'True Score' model is used, coefficient alpha is calculated. When the 'Congeneric' model is used, coefficient omega is calculated.
 }
 \usage{
-ss.aipe.reliability(model = NULL, type = NULL, width = NULL, S = NULL, conf.level = 0.95, assurance = NULL, data = NULL, i = NULL, cor.est = NULL, lambda = NULL, psi.square = NULL, initial.iter = 500, final.iter = 5000, start.ss = NULL)
+ss.aipe.reliability(model = NULL, type = NULL, width = NULL, S = NULL, 
+conf.level = 0.95, assurance = NULL, data = NULL, i = NULL, cor.est = NULL, 
+lambda = NULL, psi.square = NULL, initial.iter = 500, 
+final.iter = 5000, start.ss = NULL)
 }
 
 \arguments{
