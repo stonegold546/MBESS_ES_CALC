@@ -7,7 +7,7 @@ Sigma[upper.tri(Sigma)]<-0
 N<-1000000
 result.sem <- sem(model, Sigma, N, ...)
 p <- result.sem$n
-H <- result.sem$cov * N
+H <- result.sem$vcov * N
 
 j <- which(which.path==names(result.sem$coeff))
 if(j==0) stop("The path of interest is not included in the model; make sure the parameter names are specified correctly")

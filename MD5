@@ -1,5 +1,5 @@
 58d37d1fc543eee8f28e260040d3e5b6 *ACKNOWLEDGEMENTS
-4fdfc3a13bd04525dc5577e9e5c38ce4 *DESCRIPTION
+df0bd191f0f3aea8263e06a070fd7a6b *DESCRIPTION
 973310a6ca4fd8b70f300d1c5b477f4a *DISCLAIMER
 27cf7fa6b71a74302ebc4dccdb57fa55 *NAMESPACE
 5cb7e8666ba4a7d91524106c62504828 *R/CFA.1.R
@@ -30,7 +30,7 @@ eded78114f1418515a37470b497ae512 *R/ci.smd.c.R
 6a9fe2e3483d2a810bc2bd09cdca5042 *R/ci.snr.R
 3fe8c30947ab0d15fea73450f37ace7b *R/ci.src.R
 3135c672d39edf60837aeba5beac990d *R/ci.srsnr.R
-8725a8033af2db96e6b3d6f963c61416 *R/conf.limits.nc.chisq.R
+b5206d416ed1fbff4b9b954b3ac72253 *R/conf.limits.nc.chisq.R
 26679dafb9f2fee51c391483ea4b455d *R/conf.limits.ncf.R
 e9bf4c75eb87a635adaf6cd1d5f6ed03 *R/conf.limits.nct.M1.R
 2646a8a7f7da36ba0ef9e1f209667943 *R/conf.limits.nct.M2.R
@@ -72,7 +72,7 @@ f9394217df7354836d1dac6d4163b815 *R/ss.aipe.rmsea.sensitivity.R
 4856d0b41f98d43ec905800190257b44 *R/ss.aipe.sc.ancova.R
 7ecf7289ec3ba34cc34008e8048abe5c *R/ss.aipe.sc.ancova.sensitivity.R
 abdb088d05f822ceb191d2d2f75cdd0f *R/ss.aipe.sc.sensitivity.R
-64d995e9deb4b7e885d3676685fd8870 *R/ss.aipe.sem.path.R
+947c677b8a71da9c166f13e700846145 *R/ss.aipe.sem.path.R
 024ce5a80a46bb8b9e05503e265369e9 *R/ss.aipe.sem.path.sensitiv.R
 4bf1a40cb1b9022f4522cf24e0d4137c *R/ss.aipe.sm.R
 1c929f08b676073b0ed4f4c8ced32ca6 *R/ss.aipe.sm.sensitivity.R
@@ -105,7 +105,7 @@ bab6794516c3603fa8761b2fb06dba64 *data/Gardner.LD.rda
 c859c5d97780a604209c105165573ca4 *man/F.and.R2.Noncentral.Conversion.Rd
 b02275c8949a82b59dc51f1a58173be3 *man/Gardner.LD.Rd
 daea19a86b9a4dd8cf42ab0ab629a2c7 *man/HS.data.Rd
-dca07efb844d5e5832763b7088bc07ae *man/MBESS-package.Rd
+11b8582af3a16401152fa9fbc4d2e4c9 *man/MBESS-package.Rd
 bf1d79d74247508af77e513e50f3e69c *man/Sigma.2.SigmaStar.Rd
 67df27b0d099ccf88a211bdcc1bbd9d4 *man/Variance.R2.Rd
 2583f8a1f49c523732feee67ed26c023 *man/aipe.smd.Rd
@@ -129,7 +129,7 @@ d1bc3d0b4256b0e7ef8b4b0c7b62aa81 *man/ci.sc.ancova.Rd
 aaa00c2008d1724b74c897fdbf211e64 *man/ci.snr.Rd
 ceaaface55744eb0d318ca5cccca6642 *man/ci.src.Rd
 8be1df868ed1df829f5c2f836732ac5b *man/ci.srsnr.Rd
-4df6c6c50143069f02ac973d2b19fd71 *man/conf.limits.nc.chisq.Rd
+0726cdb3a123056f57ba5e296d1a7aa9 *man/conf.limits.nc.chisq.Rd
 b72e52649178ac33f501294a3132a25f *man/conf.limits.ncf.Rd
 c8cbf12844c36df3b8213e87a66e621a *man/conf.limits.nct.M1.Rd
 2d4a6eaed8a79d33ae665ac67943329f *man/conf.limits.nct.M2.Rd
@@ -170,13 +170,13 @@ c8ebb17034ab8b0bd8a9ae6411100d6e *man/ss.aipe.rc.Rd
 16e928490b710279132fdcf620c1a23e *man/ss.aipe.reg.coef.sensitivity.Rd
 919c8de74849955f221b20a3ce55a33d *man/ss.aipe.reliability.Rd
 0a98daaf476f99855b7faa3385fbee6d *man/ss.aipe.rmsea.Rd
-7e54dd66586c8351e641fb4f1d9ec7c1 *man/ss.aipe.rmsea.sensitivity.Rd
+6f37e2302d74174b451e8eb558b52c43 *man/ss.aipe.rmsea.sensitivity.Rd
 5a18c1150b2ed7305de4d41c42effdab *man/ss.aipe.sc.Rd
 8adef171a29943ecb06a15fc269ee13e *man/ss.aipe.sc.ancova.Rd
 6929b24c2184e89b4c1e1fd1bb123832 *man/ss.aipe.sc.ancova.sensitivity.Rd
 2be17862407ef781201f34b75bcbcb60 *man/ss.aipe.sc.sensitivity.Rd
-00000f3b11eb5226e44b1287b6015ec0 *man/ss.aipe.sem.path.Rd
-c9762bf794fa2471d357b5deeb38b047 *man/ss.aipe.sem.path.sensitiv.Rd
+a5db7086dfc4c59650b681e415e60d77 *man/ss.aipe.sem.path.Rd
+040cd5427a1b10666966f0b8397bd981 *man/ss.aipe.sem.path.sensitiv.Rd
 f61c24225800ad9705d8e34ebfbcebb6 *man/ss.aipe.sm.Rd
 0d4a0e19e78d497b8e10ff78946b513a *man/ss.aipe.sm.sensitivity.Rd
 5fc618a9de42104fd37284d2f8ed6a8a *man/ss.aipe.smd.Rd

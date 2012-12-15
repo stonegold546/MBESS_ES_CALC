@@ -6,6 +6,7 @@ if(Chi.Square < 0) stop("Your \'Chi.Square\' is not correctly specified.")
 if(is.null(df)) stop("You must specify the degrees of freedom (\'df\').")
 if(is.null(alpha.lower) & is.null(alpha.upper) & is.null(conf.level)) stop("You need to specify the confidence interval parameters.")
 if((!is.null(alpha.lower) | !is.null(alpha.upper)) & !is.null(conf.level)) stop("You must specify only one method of defining the confidence limits.")
+if(is.null(conf.level)) {if(alpha.lower<0 | alpha.upper<0) stop("The upper and lower confidence limits must be larger than 0.")}
 
 if(!is.null(conf.level))
 {
@@ -13,15 +14,16 @@ if(conf.level >=1 | conf.level <= 0) stop("Your confidence level (\'conf.level\'
 alpha.lower <- alpha.upper <- (1-conf.level)/2
 }
 
-if(alpha.lower==0) alpha.lower <- NULL
-if(alpha.upper==0) alpha.upper <- NULL
+if(alpha.lower==0) LL <- 0
+if(alpha.upper==0) UL <- Inf
 
 # Critical value for lower tail.
 ################################################################################################
 FAILED <- NULL
-if(!is.null(alpha.lower))
+
+if(alpha.lower > 0)
 {
-LL.0 <- qchisq(p=alpha.lower*.00005, df=df) # Obtain a lower value by using the central chi-square- distribution
+LL.0 <- .01 # Obtain a lower value by using the central chi-square- distribution
 Diff <- pchisq(q=Chi.Square, df=df, ncp=LL.0) - (1-alpha.lower)
 
 if(pchisq(q=Chi.Square, df=df, ncp=LL.0) < (1-alpha.lower))
@@ -69,15 +71,19 @@ Diff <- pchisq(q=Chi.Square, df=df, ncp=LL.Bounds[2])-(1-alpha.lower)
 LL <- LL.Bounds[2] # Confidence limit.
 }
 }
+
+
 if(!is.null(FAILED)) LL <- NA
 ################################################################################################
 
 # Critical value for upper tail.
 ################################################################################################
-if(!is.null(alpha.upper))
+if(alpha.upper > 0)
 {
 FAILED.Up <- NULL
-UL.0 <- qchisq(p=1-alpha.upper*.00005, df=df)
+#UL.0 <- qchisq(p=1-alpha.upper*.00005, df=df)
+UL.0 <- LL + .01
+
 Diff <- pchisq(q=Chi.Square, df=df, ncp=UL.0)-alpha.upper
 
 if(Diff < 0) UL.0 <- .00000001
@@ -127,7 +133,7 @@ UL <- UL.Bounds[2] # Confidence limit.
 if(!is.null(FAILED.Up)) UL <- NA
 }
 ################################################################################################
-if(!is.null(alpha.lower) & !is.null(alpha.upper)) return(list(Lower.Limit=LL, Prob.Less.Lower=1-pchisq(q=Chi.Square, df=df, ncp=LL), Upper.Limit=UL, Prob.Greater.Upper=pchisq(q=Chi.Square, df=df, ncp=UL)))
-if(is.null(alpha.lower) & !is.null(alpha.upper)) return(list(Upper.Limit=UL, Prob.Greater.Upper=pchisq(q=Chi.Square, df=df, ncp=UL)))
-if(!is.null(alpha.lower) & is.null(alpha.upper)) return(list(Lower.Limit=LL, Prob.Less.Lower=1-pchisq(q=Chi.Square, df=df, ncp=LL)))
+if(alpha.lower>0 & alpha.upper>0) return(list(Lower.Limit=LL, Prob.Less.Lower= alpha.lower, Upper.Limit=UL, Prob.Greater.Upper=alpha.upper))
+if(alpha.lower==0 & alpha.upper>0) return(list(Conf.Interval.type="one-sided", Lower.Limit=0, Upper.Limit=UL, Prob.Greater.Upper= alpha.upper))
+if(alpha.lower>0 & alpha.upper==0) return(list(Conf.Interval.type="one-sided", Lower.Limit=LL, Prob.Less.Lower= alpha.lower, Upper.Limit=Inf))
 }
