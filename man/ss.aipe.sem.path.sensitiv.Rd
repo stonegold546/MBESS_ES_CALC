@@ -68,7 +68,7 @@ the simulation can proceed with unsuccessful iterations.}
 library(sem)
 
 # specify a model object in the RAM notation
-model.2<-specify.model()
+model.2<-specifyModel()
 xi1 -> y1, lambda1, 1
 xi1 -> y2, NA, 1
 xi1 -> y3, lambda2, 1

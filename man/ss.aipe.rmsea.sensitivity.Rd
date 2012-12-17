@@ -90,7 +90,7 @@ library(MASS)
 library(sem)
 
 # Specify Model 2 in the RAM notation
-model.2<-specify.model()
+model.2<-specifyModel()
 xi1 -> y1, lambda1, 1
 xi1 -> y2, NA, 1
 xi1 -> y3, lambda2, 1
@@ -143,7 +143,7 @@ Sigma.theta <- res$Sigma.theta
 # The following model is misspecified in the same way as did Lai and Kelley (2010)
 # with the goal to obtain a relatively small population RMSEA
 
-model.2.mis<-specify.model()
+model.2.mis<-specifyModel()
 xi1 -> y1, lambda1, 1
 xi1 -> y2, NA, 1
 xi1 -> y3, lambda2, 1
@@ -208,7 +208,7 @@ EXAMPLE 2
 library(MASS)
 library(sem)
 
-model.2<-specify.model()
+model.2<-specifyModel()
 xi1 -> y1, lambda1, 1
 xi1 -> y2, NA, 1
 xi1 -> y3, lambda2, 1

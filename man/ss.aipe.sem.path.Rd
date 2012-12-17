@@ -53,7 +53,7 @@ McArdle, J. J., & McDonald, R. P. (1984). Some algebraic properties of the retic
 library(sem)
 
 # specify a model object in the RAM notation
-model.2<-specify.model()
+model.2<-specifyModel()
 xi1 -> y1, lambda1, 1
 xi1 -> y2, NA, 1
 xi1 -> y3, lambda2, 1

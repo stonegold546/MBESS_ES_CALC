@@ -31,7 +31,9 @@ If the function fails (or if a function relying upon this function fails), adjus
   \item{Prob.Greater.Upper}{Proportion of cases falling above \code{Upper.Limit}}
 }
 %\references{ ~put references to the literature/web site here ~ }
-\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu});
+Keke Lai (Arizona State University; \email{LaiKeke@ASU.edu})
+}
 
 \seealso{\code{conf.limits.nct}, \code{conf.limits.ncf}}
 \examples{
@@ -39,8 +41,8 @@ If the function fails (or if a function relying upon this function fails), adjus
 conf.limits.nc.chisq(Chi.Square=30, conf.level=.95, df=15)
 
 # A one sided (upper) confidence interval.
-conf.limits.nc.chisq(Chi.Square=30, alpha.lower=0, alpha.upper=.05, 
-conf.level=NULL, df=15)
+ conf.limits.nc.chisq(Chi.Square=30, alpha.lower=0, alpha.upper=.05, 
+ conf.level=NULL, df=15)
 }
 \keyword{design}
 \keyword{multivariate}
