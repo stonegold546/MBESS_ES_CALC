@@ -1,50 +1,124 @@
-conf.limits.nct <- function(ncp, df, conf.level=.95, alpha.lower=NULL, alpha.upper=NULL, t.value, tol=1e-9, sup.int.warns=TRUE, method="all", ...)
+conf.limits.nct <- function(ncp, df, conf.level=.95, alpha.lower=NULL, alpha.upper=NULL, t.value, tol=1e-9, sup.int.warns=TRUE, ...)
 {
-if(!(method=="all" | method=="ALL" | method=="All" | method==1 | method==2 | method==3)) stop("You need to specify the method to use; the default is \'all\'")
+# Note this function is new in version 4, replacing what was used in prior versions. 
+# Internal functions for the noncentral t distribution; two appraoches.
+###########
 
+if(missing(ncp))
+{
+if(missing(t.value)) stop("You need to specify either 'ncp' or its alias, 't.value,' you have not specified either")
+ncp <- t.value
+}
+
+# General stop checks. 
 if(df <= 0) stop("The degrees of freedom must be some positive value.", call.=FALSE)
 
-# Removed restriction so that if alpha.lower and alpha.upper specified, it doesn't matter how conf.level is specified.
-# if((!is.null(alpha.lower) | !is.null(alpha.upper)) & !is.null(conf.level)) stop("You must choose either to use \'conf.level\' or define the \'lower.alpha\' and \'upper.alpha\' values, but not both", call.=FALSE)
+if(abs(ncp) > 37.62) print("The observed noncentrality parameter of the noncentral t-distribution has exceeded 37.62 in magnitude (R's limitation for accurate probabilities from the noncentral t-distribution) in the function's iterative search for the appropriate value(s). The results may be fine, but they might be inaccurate; use caution.")
 
-if(!is.null(alpha.lower) & is.null(alpha.upper)) stop("Since \'alpha.lower\' is specified, \'alpha.upper\' also needs to be specified (even if it is zero).")
-if(!is.null(alpha.upper) & is.null(alpha.lower)) stop("Since \'alpha.upper\' is specified, \'alpha.lower\' also needs to be specified (even if it is zero).")
+if(sup.int.warns==TRUE) Orig.warn <- options()$warn; options(warn=-1)
 
-if(!missing(t.value)) ncp <- t.value
+if(!is.null(conf.level) & is.null(alpha.lower) & !is.null(alpha.upper)) stop("You must choose either to use \'conf.level\' or define the \'lower.alpha\' and \'upper.alpha\' values; here, \'upper.alpha\' is specified but \'lower.alpha\' is not", call.=FALSE)
+if(!is.null(conf.level) & !is.null(alpha.lower) & is.null(alpha.upper)) stop("You must choose either to use \'conf.level\' or define the \'lower.alpha\' and \'upper.alpha\' values; here, \'lower.alpha\' is specified but \'upper.alpha\' is not", call.=FALSE)
 
-orig.ncp <- ncp
-ncp <- abs(ncp)
-
-if(is.null(alpha.lower) & is.null(alpha.upper))
+if(!is.null(conf.level) & is.null(alpha.lower) & is.null(alpha.upper))
 {
 alpha.lower <- (1-conf.level)/2
 alpha.upper <- (1-conf.level)/2
 }
 
-# So that a reversal can be used, see the final comment.
-if(orig.ncp < 0)
+
+.conf.limits.nct.M1 <- function(ncp, df, conf.level=NULL, alpha.lower, alpha.upper, tol=1e-9, sup.int.warns=TRUE, ...)
 {
-alpha.lower.orig <- alpha.lower
-alpha.upper.orig <- alpha.upper
-alpha.upper <- alpha.lower.orig
-alpha.lower <- alpha.upper.orig
+
+if(sup.int.warns==TRUE) Orig.warn <- options()$warn; options(warn=-1)
+
+min.ncp=min(-150, -5*ncp)
+max.ncp=max(150, 5*ncp)
+
+# Internal function for upper limit.
+# Note the upper tail is used here, as we seek to find the NCP that has, in its upper tail (alpha.lower, for the lower limit), the specified value of the observed t/ncp. 
+###########################
+.ci.nct.lower <- function(val.of.interest, ...)
+{
+(qt(p=alpha.lower, df=df, ncp=val.of.interest, lower.tail = FALSE, log.p = FALSE) - ncp)^2
+}
+###########################
+
+# Internal function for lower limit.
+# Note the lower tail is used here, as we seek to find the NCP that has, in its lower tail (alpha.upper, for the upper limit), the specified value of the observed t/ncp. 
+###########################
+.ci.nct.upper <- function(val.of.interest, ...)
+{
+(qt(p=alpha.upper, df=df, ncp=val.of.interest, lower.tail = TRUE, log.p = FALSE) - ncp)^2
 }
 
-if(method=="all" | method=="ALL" | method=="All")
+if(alpha.lower!=0)
 {
-Res.M1 <- NULL
-Res.M2 <- NULL
-Res.M3 <- NULL
+if(sup.int.warns==TRUE) Low.Lim <- suppressWarnings(optimize(f=.ci.nct.lower, interval=c(min.ncp, max.ncp), alpha.lower=alpha.lower, df=df, ncp=ncp, maximize=FALSE, tol=tol))
+if(sup.int.warns==FALSE) Low.Lim <- optimize(f=.ci.nct.lower, interval=c(min.ncp, max.ncp), alpha.lower=alpha.lower, df=df, ncp=ncp, maximize=FALSE, tol=tol)
+}
 
-try(Res.M1 <- conf.limits.nct.M1(ncp=ncp, df=df, conf.level=NULL, alpha.lower=alpha.lower, alpha.upper=alpha.upper, tol=tol), silent=TRUE)
+if(alpha.upper!=0)
+{
+if(sup.int.warns==TRUE) Up.Lim <- suppressWarnings(optimize(f=.ci.nct.upper, interval=c(min.ncp, max.ncp), alpha.upper=alpha.upper, df=df, ncp=ncp, maximize=FALSE, tol=tol))
+if(sup.int.warns==FALSE) Up.Lim <- optimize(f=.ci.nct.upper, interval=c(min.ncp, max.ncp), alpha.upper=alpha.upper, df=df, ncp=ncp, maximize=FALSE, tol=tol)
+}
+
+if(alpha.lower==0) Result <- list(Lower.Limit=-Inf, Prob.Less.Lower=0, Upper.Limit=Up.Lim$minimum, Prob.Greater.Upper=pt(q=ncp, ncp=Up.Lim$minimum, df=df))
+if(alpha.upper==0) Result <- list(Lower.Limit=Low.Lim$minimum, Prob.Less.Lower=pt(q=ncp, ncp=Low.Lim$minimum, df=df, lower.tail=FALSE), Upper.Limit=Inf, Prob.Greater.Upper=0)
+if(alpha.lower!=0 & alpha.upper!=0) Result <- list(Lower.Limit=Low.Lim$minimum, Prob.Less.Lower=pt(q=ncp, ncp=Low.Lim$minimum, df=df, lower.tail=FALSE), Upper.Limit=Up.Lim$minimum, Prob.Greater.Upper=pt(q=ncp, ncp=Up.Lim$minimum, df=df))
+
+if(sup.int.warns==TRUE) options(warn=Orig.warn)
+
+return(Result)
+}
+################################################
+.conf.limits.nct.M2 <- function(ncp, df, conf.level=NULL, alpha.lower, alpha.upper, tol=1e-9, sup.int.warns=TRUE, ...)
+{
+
+# Internal function for upper limit.
+###########################
+.ci.nct.lower <- function(val.of.interest, ...)
+{
+(qt(p=alpha.lower, df=df, ncp=val.of.interest, lower.tail = FALSE, log.p = FALSE) - ncp)^2
+}
+###########################
+
+# Internal function for lower limit.
+###########################
+.ci.nct.upper <- function(val.of.interest, ...)
+{
+(qt(p=alpha.upper, df=df, ncp=val.of.interest, lower.tail = TRUE, log.p = FALSE) - ncp)^2
+}
+
+if(sup.int.warns==TRUE)
+{
+Low.Lim <- suppressWarnings(nlm(f=.ci.nct.lower, p=ncp, ...))
+Up.Lim <- suppressWarnings(nlm(f=.ci.nct.upper, p=ncp, ...))
+}
+
+if(sup.int.warns==FALSE)
+{
+Low.Lim <- nlm(f=.ci.nct.lower, p=ncp, ...)
+Up.Lim <- nlm(f=.ci.nct.upper, p=ncp, ...)
+}
+
+if(alpha.lower==0) Result <- list(Lower.Limit=-Inf, Prob.Less.Lower=0, Upper.Limit=Up.Lim$estimate, Prob.Greater.Upper=pt(q=ncp, ncp=Up.Lim$estimate, df=df))
+if(alpha.upper==0) Result <- list(Lower.Limit=Low.Lim$estimate, Prob.Less.Lower=pt(q=ncp, ncp=Low.Lim$estimate, df=df, lower.tail=FALSE), Upper.Limit=Inf, Prob.Greater.Upper=0)
+if(alpha.lower!=0 & alpha.upper!=0) Result <- list(Lower.Limit=Low.Lim$estimate, Prob.Less.Lower=pt(q=ncp, ncp=Low.Lim$estimate, df=df, lower.tail=FALSE), Upper.Limit=Up.Lim$estimate, Prob.Greater.Upper=pt(q=ncp, ncp=Up.Lim$estimate, df=df))
+
+return(Result)
+}
+
+# Now, use the each of the two methods. 
+Res.M1 <- Res.M2 <- NULL
+try(Res.M1 <- .conf.limits.nct.M1(ncp=ncp, df=df, conf.level=NULL, alpha.lower=alpha.lower, alpha.upper=alpha.upper, tol=tol, sup.int.warns=sup.int.warns), silent=TRUE)
 if(length(Res.M1)!=4) Res.M1 <- NULL
 
-try(Res.M2 <- conf.limits.nct.M2(ncp=ncp, df=df, conf.level=NULL, alpha.lower=alpha.lower, alpha.upper=alpha.upper, tol=tol), silent=TRUE)
+try(Res.M2 <- .conf.limits.nct.M2(ncp=ncp, df=df, conf.level=NULL, alpha.lower=alpha.lower, alpha.upper=alpha.upper, tol=tol, sup.int.warns=sup.int.warns), silent=TRUE)
 if(length(Res.M2)!=4) Res.M2 <- NULL
 
-try(Res.M3 <- conf.limits.nct.M3(ncp=ncp, df=df, conf.level=NULL, alpha.lower=alpha.lower, alpha.upper=alpha.upper, tol=tol), silent=TRUE)
-if(length(Res.M3)!=4) Res.M3 <- NULL
-
+# Now, set-up the test to find the best method. 
 Low.M1 <- Res.M1$Lower.Limit
 Prob.Low.M1 <- Res.M1$Prob.Less.Lower
 Upper.M1 <- Res.M1$Upper.Limit
@@ -55,72 +129,24 @@ Prob.Low.M2 <- Res.M2$Prob.Less.Lower
 Upper.M2 <- Res.M2$Upper.Limit
 Prob.Upper.M2 <- Res.M2$Prob.Greater.Upper
 
-Low.M3 <- Res.M3$Lower.Limit
-Prob.Low.M3 <- Res.M3$Prob.Less.Lower
-Upper.M3 <- Res.M3$Upper.Limit
-Prob.Upper.M3 <- Res.M3$Prob.Greater.Upper
-
-Min.for.Best.Low <- min((c(Prob.Low.M1, Prob.Low.M2, Prob.Low.M3)-alpha.lower)^2)
+# Choose the best interval limits:
+##Here low
+Min.for.Best.Low <- min((c(Prob.Low.M1, Prob.Low.M2)-alpha.lower)^2)
 
 if(!is.null(Res.M1)){if(Min.for.Best.Low==(Prob.Low.M1-alpha.lower)^2) Best.Low <- 1}
 if(!is.null(Res.M2)){if(Min.for.Best.Low==(Prob.Low.M2-alpha.lower)^2) Best.Low <- 2}
-if(!is.null(Res.M3)){if(Min.for.Best.Low==(Prob.Low.M3-alpha.lower)^2) Best.Low <- 3}
 
-Min.for.Best.Up <- min((c(Prob.Upper.M1, Prob.Upper.M2, Prob.Upper.M3)-alpha.upper)^2)
+##Here high
+Min.for.Best.Up <- min((c(Prob.Upper.M1, Prob.Upper.M2)-alpha.upper)^2)
 
 if(!is.null(Res.M1)){if(Min.for.Best.Up==(Prob.Upper.M1-alpha.upper)^2) Best.Up <- 1}
 if(!is.null(Res.M2)){if(Min.for.Best.Up==(Prob.Upper.M2-alpha.upper)^2) Best.Up <- 2}
-if(!is.null(Res.M3)){if(Min.for.Best.Up==(Prob.Upper.M3-alpha.upper)^2) Best.Up <- 3}
+#####################################
 
 if(is.null(Res.M1)) {Low.M1 <- NA; Prob.Low.M1 <- NA; Upper.M1 <- NA; Prob.Upper.M1 <- NA}
 if(is.null(Res.M2)) {Low.M2 <- NA; Prob.Low.M2 <- NA; Upper.M2 <- NA; Prob.Upper.M2 <- NA}
-if(is.null(Res.M3)) {Low.M3 <- NA; Prob.Low.M3 <- NA; Upper.M3 <- NA; Prob.Upper.M3 <- NA}
 
-Result <- list(Lower.Limit=c(Low.M1, Low.M2, Low.M3)[Best.Low], Prob.Less.Lower=c(Prob.Low.M1, Prob.Low.M2, Prob.Low.M3)[Best.Low], Upper.Limit=c(Upper.M1, Upper.M2, Upper.M3)[Best.Up], Prob.Greater.Upper=c(Prob.Upper.M1, Prob.Upper.M2, Prob.Upper.M3)[Best.Up])
-}
-
-if(method==1)
-{
-Res.M1 <- NULL
-
-try(Res.M1 <- conf.limits.nct.M1(ncp=ncp, df=df, conf.level=NULL, alpha.lower=alpha.lower, alpha.upper=alpha.upper, tol=tol), silent=TRUE)
-if(length(Res.M1)!=4) Res.M1 <- NULL
-
-if(is.null(Res.M1)) stop("There was a problem with Method 1 in this situation; try another method.")
-
-Result <- list(Lower.Limit=Res.M1$Lower.Limit, Prob.Less.Lower=Res.M1$Prob.Less.Lower, Upper.Limit=Res.M1$Upper.Limit, Prob.Greater.Upper=Res.M1$Prob.Greater.Upper)
-}
-
-if(method==2)
-{
-Res.M2 <- NULL
-
-try(Res.M2 <- conf.limits.nct.M2(ncp=ncp, df=df, conf.level=NULL, alpha.lower=alpha.lower, alpha.upper=alpha.upper, tol=tol), silent=TRUE)
-if(length(Res.M2)!=4) Res.M2 <- NULL
-
-if(is.null(Res.M2)) stop("There was a problem with Method 2 in this situation; try another method.")
-
-Result <- list(Lower.Limit=Res.M2$Lower.Limit, Prob.Less.Lower=Res.M2$Prob.Less.Lower, Upper.Limit=Res.M2$Upper.Limit, Prob.Greater.Upper=Res.M2$Prob.Greater.Upper)
-}
-
-if(method==3)
-{
-Res.M3 <- NULL
-
-try(Res.M3 <- conf.limits.nct.M3(ncp=ncp, df=df, conf.level=NULL, alpha.lower=alpha.lower, alpha.upper=alpha.upper, tol=tol), silent=TRUE)
-if(length(Res.M3)!=4) Res.M3 <- NULL
-
-if(is.null(Res.M3)) stop("There was a problem with Method 3 in this situation; try another method.")
-
-Result <- list(Lower.Limit=Res.M3$Lower.Limit, Prob.Less.Lower=Res.M3$Prob.Less.Lower, Upper.Limit=Res.M3$Upper.Limit, Prob.Greater.Upper=Res.M3$Prob.Greater.Upper)
-}
-
-# If reversal is necessary do to negative noncentral values.
-if(orig.ncp < 0)
-{
-Opposite.Result <- Result
-Result <- list(Lower.Limit=-1*Result$Upper.Limit, Prob.Less.Lower=Result$Prob.Greater.Upper, Upper.Limit=-1*Result$Lower.Limit, Prob.Greater.Upper=Result$Prob.Less.Lower)
-}
+Result <- list(Lower.Limit=c(Low.M1, Low.M2)[Best.Low], Prob.Less.Lower=c(Prob.Low.M1, Prob.Low.M2)[Best.Low], Upper.Limit=c(Upper.M1, Upper.M2)[Best.Up], Prob.Greater.Upper=c(Prob.Upper.M1, Prob.Upper.M2)[Best.Up])
 
 return(Result)
 }

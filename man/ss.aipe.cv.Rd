@@ -5,7 +5,7 @@ size planning}
 
 \description{Determines the necessary sample size so that the expected confidence interval width
 for the coefficient of variation will be sufficiently narrow, optionally with a desired degree of 
-certainty that the interval will not wider than desired.}
+certainty that the interval will not be wider than desired.}
 \usage{
 ss.aipe.cv(C.of.V = NULL, width = NULL, conf.level = 0.95, 
 degree.of.certainty = NULL, assurance=NULL, certainty=NULL, 
@@ -14,7 +14,7 @@ Suppress.Statement = TRUE, sup.int.warns = TRUE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{C.of.V}{population coefficient of variation which the sample size procedure is based}
+  \item{C.of.V}{population coefficient of variation on which the sample size procedure is based}
   \item{width}{desired (full) width of the confidence interval}
   \item{conf.level}{confidence interval coverage; 1-Type I error rate}
   \item{degree.of.certainty}{value with which confidence can be placed that describes the likelihood of obtaining a confidence interval less than the value specified (e.g., .80, .90, .95)}

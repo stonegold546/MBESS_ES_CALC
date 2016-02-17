@@ -2,9 +2,6 @@ ci.R2 <- function(R2=NULL, df.1=NULL, df.2=NULL, conf.level=.95, Random.Predicto
 Random.Regressors, F.value=NULL, N=NULL, p=NULL, K, alpha.lower=NULL, alpha.upper=NULL, tol=1e-9)
 {
 
-if(!require(gsl)) stop("This function depends on the 'gsl' package. Please install the 'gsl' package first")
-if(!require(MASS)) stop("This function depends on the 'MASS' package. Please install the 'MASS' package first")
-    
 # So that k or p can be specified.
 tmp <- try(is.null(K), silent=TRUE)
 if(tmp==TRUE | tmp==FALSE)

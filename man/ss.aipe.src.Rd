@@ -54,9 +54,9 @@ satisfied for the confidence interval for a particular regression coefficient gi
 }
 \references{ 
 Kelley, K. & Maxwel, S. E. (2003). Sample size for Multiple Regression: Obtaining regression
-coefficients that are accuracy, not simply significant. \emph{Psychological Methods, 8}, 305-321.
+coefficients that are accurate, not simply significant. \emph{Psychological Methods, 8}, 305-321.
 
-Kelley, K. \& Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, \& L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166-192). Newbury Park, CA: Sage.
+Kelley, K. & Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, & L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166-192). Newbury Park, CA: Sage.
 }
 \author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 

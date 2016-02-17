@@ -48,8 +48,7 @@ If the user inputs specific predictor vectors, the function would plot the regre
 
 \references{Cohen, J., Cohen, P., West, S. G. and Aiken, L. S. (2003). \emph{Applied multiple regression/correlation analysis for the behavioral sciences} (3rd ed.). Mahwah, NJ: Erlbaum. }
 
-\author{ Keke Lai (University of Notre Dame <Lai.15@ND.edu>);
-Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) }
+\author{Keke Lai (University of California -- Merced; \email{klai25@ucmerced.edu}) and Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) }
 
 \note{ If the user enters specific vectors instead of the ranges of predictors, please make sure
 elements in those vectors are in ascending order. This is required by function \code{persp}, which 

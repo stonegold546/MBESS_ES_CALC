@@ -23,7 +23,8 @@ degree of accuracy (i.e., the sufficiently narrow confidence interval).
 %\note{}
 \seealso{ \code{\link{ci.rmsea}}}
 \examples{
+\dontrun{
 # ss.aipe.rmsea(RMSEA=.035, df=50, width=.05, conf.level=.95)
 }
-
+}
 \keyword{ design }

@@ -37,7 +37,7 @@ degree of accuracy (i.e., the sufficiently narrow confidence interval).
 \references{
 Cohen, J. (1988) Statistical power analysis for the behavioral sciences (2nd ed.). Hillsdale, NJ: Lawrence Erlbaum.
 
-Cumming, G. \& Finch, S. (2001) A primer on the understanding, use, and calculation of confidence intervals that are
+Cumming, G. & Finch, S. (2001) A primer on the understanding, use, and calculation of confidence intervals that are
 based on central and noncentral distributions, \emph{Educational and Psychological Measurement, 61}, 532--574.
 
 Hedges, L. V. (1981). Distribution theory for Glass's Estimator of effect size and related estimators. \emph{Journal of Educational Statistics, 2}, 107--128.
@@ -45,13 +45,13 @@ Hedges, L. V. (1981). Distribution theory for Glass's Estimator of effect size a
 Kelley, K. (2005) The effects of nonnormal distributions on confidence intervals around the standardized mean
 difference: Bootstrap and parametric confidence intervals, \emph{Educational and Psychological Measurement, 65}, 51--69.
 
-Kelley, K., Maxwell, S. E., \& Rausch, J. R. (2003) Obtaining Power or Obtaining Precision: Delineating Methods
+Kelley, K., Maxwell, S. E., & Rausch, J. R. (2003) Obtaining Power or Obtaining Precision: Delineating Methods
 of Sample-Size Planning, \emph{Evaluation and the Health Professions, 26}, 258--287.
 
 Kelley, K., & Rausch, J. R. (2006). Sample size planning for the standardized mean difference: 
 Accuracy in Parameter Estimation via narrow confidence intervals. \emph{Psychological Methods, 11(4)}, 363-385.
 
-Steiger, J. H., \& Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
+Steiger, J. H., & Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
 statistical methods. In L. L. Harlow, S. A. Mulaik, & J. H. Steiger (Eds.), \emph{What if there where
 no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum.
 }

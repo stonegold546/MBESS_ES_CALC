@@ -1,6 +1,7 @@
 ss.aipe.c.ancova <- function(error.var.ancova=NULL, error.var.anova=NULL, rho=NULL, c.weights, width, conf.level=.95, 
 assurance=NULL, certainty=NULL)
-{if (is.null(error.var.ancova)&is.null(error.var.anova)) stop("Please specify either the ANCOVA error variance, or both the ANOVA error variance and the correlation coefficient")
+{
+if (is.null(error.var.ancova)&is.null(error.var.anova)) stop("Please specify either the ANCOVA error variance, or both the ANOVA error variance and the correlation coefficient")
  
 if(!is.null(assurance)& !is.null(certainty))
     {if(assurance!=certainty) stop("'assurance' and 'certainty' must have the same value")}

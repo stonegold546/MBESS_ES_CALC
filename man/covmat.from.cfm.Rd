@@ -43,7 +43,7 @@ Leann Terry (Indiana University; \email{ljterry@Indiana.Edu})
 # covmat.from.cfm(Lambda=c(.8, .8, .8, .8), Psi.Square=c(.6, .2, .1, .3), tol.det=.00001)
 
 
-# Parellel 
+# Parallel 
 # covmat.from.cfm(Lambda=c(.8, .8, .8, .8), Psi.Square=c(.2, .2, .2, .2), tol.det=.00001)
 }
 

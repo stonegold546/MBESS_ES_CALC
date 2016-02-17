@@ -2,9 +2,9 @@
 function(model, est.Sigma, true.Sigma=est.Sigma, which.path,
 desired.width, N=NULL, conf.level=0.95, assurance=NULL, G=100, ...){
 
-if(!require(MASS)) stop("This function depends on the 'MASS' package. Please install the 'MASS' package first.")
-if(!require(sem)) stop("This function depends on the 'sem' package. Please install the 'sem' package first.") 
-
+  if(!requireNamespace("MASS", quietly = TRUE)) stop("The package 'MASS' is needed; please install the package and try again.")
+  if(!requireNamespace("sem", quietly = TRUE)) stop("The package 'sem' is needed; please install the package and try again.")
+  
 result.plan <- ss.aipe.sem.path(model=model, Sigma=est.Sigma, desired.width=desired.width, 
 which.path=which.path, conf.level=conf.level, assurance=assurance, ...)
 
@@ -26,10 +26,10 @@ g<- 0
 while(g<G){
 	gc()
 	cat("successful.iteration = ", g, "\n")
-   Data <- mvrnorm(n = N, mu=rep(0,p), Sigma=true.Sigma)
+   Data <- MASS::mvrnorm(n = N, mu=rep(0,p), Sigma=true.Sigma)
    S <- var(Data)  
    colnames(S) <- rownames(S)<- obs.vars
-   S.fit <- try(sem(model, S, N), FALSE) 
+   S.fit <- try(sem::sem(model, S, N), FALSE) 
    if(inherits(S.fit, "try-error")|| S.fit$convergence>2) g<- g
    else{
    		g<- g+1
@@ -44,7 +44,7 @@ CI.upper <- theta.hat.j+ qnorm(1-alpha/2)*SE.theta.hat.j
 CI.lower <- theta.hat.j- qnorm(1-alpha/2)*SE.theta.hat.j
 w <- CI.upper - CI.lower
 
-true.fit <- sem(model, true.Sigma, 100000)
+true.fit <- sem::sem(model, true.Sigma, 100000)
 theta.j <- true.fit$coeff[j]
 
 CI.upper <- na.omit(CI.upper)

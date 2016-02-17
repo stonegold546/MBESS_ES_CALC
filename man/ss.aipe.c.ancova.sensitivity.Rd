@@ -52,7 +52,7 @@ ANCOVA.
 \item{Type.I.Error.Upper}{percentage of Type I error happened in the upper end in the entire simulation}
 \item{Type.I.Error.Lower}{percentage of Type I error happened in the lower end in the entire simulation}
 \item{width.NARROWER.than.desired}{percentage of obtained widths that are narrower than the desired width}
-\item{Mean.width.obs}{mean width of the obtained full conficence intervals}
+\item{Mean.width.obs}{mean width of the obtained full confidence intervals}
 \item{Median.width.obs}{median width of the obtained full confidence intervals}
 \item{Mean.se.res.vs.se.full}{the mean of the ratios of contrast's full standard error over the restricted one}
 \item{Psi.pop}{population (unstandardized) contrast}

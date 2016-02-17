@@ -1,7 +1,7 @@
 \name{ss.aipe.reg.coef.sensitivity}
 \alias{ss.aipe.reg.coef.sensitivity}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Sensitivity analysis for sample size planing from the Accuracy in Parameter Estimation Perspective for the (standardized and unstandardized) regression coefficient}
+\title{Sensitivity analysis for sample size planning from the Accuracy in Parameter Estimation Perspective for the (standardized and unstandardized) regression coefficient}
 \description{
 Performs a sensitivity analysis when planning sample size from the Accuracy in Parameter Estimation Perspective for the standardized or unstandardized regression coefficient.}
 \usage{
@@ -34,13 +34,12 @@ degree.of.certainty = NULL, assurance=NULL, certainty=NULL,
 }
   
   \details{ Direct specification of True.Rho.YX and True.RHO.XX is necessary, even if one is interested in a single regression
-coefficient, so that the covariance/correlation structure can be specified when when the simulation student within the function runs.} 
-\value{\item{Results}{a matrix containing the empirical results from each of the \code{G} replication of the simulation}
+coefficient, so that the covariance/correlation structure can be specified when the simulation student within the function runs.} 
+\value{\item{Results}{a matrix containing the empirical results from each of the \code{G} replications of the simulation}
   \item{Specifications}{a list of the input specifications and the required sample size}
   \item{Summary.of.Results}{summary values for the results of the sensitivity analysis (simulation study) given the input specification}}
 
-\references{Kelley, K. \& Maxwell, S. E. (2003). Sample size for Multiple Regression: Obtaining regression coefficients that are accuracy, not simply significant. 
-\emph{Psychological Methods, 8}, 305--321.}
+\references{Kelley, K. & Maxwell, S. E. (2003). Sample size for Multiple Regression: Obtaining regression coefficients that are accuracy, not simply significant. \emph{Psychological Methods, 8}, 305--321.}
 
 \author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 

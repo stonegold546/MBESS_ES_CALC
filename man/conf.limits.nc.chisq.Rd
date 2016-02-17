@@ -3,7 +3,7 @@
 \title{Confidence limits for noncentral chi square parameters}
 \description{
 Function to determine the noncentral parameter that leads to the observed \code{Chi.Square}-value, 
-so that a confidence interval for the population \code{F}-value can be conducted. Used for forming confidence intervals around noncentral parameters (given the monotonic relationship between the \code{F}-value and the noncentral value).
+so that a confidence interval for the population \code{F}-value can be conducted. Used for forming confidence intervals around noncentral parameters (given the monotonic relationship between the \emph{F}-value and the noncentral value).
 }
 \usage{conf.limits.nc.chisq(Chi.Square=NULL, conf.level=.95, df=NULL, 
 alpha.lower=NULL, alpha.upper=NULL, tol=1e-9, Jumping.Prop=.10)
@@ -32,7 +32,7 @@ If the function fails (or if a function relying upon this function fails), adjus
 }
 %\references{ ~put references to the literature/web site here ~ }
 \author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu});
-Keke Lai (Arizona State University; \email{LaiKeke@ASU.edu})
+Keke Lai (University of California--Merced)
 }
 
 \seealso{\code{conf.limits.nct}, \code{conf.limits.ncf}}

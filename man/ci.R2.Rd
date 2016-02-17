@@ -1,14 +1,14 @@
 \name{ci.R2}
 \alias{ci.R2}
-\title{Confidence intervals for the squared multiple correlation coefficient}
-\description{A function to calculate the exact confidence interval for the multiple correlation coefficient.}
+\title{Confidence interval for the population squared multiple correlation coefficient}
+\description{A function to calculate the confidence interval for the population squared multiple correlation coefficient.}
 \usage{
 ci.R2(R2 = NULL, df.1 = NULL, df.2 = NULL, conf.level = .95, 
 Random.Predictors=TRUE, Random.Regressors, F.value = NULL, N = NULL, 
 p = NULL, K, alpha.lower = NULL, alpha.upper = NULL, tol = 1e-09)}
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{R2}{multiple correlation coefficient}
+  \item{R2}{squared multiple correlation coefficient}
   \item{df.1}{numerator degrees of freedom}
   \item{df.2}{denominator degrees of freedom}
   \item{conf.level}{confidence interval coverage; 1-Type I error rate}
@@ -25,8 +25,8 @@ p = NULL, K, alpha.lower = NULL, alpha.upper = NULL, tol = 1e-09)}
 
 \details{
 This function can be used with random predictor variables (\code{Random.Predictors=TRUE}) or when predictor
-variables are fixed (\code{Random.Predictors=FALSE}). In most applications in the \emph{behavioral, educational,
-and social sciences} predictor variables are random, which is the default in this function. 
+variables are fixed (\code{Random.Predictors=FALSE}). In many applications of multiple regression, 
+predictor variables are random, which is the default in this function. 
 
 For random predictors, the function implements the procedure of Lee (1971), which was implemented by 
 Algina and Olejnik (2000; specifically in their \emph{ci.smcc.bisec.sas} SAS script). When \code{Random.Predictors=TRUE},
@@ -34,7 +34,7 @@ the function implements code that is in part based on the Alginia and Olejnik (2
 
 When \code{Random.Predictors=FALSE}, and thus the predictors are planned and thus fixed in 
 hypothetical replications of the study, the confidence limits are based on a
-noncentral \code{F}-distribution (see \code{conf.limits.ncf}).
+noncentral \eqn{F}-distribution (see \code{conf.limits.ncf}).
 }
 
 \value{
@@ -44,16 +44,18 @@ noncentral \code{F}-distribution (see \code{conf.limits.ncf}).
   \item{Prob.Greater.Upper }{proportion of the distribution greater than \code{Lower.Conf.Limit.R2}}
 }
 \references{
-Algina, J. \& Olejnik, S. (2000) Determining Sample Size for Accurate Estimation of 
+Algina, J. & Olejnik, S. (2000). Determining Sample Size for Accurate Estimation of 
 the Squared Multiple Correlation Coefficient. \emph{Multivariate Behavioral Research, 35}, 
 119--136.
+
+Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, and implementation. \emph{Journal of Statistical Software, 20} (8), 1--24.
 
 Lee, Y. S. (1971). Some results on the sampling distribution of the multiple correlation coefficient.
 \emph{Journal of the Royal Statistical Society, B, 33}, 117--130.
 
 Smithson, M. (2003). \emph{Confidence intervals}. New York, NY: Sage Publications. 
 
-Steiger, J. H. \& Fouladi, R. T. (1992) R2: A computer program for interval estimation, power calculation,
+Steiger, J. H. & Fouladi, R. T. (1992) R2: A computer program for interval estimation, power calculation,
 and hypothesis testing for the squared multiple correlation. \emph{Behavior research methods, instruments and computers, 4}, 581--582.
 
 }

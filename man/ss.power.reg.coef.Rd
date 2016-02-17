@@ -30,7 +30,7 @@ Specified.N=NULL, Print.Progress = FALSE)
   \item{Print.Progress}{if the progress of the iterative procedure is printed to the screen as the iterations are occurring}
 }
 \details{
-Determine the necessary sample size given a desired level of statistical power. Alternatively, determines the statistical power for a given a specified sample size.
+Determines the necessary sample size given a desired level of statistical power. Alternatively, determines the statistical power for a given a specified sample size.
 There are a number of ways that the specification regarding the size of the regression coefficient can be entered. The most basic, and often the simplest, is to specify \code{Rho2.Y_X} and \code{Rho2.Y_X.without.j}. See the examples section 
 for several options.
 }
@@ -44,7 +44,7 @@ for several options.
 \references{
 Cohen, J. (1988). \emph{Statistical power analysis for the behavioral sciences} (2nd ed.). Hillsdale, NJ: Erlbaum.
 
-Kelley, K. \& Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, \& L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166-192). Newbury Park, CA: Sage.
+Kelley, K. & Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, & L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166-192). Newbury Park, CA: Sage.
 
 Maxwell, S. E. (2000). Sample size for multiple regression. \emph{Psychological Methods, 4}, 434--458.
 

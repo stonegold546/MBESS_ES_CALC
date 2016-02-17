@@ -1,19 +1,7 @@
-`ss.aipe.R2` <-
-function (Population.R2 = NULL, conf.level = 0.95, width = NULL, 
-    Random.Predictors = TRUE, Random.Regressors, which.width = "Full", 
-    p = NULL, K, degree.of.certainty = NULL, assurance = NULL, 
-    certainty = NULL, verify.ss = FALSE, Tol = 1e-09, ...) 
-{current.package<- search()
-lib <- library()
-if( sum(current.package=="package:gsl")!=1 ) {
-    if( sum(lib$results[,1]=="gsl")==1 ) library(gsl)
-    else stop("This function depends on the 'gsl' package. Please install the 'gsl' package 
-    as you installed the 'MBESS' package")
-    
-    if( sum(lib$results[,1]=="MASS")==1 ) library(MASS)
-    else stop("This function depends on the 'MASS' package. Please install the 'MASS' package 
-    as you installed the 'MBESS' package")
-    }
+ss.aipe.R2 <- function (Population.R2 = NULL, conf.level = 0.95, width = NULL, Random.Predictors = TRUE, Random.Regressors, which.width = "Full", p = NULL, K, degree.of.certainty = NULL, assurance = NULL, certainty = NULL, verify.ss = FALSE, Tol = 1e-09, ...) 
+{
+if(!requireNamespace("gsl", quietly = TRUE)) stop("The package 'gsl' is needed; please install the package and try again.")
+
 
     if (!is.null(certainty) & is.null(degree.of.certainty) & 
         is.null(assurance)) 
@@ -50,7 +38,7 @@ if( sum(current.package=="package:gsl")!=1 ) {
     }
     Expected.R2 <- function(Population.R2, N, p) {
         Value <- 1 - ((N - p - 1)/(N - 1)) * (1 - Population.R2) * 
-            hyperg_2F1(1, 1, 0.5 * (N + 1), Population.R2)
+            gsl::hyperg_2F1(1, 1, 0.5 * (N + 1), Population.R2)
         Value <- max(0, Value)
         return(Value)
     }

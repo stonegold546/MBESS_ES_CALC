@@ -1,12 +1,13 @@
-CFA.1 <- function(S, N, equal.loading = FALSE, equal.error = FALSE, package = "sem", se = "standard", ...) {
-    if (!isSymmetric(S, tol = 1e-05)) 
-        stop("Input a symmetric covariance or correlation matrix 'S'")
+CFA.1 <- function(S, N, equal.loading = FALSE, equal.error = FALSE, package = "lavaan", se = "standard", ...) 
+{
+if (!isSymmetric(S, tol = 1e-05)) stop("Input a symmetric covariance or correlation matrix 'S'")
     q <- nrow(S)
-    if (package == "sem") {
-        if (!require(sem)) 
-            stop("This function depends on the 'sem' package. Please install the 'sem' package first")
-        
-        try(detach("package:lavaan"), silent = TRUE)
+
+    
+    if (package == "sem") 
+    {
+      if(!requireNamespace("sem", quietly = TRUE)) stop("The package 'sem' is needed; please install the package and try again (or use set 'package' to 'lavaan'.")
+      
         x <- matrix(NA, nrow = q, ncol = 1)
         x <- paste("x", row(x), sep = "")
         
@@ -34,7 +35,7 @@ CFA.1 <- function(S, N, equal.loading = FALSE, equal.error = FALSE, package = "s
         
         rownames(S) <- x
         colnames(S) <- x
-        model.fitted <- sem(model, S, N)
+        model.fitted <- sem::sem(model, S, N)
         converged <- model.fitted$convergence
         if (converged) {
             if (equal.loading) 
@@ -49,16 +50,14 @@ CFA.1 <- function(S, N, equal.loading = FALSE, equal.error = FALSE, package = "s
             Indicator.var <- NA
             Parameter.cov <- NULL
         }
-        result <- list(Model = model, Factor.Loadings = Factor.Loadings, Indicator.var = Indicator.var, 
-            Parameter.cov = Parameter.cov, converged = converged)
+        result <- list(Model = model, Factor.Loadings = Factor.Loadings, Indicator.var = Indicator.var, Parameter.cov = Parameter.cov, converged = converged, package="sem")
         return(result)
-    } else if (package == "lavaan") {
-        if (!require(lavaan)) 
-            stop("This function depends on the 'lavaan' package. Please install the 'lavaan' package first")
-        
-        try(detach("package:sem"), silent = TRUE)
-        
-        
+    } 
+    
+if (package == "lavaan") 
+  {
+if(!requireNamespace("lavaan", quietly = TRUE)) stop("The package 'lavaan' is needed; please install the package and try again.")
+      
         colnames(S) <- rownames(S) <- paste("y", 1:q, sep = "")
         
         if (equal.loading) {
@@ -78,8 +77,8 @@ CFA.1 <- function(S, N, equal.loading = FALSE, equal.error = FALSE, package = "s
         errorLine <- paste(paste(colnames(S), " ~~ ", errorName, "*", colnames(S), 
             sep = ""), collapse = "\n")
         model <- paste(model, loadingLine, "\n", factorLine, errorLine, "\n")
-        try(fit <- lavaan(model, sample.cov = S, sample.nobs = N, se = se, ...), 
-            silent = TRUE)
+        try(fit <- lavaan::lavaan(model, sample.cov = S, sample.nobs = N, se = se, ...), silent = TRUE)
+        
         converged <- fit@Fit@converged
         loading <- unique(as.vector(fit@Model@GLIST$lambda))
         error <- unique(diag(fit@Model@GLIST$theta))
@@ -89,7 +88,7 @@ CFA.1 <- function(S, N, equal.loading = FALSE, equal.error = FALSE, package = "s
             if (se == "none") {
                 paramCov <- NULL
             } else {
-                paramCov <- vcov(fit)
+                paramCov <- lavaan::vcov(fit)
             }
         } else {
             loading <- NA
@@ -100,11 +99,10 @@ CFA.1 <- function(S, N, equal.loading = FALSE, equal.error = FALSE, package = "s
                 paramCov <- NA
             }
         }
+        print("here")
         result <- list(Model = model, Factor.Loadings = loading, Indicator.var = error, 
-            Parameter.cov = paramCov, converged = converged)
-        return(result)
+            Parameter.cov = paramCov, converged = converged, package="lavaan")
         
-    } else {
-        stop("The package should be either 'sem' or 'lavaan' package.")
-    }
+} 
+    return(result)
 } 

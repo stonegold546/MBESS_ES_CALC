@@ -1,6 +1,6 @@
 \name{ci.rmsea}
 \alias{ci.rmsea}
-\title{ Confidence interval for the population root mean square error of approximation}
+\title{Confidence interval for the population root mean square error of approximation}
 \description{
 Confidence interval for the population root mean square error of approximation (RMSEA).
 }
@@ -18,7 +18,7 @@ alpha.upper = NULL)
   \item{alpha.upper}{ the Type I error rate for the upper tail }
 }
 \details{
-Provides a confidence interval for the population root mean square error of approximation (RMSEA) using the noncentral chi-square distribution (e.g., Steiger \& Lind, 1980).
+Provides a confidence interval for the population root mean square error of approximation (RMSEA) using the noncentral chi-square distribution (e.g., Steiger & Lind, 1980).
 }
 \value{
 returns the upper and lower limit as well as the observed value of the RMSEA.

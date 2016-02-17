@@ -1,8 +1,10 @@
-ss.aipe.rmsea.sensitivity <-
-function(width, model, Sigma, N=NULL, conf.level=0.95, G=200, save.file="sim.results.txt", ...){
+ss.aipe.rmsea.sensitivity <- function(width, model, Sigma, N=NULL, conf.level=0.95, G=200, save.file="sim.results.txt", ...)
+{
 options(warn=-1)
-if(!require(MASS)) stop("This function depends on the 'MASS' package. Please install the 'MASS' package first.")
-
+  
+if(!requireNamespace("MASS", quietly = TRUE)) stop("The package 'MASS' is needed; please install the package and try again.")
+if(!requireNamespace("sem", quietly = TRUE)) stop("The package 'sem' is needed; please install the package and try again.")
+  
 result.file<- save.file
 
 print("Simulation results will be saved to a text file after each replication") 
@@ -24,11 +26,11 @@ write.table(res.col.names, result.file,append=TRUE, sep="      ", row.names=FALS
 for (g in 1:G){
 	gc()
 	cat("replication = ", g, "\n")
-   Data <- mvrnorm(n = N, mu=rep(0,p), Sigma=Sigma)  
+   Data <- MASS::mvrnorm(n = N, mu=rep(0,p), Sigma=Sigma)  
    S <- var(Data)
    colnames(S) <- rownames(S)<- rownames(Sigma)
    
-   m.fit <- suppressWarnings(try(sem(model, S, N, gradtol=0.0001), TRUE))
+   m.fit <- suppressWarnings(try(sem::sem(model, S, N, gradtol=0.0001), TRUE))
     if(!is.list(m.fit)) {
     	 rmsea.hat[g]<- NA
         CI.upper[g] <- NA
@@ -87,7 +89,8 @@ result$conf.level <- conf.level
 ############################################################
 ############################################################
 
-sem <- function(ram, ...){
+sem <- function(ram, ...)
+    {
     if (is.character(ram)) class(ram) <- 'mod'
     UseMethod('sem', ram)
     }
@@ -273,7 +276,7 @@ sem.default <- function(ram, S, N, param.names=paste('Param', 1:t, sep=''),
         }
     else {
         start <- if (any(is.na(ram[,5][par.posn])))
-            startvalues(S, ram, debug=debug, tol=start.tol)
+            sem::startvalues(S, ram, debug=debug, tol=start.tol)
             else ram[,5][par.posn]
         if (!warn){
             save.warn <- options(warn=-1)

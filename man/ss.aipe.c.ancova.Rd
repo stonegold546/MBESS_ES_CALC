@@ -32,7 +32,7 @@ of the response and the covariate is also needed.}
 
 \references{ 
 Kelley, K., Maxwell, S. E., & Rausch, J. R. (2003). Obtaining power or obtaining 
-precesion: Delineating methods of sample size planning. \emph{Evaluation and the Health Professions, 26}, 258-287.
+precision: Delineating methods of sample size planning. \emph{Evaluation and the Health Professions, 26}, 258-287.
 
 Maxwell, S. E., & Delaney, H. D. (2004). \emph{Designing experiments and analyzing data: A model 
 comparison perspective}. Mahwah, NJ: Erlbaum.

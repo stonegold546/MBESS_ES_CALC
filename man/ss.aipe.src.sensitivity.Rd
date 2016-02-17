@@ -48,7 +48,7 @@ as the simulation within the function runs }
 \details{
 Direct specification of True.Rho.YX and True.RHO.XX is necessary, even if one is interested in
 a single regression coefficient, so that the covariance/correlation structure can be specified when
-when the simulation study within the function runs.
+the simulation study within the function runs.
 }
 
 \value{
@@ -61,7 +61,7 @@ given the input specification}
 
 \references{ 
 Kelley, K. & Maxwell, S. E. (2003). Sample size for Multiple Regression: Obtaining regression
-coefficients that are accuracy, not simply significant.\emph{ Psychological Methods, 8}, 305-321.
+coefficients that are accurate, not simply significant.\emph{ Psychological Methods, 8}, 305-321.
 }
 \author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) }
 

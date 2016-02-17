@@ -21,7 +21,7 @@ degree.of.certainty = NULL, g = 500, G = 10000, print.iter=FALSE, ...)
   \item{degree.of.certainty}{value with which confidence can be placed that describes the likelihood of obtaining a confidence interval less than the value specified (e.g., .80, .90, .95)}
   \item{g}{simulations for the preliminary sample size (much smaller than \code{G})}
   \item{G}{number of replications for the actual Monte Carlo simulation (should be large)}
-  \item{print.iter}{spedify whether or not the internal iterations should be printed}
+  \item{print.iter}{specify whether or not the internal iterations should be printed}
   \item{\dots}{additional arguments passed to internal functions}
 }
 \details{

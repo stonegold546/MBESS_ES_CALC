@@ -7,8 +7,6 @@
   Function to calculate the exact confidence interval for the square root of the signal-to-noise ratio.
 }
 \usage{
-
-
 ci.srsnr(F.value = NULL, df.1 = NULL, df.2 = NULL, N = NULL, 
 conf.level = 0.95, alpha.lower = NULL, alpha.upper = NULL, ...)
 }
@@ -44,7 +42,7 @@ Returns the square root of the confidence limits for the signal to noise ratio.
 \references{
 Fleishman, A. I. (1980). Confidence intervals for correlation ratios. \emph{Educational and Psychological Measurement, 40}, 659--670.
 
-Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
+Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, and implementation. \emph{Journal of Statistical Software, 20} (8), 1--24.
 
 
 Steiger, J. H. (2004). Beyond the \emph{F} Test: Effect size confidence intervals and tests of close fit in the Analysis of Variance and Contrast Analysis. \emph{Psychological Methods, 9}, 164--182.  }

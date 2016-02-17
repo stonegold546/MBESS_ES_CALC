@@ -6,7 +6,8 @@
 A function to calculate density for the power of the two one-sided tests prodedure (TOST). (See package \code{equivalence}, function \code{tost}.)
 }
 \usage{
-power.density.equivalence.md(power_sigma, alpha = alpha, theta1 = theta1, theta2 = theta2, diff = diff, sigma = sigma, n = n, nu = nu)
+power.density.equivalence.md(power_sigma, alpha = alpha, theta1 = theta1, 
+theta2 = theta2, diff = diff, sigma = sigma, n = n, nu = nu)
 }
 
 \arguments{
@@ -41,17 +42,19 @@ Schuirmann, D.J. (1987) A comparison of the two one-sided tests procedure and th
 %\note{ }
 
 
-\seealso{ \code{\link{power.equivalence.md.plot}}, \code{\link{power.density.equivalence.md}}, \code{\link[equivalence]{tost}} }
+\seealso{ \code{\link{power.equivalence.md.plot}}, \code{\link{power.density.equivalence.md}}}
 
 \examples{
+\dontrun{
 # This function is called by power.equivalence.md within 
 # the integrate function. It is integrated over 
 # appropriate limits to compute the power. Use
 
-power.density.equivalence.md(.1, alpha=.05, theta1=-.2, theta2=.2, diff=.05, sigma= .20, n=24, nu=22)
+power.density.equivalence.md(.1, alpha=.05, theta1=-.2, theta2=.2, diff=.05, 
+	sigma= .20, n=24, nu=22)
 
 # The usage for the logarithmic scale is the same, except that 
 # theta1, theta2, and diff must be on that scale. That is, use log(.8), etc.
 }
-
+}
 \keyword{ design }

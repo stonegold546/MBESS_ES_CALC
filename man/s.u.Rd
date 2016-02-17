@@ -1,7 +1,7 @@
 \name{s.u}
 \alias{s.u}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Unbiased estiamte for the standard deviation}
+\title{Unbiased estimate of the population standard deviation}
 \description{
 Transforms the usual (and biased) estimate of the standard deviation into an unbiased estimator.}
 \usage{

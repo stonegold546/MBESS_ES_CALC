@@ -14,22 +14,22 @@
 \usage{
 ss.aipe.crd.nclus.fixedwidth(width, nindiv, prtreat, tauy=NULL, sigma2y=NULL, 
 	totalvar=NULL, iccy=NULL, r2between = 0, r2within = 0, numpredictor = 0, 
-	assurance=NULL, conflevel = 0.95, cluscost=NULL, indivcost=NULL)
+	assurance=NULL, conf.level = 0.95, cluscost=NULL, indivcost=NULL, diffsize=NULL)
 ss.aipe.crd.nindiv.fixedwidth(width, nclus, prtreat, tauy=NULL, sigma2y=NULL, 
 	totalvar=NULL, iccy=NULL, r2between = 0, r2within = 0, numpredictor = 0, 
-	assurance=NULL, conflevel = 0.95, cluscost=NULL, indivcost=NULL)
+	assurance=NULL, conf.level = 0.95, cluscost=NULL, indivcost=NULL, diffsize=NULL)
 ss.aipe.crd.nclus.fixedbudget(budget, nindiv, cluscost = 0, indivcost = 1, 
 	prtreat = NULL, tauy=NULL, sigma2y=NULL, totalvar=NULL, iccy=NULL, r2between = 0, 
-	r2within = 0, numpredictor = 0, assurance=NULL, conflevel = 0.95)
+	r2within = 0, numpredictor = 0, assurance=NULL, conf.level = 0.95, diffsize=NULL)
 ss.aipe.crd.nindiv.fixedbudget(budget, nclus, cluscost = 0, indivcost = 1, 
 	prtreat = NULL, tauy=NULL, sigma2y=NULL, totalvar=NULL, iccy=NULL, r2between = 0, 
-	r2within = 0, numpredictor = 0, assurance=NULL, conflevel = 0.95)
+	r2within = 0, numpredictor = 0, assurance=NULL, conf.level = 0.95, diffsize=NULL)
 ss.aipe.crd.both.fixedbudget(budget, cluscost=0, indivcost=1, prtreat, tauy=NULL, 
 	sigma2y=NULL, totalvar=NULL, iccy=NULL, r2between = 0, r2within = 0, 
-	numpredictor = 0, assurance=NULL, conflevel = 0.95)
+	numpredictor = 0, assurance=NULL, conf.level = 0.95, diffsize=NULL)
 ss.aipe.crd.both.fixedwidth(width, cluscost=0, indivcost=1, prtreat, tauy=NULL, 
 	sigma2y=NULL, totalvar=NULL, iccy=NULL, r2between = 0, r2within = 0, 
-	numpredictor = 0, assurance=NULL, conflevel = 0.95)
+	numpredictor = 0, assurance=NULL, conf.level = 0.95, diffsize=NULL)
 }
 \arguments{
   \item{width}{
@@ -54,10 +54,10 @@ ss.aipe.crd.both.fixedwidth(width, cluscost=0, indivcost=1, prtreat, tauy=NULL,
 	The cost of collecting a new individual
   }
   \item{tauy}{
-	The residual variance in the between level before accounting for the covariates
+	The residual variance in the between level before accounting for the covariate
   }
   \item{sigma2y}{
-	The residual varaince in the within level before accounting for the covariate
+	The residual variance in the within level before accounting for the covariate
   }
   \item{totalvar}{
 	The total resiudal variance before accounting for the covariate
@@ -77,12 +77,15 @@ ss.aipe.crd.both.fixedwidth(width, cluscost=0, indivcost=1, prtreat, tauy=NULL,
   \item{assurance}{
 	The degree of assurance, which is the value with which confidence can be placed that describes the likelihood of obtaining a confidence interval less than the value specified (e.g, .80, .90, .95)
   }
-  \item{conflevel}{
+  \item{conf.level}{
 	The desired level of confidence for the confidence interval
+  }
+  \item{diffsize}{
+	Difference cluster size specification. The difference in cluster sizes can be specified in two ways. First, users may specify cluster size as integers, which can be negative or positive. The resulting cluster sizes will be based on the estimated cluster size adding by the specified vectors. For example, if the cluster size is 25, the number of clusters is 10, and the specified different cluster size is \code{c(-1, 0, 1)}, the cluster sizes will be 24, 25, 26, 24, 25, 26, 24, 25, 26, and 24. Second, users may specify cluster size as positive decimals. The resulting cluster size will be based on the estimated cluster size multiplied by the specified vectors. For example, if the cluster size is 25, the number of clusters is 10, and the specified different cluster size is \code{c(-1, 0, 1)}, the cluster sizes will be 24, 25, 26, 24, 25, 26, 24, 25, 26, and 24. If \code{NULL}, the cluster size is equal across clusters. 
   }
 }
 \details{
-	Here are the functions description:
+	Here are the functions' descriptions:
 	\itemize{
 		\item \code{ss.aipe.crd.nclus.fixedwidth} Find the number of clusters given a specified width of the confidence interval and the cluster size
 		\item \code{ss.aipe.crd.nindiv.fixedwidth} Find the cluster size given a specified width of the confidence interval and the number of clusters
@@ -95,16 +98,36 @@ ss.aipe.crd.both.fixedwidth(width, cluscost=0, indivcost=1, prtreat, tauy=NULL,
 \value{
 	The \code{ss.aipe.crd.nclus.fixedwidth} and \code{ss.aipe.crd.nclus.fixedbudget} functions provide the number of clusters. The \code{ss.aipe.crd.nindiv.fixedwidth} and \code{ss.aipe.crd.nindiv.fixedbudget} functions provide the cluster size. The \code{ss.aipe.crd.both.fixedbudget} and \code{ss.aipe.crd.both.fixedwidth} provide the number of clusters and the cluster size, respectively.
 }
+\references{
+Pornprasertmanic, S., & Schneider, W. J. (2014). Accuracy in parameter estimation in cluster randomized designs. \emph{Psychological Methods}, \emph{19}, 356-379.
+
+}
 \author{
-    Sunthud Pornprasertmanit (University of Kansas; \email{psunthud@ku.edu})
+Sunthud Pornprasertmanit (\email{psunthud@gmail.com})
 }
 \examples{
 \dontrun{
-ss.aipe.crd.nclus.fixedwidth(0.3, 30, 0.5, 0.25, 0.75)
-ss.aipe.crd.nindiv.fixedwidth(0.3, 250, 0.5, 0.25, 0.75)
-ss.aipe.crd.nclus.fixedbudget(10000, 20, 20, 1)
-ss.aipe.crd.nindiv.fixedbudget(10000, 30, 20, 1, prtreat=0.5, tauy=0.05, sigma2y=0.95, assurance=0.8)
-ss.aipe.crd.both.fixedbudget(10000, 30, 1, 0.5, 0.25, 0.75)
-ss.aipe.crd.both.fixedwidth(0.3, 0, 1, 0.5, 0.25, 0.75)
+# Examples for each function
+ss.aipe.crd.nclus.fixedwidth(width=0.3, nindiv=30, prtreat=0.5, tauy=0.25, sigma2y=0.75)
+
+ss.aipe.crd.nindiv.fixedwidth(width=0.3, nclus=250, prtreat=0.5, tauy=0.25, sigma2y=0.75)
+
+ss.aipe.crd.nclus.fixedbudget(budget=10000, nindiv=20, cluscost=20, indivcost=1)
+
+ss.aipe.crd.nindiv.fixedbudget(budget=10000, nclus=30, cluscost=20, indivcost=1, 
+prtreat=0.5, tauy=0.05, sigma2y=0.95, assurance=0.8)
+
+ss.aipe.crd.both.fixedbudget(budget=10000, cluscost=30, indivcost=1, prtreat=0.5, tauy=0.25, 
+	sigma2y=0.75)
+
+ss.aipe.crd.both.fixedwidth(width=0.3, cluscost=0, indivcost=1, prtreat=0.5, tauy=0.25, 
+	sigma2y=0.75)
+
+# Examples for different cluster size
+ss.aipe.crd.nclus.fixedwidth(width=0.3, nindiv=30, prtreat=0.5, tauy=0.25, sigma2y=0.75, 
+diffsize = c(-2, 1, 0, 2, -1, 3, -3, 0, 0))
+
+ss.aipe.crd.nclus.fixedwidth(width=0.3, nindiv=30, prtreat=0.5, tauy=0.25, sigma2y=0.75, 
+diffsize = c(0.6, 1.2, 0.8, 1.4, 1, 1, 1.1, 0.9))
 }
 }

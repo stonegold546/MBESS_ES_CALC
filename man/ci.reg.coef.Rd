@@ -1,6 +1,6 @@
 \name{ci.reg.coef}
 \alias{ci.reg.coef}
-\title{confidence interval for a regression coefficient}
+\title{Confidence interval for a regression coefficient}
 \description{A function to calculate a confidence interval around the population 
 regression coefficient of interest using the standard approach and the noncentral
 approach when the regression coefficients are standardized.}
@@ -35,10 +35,10 @@ regression coefficient for \code{b.j}.}
 
 \references{
 
-Kelley, K. \& Maxwell, S. E. (2003). Sample size for Multiple Regression: Obtaining regression coefficients that are accuracy, not simply significant. 
+Kelley, K. & Maxwell, S. E. (2003). Sample size for Multiple Regression: Obtaining regression coefficients that are accurate, not simply significant. 
 \emph{Psychological Methods, 8}, 305--321.
 
-Kelley, K. \& Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, \& L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166-192). Newbury Park, CA: Sage.
+Kelley, K. & Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, & L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166--192). Newbury Park, CA: Sage.
 
 Smithson, M. (2003). \emph{Confidence intervals}. New York, NY: Sage Publications. 
 }
@@ -54,7 +54,7 @@ The function \code{ci.rc} in MBESS also calculates the confidence interval
 for the population (unstandardized) regression coefficient. The 
 function \code{ci.src} also calculates the confidence interval
 for the population (standardized) regression coefficient. These two 
-functions perform the same tasks as \code{ci.reg.coef} does, and 
+functions perform the same tasks as \code{ci.reg.coef} does and 
 are preferred to it because of simpler arguments.
 }
 

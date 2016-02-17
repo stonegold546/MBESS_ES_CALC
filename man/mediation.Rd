@@ -3,14 +3,14 @@
 
 \title{ Effect sizes and confidence intervals in a mediation model }
 \description{
-
-Automate the process of simple mediation analysis (one independent variable and one mediator) and effect size estimation for mediation models, as discussed in Preacher and Kelley (2010). 
+Automate the process of simple mediation analysis (one independent variable and one mediator) and effect size estimation for mediation models, as discussed in Preacher and Kelley (2011). 
 }
 \usage{
 mediation(x, mediator, dv, S = NULL, N = NULL, x.location.S = NULL, 
 mediator.location.S = NULL, dv.location.S = NULL, mean.x = NULL, 
 mean.m = NULL, mean.dv = NULL, conf.level = 0.95, 
-bootstrap = FALSE, B = 1000, which.boot="both", save.bs.replicates=FALSE)
+bootstrap = FALSE, B = 10000, which.boot="both", save.bs.replicates=FALSE,
+complete.set=FALSE)
 }
 
 \arguments{
@@ -30,10 +30,11 @@ bootstrap = FALSE, B = 1000, which.boot="both", save.bs.replicates=FALSE)
   \item{B}{number of bootstrap replications when \code{bootstrap=TRUE} (e.g., 10000)}
   \item{which.boot}{which bootstrap method to use. It can be \code{Percentile} or \code{BCa}, or both}
   \item{save.bs.replicates}{Logical argument indicating whether to save the each bootstrap sample or not}
+  \item{complete.set}{identifies if the function should report the estimated kappa.squarred (see below)}
 }
 \details{
-Based on the work of Preacher and Kelley (2010), this function implements (simple) mediation analysis in a way that automates much of the results that are generally of interest. More specifically, three regression outputs are automated as is the calculation of effect sizes that are thought to be useful or potentially useful in the context of mediation. Much work on mediation models exists in the literature, which should be consulted for proper interpretation of the effect sizes, models, and meaning of results. 
-
+Based on the work of Preacher and Kelley (2010) and works cited therein, this function implements (simple) mediation analysis in a way that automates much of the results that are generally of interest, where "simple" means one independent variable, one mediator, and one dependent variable. More specifically, three regression outputs are automated as is the calculation of effect sizes that are thought to be useful or potentially useful in the context of mediation. Much work on mediation models exists in the literature, which should be consulted for proper interpretation of the effect sizes, models, and meaning of results. The usefulness of effect size \eqn{\kappa^2} was called into question
+by Wen and Fan (2015). Further, another paper by Lachowicz, Preacher, and Kelley (submitted) offers a better was of quantifying the effect size and it is developed for more complex models. Users are encouraged to use, instead of or in addition to this function, the \link{upsilon} function.
 }
 \value{
   \item{Y.on.X$Regression.Table}{Regression table of \code{Y} conditional on \code{X}}
@@ -87,6 +88,8 @@ Hansen, W. B., & McNeal, R. B. (1996). The law of maximum expected potential eff
 
 Huang, B., Sivaganesan, S., Succop, P., & Goodman, E. (2004). Statistical assessment of mediational effects for logistic mediational models. \emph{Statistics in Medicine, 23}, 2713-2728.
 
+Lachowicz, M. J., Preacher, K. J., & Kelley, K. (submitted). A novel measure of effect size for mediation analysis. Submited for publication. 
+
 Lindenberger, U., & Potter, U. (1998). The complex nature of unique and shared effects in hierarchical linear regression: Implications for developmental psychology. \emph{Psychological Methods, 3}, 218-230.
 
 MacKinnon, D. P. (2008). \emph{Introduction to statistical mediation analysis}. Mahwah, NJ: Erlbaum.
@@ -96,6 +99,10 @@ Preacher, K. J., & Hayes, A. F. (2008b). Asymptotic and resampling strategies fo
 Preacher, K. J., & Kelley, K. (2011). Effect size measures for mediation models: Quantitative and graphical strategies for communicating indirect effects. \emph{Psychological Methods, 16}, 93-115.
 
 Sobel, M. E. (1982). Asymptotic confidence intervals for indirect effects in structural equation models. In S. Leinhardt (Ed.), \emph{Sociological Methodology 1982} (pp. 290-312). Washington DC: American Sociological Association.
+
+Wen, Z., & Fan, X. (2015). Monotonicity of effect sizes: Questioning kappa-squared as mediation effect size measure. 
+\emph{Psychological Methods}, \emph{20}, 193--203.
+
 }
 
 \author{Ken Kelley (University of Notre Dame; KKelley@nd.edu)}
@@ -148,7 +155,8 @@ Data <- rbind(
 mediation(x=Data[,1], mediator=Data[,2], dv=Data[,3], conf.level=.95)
 
 # Sufficient statistics example of the Hayes data.
-mediation(S=var(Data), N=22, x.location.S=1, mediator.location.S=2, dv.location.S=3, mean.x=mean(Data[,1]), mean.m=mean(Data[,2]), mean.dv=mean(Data[,3]), conf.level=.95)
+mediation(S=var(Data), N=22, x.location.S=1, mediator.location.S=2, dv.location.S=3, 
+mean.x=mean(Data[,1]), mean.m=mean(Data[,2]), mean.dv=mean(Data[,3]), conf.level=.95)
 
 # Example had there been two groups. 
 gp.size <- length(Data[,1])/2 # adjust if using an odd number of observations.
@@ -157,10 +165,13 @@ mediation(x=grouping.variable, mediator=Data[,2], dv=Data[,3])
 
 ############################################
 # EXAMPLE 3
-# Bootstrap of continuous data.
-bs.Results <- mediation(x=Data[,1], mediator=Data[,2], dv=Data[,3], bootstrap=TRUE, B=1000, save.bs.replicates=TRUE)
+# Bootstrap of continuous data. 
+set.seed(12414) # Seed used for repeatability (there is nothing special about this seed)
+bs.Results <- mediation(x=Data[,1], mediator=Data[,2], dv=Data[,3], 
+bootstrap=TRUE, B=5000, save.bs.replicates=TRUE)
 
-ls() # Notice that Bootstrap.Replicates is available in the workspace (if save.bs.replicates=TRUE in the above call). 
+ls() # Notice that Bootstrap.Replicates is available in the 
+workspace (if save.bs.replicates=TRUE in the above call). 
 
 #Now, given the Bootstrap.Replicates object, one can do whatever they want with them. 
 

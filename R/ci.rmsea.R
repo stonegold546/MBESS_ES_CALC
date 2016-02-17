@@ -5,7 +5,6 @@ if(!is.null(alpha.lower)| !is.null(alpha.upper))
     if(sum(alpha.lower,alpha.upper)>=1) stop("There is a problem with the specified confidence limits (their sum should not be greater than 1).",call.=FALSE)
     if (alpha.lower >= 1 | alpha.lower < 0) stop("'alpha.lower' is not correctly specified.",call.=FALSE)
     if (alpha.upper >= 1 | alpha.upper < 0) stop("'alpha.upper' is not correctly specified.",call.=FALSE)
-    print ("Since 'alpha.lower' and 'alpha.upper' have been specified, they override the default 'conf.level=.95'") 
     conf.level<-NULL  
     }
              
@@ -48,7 +47,10 @@ if(Low.Limit != 0) Low.Limit <- max(0, Low.Limit)
 
 if(Low.Limit==0) Low.RMSEA <- 0
 if(Low.Limit>0) Low.RMSEA <- (Low.Limit/(df*(N-1)))^.5
-if(is.na(Low.RMSEA)) Low.RMSEA <- 0
+if (Low.RMSEA<=0) cat("Note: The lower confidence limit is negative and thus set to 0 based on RMSEA's definition.", "\n", "\n")
+if(is.na(Low.RMSEA)) {
+	Low.RMSEA <- 0
+	}
 Low.RMSEA <- max(0, Low.RMSEA)
 
 #chi.sq.statistic.Low <- Low.RMSEA^2*df*(N-1)+df
@@ -61,10 +63,8 @@ Low.RMSEA <- max(0, Low.RMSEA)
 #if(alpha.lower!=0 & Prob.Less.Lower==0) warning("This is the case in this situation because the confidence interval was truncated at zero (the RMSEA cannot be #negative), and so as to not have the lower limit be negative (which would be statistically absurd), the lower limit was set to zero.", call. = FALSE)
 #}
 
-list(Lower.Conf.Limit=Low.RMSEA,
-#Prob.Less.Lower=Prob.Less.Lower,
-RMSEA=rmsea,
-#Prob.Greater.Upper=Prob.Greater.Upper,
-Upper.Conf.Limit=(chi.sq.conf.limits$Upper.Limit/(df*(N-1)))^.5)
-
-}
+output <- list(Lower.Conf.Limit=Low.RMSEA,
+	RMSEA=rmsea,
+	Upper.Conf.Limit=(chi.sq.conf.limits$Upper.Limit/(df*(N-1)))^.5)
+return(output)
+	}

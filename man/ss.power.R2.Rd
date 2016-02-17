@@ -1,7 +1,7 @@
 \name{ss.power.R2}
 \alias{ss.power.R2}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Function to plan sample size so that the test of the squred multiple correlation coefficient is sufficiently powerful.}
+\title{Function to plan sample size so that the test of the squared multiple correlation coefficient is sufficiently powerful.}
 \description{
 Function for determining the necessary sample size for the test of the squared multiple correlation 
 coefficient or for determining the statistical power given a specified sample size for 

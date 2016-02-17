@@ -46,13 +46,13 @@ plot.points = TRUE, save.pdf = FALSE, save.eps = FALSE,
 
 %\references{ }
 
-\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) and Po-Ju Wu (Indiana University; \email{pojwu@indiana.edu})  }
+\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) and Po-Ju Wu (Indiana University)}
 %\note{ }
 
 \seealso{ par, nlme, vit.fitted,  }
 
 \examples{
-
+\dontrun{
 data(Gardner.LD)
 
 # Although many options are possible, a simple call to
@@ -75,11 +75,11 @@ data(Gardner.LD)
 # vit(id="ID", occasion= "Trial", score="Score", Data=Gardner.LD, 
 # group="Group",subset.ids=c(1, 4, 8, 13, 17, 21), col=c("Green", "Blue"))
 
-# Now each individual specified is plotted seperately.
+# Now each individual specified is plotted separately.
 # vit(id="ID", occasion= "Trial", score="Score", Data=Gardner.LD, 
 # group="Group",subset.ids=c(1, 4, 8, 13, 17, 21), col=c("Green", "Blue"),
 # All.in.One=FALSE)
-
+}
 }
 
 \keyword{hplot}

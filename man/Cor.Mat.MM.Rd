@@ -1,11 +1,11 @@
 \name{Cor.Mat.MM}
 \alias{Cor.Mat.MM}
 \docType{data}
-\title{ Correlation matrix for Maruyama \& McGarvey (1980) data set
+\title{ Correlation matrix for Maruyama & McGarvey (1980) data set
 }
 
 \description{
-Correlation matrix for Maruyama \& McGarvey (1980) data set
+Correlation matrix for Maruyama & McGarvey (1980) data set
 }
 
 \usage{data(Cor.Mat.MM)}
@@ -32,7 +32,7 @@ Variables \cr
 (13) teacher's evaluation
 }
 
-The model was designed to examin whether acceptance by significant others (i.e., parents, teachers, and peers)
+The model was designed to examine whether acceptance by significant others (i.e., parents, teachers, and peers)
 causes improved scholastic achievement. There are five latent variables in the model: (a) SES, socio-economic
 status; (b) ABL, academic ability; (c) ACH, achievement; (d) ASA, acceptance by significant adults; (e) APR,
 acceptance by peers. 

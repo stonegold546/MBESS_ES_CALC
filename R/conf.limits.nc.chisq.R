@@ -73,7 +73,7 @@ LL <- LL.Bounds[2] # Confidence limit.
 }
 
 
-if(!is.null(FAILED)) LL <- NA
+if(!is.null(FAILED)) LL <- 0
 ################################################################################################
 
 # Critical value for upper tail.

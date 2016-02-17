@@ -33,7 +33,7 @@ Print.Progress = FALSE)
   \item{Print.Progress}{if the progress of the iterative procedure is printed to the screen as the iterations are occurring}
 }
 \details{
-Determine the necessary sample size given a desired level of statistical power. Alternatively, determines the statistical power for a given a specified sample size.
+Determines the necessary sample size given a desired level of statistical power. Alternatively, determines the statistical power for a given a specified sample size.
 There are a number of ways that the specification regarding the size of the regression coefficient can be entered. The most basic, and often the simplest, is to specify \code{Rho2.Y_X} and \code{Rho2.Y_X.without.k}. See the examples section 
 for several options.
 }

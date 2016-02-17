@@ -21,7 +21,7 @@ rho.xx = 0.3,  G = 10000, print.iter = TRUE, ...)
   \item{w}{full confidence interval width of interest}
   \item{p}{number of predictors}
   \item{Random.Predictors}{whether or not the sample size procedure and the simulation itself should be based on random (set to TRUE) or fixed predictors (set to FALSE)}
-  \item{Selected.N}{selected sample size to use in order to determine distributional properties of at a given value of sample size}
+  \item{Selected.N}{selected sample size to use in order to determine distributional properties at a given value of sample size}
   \item{degree.of.certainty}{parameter to ensure confidence interval width with a specified degree of certainty}
   \item{assurance}{ an alias for \code{degree.of.certainty} }
 \item{certainty}{an alias for \code{degree.of.certainty}}
@@ -56,25 +56,27 @@ data based on the other.
   \item{Summary}{summary values for the results of the sensitivity analysis (simulation study)}
 }
 \references{
-Algina, J. \& Olejnik, S. (2000) Determining Sample Size for Accurate Estimation of the Squared
+Algina, J. & Olejnik, S. (2000) Determining Sample Size for Accurate Estimation of the Squared
 Multiple Correlation Coefficient. \emph{Multivariate Behavioral Research, 35}, 119--136.
 
-Gatsonis, C. \& Sampson, A. R. (1989). Multiple Correlation: Exact power and sample size calculations. \emph{Psychological Bulletin, 106}, 516--524.
+Gatsonis, C. & Sampson, A. R. (1989). Multiple Correlation: Exact power and sample size calculations. \emph{Psychological Bulletin, 106}, 516--524.
 
-Steiger, J. H. \& Fouladi, R. T. (1992) R2: A computer program for interval estimation, power calculation,
+Steiger, J. H. & Fouladi, R. T. (1992) R2: A computer program for interval estimation, power calculation,
 and hypothesis testing for the squared multiple correlation. \emph{Behavior research methods, instruments and computers, 4}, 581--582.
 
-Kelley, K. Sample size planning for the squared multiple correlation coefficient:
-Accuracy in parameter estimation via narrow confidence intervals, \emph{manuscripted submitted for publication}.
+Kelley, K. (2008) Sample size planning for the squared multiple correlation coefficient:
+Accuracy in parameter estimation via narrow confidence intervals, \emph{Multivariate Behavioral Research, 43}, 524--555.
 
-Kelley, K. \& Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, \& L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166-192). Newbury Park, CA: Sage.
+Kelley, K. & Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, & L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166-192). Newbury Park, CA: Sage.
 }
 \author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 
 \seealso{\code{ci.R2}, \code{conf.limits.nct}, \code{ss.aipe.R2}}
 \examples{
+\dontrun{
 # Change 'G' to some large number (e.g., G=10,000)
 # ss.aipe.R2.sensitivity(True.R2=.5, Estimated.R2=.4, w=.10, p=5, conf.level=0.95,
 # G=25)
+}
 }
 \keyword{design}

@@ -52,7 +52,7 @@ The number of timepoints in a study (say \eqn{M}) is defined by \eqn{f \times D 
 ss.aipe.pcm(true.variance.trend=0.003, error.variance=0.0262, duration=4, 
 frequency=1, width=0.025, conf.level=.95)
 
-# Now, when incorporating an assurance paramether (returns 316). 
+# Now, when incorporating an assurance parameter (returns 316). 
 # Thus, a necessary sample size of 316 will ensure that the 95\% confidence 
 # interval will be sufficiently narrow (i.e., have a width less than .025 units) 
 # at least 99\% of the time.

@@ -4,7 +4,7 @@
 \description{
 Function to calculate the confidence limits for the population standardized 
 mean difference using the square root of the pooled variance as the divisor.
-This function is thus to determine the confidence bounds for the population 
+This function is thus used to determine the confidence bounds for the population 
 quantity of what is generally referred to as Cohen's \emph{d} (delta being 
 that population quantity).}
 \usage{
@@ -34,19 +34,19 @@ alpha.lower=NULL, alpha.upper=NULL, tol=1e-9, ...)
 \references{
 Cohen, J. (1988) Statistical power analysis for the behavioral sciences (2nd ed.). Hillsdale, NJ: Lawrence Erlbaum.
 
-Cumming, G. \& Finch, S. (2001) A primer on the understanding, use, and calculation of confidence intervals that are
+Cumming, G. & Finch, S. (2001). A primer on the understanding, use, and calculation of confidence intervals that are
 based on central and noncentral distributions, \emph{Educational and Psychological Measurement, 61}, 532--574.
 
 Hedges, L. V. (1981). Distribution theory for Glass's Estimator of effect size and related estimators. \emph{Journal of Educational Statistics, 2}, 107--128.
 
-Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
+Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, and implementation. \emph{Journal of Statistical Software, 20} (8), 1--24.
 
-Kelley, K., Maxwell, S. E., \& Rausch, J. R. (2003) Obtaining Power or Obtaining Precision: Delineating Methods
+Kelley, K., Maxwell, S. E., & Rausch, J. R. (2003). Obtaining Power or Obtaining Precision: Delineating Methods
 of Sample-Size Planning, \emph{Evaluation and the Health Professions, 26}, 258--287.
 
-Steiger, J. H., \& Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
-statistical methods. In L. L. Harlow, S. A. Mulaik,&J.H. Steiger (Eds.), \emph{What if there where
-no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum.
+Steiger, J. H., & Fouladi, R. T. (1997). Noncentrality interval estimation and the evaluation of
+statistical methods. In L. L. Harlow, S. A. Mulaik,&J.H. Steiger (Eds.), \emph{What if there were
+no significance tests?} (pp. 221--257). Mahwah, NJ: Lawrence Erlbaum.
 }
 
 \author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
@@ -60,9 +60,10 @@ Running the function \code{conf.limits.nct} directly will report the actual prob
 done if any modification to \code{tol} is necessary in order to ensure acceptable confidence limits for the noncentral-\emph{t} parameter have been achieved.
 }
 
-\seealso{\code{smd.c}, \code{smd}, \code{ci.smd.c}, \code{conf.limits.nct}}
+\seealso{\code{\link{smd}}, \code{\link{smd.c}}, \code{\link{ci.smd.c}}, \code{\link{conf.limits.nct}}}
+
 \examples{
-# Examples Steiger and Fouladi example values.
+# Steiger and Fouladi (1997) example values.
 ci.smd(ncp=2.6, n.1=10, n.2=10, conf.level=1-.05)
 ci.smd(ncp=2.4, n.1=300, n.2=300, conf.level=1-.05)
 }

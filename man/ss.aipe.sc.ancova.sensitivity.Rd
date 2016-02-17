@@ -16,7 +16,7 @@ conf.level = 0.95, G = 10000, print.iter = TRUE, detail = TRUE, ...)
   \item{estimated.psi}{ the estimated standardized ANCOVA contrast }
   \item{c.weights}{ the contrast weights}
   \item{desired.width}{ the desired full width of the obtained confidence interval }
-  \item{selected.n}{ selected sample size to use in order to determine distributional properties of at a given value of sample size}
+  \item{selected.n}{ selected sample size to use in order to determine distributional properties of a given value of sample size}
   \item{mu.x}{ the population mean for the covariate }
   \item{sigma.x}{ the population standard deviation of the covariate }
   \item{rho}{ the population correlation coefficient between the response and the covariate }
@@ -28,7 +28,7 @@ conf.level = 0.95, G = 10000, print.iter = TRUE, detail = TRUE, ...)
   \item{G}{ number of generations (i.e., replications) of the simulation }
   \item{print.iter}{ to print the current value of the iterations }
   \item{detail}{ whether the user needs a detailed (\code{TRUE}) or brief (\code{FALSE}) report of the simulation results; the 
-    detailde report includes all the raw data in the simulations }
+    detail report includes all the raw data in the simulations }
   \item{\dots}{ allows one to potentially include parameter values for inner functions }
 }
 \details{
@@ -40,7 +40,7 @@ ANOVA model, (b) divided by the error standard deviation of the ANCOVA model. Th
 both types of standardized ANCOVA contrasts.
 
 The population mean and standard deviation of the covariate does not affect the sample size planning 
-procedure; they can be specified as any values that are considered as reasonalbe by the user.
+procedure; they can be specified as any values that are considered as reasonable by the user.
 }
 \value{
 \item{psi.obs}{observed standardized contrast in each iteration}
@@ -59,8 +59,8 @@ procedure; they can be specified as any values that are considered as reasonalbe
 \item{assurance}{the value assigned to the argument \code{assurance}}
 \item{Sample.Size.per.Group}{sample size per group}
 \item{Number.of.Groups}{number of groups}
-\item{mean.full.width}{mean width of the obtained full conficence intervals}
-\item{median.full.width}{median width of the obtained full conficence intervals}
+\item{mean.full.width}{mean width of the obtained full confidence intervals}
+\item{median.full.width}{median width of the obtained full confidence intervals}
 \item{sd.full.width}{standard deviation of the widths of the obtained full confidence intervals}
 \item{Pct.Width.obs.NARROWER.than.desired}{percentage of the obtained full confidence interval widths that are narrower than the desired width}
 \item{mean.Width.from.psi.obs.Lower}{mean lower width of the obtained confidence intervals}
@@ -79,7 +79,7 @@ Accuracy in Parameter Estimation via narrow confidence intervals. \emph{Psycholo
 Lai, K., & Kelley, K. (under review). Accuracy in parameter estimation for ANCOVA and ANOVA contrasts: Sample size planning via narrow confidence intervals.
 
 Steiger, J. H., & Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
-statistical methods. In L. L. Harlow, S. A. Mulaik, & J.H. Steiger (Eds.), \emph{What if there where
+statistical methods. In L. L. Harlow, S. A. Mulaik, & J.H. Steiger (Eds.), \emph{What if there were
 no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum. }
 
 

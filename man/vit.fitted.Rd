@@ -27,7 +27,7 @@ save.jpg = FALSE, file = "", ...)
   \item{\dots}{ optional plotting specifications }
 }
 \details{
-  This function use the fitted model from nlme and lme functions in nlme package, and lmer function in lme4 package. 
+  This function uses the fitted model from nlme and lme functions in nlme package, and lmer function in lme4 package. 
   It returns a set of plots of individual observed data, the fitted curves and the quality of fit.
 }
 %\value{}
@@ -41,6 +41,7 @@ save.jpg = FALSE, file = "", ...)
 \seealso{ par, nlme, lme4, lme, lmer, vit.fitted }
 
 \examples{
+\dontrun{
 # Note that the following example works fine in R (<2.7.0), but not in 
 # the development version of R-2.7.0 (the cause can be either in this 
 # function or in the R program)
@@ -59,6 +60,7 @@ save.jpg = FALSE, file = "", ...)
 # G.L.nlme <- nlme(G.L.nlsList)
 # to visualize individual trajectories:  vit.fitted(G.L.nlme)
 # plot 50 percent random trajectories:  vit.fitted(G.L.nlme, pct.rand = 50)
+}
 }
 
 \keyword{hplot}

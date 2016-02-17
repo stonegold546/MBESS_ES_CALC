@@ -1,6 +1,6 @@
-`ss.aipe.sc.ancova` <-
-function(Psi=NULL, sigma.anova=NULL, sigma.ancova=NULL, psi=NULL, 
-ratio=NULL, rho=NULL, divisor="s.ancova", c.weights, width, conf.level=.95, assurance=NULL, ...)
+ss.aipe.sc.ancova <-function(Psi=NULL, sigma.anova=NULL, sigma.ancova=NULL, psi=NULL, ratio=NULL, rho=NULL, divisor="s.ancova", c.weights, width, conf.level=.95, assurance=NULL, ...)
+  
+  
 {options(warn=-1)
 if(divisor!="s.ancova" && divisor!="s.anova") stop("The argument 'divisor' must be either 's.ancova' or 's.anova'")
 if(!is.null(ratio))

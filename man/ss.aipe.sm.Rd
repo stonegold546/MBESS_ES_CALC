@@ -38,12 +38,12 @@ Kelley, K. (2007). Constructing confidence intervals for standardized effect siz
 Kelley, K., & Rausch, J. R. (2006). Sample size planning for the standardized mean difference: 
 Accuracy in Parameter Estimation via narrow confidence intervals. P\emph{sychological Methods, 11(4)}, 363-385.
 
-Steiger, J. H., \& Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
-statistical methods. In L. L. Harlow, S. A. Mulaik,&J.H. Steiger (Eds.), \emph{What if there where
+Steiger, J. H., & Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
+statistical methods. In L. L. Harlow, S. A. Mulaik,&J.H. Steiger (Eds.), \emph{What if there were
 no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum. }
 
 
-\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}); Keke Lai <Lai.15@ND.Edu> }
+\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}); Keke Lai}
 
 %\note{}
 

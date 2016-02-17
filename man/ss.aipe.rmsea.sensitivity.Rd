@@ -61,7 +61,7 @@ Kelley, K., & Lai, K. (2010). Accuracy in parameter estimation for the root mean
 McArdle, J. J., & McDonald, R. P. (1984). Some algebraic properties of the reticular action model. \emph{British Journal of Mathematical and Statistical Psychology, 37}, 234-251.
 }
 \author{
-Keke Lai (University of Notre Dame; \email{KLai1@ND.Edu})
+Keke Lai (University of California -- Merced; \email{klai25@ucmerced.edu}) and Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})
 }
 \note{Sometimes this function jumps out of the loop before it finishes the simulation. The reason is because the 
  \code{\link[sem]{sem}} function that this function calls to fit the model fails to converge when searching for

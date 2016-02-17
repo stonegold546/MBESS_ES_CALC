@@ -10,8 +10,8 @@ cor2cov(cor.mat, sd, discrepancy=1e-5)
 \arguments{
   \item{cor.mat}{ the correlation matrix to be converted }
   \item{sd}{ a vector that contains the standard deviations of the variables in the correlation matrix }
-  \item{discrepancy}{a neiboughood of 1, such that numbers on the main diagonal of the correlation matrix
-  will be considered as equal to 1 if they fall in this neiboughood}
+  \item{discrepancy}{a neighborhood of 1, such that numbers on the main diagonal of the correlation matrix
+  will be considered as equal to 1 if they fall in this neighborhood}
 }
 
 \details{The correlation matrix to convert can be either symmetric or triangular. The covariance matrix

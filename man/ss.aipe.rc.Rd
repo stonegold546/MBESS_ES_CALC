@@ -69,6 +69,7 @@ for more details.
 \code{ss.aipe.reg.coef}, \code{ss.aipe.src} }
 
 \examples{
+\dontrun{
 # Exchangable correlation structure
 # Rho.YX <- c(.3, .3, .3, .3, .3)
 # RHO.XX <- rbind(c(1, .5, .5, .5, .5), c(.5, 1, .5, .5, .5), c(.5, .5, 1, .5, .5),
@@ -79,6 +80,6 @@ for more details.
 
 # ss.aipe.rc(width=.1, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=RHO.XX,
 # Rho.YX=Rho.YX, which.predictor=1,  conf.level=1-.05, degree.of.certainty=.85)
-
+}
 }
 \keyword{ design }

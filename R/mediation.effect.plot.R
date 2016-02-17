@@ -2,6 +2,9 @@ mediation.effect.plot <- function(x, mediator, dv, ylab="Dependent Variable", xl
 xlim=NULL, ylim=NULL,
 save.pdf = FALSE, save.eps = FALSE, save.jpg = FALSE, ...)
 {	
+if(getRversion() >= "3.1.0") utils::suppressForeignCheck(package="stats")
+if(getRversion() >= "3.1.0") utils::suppressForeignCheck(package="grDevices")
+if(getRversion() >= "3.1.0") utils::suppressForeignCheck(package="graphics")
 	
 # file name and file path for the graph(s) to save, if file="" a file would be saved in the current working directory
 

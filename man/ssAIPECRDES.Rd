@@ -14,28 +14,28 @@
 \usage{
 ss.aipe.crd.es.nclus.fixedwidth(width, nindiv, es, estype = 1, iccy, prtreat, 
 	r2between = 0, r2within = 0, numpredictor = 0, assurance=NULL, 
-	conflevel = 0.95, nrep = 1000, iccz = NULL, seed = 123321, multicore = FALSE, 
-	numProc=NULL, cluscost=NULL, indivcost=NULL)
+	conf.level = 0.95, nrep = 1000, iccz = NULL, seed = 123321, multicore = FALSE, 
+	numProc=NULL, cluscost=NULL, indivcost=NULL, diffsize=NULL)
 ss.aipe.crd.es.nindiv.fixedwidth(width, nclus, es, estype = 1, iccy, prtreat, 
 	r2between = 0, r2within = 0, numpredictor = 0, assurance=NULL, 
-	conflevel = 0.95, nrep = 1000, iccz = NULL, seed = 123321, multicore = FALSE, 
-	numProc=NULL, cluscost=NULL, indivcost=NULL) 
+	conf.level = 0.95, nrep = 1000, iccz = NULL, seed = 123321, multicore = FALSE, 
+	numProc=NULL, cluscost=NULL, indivcost=NULL, diffsize=NULL) 
 ss.aipe.crd.es.nclus.fixedbudget(budget, nindiv, cluscost, indivcost, nrep=NULL, 
 	prtreat=NULL, iccy=NULL, es=NULL, estype = 1, numpredictor = 0, 
 	iccz=NULL, r2within=NULL, r2between=NULL, assurance=NULL, 
-	seed=123321, multicore=FALSE, numProc=NULL, conflevel=0.95)
+	seed=123321, multicore=FALSE, numProc=NULL, conf.level=0.95, diffsize=NULL)
 ss.aipe.crd.es.nindiv.fixedbudget(budget, nclus, cluscost, indivcost, nrep=NULL, 
 	prtreat=NULL, iccy=NULL, es=NULL, estype = 1, numpredictor = 0, 
 	iccz=NULL, r2within=NULL, r2between=NULL, assurance=NULL, 
-	seed=123321, multicore=FALSE, numProc=NULL, conflevel=0.95) 
+	seed=123321, multicore=FALSE, numProc=NULL, conf.level=0.95, diffsize=NULL) 
 ss.aipe.crd.es.both.fixedbudget(budget, cluscost=0, indivcost=1, es, estype = 1, 
 	iccy, prtreat, r2between = 0, r2within = 0, numpredictor = 0, assurance=NULL, 
-	conflevel = 0.95, nrep = 1000, iccz = NULL, seed = 123321, multicore = FALSE, 
-	numProc=NULL)
+	conf.level = 0.95, nrep = 1000, iccz = NULL, seed = 123321, multicore = FALSE, 
+	numProc=NULL, diffsize=NULL)
 ss.aipe.crd.es.both.fixedwidth(width, cluscost=0, indivcost=1, es, estype = 1, 
 	iccy, prtreat, r2between = 0, r2within = 0, numpredictor = 0, assurance=NULL, 
-	conflevel = 0.95, nrep = 1000, iccz = NULL, seed = 123321, multicore = FALSE, 
-	numProc=NULL)
+	conf.level = 0.95, nrep = 1000, iccz = NULL, seed = 123321, multicore = FALSE, 
+	numProc=NULL, diffsize=NULL)
 }
 \arguments{
   \item{width}{
@@ -95,12 +95,15 @@ ss.aipe.crd.es.both.fixedwidth(width, cluscost=0, indivcost=1, es, estype = 1,
   \item{numProc}{
 	The number of processors to be used when \code{multicore=TRUE}. If it is not specified, the package will use the maximum number of processors in a machine. 
   }
-  \item{conflevel}{
+  \item{conf.level}{
 	The desired level of confidence for the confidence interval
+  }
+  \item{diffsize}{
+	Difference cluster size specification. The difference in cluster sizes can be specified in two ways. First, users may specify cluster size as integers, which can be negative or positive. The resulting cluster sizes will be based on the estimated cluster size adding by the specified vectors. For example, if the cluster size is 25, the number of clusters is 10, and the specified different cluster size is \code{c(-1, 0, 1)}, the cluster sizes will be 24, 25, 26, 24, 25, 26, 24, 25, 26, and 24. Second, users may specify cluster size as positive decimals. The resulting cluster size will be based on the estimated cluster size multiplied by the specified vectors. For example, if the cluster size is 25, the number of clusters is 10, and the specified different cluster size is \code{c(-1, 0, 1)}, the cluster sizes will be 24, 25, 26, 24, 25, 26, 24, 25, 26, and 24. If \code{NULL}, the cluster size is equal across clusters. 
   }
 }
 \details{
-	Here are the functions description:
+	Here are the functions' descriptions:
 	\itemize{
 		\item \code{ss.aipe.crd.es.nclus.fixedwidth} Find the number of clusters given a specified width of the confidence interval and the cluster size
 		\item \code{ss.aipe.crd.es.nindiv.fixedwidth} Find the cluster size given a specified width of the confidence interval and the number of clusters
@@ -125,19 +128,37 @@ parameters with structural equation models. \emph{Structural Equation Modeling,
 
 Pornprasertmanit, S., & Schneider, W. J. (2010). \emph{Efficient sample size for power and desired accuracy in Cohen's d estimation in two-group cluster randomized design} (Master Thesis). Illinois State University, Normal, IL. 
 
-Pornprasertmanit, S., & Schneider, W. J. (submitted). \emph{Accuracy in parameter estimation in two-condition cluster randomized design}.
-}
+Pornprasertmanic, S., & Schneider, W. J. (2014). Accuracy in parameter estimation in cluster randomized designs. \emph{Psychological Methods}, \emph{19}, 356-379.}
 \author{
-    Sunthud Pornprasertmanit (University of Kansas; \email{psunthud@ku.edu})
+Sunthud Pornprasertmanit (\email{psunthud@gmail.com})
 }
 \examples{
 \dontrun{
-ss.aipe.crd.es.nclus.fixedwidth(0.3, 20, 0.5, 1, 0.25, 0.5, nrep=20)
-ss.aipe.crd.es.nindiv.fixedwidth(0.3, 250, 0.5, 1, 0.25, 0.5, nrep=20)
-ss.aipe.crd.es.nclus.fixedbudget(1000, 20, 0, 1, 20, 0.5, 0.25, 0.5)
-ss.aipe.crd.es.nindiv.fixedbudget(1000, 200, 0, 1, 20, 0.5, 0.25, 0.5)
-ss.aipe.crd.es.both.fixedbudget(1000, 5, 1, 0.5, 1, 0.25, 0.5, nrep=20)
-ss.aipe.crd.es.both.fixedwidth(0.5, 5, 1, 0.5, 1, 0.25, 0.5, nrep=20)
+# Examples for each function
+ss.aipe.crd.es.nclus.fixedwidth(width=0.3, nindiv=20, es=0.5, estype=1, iccy=0.25, prtreat=0.5, 
+	nrep=20)
+
+ss.aipe.crd.es.nindiv.fixedwidth(width=0.3, 250, es=0.5, estype=1, iccy=0.25, prtreat=0.5, 
+	nrep=20)
+
+ss.aipe.crd.es.nclus.fixedbudget(budget=1000, nindiv=20, cluscost=0, indivcost=1, nrep=20, 
+	prtreat=0.5, iccy=0.25, es=0.5)
+
+ss.aipe.crd.es.nindiv.fixedbudget(budget=1000, nclus=200, cluscost=0, indivcost=1, nrep=20, 
+	prtreat=0.5, iccy=0.25, es=0.5)
+
+ss.aipe.crd.es.both.fixedbudget(budget=1000, cluscost=5, indivcost=1, es=0.5, estype=1, 
+	iccy=0.25, prtreat=0.5, nrep=20)
+
+ss.aipe.crd.es.both.fixedwidth(width=0.5, cluscost=5, indivcost=1, es=0.5, estype=1, iccy=0.25, 
+	prtreat=0.5, nrep=20)
+
+# Examples for different cluster size
+ss.aipe.crd.es.nclus.fixedwidth(width=0.3, nindiv=20, es=0.5, estype=1, iccy=0.25, prtreat=0.5, 
+nrep=20, diffsize = c(-2, 1, 0, 2, -1, 3, -3, 0, 0))
+
+ss.aipe.crd.es.nclus.fixedwidth(width=0.3, nindiv=20, es=0.5, estype=1, iccy=0.25, prtreat=0.5, 
+nrep=20, diffsize = c(0.6, 1.2, 0.8, 1.4, 1, 1, 1.1, 0.9))
 }
 }
 

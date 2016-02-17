@@ -7,7 +7,6 @@
   Function to obtain the exact confidence interval for the signal-to-noise ratio (i.e., the variance of the specific factor over the error variance).
 }
 \usage{
-
 ci.snr(F.value = NULL, df.1 = NULL, df.2 = NULL, N = NULL, conf.level = 0.95,
  alpha.lower = NULL, alpha.upper = NULL, ...)
 }
@@ -27,8 +26,8 @@ The confidence level must be specified in one of following two ways: using
 confidence interval coverage (\code{conf.level}), or lower and upper confidence 
 limits (\code{alpha.lower} and \code{alpha.upper}).
 
-This function uses the confidence interval transformation principle (Steiger, 2004) to transform the confidence limits for the noncentality parameter to the confidence limits for the population's signal-to-noise ratio. The confidence interval for noncentral \emph{F} parameter can be abtained 
-from function \code{conf.limits.ncf} in MBESS, which is used within this function.
+This function uses the confidence interval transformation principle (Steiger, 2004) to transform the confidence limits for the noncentality parameter to the confidence limits for the population's signal-to-noise ratio. The confidence interval for noncentral \emph{F} parameter can be obtained 
+from the \code{conf.limits.ncf} function in MBESS, which is used internally within this function.
   
 }
 \value{
@@ -40,7 +39,7 @@ Returns the confidence limits for the signal-to-noise ratio.
 }
 
 \references{ 
-Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
+Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, and implementation. \emph{Journal of Statistical Software, 20} (8), 1--24.
 
 Fleishman, A. I. (1980). Confidence intervals for correlation ratios. \emph{Educational and Psychological Measurement, 40}, 659--670.
 
@@ -54,7 +53,7 @@ The signal to noise ratio is defined as the variance due to the particular facto
 \examples{
 
 ## Bargman (1970) gave an example in which a 5-group ANOVA with 11 subjects in each 
-## group is conducted and the observed F value is 11.2213. This exmaple was 
+## group is conducted and the observed F value is 11.2213. This example was 
 ## used in Venables (1975),  Fleishman (1980), and Steiger (2004). If one wants to calculate 
 ## the exact confidence interval for the signal-to-noise ratio of that example, this
 ## function can be used.

@@ -3,7 +3,7 @@
 
 \title{ Plot power of Two One-Sided Tests Procedure (TOST) for Equivalence}
 \description{
-A function to plot the power of the two one-sided tests prodedure (TOST) for various alternatives.
+A function to plot the power of the two one-sided tests prodedure (TOST) for various alternatives. (See also package \code{equivalence}, function \code{tost}.)
 }
 \usage{
 power.equivalence.md.plot(alpha, logscale, theta1, theta2, sigma, n, nu, title2)
@@ -47,7 +47,7 @@ Kem Phillips; \email{kemphillips@comcast.net}
  
 %\note{ }
 
-\seealso{ \code{\link{power.equivalence.md.plot}}, \code{\link{power.density.equivalence.md}}, \code{\link[equivalence]{tost}} }
+%\seealso{ \code{\link{power.equivalence.md.plot}}, \code{\link{power.density.equivalence.md}}}
 
 \examples{
 # Suppose that two formulations of a drug are to be compared 

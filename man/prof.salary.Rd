@@ -1,7 +1,7 @@
 \name{prof.salary}
 \alias{prof.salary}
 \docType{data}
-\title{ Cohen et. al. (2003)'s professor salary data set}
+\title{Cohen et. al. (2003)'s professor salary data set}
 \description{
 The data set of the salaries and other information of 62 some professors in Cohen et. al. (2003, pp. 81-82).
 }

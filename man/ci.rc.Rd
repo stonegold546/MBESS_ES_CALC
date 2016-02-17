@@ -16,7 +16,7 @@ Noncentral = FALSE, Suppress.Statement = FALSE, ...)
 
 \arguments{
   \item{b.k}{ value of the regression coefficient for the \emph{k}th predictor variable }
-  \item{SE.b.k}{ standard error for the kth predictor variable }
+  \item{SE.b.k}{ standard error for the \emph{k}th predictor variable }
   \item{s.Y}{ standard deviation of \emph{Y}, the dependent variable }
   \item{s.X}{ standard deviation of \emph{X}, the predictor variable of interest }
   \item{N}{ sample size }
@@ -28,7 +28,7 @@ Noncentral = FALSE, Suppress.Statement = FALSE, ...)
   \item{R2.Y_X.without.k}{ the squared multiple correlation coefficient predicting \emph{Y} from the \emph{K}-1 predictor
 variable with the \emph{k}th predictor of interest excluded }
   \item{t.value}{ the t-value evaluating the null hypothesis that the population regression coefficient
-for the kth predictor equals zero }
+for the \emph{k}th predictor equals zero }
   \item{alpha.lower}{ the Type I error rate for the lower confidence interval limit }
   \item{alpha.upper}{ the Type I error rate for the upper confidence interval limit }
   \item{Noncentral}{ TRUE/FALSE statement specifying whether or not the noncentral approach to
@@ -42,7 +42,7 @@ that identifies the type of confidence interval formed}
 This function calls upon \code{ci.reg.coef} in MBESS, but has a different naming system. See \code{ci.reg.coef} for more details.
 
 For standardized variables, do not specify the standard deviation of the variables and input the
-standardized regression coefficient for b.k.
+standardized regression coefficient for \code{b.k}.
 }
 
 \value{
@@ -53,7 +53,7 @@ formation using the noncentral t-distribution.
 
 \references{ 
 Kelley, K. & Maxwell, S. E. (2003). Sample size for Multiple Regression: Obtaining regression
-coefficients that are accuracy, not simply significant.\emph{ Psychological Methods, 8}, 305--321.
+coefficients that are accurate, not simply significant.\emph{ Psychological Methods, 8}, 305--321.
 
 Kelley, K. & Maxwell, S. E. (In press). Power and accuracy for omnibus and targeted effects:
 Issues of sample size planning with applications to Multiple Regression. \emph{Handbook of Social Research

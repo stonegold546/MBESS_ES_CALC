@@ -1,7 +1,6 @@
 mediation <- function (x, mediator, dv, S = NULL, N = NULL, x.location.S = NULL,  mediator.location.S = NULL, dv.location.S = NULL, mean.x = NULL, 
-    mean.m = NULL, mean.dv = NULL, conf.level = 0.95, bootstrap = FALSE, B = 1000, which.boot="both", save.bs.replicates=FALSE) 
+    mean.m = NULL, mean.dv = NULL, conf.level = 0.95, bootstrap = FALSE, B = 10000, which.boot="both", save.bs.replicates=FALSE, complete.set=FALSE) 
 {
-
 # Here is the internal mediation function.
     .mediation <- function(x = x, mediator = mediator, dv = dv, 
         S = NULL, N = N, x.location.S = x.location.S, mediator.location.S = mediator.location.S, 
@@ -353,8 +352,9 @@ to.get.M.a <- a.contained[a.contained < 0]
 .mediation.bs <- function(x, mediator, dv, S=S, conf.level = conf.level, B = B, which.boot="all", ...)
 {
   
-if(!require(boot)) stop("This function depends on the 'boot' package. Please install the 'boot' package first")
-if(!is.null(S)) stop("For the bootstrap procedures to be implemented, you must supply raw data (i.e., not a covariance matrix).")
+  if(!requireNamespace("boot", quietly = TRUE)) stop("The package 'boot' is needed; please install the package and try again.")
+  
+  if(!is.null(S)) stop("For the bootstrap procedures to be implemented, you must supply raw data (i.e., not a covariance matrix).")
        
 Data <- na.omit(cbind(x, mediator, dv))
 N <- dim(Data)[1]
@@ -370,7 +370,7 @@ Effect.Size.Names <- rownames(Result$Effect.Sizes)
         
 print("Bootstrap resampling has begun. This process may take a considerable amount of time if the number of replications is large, which is optimal for the bootstrap procedure.")
 
-boot.out <- boot(data = Data, statistic=Boot.This, R = B, stype = "i")
+boot.out <- boot::boot(data = Data, statistic=Boot.This, R = B, stype = "i")
 
 if(save.bs.replicates==TRUE)
 {
@@ -399,7 +399,7 @@ for(k in 1:Number.of.Effect.Sizes)
   
 if(which.boot=="Percentile.and.BCa" | which.boot=="Percentile")
 {
-BS.Results <- try(boot.ci(boot.out = boot.out, index=Get.CIs.for.These[k], conf = conf.level, type = c("perc"))$percent[4:5], silent=TRUE)
+BS.Results <- try(boot::boot.ci(boot.out = boot.out, index=Get.CIs.for.These[k], conf = conf.level, type = c("perc"))$percent[4:5], silent=TRUE)
 is.numeric(BS.Results)
 if(is.numeric(BS.Results)==FALSE) BS.Results <- c(NA, NA)
 Percentile.BS.Results[k, 1:3] <- c(Result$Effect.Sizes[k], BS.Results)
@@ -409,7 +409,7 @@ Percentile.BS.Results[k, 1:3] <- c(Result$Effect.Sizes[k], BS.Results)
 if(which.boot=="Percentile.and.BCa" | which.boot=="BCa") 
 {
 BS.Results <- c(NA, NA)
-BS.Results <- try(boot.ci(boot.out = boot.out, index=Get.CIs.for.These[k], conf = conf.level, type = c("bca"))$bca[4:5], silent=TRUE)
+BS.Results <- try(boot::boot.ci(boot.out = boot.out, index=Get.CIs.for.These[k], conf = conf.level, type = c("bca"))$bca[4:5], silent=TRUE)
 if(is.numeric(BS.Results)==FALSE) BS.Results <- c(NA, NA)
 BCa.BS.Results[k, 1:3] <- c(Result$Effect.Sizes[k], BS.Results)
 }
@@ -422,9 +422,6 @@ if(which.boot=="BCa") BS.Output <- BCa.BS.Results
 return(BS.Output) # Bootstrap statistics are output here.
 }
     
-    
-
-
 # Result if no bootstrapping is done.
 Result <-   .mediation(x = x, mediator = mediator, dv = dv, S = S, N = N, x.location.S = x.location.S, mediator.location.S = mediator.location.S, 
             dv.location.S = dv.location.S, mean.x = mean.x, mean.m = mean.m, mean.dv = mean.dv, conf.level = conf.level)
@@ -435,5 +432,23 @@ if (bootstrap == TRUE)
 BS.Result <- .mediation.bs(x=x, mediator=mediator, dv=dv, S=S, conf.level=conf.level, B = B, which.boot=which.boot)
 Result <- list(Y.on.X=Result$Y.on.X, M.on.X=Result$M.on.X, Y.on.X.and.M=Result$Y.on.X.and.M, Bootstrap.Results=BS.Result)
 }
+
+
+# Added to NOT report kappa squared by default (user has to request it specifically using the argument: kappa.squared=TRUE)
+if(complete.set==FALSE)
+{
+if(bootstrap==FALSE)
+{
+Result <- cbind(Result$Effect.Sizes[!rownames(Result$Effect.Sizes)%in%c("Maximum.Possible.Mediation.Effect", "ab.to.Maximum.Possible.Mediation.Effect_kappa.squared"), 1])
+colnames(Result) <- "Estimate"
+}
+if(bootstrap==TRUE)
+{
+col.names <- colnames(Result)
+Result <- cbind(Result$Bootstrap.Results[!rownames(Result$Bootstrap.Results)%in%c("Maximum.Possible.Mediation.Effect", "ab.to.Maximum.Possible.Mediation.Effect_kappa.squared"), ])
+}
+}
+
+
 return(Result)
 }

@@ -20,7 +20,7 @@ value for the variance of the squared multiple correlation coefficient.}
 Returns the variance of the of the squared multiple correlation coefficient.
 }
 \references{
-Stuart, A., Ord, J. K., \& Arnold, S. (1999). \emph{Kendall's advanced theory of statistics: {C}lassical inference and the linear model} (Volume 2A, 2nd Edition).
+Stuart, A., Ord, J. K., & Arnold, S. (1999). \emph{Kendall's advanced theory of statistics: {C}lassical inference and the linear model} (Volume 2A, 2nd Edition).
 New York, NY: Oxford University Press.}
 
 \author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}

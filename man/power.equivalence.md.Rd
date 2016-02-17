@@ -4,7 +4,7 @@
 \description{
 A function to calculate the power of the two one-sided tests prodedure (TOST). This is 
 the probability that a confidence interval lies within a specified equivalence 
-interval. (See package \code{equivalence}, function \code{tost}.)
+interval. (See also package \code{equivalence}, function \code{tost}.)
 
 }
 \usage{
@@ -50,7 +50,7 @@ Kem Phillips; \email{kemphillips@comcast.net}
 
 %\note{}
 
-\seealso{ \code{\link{power.equivalence.md.plot}}, \code{\link{power.density.equivalence.md}}, \code{\link[equivalence]{tost}} }
+%\seealso{ \code{\link{power.equivalence.md.plot}}, \code{\link{power.density.equivalence.md}}}
 
 \examples{
  # Suppose that two formulations of a drug are to be compared on 

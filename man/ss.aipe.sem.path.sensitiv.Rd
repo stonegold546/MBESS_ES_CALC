@@ -51,9 +51,9 @@ Fox, J. (2006). Structural equation modeling with the sem package in R. \emph{St
 Lai, K., & Kelley, K. (in press). Accuracy in parameter estimation for targeted effects in structural equation modeling: Sample size planning for narrow confidence intervals. \emph{Psychological Methods}.
 
 McArdle, J. J., & McDonald, R. P. (1984). Some algebraic properties of the reticular action model. \emph{British Journal of Mathematical and Statistical Psychology, 37}, 234-251.  }
-\author{ Keke Lai (University of Notre Dame; \email{KLai1@ND.Edu}) }
+\author{ Keke Lai (University of California -- Merced; \email{klai25@ucmerced.edu}) and Ken Kelley \email{kkelley@nd.edu} }
 
-\note{Sometimes the simulation stops in the middle of fitting the model to the random data. The reason is because \code{\link{nlm}}, the 
+\note{Sometimes the simulation stops in the middle of fitting the model to the random data. The reason is that \code{\link{nlm}}, the 
 function \code{\link[sem]{sem}} calls to fit the model, fails to converge. We suggest using the \code{\link[base]{try}} function in simulation so that
 the simulation can proceed with unsuccessful iterations.}
 

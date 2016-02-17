@@ -30,7 +30,7 @@ if(divisor=="s.ancova")
     group<-gl(J, n)
     y.bar<-rep(NA, J)
     y.bar.adj<-rep(NA, J)
-    x.bar<-rep(NA, J)
+    cov.means<-rep(NA, J)
     
     G <- G
     Full.Width <- rep(NA, G)
@@ -88,7 +88,7 @@ if(divisor=="s.ancova")
                 
         for(j in 1:J)
             {y.bar[j]<-mean(y[,j])
-            x.bar[j]<- mean(x[,j])
+            cov.means[j]<- mean(x[,j])
             y.bar.adj[j]<- mean(y[,j]) - beta*(mean(x[,j])-mean(x))
             }
         
@@ -99,7 +99,7 @@ if(divisor=="s.ancova")
         # calculate the observed psi and CI for psi
         psi.obs[g]<-sum(c.weights*y.bar.adj) / s.ancova    
         
-        ci.psi<- ci.sc.ancova(means=y.bar.adj, s.ancova=s.ancova, c.weights=c.weights, n=n, x.bar=x.bar, 
+        ci.psi<- ci.sc.ancova(adj.means=y.bar.adj, s.ancova=s.ancova, c.weights=c.weights, n=n, cov.means=cov.means, 
         SSwithin.x=SSwithin.x, conf.level=conf.level)
         
         psi.limit.lower<-ci.psi$psi.limit.lower
@@ -173,7 +173,7 @@ if(divisor=="s.anova")
     group<-gl(J, n)
     y.bar<-rep(NA, J)
     y.bar.adj<-rep(NA, J)
-    x.bar<-rep(NA, J)
+    cov.means<-rep(NA, J)
     mu.y<-rep(NA, J)
     
     G <- G
@@ -232,7 +232,7 @@ if(divisor=="s.anova")
                 
         for(j in 1:J)
             {y.bar[j]<-mean(y[,j])
-            x.bar[j]<- mean(x[,j])
+            cov.means[j]<- mean(x[,j])
             y.bar.adj[j]<- mean(y[,j]) - beta*(mean(x[,j])-mean(x))
             }
         
@@ -249,7 +249,7 @@ if(divisor=="s.anova")
         psi.obs[g]<-sum(c.weights*y.bar.adj) / s.anova    
         
         ci.psi<-ci.sc.ancova(Psi=sum(c.weights*y.bar.adj), s.anova =s.anova, s.ancova=s.ancova, standardizer = "s.anova", 
-        c.weights=c.weights, n=n, x.bar=x.bar, SSwithin.x=SSwithin.x, conf.level = conf.level)
+        c.weights=c.weights, n=n, cov.means=cov.means, SSwithin.x=SSwithin.x, conf.level = conf.level)
         
         psi.limit.lower<-ci.psi$psi.limit.lower
         psi.limit.upper<-ci.psi$psi.limit.upper

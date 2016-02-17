@@ -17,13 +17,13 @@ cv(C.of.V=NULL, mean=NULL, sd=NULL, N=NULL, unbiased=FALSE)
 A function to calculate the usual estimate of the coefficient of variation or its unbiased estimate.
 }
 \value{
-Returns the unbiased estimate for the standard deviation.
+Returns the estimated coefficient of variation (regular but biased estimate or unbiased estimate.
 }
 %\references{}
 
 \author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 %\note{}
-%\seealso{}
+\seealso{\code{\link{ci.cv}}}
 \examples{
 cv(mean=100, sd=15)
 cv(mean=100, sd=15, N=50, unbiased=TRUE)

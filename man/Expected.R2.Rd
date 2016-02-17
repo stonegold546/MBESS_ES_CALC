@@ -14,7 +14,7 @@ Expected.R2(Population.R2, N, p)
   \item{p}{the number of predictor variables}
 }
 \details{
-Uses the hypergeometric function as discussed in and section 28 of Stuart, Ord, and Arnold (1999) in order to obtain the \emph{correct}
+Uses the hypergeometric function as discussed in section 28 of Stuart, Ord, and Arnold (1999) in order to obtain the \emph{correct}
 value for the squared multiple correlation coefficient. Many times an exact value is given that ignores the hypergeometric function. 
 This function yields the correct value. 
 }
@@ -22,9 +22,9 @@ This function yields the correct value.
 Returns the expected value of the squared multiple correlation coefficient.
 }
 \references{
-Olkin, I. \& Pratt, J. W. (1958). Unbiased estimation of certain correlation coefficients. \emph{Annals of Mathematical statistics, 29}, 201--211.
+Olkin, I. & Pratt, J. W. (1958). Unbiased estimation of certain correlation coefficients. \emph{Annals of Mathematical statistics, 29}, 201--211.
 
-Stuart, A., Ord, J. K., \& Arnold, S. (1999). \emph{Kendall's advanced theory of statistics: {C}lassical inference and the linear model} (Volume 2A, 2nd Edition).
+Stuart, A., Ord, J. K., & Arnold, S. (1999). \emph{Kendall's advanced theory of statistics: {C}lassical inference and the linear model} (Volume 2A, 2nd Edition).
 New York, NY: Oxford University Press. 
 }
 \author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}

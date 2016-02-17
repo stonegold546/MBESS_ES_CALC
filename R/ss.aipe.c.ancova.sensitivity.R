@@ -1,7 +1,9 @@
 ss.aipe.c.ancova.sensitivity<- function(true.error.var.ancova=NULL, est.error.var.ancova=NULL, true.error.var.anova=NULL, 
 est.error.var.anova=NULL, rho, est.rho=NULL, G=10000, mu.y, sigma.y, mu.x, sigma.x, c.weights, width, conf.level=.95, 
 assurance=NULL, certainty=NULL)
-{library(MASS)
+{
+if(!requireNamespace("MASS", quietly = TRUE)) stop("The package 'MASS' is needed; please install the package and try again.")
+  
 
 #######################################################################
 ancova.random.data<- function(mu.y, mu.x, sigma.y, sigma.x, rho, J, n, randomized=TRUE)
@@ -17,7 +19,7 @@ ancova.random.data<- function(mu.y, mu.x, sigma.y, sigma.x, rho, J, n, randomize
     cov.matrix<- matrix(c(sigma.y^2, rho*sigma.y*sigma.x, rho*sigma.y*sigma.x, sigma.x^2), 2) 
     
     for(j in 1:J)
-        {data<-mvrnorm(n, mu=c(mu.y[j], mu.x), Sigma=cov.matrix)
+        {data<-MASS::mvrnorm(n, mu=c(mu.y[j], mu.x), Sigma=cov.matrix)
         y[,j]<-data[,1]
         x[,j]<-data[,2]
         }

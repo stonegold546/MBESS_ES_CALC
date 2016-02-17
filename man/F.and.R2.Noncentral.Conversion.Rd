@@ -32,7 +32,7 @@ Rsquare2Lambda(R2 = NULL, N = NULL)
   \item{Lambda}{The noncentral parameter from an \code{F}-distribution}
 }
 \details{
-These functions are especially helpful for the search for confidence intervals for noncentral parameters, as they 
+These functions are especially helpful in the search for confidence intervals for noncentral parameters, as they 
 convert to and from related quantities.}
 \value{
 Returns the converted value from the specified function.

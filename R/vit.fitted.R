@@ -56,8 +56,9 @@ if(class(fit.Model)[1]!="lmer")
 {
 
 ###############################################################################
-
-all.data <- augPred(fit.Model)
+if(!requireNamespace("nlme", quietly = TRUE)) stop("The package 'nlme' is needed; please install the package and try again.")
+  
+all.data <- nlme::augPred(fit.Model)
 
 if(ylab=="") ylab=colnames(all.data)[3]
 if(xlab=="") xlab=colnames(all.data)[1]

@@ -3,6 +3,8 @@ Estimated.Var.Y=NULL, Estimated.Cov.YX=NULL, Estimated.Cov.XX=NULL, Specified.N=
 which.predictor=1, w=NULL, Noncentral=FALSE, Standardize=FALSE, conf.level=.95, 
 degree.of.certainty=NULL, assurance=NULL, certainty=NULL, G=1000, print.iter=TRUE)
 {
+if(!requireNamespace("MASS", quietly = TRUE)) stop("The package 'MASS' is needed; please install the package and try again.")
+  
 if(!is.null(certainty)& is.null(degree.of.certainty)&is.null(assurance)) degree.of.certainty<-certainty
 if (is.null(assurance) && !is.null (degree.of.certainty)& is.null(certainty)) assurance <-degree.of.certainty
 if (!is.null(assurance) && is.null (degree.of.certainty)& is.null(certainty)) assurance -> degree.of.certainty
@@ -70,13 +72,14 @@ conf.level=conf.level, Noncentral=Noncentral, degree.of.certainty=degree.of.cert
 # Means (arbitrary)
 MU <- rep(0, p+1) 
 
+
 # Begin simulation.
 Results <- matrix(NA, G, 6)
 colnames(Results) <- c("b.j", "LL.CI.beta.j", "UL.CI.beta.j", "R.Square", "SE.b.j", "t.for.b.j")
 for(i in 1:G)
 {
 if(print.iter==TRUE) cat(c(i),"\n")
-DATA <- mvrnorm(N, mu=MU, Sigma=True.Sigma)
+DATA <- MASS::mvrnorm(N, mu=MU, Sigma=True.Sigma)
 
 if(Standardize==TRUE) DATA <- scale(DATA)
 

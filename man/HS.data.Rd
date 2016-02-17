@@ -12,7 +12,7 @@ The \emph{complete} data set of scores of 301 subjects in 26 tests in Holzinger 
   \describe{
     \item{\code{id}}{subject's ID number}
     \item{\code{Gender}}{subject's gender }
-    \item{\code{grade}}{the grade the subject is on}
+    \item{\code{grade}}{the grade the subject is in}
     \item{\code{agey}}{the year part of the subject's age}
     \item{\code{agem}}{the month part of the subject's age}
     \item{\code{school}}{the school the subject is from}
@@ -38,7 +38,7 @@ The \emph{complete} data set of scores of 301 subjects in 26 tests in Holzinger 
     \item{\code{deduct}}{scores on deduction test, test 20}
     \item{\code{numeric}}{scores on numerical puzzles test, test 21}
     \item{\code{problemr}}{scores on problem reasoning test, test 22}
-    \item{\code{series}}{scores on series comopletion test, test 23}
+    \item{\code{series}}{scores on series completion test, test 23}
     \item{\code{arithmet}}{scores on Woody-McCall mixed fundamentals, form I test, test 24}
     \item{\code{paperrev}}{scores on additional paper form board test, test 25}
     \item{\code{flagssub}}{scores on flags test, test 26}
@@ -65,7 +65,7 @@ The speed tests consist of \code{addition}, \code{code}, \code{counting}, and \c
 The memory tests consist of \code{wordr}, \code{numberr}, \code{figurer}, \code{object}, \code{numberf}, 
 and \code{figurew}.
 
-The mathematical-ability tests consis of \code{deduct}, \code{numeric}, \code{problemr}, 
+The mathematical-ability tests consist of \code{deduct}, \code{numeric}, \code{problemr}, 
 \code{series}, and \code{arithmet}.
 
 }

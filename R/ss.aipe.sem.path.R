@@ -1,11 +1,11 @@
 `ss.aipe.sem.path` <-
 function(model, Sigma, desired.width, which.path, conf.level=.95, assurance=NULL, ...){
 
-if(!require(sem)) stop("This function depends on the 'sem' package. Please install the 'sem' package first")
-
+if(!requireNamespace("sem", quietly = TRUE)) stop("The package 'sem' is needed; please install the package and try again.")
+  
 Sigma[upper.tri(Sigma)]<-0 
 N<-1000000
-result.sem <- sem(model, Sigma, N, ...)
+result.sem <- sem::sem(model, Sigma, N, ...)
 p <- result.sem$n
 H <- result.sem$vcov * N
 

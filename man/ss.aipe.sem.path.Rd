@@ -11,7 +11,7 @@ conf.level = 0.95, assurance = NULL, ...)
 }
 
 \arguments{
-  \item{model}{ an RAM (reticular action model; e.g., McArdle & McDonald, 1984) specification of a structural equation model, and should be of class \code{mod}. The model is specified in the same manner as does the \code{\link[sem]{sem}} package; see \code{\link[sem]{sem}} and \code{\link[sem]{specify.model}} for detailed documentation about model specifications in the RAM notation. }
+  \item{model}{ an RAM (reticular action model; e.g., McArdle & McDonald, 1984) specification of a structural equation model, and should be of class \code{mod}. The model is specified in the same manner as the \code{\link[sem]{sem}} package; see \code{\link[sem]{sem}} and \code{\link[sem]{specify.model}} for detailed documentation about model specifications in the RAM notation. }
   \item{Sigma}{ estimated population covariance matrix of the manifest variables}
   \item{desired.width}{ desired confidence interval width for the model parameter of interest }
   \item{which.path}{ the name of the model parameter of interest, presented in double quotation marks }

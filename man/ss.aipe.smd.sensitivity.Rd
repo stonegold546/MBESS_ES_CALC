@@ -3,7 +3,7 @@
 \title{Sensitivity analysis for sample size given the Accuracy in Parameter Estimation approach for the standardized mean difference.}
 \description{
 Performs sensitivity analysis for sample size determination for the standardized mean difference 
-given a population and an standardized mean difference. Allows one to determine the effect of being
+given a population and a standardized mean difference. Allows one to determine the effect of being
 wrong when estimating the population standardized mean difference in terms of the 
 width of the obtained (two-sided) confidence intervals. 
 }
@@ -59,12 +59,12 @@ Alternatively, one can specify \code{selected.n} to determine the results at a p
 \item{Pct.Less.Desired}{contained in \code{Summary} list: Percent of the confidence widths less than the width specified.}
 \item{mean.Width.from.d.Lower}{contained in \code{Summary} list:mean width of the lower portion of the confidence interval (from d)}
 \item{mean.Width.from.d.Upper}{contained in \code{Summary} list:mean width of the upper portion of the confidence interval (from d)}
-\item{Type.I.Error.Upper}{contained in \code{Summary} list: Type I error rate from upper side}
+\item{Type.I.Error.Upper}{contained in \code{Summary} list: Type I error rate from the upper side}
 \item{Type.I.Error.Lower}{contained in \code{Summary} list: Type I error rate from the lower side}
 
 }
 \references{
-Cumming, G. \& Finch, S. (2001) A primer on the understanding, use, and calculation of confidence intervals that are
+Cumming, G. & Finch, S. (2001) A primer on the understanding, use, and calculation of confidence intervals that are
 based on central and noncentral distributions, \emph{Educational and Psychological Measurement, 61}, 532--574.
 
 Hedges, L. V. (1981). Distribution theory for Glass's Estimator of effect size and related estimators. \emph{Journal of Educational Statistics, 2}, 107--128.
@@ -72,8 +72,8 @@ Hedges, L. V. (1981). Distribution theory for Glass's Estimator of effect size a
 Kelley, K. (2005) The effects of nonnormal distributions on confidence intervals around the standardized mean
 difference: Bootstrap and parametric confidence intervals, \emph{Educational and Psychological Measurement, 65}, 51--69.
 
-Steiger, J. H., \& Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
-statistical methods. In L. L. Harlow, S. A. Mulaik,&J.H. Steiger (Eds.), \emph{What if there where
+Steiger, J. H., & Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
+statistical methods. In L. L. Harlow, S. A. Mulaik,&J.H. Steiger (Eds.), \emph{What if there were
 no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum.
 }
 \author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}

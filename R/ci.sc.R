@@ -1,7 +1,9 @@
-ci.sc <- function(means=NULL, error.variance=NULL, c.weights=NULL, n=NULL, N=NULL,
+ci.sc <- function(means=NULL, s.anova=NULL, c.weights=NULL, n=NULL, N=NULL,
 Psi=NULL, ncp=NULL, conf.level=.95, alpha.lower=NULL, alpha.upper=NULL, df.error=NULL, ...)
 {
 
+if(sum(c.weights[c.weights>0])>1) stop("Please use fractions to specify the contrast weights")
+  
 if(length(n)==1) 
 {
 n <- rep(n, length(means))
@@ -16,11 +18,11 @@ if(!is.null(Psi))
 {
 if(!is.null(means)) stop("Since the contrast effect ('Psi') was specified, you should not specify the vector of means ('means').")
 if(!is.null(ncp)) stop("Since the contrast effect ('Psi') was specified, you should not specify the noncentral parameter ('ncp').")
-if(is.null(error.variance)) stop("You must specify the error variance ('error.variance').")
+if(is.null(s.anova)) stop("You must specify the standard deviation of the errors (i.e., the square root of the error variance).")
 if(is.null(n)) stop("You must specify the vector per group/level sample size ('n').")
 if(is.null(c.weights)) stop("You must specify the vector of contrast weights ('c.weights').")
 
-psi <- Psi/sqrt(error.variance)
+psi <- Psi/s.anova
 lambda <- psi*part.of.se
 }
 
@@ -28,7 +30,7 @@ if(!is.null(ncp))
 {
 if(!is.null(means)) stop("Since the noncentral parameter was specified directly, you should not specify the vector of means ('means').")
 if(!is.null(Psi)) stop("Since the noncentral parameter was specified directly, you should not specify the the contrast effect ('Psi').")
-if(is.null(error.variance)) stop("You must specify the error variance ('error.variance').")
+if(is.null(s.anova)) stop("You must specify the standard deviation of the errors (i.e., the square root of the error variance).")
 if(is.null(n)) stop("You must specify the vector per group/level sample size ('n').")
 if(is.null(c.weights)) stop("You must specify the vector of contrast weights ('c.weights'.")
 
@@ -38,7 +40,7 @@ lambda <- ncp
 if(!is.null(means))
 {
 Psi <- sum(c.weights*means)
-psi <- Psi/sqrt(error.variance)
+psi <- Psi/s.anova
 
 lambda <- psi/part.of.se
 

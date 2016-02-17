@@ -2,18 +2,8 @@ ss.aipe.R2.sensitivity <- function(True.R2=NULL, Estimated.R2=NULL, w=NULL, p=NU
 Random.Predictors=TRUE, Selected.N=NULL, degree.of.certainty=NULL, assurance=NULL, certainty=NULL, conf.level=.95, 
 Generate.Random.Predictors=TRUE, rho.yx=.3, rho.xx=.3, G=10000, print.iter=TRUE, ...)
 {
-current.package<- search()
-lib <- library()
-if( sum(current.package=="package:gsl")!=1 ) {
-    if( sum(lib$results[,1]=="gsl")==1 ) library(gsl)
-    else stop("This function depends on the 'gsl' package. Please install the 'gsl' package 
-    as you installed the 'MBESS' package")
-    
-    if( sum(lib$results[,1]=="MASS")==1 ) library(MASS)
-    else stop("This function depends on the 'MASS' package. Please install the 'MASS' package 
-    as you installed the 'MBESS' package")
-    }
-
+  requireNamespace("MASS", quietly = TRUE)
+  
 if(!is.null(certainty)& is.null(degree.of.certainty)&is.null(assurance)) degree.of.certainty<-certainty
 if (is.null(assurance) && !is.null (degree.of.certainty)& is.null(certainty)) assurance <-degree.of.certainty
 if (!is.null(assurance) && is.null (degree.of.certainty)& is.null(certainty)) assurance -> degree.of.certainty
@@ -78,7 +68,7 @@ if(Generate.Random.Predictors==TRUE)
 for(i in 1:G)
 {
 if(print.iter==TRUE) cat(c(i),"\n")
-DATA <- mvrnorm(N, mu=MU, Sigma=Sigma)
+DATA <- MASS::mvrnorm(N, mu=MU, Sigma=Sigma)
 
 Regression.Results <- lm(DATA[,1] ~ DATA[,-1])
 Summary.Regression.Results <- summary(Regression.Results)
@@ -94,7 +84,7 @@ R.Square.Results[i,3] <- CI.Limits.R2$Upper.Conf.Limit.R2
 
 if(Generate.Random.Predictors==FALSE)
 {
-DATA.Pop.Cov.Structure <- mvrnorm(N, mu=MU, Sigma=Sigma, empirical = TRUE)[,-1]
+DATA.Pop.Cov.Structure <- MASS::mvrnorm(N, mu=MU, Sigma=Sigma, empirical = TRUE)[,-1]
 BETA <- cbind(c(sigma.YX%*%solve(Sigma.XX)))
 True.Y <- DATA.Pop.Cov.Structure%*%BETA
 

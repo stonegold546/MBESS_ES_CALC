@@ -1,25 +1,3 @@
-#Implementation of 
-#Raudenbush, S. W., & X-F., Liu. (2001). Effects of study duration, frequency of observation, and sample size on power in studies of group differences in 
-# polynomial change. Psychological Methods, 6, 387--401. 
-
-
-#beta is the level two regression coefficeint for the group by time interaction; where "X" is coded -.5 and .5 for group.
-#tau is the true variance of the individuals' slopes.
-#level.1.variance: sigma^2, the  
-#duration: time in some number of units (e.g., years)
-#frequency: frequency of measruemetns in the particular number of units specified 
-#desired.power: desired power for the test of the null hypothesis (is specified, do not specify 'N')
-#N: specific sample size (if specified, do not specify 'desired.power')
-#alpha.level: specified Type I error rate.
-#standardized: the standardized slope is the unstandardized slope divided by the square root of tau, the variance of the unique effects for beta. 
-#directional: should a one or two tailed test be performed.
-
-#Returns power given N or N given power.
-
-# This is set up for a straight line change model only.
-
-# sample size longitudinal reandomized design.
-
 ss.power.pcm <- function(beta, tau, level.1.variance, frequency, duration, desired.power=NULL, N=NULL, alpha.level=.05, standardized=TRUE, directional=FALSE)
 {
 if(is.null(desired.power) & is.null(N)) stop("You must specify either 'desired.power' or 'N'.")

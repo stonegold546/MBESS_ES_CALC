@@ -48,12 +48,12 @@ Kelley, K. (2007). Constructing confidence intervals for standardized effect siz
 and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
 
 Kelley, K., & Rausch, J. R. (2006). Sample size planning for the standardized mean difference: 
-Accuracy in Parameter Estimation via narrow confidence intervals. P\emph{sychological Methods, 11} (4), 363-385.
+Accuracy in Parameter Estimation via narrow confidence intervals. \emph{Psychological Methods, 11} (4), 363-385.
 
 Lai, K., & Kelley, K. (under review). Accuracy in parameter estimation for ANCOVA and ANOVA contrasts: Sample size planning via narrow confidence intervals.
 
 Steiger, J. H., & Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
-statistical methods. In L. L. Harlow, S. A. Mulaik, & J.H. Steiger (Eds.), \emph{What if there where
+statistical methods. In L. L. Harlow, S. A. Mulaik, & J.H. Steiger (Eds.), \emph{What if there were
 no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum.}
 
 

@@ -6,7 +6,7 @@ if(dim(cor.mat)[1]!=dim(cor.mat)[2]) stop("'cor.mat' should be a square matrix")
 n<-sqrt(length(cor.mat))
 if(n!=length(sd)) stop("The length of 'sd' should be the same as the number of rows of 'cor.mat'")
 
-if(length(sd[sd>0])!= n) stop("The elements in 'sd' shuold all be positive")
+if(length(sd[sd>0])!= n) stop("The elements in 'sd' shuold all be non-negative")
 
 if(isSymmetric(cor.mat)) IS.symmetric <- TRUE 
 	else IS.symmetric <- FALSE
