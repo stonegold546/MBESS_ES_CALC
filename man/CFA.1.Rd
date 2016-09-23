@@ -16,7 +16,7 @@ CFA.1(S, N, equal.loading = FALSE, equal.error = FALSE, package="lavaan",
   \item{N}{ total sample size }
   \item{equal.loading}{logical statement indicating whether the path coefficients are the same}
   \item{equal.error}{ logical statement indicating whether the manifest variables have the same error variances}
-  \item{package}{the package used in confirmatory factor analysis ("sem" or "lavaan")}
+  \item{package}{the package used in confirmatory factor analysis (\code{sem} or \code{lavaan}}
   \item{se}{See the \code{\link[lavaan]{cfa}} and check the \code{se} argument}
   \item{\dots}{Additional arguments for the \code{\link[lavaan]{cfa}} function}
 }
@@ -26,7 +26,7 @@ CFA.1(S, N, equal.loading = FALSE, equal.error = FALSE, package="lavaan",
   \item{Factor.Loadings}{factor loadings}
   \item{Indicator.var}{the error variances of the indicator variables}
   \item{Parameter.cov}{the covariance matrix of the parameters}
-  \item{converged}{'TRUE' or 'FALSE' statement on if the model converged}
+  \item{converged}{\code{TRUE} or \code{FALSE} statement on if the model converged}
   \item{package}{notes the package used to get the output}
 }
 \note{The output will differ slightly, both in form and potentially values, based on which package \pkg{lavaan} or \pkg{sem} is used.}

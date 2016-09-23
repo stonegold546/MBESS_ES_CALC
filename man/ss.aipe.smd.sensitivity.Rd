@@ -64,17 +64,17 @@ Alternatively, one can specify \code{selected.n} to determine the results at a p
 
 }
 \references{
-Cumming, G. & Finch, S. (2001) A primer on the understanding, use, and calculation of confidence intervals that are
+Cumming, G. & Finch, S. (2001). A primer on the understanding, use, and calculation of confidence intervals that are
 based on central and noncentral distributions, \emph{Educational and Psychological Measurement, 61}, 532--574.
 
 Hedges, L. V. (1981). Distribution theory for Glass's Estimator of effect size and related estimators. \emph{Journal of Educational Statistics, 2}, 107--128.
 
-Kelley, K. (2005) The effects of nonnormal distributions on confidence intervals around the standardized mean
+Kelley, K. (2005). The effects of nonnormal distributions on confidence intervals around the standardized mean
 difference: Bootstrap and parametric confidence intervals, \emph{Educational and Psychological Measurement, 65}, 51--69.
 
-Steiger, J. H., & Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
-statistical methods. In L. L. Harlow, S. A. Mulaik,&J.H. Steiger (Eds.), \emph{What if there were
-no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum.
+Steiger, J. H., & Fouladi, R. T. (1997). Noncentrality interval estimation and the evaluation of
+statistical methods. In L. L. Harlow, S. A. Mulaik, & J.H. Steiger (Eds.), \emph{What if there were
+no significance tests?} (pp. 221--257). Mahwah, NJ: Lawrence Erlbaum.
 }
 \author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 \note{Returns three lists, where each list has multiple components.}

@@ -61,7 +61,7 @@ The desired power.
 %\value{}
 %\references{ }
 \author{
-Keke Lai (University of California, Merced)
+Keke Lai (University of California - Merced)
 }
 %\note{}
 

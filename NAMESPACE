@@ -9,5 +9,5 @@ importFrom("stats", "anova", "coef", "cor", "cov", "cov2cor", "fitted",
              "integrate", "lm", "median", "na.omit", "nlm", "optim",
              "optimize", "pchisq", "pf", "pnorm", "pt", "qchisq", "qf",
              "qnorm", "qt", "quantile", "resid", "rnorm", "sd", "var",
-             "weighted.mean")
+             "weighted.mean", "model.frame")
 importFrom("utils", "capture.output", "read.table", "write.table")

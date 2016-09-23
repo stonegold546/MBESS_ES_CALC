@@ -23,7 +23,7 @@ conf.level = 0.95, G = 10000, print.iter = TRUE, detail = TRUE, ...)
   \item{G}{ number of generations (i.e., replications) of the simulation}
   \item{print.iter}{ to print the current value of the iterations}
   \item{detail}{whether the user needs a detailed (\code{TRUE}) or brief (\code{FALSE}) report of the simulation results; the 
-    detailde report includes all the raw data in the simulations}
+    detailed report includes all the raw data in the simulations}
   \item{\dots}{ allows one to potentially include parameter values for inner functions }
 }
 %\details{}
@@ -46,7 +46,7 @@ conf.level = 0.95, G = 10000, print.iter = TRUE, detail = TRUE, ...)
 \item{Sample.Size.per.Group}{sample size per group}
 \item{Number.of.Groups}{number of groups}
 \item{mean.full.width}{mean width of the obtained full conficence intervals}
-\item{median.full.width}{median width of the obtained full conficence intervals}
+\item{median.full.width}{median width of the obtained full confidence intervals}
 \item{sd.full.width}{standard deviation of the widths of the obtained full confidence intervals}
 \item{Pct.Width.obs.NARROWER.than.desired}{percentage of the obtained full confidence interval widths that are narrower than the desired width}
 \item{mean.Width.from.psi.obs.Lower}{mean lower width of the obtained confidence intervals}
@@ -57,26 +57,26 @@ conf.level = 0.95, G = 10000, print.iter = TRUE, detail = TRUE, ...)
 }
 
 \references{ 
-Cumming, G. & Finch, S. (2001) A primer on the understanding, use, and calculation of confidence intervals that are
+Cumming, G. & Finch, S. (2001). A primer on the understanding, use, and calculation of confidence intervals that are
 based on central and noncentral distributions, \emph{Educational and Psychological Measurement, 61}, 532--574.
 
 Hedges, L. V. (1981). Distribution theory for Glass's Estimator of effect size and related estimators. \emph{Journal of Educational Statistics, 2}, 107--128.
 
 Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, 
-and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
+and implementation. \emph{Journal of Statistical Software, 20} (8), 1--24.
 
 Kelley, K., & Rausch, J. R. (2006). Sample size planning for the standardized mean difference: 
-Accuracy in Parameter Estimation via narrow confidence intervals. P\emph{sychological Methods, 11} (4), 363-385.
+Accuracy in Parameter Estimation via narrow confidence intervals. P\emph{sychological Methods, 11} (4), 363--385.
 
 Lai, K., & Kelley, K. (2007). Sample size planning for standardized ANCOVA and ANOVA 
 contrasts: Obtaining narrow confidence intervals. \emph{Manuscript submitted for publication}.
 
-Steiger, J. H., & Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
+Steiger, J. H., & Fouladi, R. T. (1997). Noncentrality interval estimation and the evaluation of
 statistical methods. In L. L. Harlow, S. A. Mulaik, & J.H. Steiger (Eds.), \emph{What if there where
-no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum. }
+no significance tests?} (pp. 221--257). Mahwah, NJ: Lawrence Erlbaum. }
 
 
-\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}); Keke Lai (University of California -- Merced; \email{klai25@ucmerced.edu}) }
+\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}); Keke Lai (University of California -- Merced) }
 
 %\note{}
 

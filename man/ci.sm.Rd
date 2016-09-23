@@ -28,7 +28,7 @@ The user must specify the standardized mean in one and only one of the three way
 mean (\code{sm}), and c) noncentral parameter (\code{ncp}). The confidence level must be specified in one of following two ways: using confidence interval 
 coverage (\code{conf.level}), or lower and upper confidence limits (\code{alpha.lower} and \code{alpha.upper}).
 
-This function uses the exact confidence interval method based on noncentral t distribution. The confidence interval for noncentral t parameter can be obtained from the \code{conf.limits.nct} function in MBESS.
+This function uses the exact confidence interval method based on noncentral \emph{t}-distributions. The confidence interval for noncentral \emph{t}-parameter can be obtained from the \code{conf.limits.nct} function in MBESS.
 }
 \value{
   
@@ -40,7 +40,7 @@ This function uses the exact confidence interval method based on noncentral t di
 \references{
 Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, and implementation. \emph{Journal of Statistical Software, 20} (8), 1--24.
 
-Steiger, J. H., & Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
+Steiger, J. H., & Fouladi, R. T. (1997). Noncentrality interval estimation and the evaluation of
 statistical methods. In L. L. Harlow, S. A. Mulaik, & J.H. Steiger (Eds.), \emph{What if there were
 no significance tests?} (pp. 221--257). Mahwah, NJ: Lawrence Erlbaum.
 }

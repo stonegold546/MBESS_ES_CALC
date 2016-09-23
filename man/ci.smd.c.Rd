@@ -32,19 +32,19 @@ tol = 1e-09, ...)
 }
 
 \references{
-Cohen, J. (1988). Statistical power analysis for the behavioral sciences (2nd ed.). Hillsdale, NJ: Lawrence Erlbaum.
+Cohen, J. (1988). \emph{Statistical power analysis for the behavioral sciences} (2nd ed.). Hillsdale, NJ: Lawrence Erlbaum.
 
 Cumming, G. & Finch, S. (2001). A primer on the understanding, use, and calculation of confidence intervals that are
 based on central and noncentral distributions, \emph{Educational and Psychological Measurement, 61}, 532--574.
 
 Glass, G. V. (1976). Primary, secondary, and meta-analysis of research. \emph{Educational Researcher, 5}, 3--8.
 
-Hedges, L. V. (1981) Distribution theory for Glass's Estimator of effect size and related estimators. \emph{Journal of Educational Statistics, 2}, 107--128.
+Hedges, L. V. (1981). Distribution theory for Glass's Estimator of effect size and related estimators. \emph{Journal of Educational Statistics, 2}, 107--128.
 
 Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, and implementation. \emph{Journal of Statistical Software, 20} (8), 1--24.
 
 Steiger, J. H., & Fouladi, R. T. (1997). Noncentrality interval estimation and the evaluation of
-statistical methods. In L. L. Harlow, S. A. Mulaik,& J.H. Steiger (Eds.), \emph{What if there were
+statistical methods. In L. L. Harlow, S. A. Mulaik, & J. H. Steiger (Eds.), \emph{What if there were
 no significance tests?} (pp. 221--257). Mahwah, NJ: Lawrence Erlbaum.
 }
 
@@ -62,7 +62,7 @@ parameter have been achieved.
 
 \seealso{\code{smd.c}, \code{smd}, \code{ci.smd}, \code{conf.limits.nct}}
 \examples{
-ci.smd.c(smd.c=.5, n.C=100, conf.level=.95, n.E=100)
+ci.smd.c(smd.c=.5, n.C=100, n.E=100, conf.level=.95)
 }
 \keyword{models}
 \keyword{htest}

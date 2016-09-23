@@ -18,8 +18,8 @@ signal.to.noise.R2(R.Square, N, p)
 The method of choice is \code{phi2.UMVUE.NL}, but it requires \code{p} of 5 or more. In situations where \code{p} < 5, it is suggested that \code{phi2.UMVUE.L} be used. 
 }
 \value{
-\item{phi2.hat}{Basic estimate of the signal-to-noise ratio using the usual estimate of the squared multiple correlation coefficient: phi2.hat=R2/(1-R2)}
-\item{phi2.adj.hat}{Estimate of the signal-to-noise ratio using the usual adjusted R Square in place of R Square: phi2.hat=Adj.R2 /(1-Adj.R2)}
+\item{phi2.hat}{Basic estimate of the signal-to-noise ratio using the usual estimate of the squared multiple correlation coefficient: \code{phi2.hat}=\code{R.Square}/(1-\code{R.Square})}
+\item{phi2.adj.hat}{Estimate of the signal-to-noise ratio using the usual adjusted R Square in place of \emph{R}-Square: \code{phi2.hat}=\emph{Adj.R2}/(1-\emph{Adj.R2})}
 \item{phi2.UMVUE}{Muirhead's (1985) unique minimum variance unbiased estimate of the signal-to-noise ratio (Muirhead uses theta-U): see reference or code for formula}
 \item{phi2.UMVUE.L}{Muirhead's (1985) unique minimum variance unbiased linear estimate of the signal-to-noise ratio (Muirhead uses theta-L): see reference or code for formula}
 \item{phi2.UMVUE.NL}{Muirhead's (1985) unique minimum variance unbiased nonlinear estimate of the signal-to-noise ratio (Muirhead uses theta-NL); requires the number of predictors to be greater than five: see reference or code for formula}

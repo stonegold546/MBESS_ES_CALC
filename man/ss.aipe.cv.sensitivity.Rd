@@ -21,7 +21,7 @@ G = 1000, print.iter = TRUE)
   \item{degree.of.certainty}{parameter to ensure confidence interval width with a specified degree of certainty (must be NULL or between zero and unity)}
   \item{assurance}{ the alias for \code{degree.of.certainty} }
 \item{certainty}{an alias for \code{degree.of.certainty}}
-  \item{mean}{Some arbitray value that the simulation uses to generate data (the variace of the data is determined by the mean and the coefficient of variation)}
+  \item{mean}{Some arbitrary value that the simulation uses to generate data (the variance of the data is determined by the mean and the coefficient of variation)}
   \item{Specified.N}{selected sample size to use in order to determine distributional properties of at a given value of sample size (not used with \code{Estimated.C.of.V})}
   \item{conf.level}{the desired degree of confidence (i.e., 1-Type I error rate).}
   \item{G}{number of generations (i.e., replications) of the simulation}

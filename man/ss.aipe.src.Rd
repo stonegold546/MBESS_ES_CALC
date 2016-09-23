@@ -41,7 +41,7 @@ rate) }
 to determine if it is appropriate. }
  \item{assurance}{ an alias for \code{degree.of.certainty} }
 \item{certainty}{an alias for \code{degree.of.certainty}}
-  \item{Suppress.Statement}{ TRUE/FALSE statement whether or not a sentence describing the situation defined
+  \item{Suppress.Statement}{ \code{TRUE/FALSE} statement whether or not a sentence describing the situation defined
 is printed with the necessary sample size }
 }
 \details{
@@ -53,10 +53,10 @@ Returns the necessary sample size in order for the goals of accuracy in paramete
 satisfied for the confidence interval for a particular regression coefficient given the input specifications.
 }
 \references{ 
-Kelley, K. & Maxwel, S. E. (2003). Sample size for Multiple Regression: Obtaining regression
-coefficients that are accurate, not simply significant. \emph{Psychological Methods, 8}, 305-321.
+Kelley, K. & Maxwell, S. E. (2003). Sample size for Multiple Regression: Obtaining regression
+coefficients that are accurate, not simply significant. \emph{Psychological Methods, 8}, 305--321.
 
-Kelley, K. & Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, & L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166-192). Newbury Park, CA: Sage.
+Kelley, K. & Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, & L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166--192). Newbury Park, CA: Sage.
 }
 \author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 

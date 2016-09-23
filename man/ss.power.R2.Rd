@@ -19,10 +19,10 @@ Print.Progress = FALSE, ...)
   \item{desired.power}{desired degree of statistical power}
   \item{p}{the number of predictor variables}
   \item{Specified.N}{the sample size used to calculate power (rather than determine necessary sample size)}
-  \item{Cohen.f2}{Cohen's (1988) effect size for multiple regression: \code{Population.R2/(1-Population.R2)}}
+  \item{Cohen.f2}{Cohen's (1988) effect size for multiple regression: \code{Population.R2}/(1-\code{Population.R2})}
   \item{Null.R2}{value of the null hypothesis that the squared multiple correlation will be evaluated against (this will typically be zero)}
   \item{Print.Progress}{if the progress of the iterative procedure is printed to the screen as the iterations are occuring}
-  \item{\dots}{(not currently implemented) possible additional parameters for internal functions}
+  \item{\dots}{possible additional parameters for internal functions}
 }
 \details{
 Determine the necessary sample size given a particular \code{Population.R2}, \code{alpha.level}, \code{p}, and \code{desired.power}. Alternatively, given \code{Population.R2}, \code{alpha.level}, \code{p}, and \code{Specified.N}, the function can be used to determine the statistical power.

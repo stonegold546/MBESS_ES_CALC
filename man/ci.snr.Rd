@@ -12,7 +12,7 @@ ci.snr(F.value = NULL, df.1 = NULL, df.2 = NULL, N = NULL, conf.level = 0.95,
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{F.value}{ observed F-value from the analysis of variance}
+  \item{F.value}{ observed \emph{F}-value from the analysis of variance}
   \item{df.1}{ numerator degrees of freedom }
   \item{df.2}{ denominator degrees of freedom }
   \item{N}{ sample size }

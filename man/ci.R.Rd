@@ -48,9 +48,9 @@ replications of the study, the confidence limits are based on a noncentral \emph
 }
 \value{
   \item{Lower.Conf.Limit.R }{lower limit of the confidence interval around the population multiple correlation coefficient}
-  \item{Prob.Less.Lower }{proportion of the distribution less than Lower.Conf.Limit.R}
+  \item{Prob.Less.Lower }{proportion of the distribution less than \code{Lower.Conf.Limit.R}}
   \item{Upper.Conf.Limit.R}{upper limit of the confidence interval around the population multiple correlation coefficient}
-  \item{Prob.Greater.Upper}{proportion of the distribution greater than Upper.Conf.Limit.R}
+  \item{Prob.Greater.Upper}{proportion of the distribution greater than \code{Upper.Conf.Limit.R}}
 }
 \references{
 Algina, J. & Olejnik, S. (2000). Determining sample size for accurate estimation of the squared

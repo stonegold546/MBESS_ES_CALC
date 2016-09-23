@@ -377,6 +377,7 @@ if(save.bs.replicates==TRUE)
 print("You requested saving the bootstrap replicates; they are available in the object \'Bootstrap.Replicates\' in the workspace.")
 Bootstrap.Replicates <- as.data.frame(boot.out$t)
 colnames(Bootstrap.Replicates) <- Effect.Size.Names
+Bootstrap.Replicates <<- Bootstrap.Replicates
 }
     
 Number.of.Effect.Sizes <- length(Effect.Size.Names)

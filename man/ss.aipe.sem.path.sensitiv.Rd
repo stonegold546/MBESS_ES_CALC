@@ -46,12 +46,12 @@ on how to obtain the model implied covariance matrix in the RAM notation given m
   \item{rep}{successful replications}
 }
 \references{ 
-Fox, J. (2006). Structural equation modeling with the sem package in R. \emph{Structural Equation Modeling, 13}, 465-486.
+Fox, J. (2006). Structural equation modeling with the sem package in R. \emph{Structural Equation Modeling, 13}, 465--486.
 
 Lai, K., & Kelley, K. (in press). Accuracy in parameter estimation for targeted effects in structural equation modeling: Sample size planning for narrow confidence intervals. \emph{Psychological Methods}.
 
-McArdle, J. J., & McDonald, R. P. (1984). Some algebraic properties of the reticular action model. \emph{British Journal of Mathematical and Statistical Psychology, 37}, 234-251.  }
-\author{ Keke Lai (University of California -- Merced; \email{klai25@ucmerced.edu}) and Ken Kelley \email{kkelley@nd.edu} }
+McArdle, J. J., & McDonald, R. P. (1984). Some algebraic properties of the reticular action model. \emph{British Journal of Mathematical and Statistical Psychology, 37}, 234--251.  }
+\author{ Keke Lai (University of California -- Merced) and Ken Kelley \email{kkelley@nd.edu} }
 
 \note{Sometimes the simulation stops in the middle of fitting the model to the random data. The reason is that \code{\link{nlm}}, the 
 function \code{\link[sem]{sem}} calls to fit the model, fails to converge. We suggest using the \code{\link[base]{try}} function in simulation so that

@@ -13,7 +13,7 @@ cov.means, SSwithin.x, conf.level = 0.95, ...)
   \item{adj.means}{the vector that contains the adjusted mean of each group on the dependent variable}
   \item{s.ancova}{the standard deviation of the errors from the ANCOVA model (i.e., the square root of the mean square error from ANCOVA)}
   \item{c.weights}{ the contrast weights }
-  \item{n}{ either a single number that indicates the sample size per group or a vector that contains the
+  \item{n}{ either a single number that indicates the sample size \emph{per group} or a vector that contains the
     sample size of each group}
   \item{cov.means}{ a vector that contains the group means of the covariate}
   \item{SSwithin.x}{ the sum of squares within groups obtained from the summary table for ANOVA on the covariate }
@@ -25,7 +25,7 @@ cov.means, SSwithin.x, conf.level = 0.95, ...)
 
 \value{
 \item{lower.limit}{the lower confidence limit of the (unstandardized) ANCOVA contrast}
-\item{lower.limit}{the upper confidence limit of the (unstandardized) ANCOVA contrast}
+\item{upper.limit}{the upper confidence limit of the (unstandardized) ANCOVA contrast}
 }
 
 \references{
@@ -39,7 +39,7 @@ Maxwell, S. E., & Delaney, H. D. (2004). \emph{Designing experiments and analyzi
 \note{ 
 Be sure to use the standard deviation and not the error variance for \code{s.ancova}, not the square of this value which would come from the source table (i.e., do not use the variance of the error but rather use the square root).
 
-If \code{n} receives a single number, that number is considered as the sample size per group. If \code{n}
+If \code{n} receives a single number, that number is considered as the sample size \emph{per group}. If \code{n}
 receives a vector, the vector is considered as the sample size of each group.
 
 Be sure to use fractions not the integers to specify \code{c.weights}. For example, in an ANCOVA of four groups, 

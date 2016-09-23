@@ -2,8 +2,8 @@
 \alias{conf.limits.ncf}
 \title{Confidence limits for noncentral F parameters}
 \description{
-Function to determine the noncentral parameter that leads to the observed \code{F}-value, 
-so that a confidence interval around the population \code{F}-value can be conducted. Used for forming confidence intervals around noncentral parameters (given the monotonic relationship between the \code{F}-value and the noncentral value).
+Function to determine the noncentral parameter that leads to the observed \emph{F}-value, 
+so that a confidence interval around the population \emph{F}-value can be conducted. Used for forming confidence intervals around noncentral parameters (given the monotonic relationship between the \emph{F}-value and the noncentral value).
 }
 \usage{
 conf.limits.ncf(F.value = NULL, conf.level = .95, df.1 = NULL, 
@@ -12,7 +12,7 @@ Jumping.Prop = 0.1)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{F.value}{the observed \code{F}-value}
+  \item{F.value}{the observed \emph{F}-value}
   \item{conf.level}{the desired degree of confidence for the interval}
   \item{df.1}{the numerator degrees of freedom}
   \item{df.2}{the denominator degrees of freedom}
@@ -21,7 +21,7 @@ Jumping.Prop = 0.1)
   \item{tol}{tolerance for iterative convergence}
   \item{Jumping.Prop}{Value used in the iterative scheme to determine the noncentral 
   parameters necessary for confidence interval construction using noncentral 
-  \code{F}-distributions (\code{0 < Jumping.Prop < 1})}
+  \emph{F}-distributions (\code{0 < Jumping.Prop < 1}) (users should not need to change this value)}
 }
 \details{
 This function is the relied upon by the \code{ci.R2} and \code{ss.aipe.R2}. If the function fails 

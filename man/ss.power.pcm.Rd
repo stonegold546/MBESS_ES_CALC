@@ -1,7 +1,7 @@
 \name{ss.power.pcm}
 \alias{ss.power.pcm}
 
-\title{ Sample size planning for power for polynomial change models}
+\title{Sample size planning for power for polynomial change models}
 \description{ Returns power given the sample size, or sample size given the desired power, for polynomial change models}
 \usage{ss.power.pcm(beta, tau, level.1.variance, frequency, duration, desired.power = NULL, 
 N = NULL, alpha.level = 0.05, standardized = TRUE, directional = FALSE)

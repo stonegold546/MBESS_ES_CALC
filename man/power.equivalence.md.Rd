@@ -12,9 +12,9 @@ power.equivalence.md(alpha, logscale, ltheta1, ltheta2, ldiff, sigma, n, nu)
 }
 
 \arguments{
-  \item{alpha}{ \emph{alpha} level for the 2 t-tests (usually \emph{alpha}=0.05). 
+  \item{alpha}{ \emph{alpha} level for the 2 emph{t}-tests (usually \emph{alpha}=0.05). 
   Confidence interval for full test is at level 1- 2*\code{alpha} }
-  \item{logscale}{whether to use logarithmic scale \code{TRUE} or not \code{FALSE} }
+  \item{logscale}{whether to use logarithmic scale (\code{TRUE}) or not (\code{FALSE}) }
   \item{ltheta1}{ lower limit of equivalence interval}
   \item{ltheta2}{ upper limit of equivalence interval }
   \item{ldiff}{ true difference (ratio on log scale) in treatment means }
@@ -26,20 +26,20 @@ power.equivalence.md(alpha, logscale, ltheta1, ltheta2, ldiff, sigma, n, nu)
 %\details{}
 
 \value{
-  \item{power}{Power of TOST; the probability that the confidence interval will lie within ['theta1', 'theta2'] given 'sigma', 'n', and 'nu'}
+  \item{power}{Power of TOST; the probability that the confidence interval will lie within ['theta1', 'theta2'] given \code{sigma}, \code{n}, and \code{nu}}
   }
  
  
 \references{ 
-Diletti, E., Hauschke D. & Steinijans, V.W. (1991) Sample size determination of 
+Diletti, E., Hauschke D. & Steinijans, V.W. (1991). Sample size determination of 
 bioequivalence assessment by means of confidence intervals, 
-\emph{International Journal of Clinical Pharmacology, Therapy and Toxicology, 29}, No. 1, 1-8.
+\emph{International Journal of Clinical Pharmacology, Therapy and Toxicology, 29}, No. 1, 1--8.
 
-Phillips, K.F. (1990) Power of the Two One-Sided Tests Procedure in Bioquivalence,
-\emph{Journal of Pharmacokinetics and Biopharmaceutics, 18}, No. 2, 139-144.
+Phillips, K.F. (1990). Power of the Two One-Sided Tests Procedure in Bioquivalence,
+\emph{Journal of Pharmacokinetics and Biopharmaceutics, 18}, No. 2, 139--144.
 
-Schuirmann, D.J. (1987) A comparison of the two one-sided tests procedure and the power approach for assessing the equivalence of average bioavailability,
-\emph{Journal of Pharmacokinetics and Biopharmaceutics, 15}. 657-680.
+Schuirmann, D.J. (1987). A comparison of the two one-sided tests procedure and the power approach for assessing the equivalence of average bioavailability,
+\emph{Journal of Pharmacokinetics and Biopharmaceutics, 15}. 657--680.
 }
 
 

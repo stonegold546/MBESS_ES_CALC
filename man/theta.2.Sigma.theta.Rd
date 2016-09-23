@@ -1,7 +1,7 @@
 \name{theta.2.Sigma.theta}
 \alias{theta.2.Sigma.theta}
 
-\title{ Compute the model-implied covariance matrix of an SEM model }
+\title{Compute the model-implied covariance matrix of an SEM model }
 \description{Obtain the model-implied covariance matrix of manifest variables given a structural equation model and its model parameters
 }
 \usage{
@@ -30,14 +30,14 @@ Part of the codes in this function are adapted from the function \code{\link[sem
 
 }
 \references{ 
-Fox, J. (2006). Structural equation modeling with the sem package in R. \emph{Structural Equation Modeling, 13}, 465-486.
+Fox, J. (2006). Structural equation modeling with the sem package in R. \emph{Structural Equation Modeling, 13}, 465--486.
 
 Lai, K., & Kelley, K. (in press). Accuracy in parameter estimation for targeted effects in structural equation modeling: Sample size planning for narrow confidence intervals. \emph{Psychological Methods}.
 
-McArdle, J. J., & McDonald, R. P. (1984). Some algebraic properties of the reticular action model. \emph{British Journal of Mathematical and Statistical Psychology, 37}, 234-251. 
+McArdle, J. J., & McDonald, R. P. (1984). Some algebraic properties of the reticular action model. \emph{British Journal of Mathematical and Statistical Psychology, 37}, 234--251. 
 }
 
-\author{Keke Lai (University of Notre Dame; \email{KLai1@ND.Edu}) }
+\author{Keke Lai (University of California--Merced) }
 %\note{ }
 
 \seealso{\code{\link[sem]{sem}}; \code{\link[sem]{specify.model}}  }

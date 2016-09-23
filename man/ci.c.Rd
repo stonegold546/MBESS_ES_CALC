@@ -3,7 +3,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Confidence interval for a contrast in a fixed effects ANOVA }
 \description{
-Function to calculate the exact confidence interval for a contrast in a fixed effects analysis of variance context.
+Function to calculate the exact confidence interval for a contrast in a fixed effects analysis of variance context. This function assumes homogeneity of variance (as does the ANOVA upon which 's.anova' is based).
 }
 \usage{
 ci.c(means = NULL, s.anova = NULL, c.weights = NULL, n = NULL, 
@@ -15,7 +15,7 @@ alpha.upper = NULL, df.error = NULL, ...)
   \item{means}{a vector of the group means or the means of the particular level of the effect (for fixed effect designs) }
   \item{s.anova}{the standard deviation of the errors from the ANOVA model (i.e., the square root of the mean square error)}
   \item{c.weights}{the contrast weights (choose weights so that the positive \emph{c}-weights sum to 1 and the negative \emph{c}-weights sum to -1; i.e., use fractional values not integers).}
-  \item{n}{ sample sizes per group or level of the particular factor (if length 1 it is assumed that the per group/level sample sizes are equal) }
+  \item{n}{ sample sizes \emph{per group} or level of the particular factor (if length 1 it is assumed that the per group/level sample sizes are equal) }
   \item{N}{ total sample size }
   \item{Psi}{ the (unstandardized) contrast effect, obtained by multiplying the \emph{j}th mean by the jth contrast weight (this is the unstandardized effect) }
   \item{conf.level}{ confidence interval coverage (i.e., 1- Type I error rate); default is .95 }

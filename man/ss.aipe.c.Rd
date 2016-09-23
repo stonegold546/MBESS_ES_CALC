@@ -1,9 +1,9 @@
 \name{ss.aipe.c}
 \alias{ss.aipe.c}
-\title{ Sample size planning for an ANOVA contrast from the Accuracy in Parameter Estimation (AIPE) perspective}
+\title{Sample size planning for an ANOVA contrast from the Accuracy in Parameter Estimation (AIPE) perspective}
 
 \description{
-A function to calculate the appropriate sample size per group for the (unstandardized) ANOVA contrast 
+A function to calculate the appropriate sample size \emph{per group} for the (unstandardized) ANOVA contrast 
 so that the width of the confidence interval is sufficiently narrow. }
 
 \usage{
@@ -30,13 +30,13 @@ assurance = NULL, certainty = NULL, MSwithin = NULL, SD = NULL, ...)
 
 \references{
 Kelley, K., Maxwell, S. E., & Rausch, J. R. (2003). Obtaining power or obtaining 
-precesion: Delineating methods of sample size planning. \emph{Evaluation and the Health Professions, 26}, 258-287.
+precesion: Delineating methods of sample size planning. \emph{Evaluation and the Health Professions, 26}, 258--287.
 
 Maxwell, S. E., & Delaney, H. D. (2004). \emph{Designing experiments and analyzing data: A model 
 comparison perspective}. Mahwah, NJ: Erlbaum.
 }
 
-\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}); Keke Lai <Lai.15@ND.Edu> }
+\author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}), Keke Lai }
 
 \note{
 Be sure to use the error varaince and not its square root (i.e., the standard deviation of the errors).

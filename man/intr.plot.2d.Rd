@@ -1,7 +1,7 @@
 \name{intr.plot.2d}
 \alias{intr.plot.2d}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{ Plotting Conditional Regression Lines with Interactions in Two Dimensions }
+\title{Plotting Conditional Regression Lines with Interactions in Two Dimensions }
 \description{
 To plot regression lines for one two-way interactions, holding one of the predictors (in this function, z) at 
 values -2, -1, 0, 1, and 2 standard deviations above the mean.
@@ -30,7 +30,7 @@ legend.pos="bottomright", legend.on=TRUE, ... )
   \item{ylab}{ title for the axis which the dependent y is on }
   \item{sd.plot, sd2.plot, sd_1.plot, sd_2.plot}{ whether or not to plot 
   the regression line holding z at values 1, 2, -1, and -2 standard deviations above the mean, respectively. 
-  Default values are all TRUE. }
+  Default values are all \code{TRUE}. }
   \item{type.sd, type.sd2, type.sd_1, type.sd_2}{ types of lines to be plotted holding z at values 1, 2,
   -1, and -2 standard deviations above the mean, respectively. Default are line type 2,3,4, and 5, respectively. }
   \item{legend.pos}{ position of the legend; possible options are \code{"bottomright"}, \code{"bottom"}, 

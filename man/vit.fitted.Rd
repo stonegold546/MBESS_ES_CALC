@@ -1,6 +1,6 @@
 \name{vit.fitted}
 \alias{vit.fitted}
-\title{ Visualize individual trajectories with fitted curve and quality of fit }
+\title{Visualize individual trajectories with fitted curve and quality of fit }
 \description{
   A function to help visualize individual trajectories in a longitudinal (i.e., analysis of change) context with fitted curve
   and quality of fit after analyzing the data with lme, lmer, or nlme function.
@@ -13,7 +13,7 @@ save.jpg = FALSE, file = "", ...)
 }
 \arguments{
   \item{fit.Model}{ lme, nlme object produced by nlme package or lmer object produced by lme4 package }
-  \item{layout}{ define the per-page layout when All.in.One==FALSE }
+  \item{layout}{ define the per-page layout when \code{All.in.One=FALSE} }
   \item{ylab}{ label for the ordinate (i.e., y-axis; see par) }
   \item{xlab}{ label for the abscissa (i.e., x-axis; see par) }
   \item{pct.rand}{ percentage of random trajectories to be plotted }

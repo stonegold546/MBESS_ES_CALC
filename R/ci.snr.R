@@ -35,6 +35,6 @@ Lims <- conf.limits.ncf(F.value = F.value, conf.level = NULL, df.1 = df.1,
 
 if (!class(Lims$Lower.Limit)=="numeric") {Lims$Lower.Limit <- 0}
 
-print(paste("The", 1-(alpha.lower + alpha.upper), "confidennce limits for the signal to noise ratio are given as:"))
+# print(paste("The", 1-(alpha.lower + alpha.upper), "confidennce limits for the signal to noise ratio are given as:"))
 return(list(Lower.Limit.Signal.to.Noise.Ratio=Lims$Lower.Limit/N, Upper.Limit.Signal.to.Noise.Ratio=Lims$Upper.Limit/N))
 }

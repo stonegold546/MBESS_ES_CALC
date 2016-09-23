@@ -24,29 +24,29 @@ assurance = NULL, certainty = NULL, ...)
 }
 
 \references{
-Cumming, G. & Finch, S. (2001) A primer on the understanding, use, and calculation of confidence intervals that are
+Cumming, G. & Finch, S. (2001). A primer on the understanding, use, and calculation of confidence intervals that are
 based on central and noncentral distributions, \emph{Educational and Psychological Measurement, 61}, 532--574.
 
 Hedges, L. V. (1981). Distribution theory for Glass's Estimator of effect size and related estimators. \emph{Journal of Educational Statistics, 2}, 107--128.
 
-Kelley, K. (2005) The effects of nonnormal distributions on confidence intervals around the standardized mean
+Kelley, K. (2005). The effects of nonnormal distributions on confidence intervals around the standardized mean
 difference: Bootstrap and parametric confidence intervals, \emph{Educational and Psychological Measurement, 65}, 51--69.
 
 Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, 
-and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
+and implementation. \emph{Journal of Statistical Software, 20} (8), 1--24.
 
 Kelley, K., & Rausch, J. R. (2006). Sample size planning for the standardized mean difference: 
-Accuracy in Parameter Estimation via narrow confidence intervals. \emph{Psychological Methods, 11(4)}, 363-385.
+Accuracy in Parameter Estimation via narrow confidence intervals. \emph{Psychological Methods, 11(4)}, 363--385.
 
 Lai, K., & Kelley, K. (2007). Sample size planning for standardized ANCOVA and ANOVA 
 contrasts: Obtaining narrow confidence intervals. \emph{Manuscript submitted for publication}.
 
-Steiger, J. H., & Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
-statistical methods. In L. L. Harlow, S. A. Mulaik,&J.H. Steiger (Eds.), \emph{What if there were
-no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum. }
+Steiger, J. H., & Fouladi, R. T. (1997). Noncentrality interval estimation and the evaluation of
+statistical methods. In L. L. Harlow, S. A. Mulaik, & J.H. Steiger (Eds.), \emph{What if there were
+no significance tests?} (pp. 221--257). Mahwah, NJ: Lawrence Erlbaum. }
 
 
-\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}); Keke Lai <Lai.15@ND.Edu> }
+\author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}); Keke Lai }
 %\note{ }
 
 \seealso{ \code{ci.sc}, \code{conf.limits.nct}, \code{ss.aipe.c} }

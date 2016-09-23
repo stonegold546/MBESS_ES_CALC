@@ -10,9 +10,9 @@ n <- rep(n, length(means))
 
 if(length(n)!=length(c.weights)) stop("The lengths of 'n' and 'c.weights' differ, which should not be the case.")
 
-if(sum(c.weights[c.weights>0])>1) stop("Please use fractions to specify the contrast weights")
+#if(!identical(sum(c.weights[c.weights>0]), 1)) stop("Please use fractions to specify the contrast weights")
   
-if(!(sum(c.weights)==0)) stop("The sum of the contrast weights ('c.weights') should equal zero.")
+if(!identical(round(sum(c.weights), 5), 0)) stop("The sum of the contrast weights ('c.weights') should equal zero.")
 
 part.of.se <- sqrt(sum((c.weights^2)/n))
 
@@ -47,6 +47,6 @@ CV.low <- qt(alpha.lower, df=df.2, ncp = 0, lower.tail = TRUE, log.p = FALSE)
 Result <- list(Lower.Conf.Limit.Contrast = Psi + CV.low*part.of.se*s.anova,
 Contrast = Psi, Upper.Conf.Limit.Contrast = Psi + CV.up*part.of.se*s.anova)
         
-print(paste("The", 1 - (alpha.lower + alpha.upper), "confidence limits for the contrast are given as:"))
+# print(paste("The", 1 - (alpha.lower + alpha.upper), "confidence limits for the contrast are given as:"))
 return(Result)
 }

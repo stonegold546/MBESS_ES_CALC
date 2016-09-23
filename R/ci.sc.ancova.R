@@ -12,6 +12,8 @@ if(missing(cov.means)) stop("The mean of the covariate within each group (i.e., 
 if(is.null(Psi) & is.null(adj.means) ) stop("Input either 'Psi' or 'adj.means'")
 if(!is.null(Psi) & !is.null(adj.means) ) stop("Do not input both 'Psi' and 'adj.means'")
 
+if(missing(SSwithin.x)) stop("The sum of squares within from the ANOVA on the covariate is missing (i.e., 'SSwithin.x').") 
+  
 if(is.null(Psi)) Psi<- sum(adj.means*c.weights)
 
 if(sum(c.weights)!=0) stop("The sum of the coefficients must be zero")

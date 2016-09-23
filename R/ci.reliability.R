@@ -1,5 +1,5 @@
 ci.reliability <- function(data = NULL, S = NULL, N = NULL, aux = NULL, type = "omega", 
-                           interval.type = "ll", B = 10000, conf.level = 0.95) 
+                           interval.type = "mlr", B = 10000, conf.level = 0.95) 
 {
 
 if(is.null(type) || type == "default") 

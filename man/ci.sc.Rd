@@ -17,8 +17,8 @@ alpha.lower = NULL, alpha.upper = NULL, df.error = NULL, ...)
   
   \item{s.anova}{the standard deviation of the errors from the ANOVA model (i.e., the square root of the mean square error)}
   \item{c.weights}{the contrast weights (chose weights so that the positive \emph{c}-weights sum to 1 and the negative \emph{c}-weights sum to -1; i.e., use fractional values not integers).}
-  \item{n}{ sample sizes per group or level of the particular factor (if length 1 it is 
-  assumed that the per group/level sample sizes are equal) }
+  \item{n}{ sample sizes \emph{per group} or sample sizes for the level of the particular factor (if length 1 it is 
+  assumed that the sample size \emph{per group} or for the level of the particular factor are are equal) }
   
   \item{N}{ total sample size }
   \item{Psi}{ the (unstandardized) contrast effect, obtained by multiplying the \emph{j}th mean 

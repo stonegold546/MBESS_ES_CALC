@@ -21,26 +21,26 @@ line.wd = 2, gray.scale = FALSE, ticktype="detailed", ...)
  \item{x.min, x.max, z.min, z.max}{ranges of x and z. The regression surface defined by these limits will be plotted.}
 \item{n.x}{ number of elements in predictor vector x; number of points to be plotted on the regression surface; default is 50}
   \item{n.z}{ number of elements in predictor vector z; number of points to be plotted on the regression surface; default is 50}
- \item{x}{ a specific predictor vector x, used instead of \code{x.max} and \code{x.min}}
-  \item{z}{ a specific predictor vector z, used instead of \code{z.max} and \code{z.min} }
-   \item{col}{ color of the regression surface; default is \code{"lightbule"}}
+ \item{x}{ a specific predictor vector \code{x}, used instead of \code{x.max} and \code{x.min}}
+  \item{z}{ a specific predictor vector \code{z}, used instead of \code{z.max} and \code{z.min} }
+   \item{col}{ color of the regression surface; default is lightbule}
  \item{hor.angle}{ rotate the regression surface horizontally; default is -60 degree }
   \item{vert.angle}{ rotate the regression surface vertically; default is 15 degree }
- \item{xlab}{ title for the axis which the predictor x is on  }
-  \item{zlab}{ title for the axis which the predictor z is on }
-  \item{ylab}{ title for the axis which the dependent y is on }
+ \item{xlab}{ title for the axis which the predictor \code{x} is on  }
+  \item{zlab}{ title for the axis which the predictor \code{z} is on }
+  \item{ylab}{ title for the axis which the dependent \code{y} is on }
   \item{expand}{ default is 0.5; expansion factor applied to the axis of the dependent variable. Often used with 0 < \code{expand} < 1 to shrink the plotting box in the direction of the dependent variable's axis. }
   \item{lines.plot}{ whether or not to plot on the regression surface regression lines holding z at
-  values 0, 1, -1, 2, -2 above the mean; default is TRUE. }
+  values 0, 1, -1, 2, -2 above the mean; default is \code{TRUE}. }
   \item{col.line}{ the color of regression lines plotted on the regression surface; default is red }
   \item{line.wd}{ the width of regression lines plotted on the regression surface; default is 2 }
-  \item{gray.scale}{ whether or not to plot the figure black and white; default is FALSE }
+  \item{gray.scale}{ whether or not to plot the figure black and white; default is \code{FALSE} }
  \item{ticktype}{ whether the axes should be plotted with (\code{"detailed"}) or without (\code{"simple"}) tick marks}
  \item{\dots}{ allows one to potentially include parameter values for inner functions }
 }
 
 \details{
-The user can input either the limits of x and z, or specific x and z vectors, to draw the regression surface. If the user inputs simply the limits of the predictors, the function would generate predictor vectors for plotting. 
+The user can input either the limits of \code{x} and \code{z}, or specific \code{x} and \code{z} vectors, to draw the regression surface. If the user inputs simply the limits of the predictors, the function would generate predictor vectors for plotting. 
 If the user inputs specific predictor vectors, the function would plot the regression surface based on those vectors. 
 }
 
@@ -48,7 +48,7 @@ If the user inputs specific predictor vectors, the function would plot the regre
 
 \references{Cohen, J., Cohen, P., West, S. G. and Aiken, L. S. (2003). \emph{Applied multiple regression/correlation analysis for the behavioral sciences} (3rd ed.). Mahwah, NJ: Erlbaum. }
 
-\author{Keke Lai (University of California -- Merced; \email{klai25@ucmerced.edu}) and Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) }
+\author{Keke Lai (University of California -- Merced) and Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) }
 
 \note{ If the user enters specific vectors instead of the ranges of predictors, please make sure
 elements in those vectors are in ascending order. This is required by function \code{persp}, which 

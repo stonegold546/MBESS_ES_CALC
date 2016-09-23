@@ -2,7 +2,7 @@ ss.aipe.c <- function(error.variance=NULL, c.weights, width, conf.level=.95, ass
 SD=NULL, ...)
 { 
 ####################################################################
-if(is.null(error.variance)& is.null(MSwithin) & is.null(SD)) stop ("You must specify the estimated standard deviation of the contrast")
+if(is.null(error.variance) & is.null(MSwithin) & is.null(SD)) stop ("You must specify the variability of the contrast (e.g., 'error.variance', 'MSwithin', or 'SD'")
 
 if(!is.null(assurance)& !is.null(certainty))
     {if(assurance!=certainty) stop("'assurance' and 'certainty' must have the same value")}

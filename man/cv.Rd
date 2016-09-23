@@ -1,6 +1,6 @@
 \name{cv}
 \alias{cv}
-\title{Function to calculate the regular (and biased) estimate of the coefficient of variation or the unbiased estimate of the coefficient of variation.}
+\title{Function to calculate the regular (which is also biased) estimate of the coefficient of variation or the unbiased estimate of the coefficient of variation.}
 \description{Returns the estimated coefficient of variation or the unbiased estimate of the coefficient of variation.}
 \usage{
 cv(C.of.V=NULL, mean=NULL, sd=NULL, N=NULL, unbiased=FALSE)

@@ -1,7 +1,7 @@
 \name{ss.aipe.rc}
 \alias{ss.aipe.rc}
 
-\title{ sample size necessary for the accuracy in parameter estimation approach
+\title{Sample size necessary for the accuracy in parameter estimation approach
 for an unstandardized regression coefficient of interest }
 \description{
 A function used to plan sample size from the accuracy in parameter estimation perspective for an unstandardized
@@ -30,7 +30,7 @@ interest) }
   \item{sigma.X.k}{ the population standard deviation of the \emph{k}th \emph{X} variable (i.e., the predictor variable
 of interest) }
   \item{RHO.XX}{ Population correlation matrix for the \emph{p} predictor variables }
-  \item{Rho.YX}{ Population \emph{K} length vector of correlation between the dependent variable (Y)
+  \item{Rho.YX}{ Population \emph{K} length vector of correlation between the dependent variable (\emph{Y})
 and the \emph{K} independent variables }
   \item{which.predictor}{ identifies which of the \emph{K} predictors is of interest }
   \item{alpha.lower}{ Type I error rate for the lower confidence interval limit }
@@ -40,7 +40,7 @@ rate) }
   \item{degree.of.certainty}{ degree of certainty that the obtained confidence interval will be sufficiently narrow }
   \item{assurance}{ an alias for \code{degree.of.certainty} }
 \item{certainty}{an alias for \code{degree.of.certainty}}
-  \item{Suppress.Statement}{ TRUE/FALSE statement whether or not a sentence describing the situation defined
+  \item{Suppress.Statement}{ \code{TRUE} or \code{FALSE} statement whether or not a sentence describing the situation defined
 is printed with the necessary sample size }
 }
 

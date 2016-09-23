@@ -15,7 +15,7 @@ p = NULL, K, alpha.lower = NULL, alpha.upper = NULL, tol = 1e-09)}
   \item{Random.Predictors}{whether or not the predictor variables are random or fixed (random is default)}
   \item{Random.Regressors}{an alias for \code{Random.Predictors}; \code{Random.Regressors} overrides 
   \code{Random.Predictors}}
-  \item{F.value}{obtained \code{F}-value}
+  \item{F.value}{obtained \emph{F}-value}
   \item{N}{sample size}
   \item{p}{number of predictors}
   \item{K}{alias for \code{p}, the number of predictors}
@@ -41,7 +41,7 @@ noncentral \eqn{F}-distribution (see \code{conf.limits.ncf}).
   \item{Lower.Conf.Limit.R2 }{upper limit of the confidence interval around the population multiple correlation coefficient}
   \item{Prob.Less.Lower }{proportion of the distribution less than \code{Lower.Conf.Limit.R2}}
   \item{Upper.Conf.Limit.R2 }{upper limit of the confidence interval around the population multiple correlation coefficient}
-  \item{Prob.Greater.Upper }{proportion of the distribution greater than \code{Lower.Conf.Limit.R2}}
+  \item{Prob.Greater.Upper }{proportion of the distribution greater than \code{Upper.Conf.Limit.R2}}
 }
 \references{
 Algina, J. & Olejnik, S. (2000). Determining Sample Size for Accurate Estimation of 
@@ -61,7 +61,7 @@ and hypothesis testing for the squared multiple correlation. \emph{Behavior rese
 }
 \author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 
-\seealso{\code{ss.aipe.R2}, \code{conf.limits.nct}}
+\seealso{\code{ss.aipe.R2}, \code{conf.limits.ncf}}
 \examples{
 # For random predictor variables.
 # ci.R2(R2=.25, N=100, K=5, conf.level=.95, Random.Predictors=TRUE)

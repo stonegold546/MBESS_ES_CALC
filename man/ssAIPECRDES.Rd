@@ -128,7 +128,7 @@ parameters with structural equation models. \emph{Structural Equation Modeling,
 
 Pornprasertmanit, S., & Schneider, W. J. (2010). \emph{Efficient sample size for power and desired accuracy in Cohen's d estimation in two-group cluster randomized design} (Master Thesis). Illinois State University, Normal, IL. 
 
-Pornprasertmanic, S., & Schneider, W. J. (2014). Accuracy in parameter estimation in cluster randomized designs. \emph{Psychological Methods}, \emph{19}, 356-379.}
+Pornprasertmanic, S., & Schneider, W. J. (2014). Accuracy in parameter estimation in cluster randomized designs. \emph{Psychological Methods}, \emph{19}, 356--379.}
 \author{
 Sunthud Pornprasertmanit (\email{psunthud@gmail.com})
 }

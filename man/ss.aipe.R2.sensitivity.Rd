@@ -4,7 +4,7 @@
 \title{Sensitivity analysis for sample size planning with the goal of Accuracy in Parameter Estimation (i.e., a narrow observed confidence interval)}
 
 \description{
-Given \code{Estimated.R2} and \code{True.R2}, one perform a sensitivity analysis to determine the effect of a misspecified population 
+Given \code{Estimated.R2} and \code{True.R2}, one can perform a sensitivity analysis to determine the effect of a misspecified population 
 squared multiple correlation coefficient using the Accuracy in Parameter Estimation (AIPE) approach to sample size planning. The function
 evaluates the effect of a misspecified \code{True.R2} on the width of obtained confidence intervals. 
 }
@@ -20,15 +20,15 @@ rho.xx = 0.3,  G = 10000, print.iter = TRUE, ...)
   \item{Estimated.R2}{value of the estimated (for sample size planning) squared multiple correlation coefficient}
   \item{w}{full confidence interval width of interest}
   \item{p}{number of predictors}
-  \item{Random.Predictors}{whether or not the sample size procedure and the simulation itself should be based on random (set to TRUE) or fixed predictors (set to FALSE)}
+  \item{Random.Predictors}{whether or not the sample size procedure and the simulation itself should be based on random (set to \code{TRUE}) or fixed predictors (set to \code{FALSE})}
   \item{Selected.N}{selected sample size to use in order to determine distributional properties at a given value of sample size}
   \item{degree.of.certainty}{parameter to ensure confidence interval width with a specified degree of certainty}
   \item{assurance}{ an alias for \code{degree.of.certainty} }
 \item{certainty}{an alias for \code{degree.of.certainty}}
   \item{conf.level}{confidence interval coverage (symmetric coverage)}
   \item{Generate.Random.Predictors}{specify whether the simulation should be based on random (default) or fixed regressors.}
-  \item{rho.yx}{value of the correlation between \code{y} (dependent variable) and each of the \code{x} variables (independent variables)}
-  \item{rho.xx}{value of the correlation among the \code{x} variables (independent variables)}
+  \item{rho.yx}{value of the correlation between \emph{y} (dependent variable) and each of the \emph{x} variables (independent variables)}
+  \item{rho.xx}{value of the correlation among the \emph{x} variables (independent variables)}
   \item{G}{number of generations (i.e., replications) of the simulation}
   \item{print.iter}{should the iteration number (between 1 and \code{G}) during the run of the function}
   \item{...}{for modifying parameters of functions this function calls upon}
@@ -56,18 +56,18 @@ data based on the other.
   \item{Summary}{summary values for the results of the sensitivity analysis (simulation study)}
 }
 \references{
-Algina, J. & Olejnik, S. (2000) Determining Sample Size for Accurate Estimation of the Squared
+Algina, J. & Olejnik, S. (2000). Determining Sample Size for Accurate Estimation of the Squared
 Multiple Correlation Coefficient. \emph{Multivariate Behavioral Research, 35}, 119--136.
 
 Gatsonis, C. & Sampson, A. R. (1989). Multiple Correlation: Exact power and sample size calculations. \emph{Psychological Bulletin, 106}, 516--524.
 
-Steiger, J. H. & Fouladi, R. T. (1992) R2: A computer program for interval estimation, power calculation,
+Steiger, J. H. & Fouladi, R. T. (1992). R2: A computer program for interval estimation, power calculation,
 and hypothesis testing for the squared multiple correlation. \emph{Behavior research methods, instruments and computers, 4}, 581--582.
 
-Kelley, K. (2008) Sample size planning for the squared multiple correlation coefficient:
+Kelley, K. (2008). Sample size planning for the squared multiple correlation coefficient:
 Accuracy in parameter estimation via narrow confidence intervals, \emph{Multivariate Behavioral Research, 43}, 524--555.
 
-Kelley, K. & Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, & L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166-192). Newbury Park, CA: Sage.
+Kelley, K. & Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, & L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166--192). Newbury Park, CA: Sage.
 }
 \author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 

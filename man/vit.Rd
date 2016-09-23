@@ -30,7 +30,7 @@ plot.points = TRUE, save.pdf = FALSE, save.eps = FALSE,
   \item{save.eps}{ save a postscript file }
   \item{save.jpg}{ save a jpg file }
   \item{file}{ file name and file path for the graph(s) to save, if \code{file=""} a file would be saved in the current working directory }
-  \item{layout}{ define the per-page layout when All.in.One==FALSE }
+  \item{layout}{ define the per-page layout when \code{All.in.One=FALSE} }
   \item{col}{ color(s) of the line(s) and points }
   \item{pch}{ plotting character(s); see par }
   \item{cex}{ size of the points (1 is the R default; see par) }

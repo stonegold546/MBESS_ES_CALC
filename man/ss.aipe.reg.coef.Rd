@@ -1,6 +1,6 @@
 \name{ss.aipe.reg.coef} 
 \alias{ss.aipe.reg.coef}
-\title{sample size necessary for the accuracy in parameter estimation approach for a regression coefficient of interest}
+\title{Sample size necessary for the accuracy in parameter estimation approach for a regression coefficient of interest}
 \description{A function used to plan sample size from the accuracy in parameter estimation approach for a regression coefficient of interest given the input specification.}
 \usage{ss.aipe.reg.coef(Rho2.Y_X=NULL, Rho2.j_X.without.j=NULL, p=NULL, 
 b.j=NULL, width, which.width="Full", sigma.Y=1, sigma.X=1, RHO.XX=NULL, 
@@ -9,18 +9,18 @@ alpha.upper=NULL, conf.level=.95, degree.of.certainty=NULL, assurance=NULL,
 certainty=NULL, Suppress.Statement=FALSE)}
 
 \arguments{\item{Rho2.Y_X}{Population value of the squared multiple correlation coefficient}
-  \item{Rho2.j_X.without.j}{Population value of the squared multiple correlation coefficient predicting the \code{j}th predictor variable from the remaining \code{p}-1 predictor variables}
+  \item{Rho2.j_X.without.j}{Population value of the squared multiple correlation coefficient predicting the \emph{j}th predictor variable from the remaining \emph{p}-1 predictor variables}
   \item{p}{the number of predictor variables}
-  \item{b.j}{the regression coefficient for the \code{j}th predictor variable (i.e., the predictor of interest)}
+  \item{b.j}{the regression coefficient for the \emph{j}th predictor variable (i.e., the predictor of interest)}
   \item{width}{the desired width of the confidence interval}
   \item{which.width}{which width (\code{"Full"}, \code{"Lower"}, or \code{"Upper"}) the width refers 
   to (at present, only \code{"Full"} can be specified)}
-  \item{sigma.Y}{the population standard deviation of \code{Y} (i.e., the dependent variables)}
-  \item{sigma.X}{the population standard deviation of the \code{j}th \code{X} variable (i.e., the predictor variable of interest)}
+  \item{sigma.Y}{the population standard deviation of \emph{Y} (i.e., the dependent variables)}
+  \item{sigma.X}{the population standard deviation of the \emph{j}th \emph{X} variable (i.e., the predictor variable of interest)}
   \item{RHO.XX}{Population correlation matrix for the \code{p} predictor variables}
-  \item{Rho.YX}{Population \code{p} length vector of correlation between the dependent variable (\code{Y}) and the \code{p} independent variables}
+  \item{Rho.YX}{Population \code{p} length vector of correlation between the dependent variable (\emph{Y}) and the \code{p} independent variables}
   \item{which.predictor}{identifies which of the \code{p} predictors is of interest}
-  \item{Noncentral}{specify with a \code{TRUE}/\code{FALSE} statement whether or not the noncentral approach to sample size planning should be used}
+  \item{Noncentral}{specify with a \code{TRUE} or \code{FALSE} statement whether or not the noncentral approach to sample size planning should be used}
   \item{alpha.lower}{Type I error rate for the lower confidence interval limit}
   \item{alpha.upper}{Type I error rate for the upper confidence interval limit}
   \item{conf.level}{desired level of confidence for the computed interval (i.e., 1 - the Type I error rate)}

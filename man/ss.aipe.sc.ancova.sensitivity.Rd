@@ -1,6 +1,6 @@
 \name{ss.aipe.sc.ancova.sensitivity}
 \alias{ss.aipe.sc.ancova.sensitivity}
-\title{ Sensitivity analysis for the sample size planning method for standardized ANCOVA contrast }
+\title{Sensitivity analysis for the sample size planning method for standardized ANCOVA contrast }
 \description{
 Sensitivity analysis for the sample size planning method with the goal to obtain sufficiently narrow confidence intervals for standardized 
 ANCOVA complex contrasts.
@@ -57,7 +57,7 @@ procedure; they can be specified as any values that are considered as reasonable
 \item{Estimated.psi}{estimated standardized contrast}
 \item{Desired.Width}{the desired full width of the obtained confidence interval}
 \item{assurance}{the value assigned to the argument \code{assurance}}
-\item{Sample.Size.per.Group}{sample size per group}
+\item{Sample.Size.per.Group}{sample size \emph{per group}}
 \item{Number.of.Groups}{number of groups}
 \item{mean.full.width}{mean width of the obtained full confidence intervals}
 \item{median.full.width}{median width of the obtained full confidence intervals}
@@ -71,19 +71,20 @@ procedure; they can be specified as any values that are considered as reasonable
 }
 \references{ 
 Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, 
-and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
+and implementation. \emph{Journal of Statistical Software, 20} (8), 1--24.
 
 Kelley, K., & Rausch, J. R. (2006). Sample size planning for the standardized mean difference: 
-Accuracy in Parameter Estimation via narrow confidence intervals. \emph{Psychological Methods, 11} (4), 363-385.
+Accuracy in Parameter Estimation via narrow confidence intervals. \emph{Psychological Methods, 11} (4), 363--385.
 
-Lai, K., & Kelley, K. (under review). Accuracy in parameter estimation for ANCOVA and ANOVA contrasts: Sample size planning via narrow confidence intervals.
+Lai, K., & Kelley, K. (2012). Accuracy in parameter estimation for ANCOVA and ANOVA contrasts: Sample size planning via narrow confidence intervals. 
+\emph{British Journal of Mathematical and Statistical Psychology, 65}, 350--370.
 
-Steiger, J. H., & Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
+Steiger, J. H., & Fouladi, R. T. (1997). Noncentrality interval estimation and the evaluation of
 statistical methods. In L. L. Harlow, S. A. Mulaik, & J.H. Steiger (Eds.), \emph{What if there were
-no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum. }
+no significance tests?} (pp. 221--257). Mahwah, NJ: Lawrence Erlbaum. }
 
 
-\author{ Keke Lai (University of Notre Dame, \email{Lai.15@ND.Edu}) }
+\author{ Keke Lai }
 
 %\note{ }
 

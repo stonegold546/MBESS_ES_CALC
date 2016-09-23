@@ -48,11 +48,11 @@ silent comprehension; (c) CTBS-comprehension ESS scores.
 }
 \source{
 Lomax, R. G. (1983). Applying structural modeling to some component processes of reading comprehension
-development. \emph{Journal of Experimental Education, 52} (1), 33-40.
+development. \emph{Journal of Experimental Education, 52} (1), 33--40.
 }
 \references{
 Lomax, R. G. (1983). Applying structural modeling to some component processes of reading comprehension
-development. \emph{Journal of Experimental Education, 52} (1), 33-40.
+development. \emph{Journal of Experimental Education, 52} (1), 33--40.
 }
 %\examples{}
 \keyword{datasets}

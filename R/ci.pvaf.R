@@ -39,7 +39,7 @@ ci.pvaf <- function (F.value = NULL, df.1 = NULL, df.2 = NULL, N = NULL,
   Lower.lim <- Lims$Lower.Limit/(Lims$Lower.Limit + N)
   Upper.lim <- Lims$Upper.Limit/(Lims$Upper.Limit + N)
   
-  print(paste("The", 1 - (alpha.lower + alpha.upper), "confidence limits (and the actual confidence interval coverage) for the proportion of variance of the dependent variable accounted for by knowing group status are given as:"))
+ # print(paste("The", 1 - (alpha.lower + alpha.upper), "confidence limits (and the actual confidence interval coverage) for the proportion of variance of the dependent variable accounted for by knowing group status are given as:"))
   
   return(list(Lower.Limit.Proportion.of.Variance.Accounted.for = Lower.lim,
               Probability.Less.Lower.Limit = Lims$Prob.Less.Lower,

@@ -6,22 +6,24 @@ ss.aipe.reg.coef<-function (Rho2.Y_X = NULL, Rho2.j_X.without.j = NULL, p = NULL
                             Suppress.Statement = FALSE)
 {
   if(!requireNamespace("gsl", quietly = TRUE)) stop("The package 'gsl' is needed; please install the package and try again.")
-  
-  RHO.XX <- as.matrix(RHO.XX)  
-  Rho.YX <- as.matrix(Rho.YX)  
-  if (!is.null(p)) {			
-    if (p == 1) {
-      if (!is.null(Rho2.j_X.without.j)) {
-        if (Rho2.j_X.without.j != 0) 
-          stop("If p=1, how could 'Rho2.j_X.without.j' be nonzero?")
-      }
+
+  if (!is.null(p)) 
+    {			
+    if (p == 1) 
+      {
+    if(!is.null(RHO.XX)) RHO.XX <- as.matrix(RHO.XX)  
+    if(!is.null(Rho.YX)) Rho.YX <- as.matrix(Rho.YX) 
+      if (!is.null(Rho2.j_X.without.j)) 
+        {
+        if (Rho2.j_X.without.j != 0) stop("If p=1, how could 'Rho2.j_X.without.j' be nonzero?")
+        }
       if (!is.null(RHO.XX)) 
-      {                if (dim(RHO.XX) != c(1, 1)) stop("If p=1, 'RHO.XX' should be a 1 x 1 matrix?")
+      {                
+        if (dim(RHO.XX) != c(1, 1)) stop("If p=1, 'RHO.XX' should be a 1 x 1 matrix?")
         if (dim(Rho.YX) != c(1, 1)) stop("If p=1, how can 'RHO.XX' not be a 1 x 1 matrix?")
-        Rho.YX
       }
     }
-  }
+    }
   # Thanks to Jan Herman for modificatoin of the function just above here to allow p=1 to work properly. 
   
   
@@ -178,11 +180,11 @@ ss.aipe.reg.coef<-function (Rho2.Y_X = NULL, Rho2.j_X.without.j = NULL, p = NULL
     return(as.numeric(N_M))
   }
   if (Noncentral == TRUE) {
-    if (is.null(b.j)) {
+    if (is.null(b.j)) 
+      {
       b.j <- (solve(RHO.XX) %*% Rho.YX)[which.predictor]
-      if (is.null(b.j)) 
-        stop("b.j must be specified directly or obtained from other combinations of parameters.")
-    }
+      if (is.null(b.j)) stop("b.j must be specified directly or obtained from other combinations of parameters.")
+      }
     n2 <- max(N - 6, 2 * p + 1)
     Diff <- 1
     while (Diff > 0) {

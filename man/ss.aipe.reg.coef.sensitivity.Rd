@@ -14,17 +14,17 @@ degree.of.certainty = NULL, assurance=NULL, certainty=NULL,
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{True.Var.Y}{Population variance of the dependent variable (\code{Y})}
-  \item{True.Cov.YX}{Population covariances vector between the \code{p} predictor variables and the dependent variable (\code{Y})}
+  \item{True.Var.Y}{Population variance of the dependent variable (\emph{Y})}
+  \item{True.Cov.YX}{Population covariances vector between the \code{p} predictor variables and the dependent variable (\emph{Y})}
   \item{True.Cov.XX}{Population covariance matrix of the \code{p} predictor variables}
-  \item{Estimated.Var.Y}{Estimated variance of the dependent variable (\code{Y})}
+  \item{Estimated.Var.Y}{Estimated variance of the dependent variable (\emph{Y})}
   \item{Estimated.Cov.YX}{Estimated covariances vector between the \code{p} predictor variables and the dependent variable (\code{Y})}
   \item{Estimated.Cov.XX}{Estimated Population covariance matrix of the \code{p} predictor variables}
   \item{Specified.N}{Directly specified sample size (instead of using \code{Estimated.Rho.YX} and \code{Estimated.RHO.XX})}
-  \item{which.predictor}{identifies which of the \code{p} predictors is of interest}
+  \item{which.predictor}{identifies which of the \emph{p} predictors is of interest}
   \item{w}{desired confidence interval width for the regression coefficient of interest}
-  \item{Noncentral}{specify with a \code{TRUE}/\code{FALSE} statement whether or not the noncentral approach to sample size planning should be used}
-  \item{Standardize}{specify with a \code{TRUE}/\code{FALSE} statement whether or not the regression coefficient will be standardized}
+  \item{Noncentral}{specify with a \code{TRUE} or \code{FALSE} statement whether or not the noncentral approach to sample size planning should be used}
+  \item{Standardize}{specify with a \code{TRUE} or \code{FALSE} statement whether or not the regression coefficient will be standardized}
   \item{conf.level}{desired level of confidence for the computed interval (i.e., 1 - the Type I error rate)}
   \item{degree.of.certainty}{degree of certainty that the obtained confidence interval will be sufficiently narrow}
   \item{assurance}{ an alias for \code{degree.of.certainty} }
@@ -33,7 +33,7 @@ degree.of.certainty = NULL, assurance=NULL, certainty=NULL,
   \item{print.iter}{specify with a \code{TRUE}/\code{FALSE} statement if the iteration number should be printed as the simulation within the function runts}
 }
   
-  \details{ Direct specification of True.Rho.YX and True.RHO.XX is necessary, even if one is interested in a single regression
+  \details{ Direct specification of \code{True.Rho.YX} and \code{True.RHO.XX} is necessary, even if one is interested in a single regression
 coefficient, so that the covariance/correlation structure can be specified when the simulation student within the function runs.} 
 \value{\item{Results}{a matrix containing the empirical results from each of the \code{G} replications of the simulation}
   \item{Specifications}{a list of the input specifications and the required sample size}

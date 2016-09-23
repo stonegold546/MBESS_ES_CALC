@@ -56,6 +56,7 @@ frequency=1, width=0.025, conf.level=.95)
 # Thus, a necessary sample size of 316 will ensure that the 95\% confidence 
 # interval will be sufficiently narrow (i.e., have a width less than .025 units) 
 # at least 99\% of the time.
+
 ss.aipe.pcm(true.variance.trend=.003, error.variance=.0262, duration=4, 
 frequency=1, width=.025, conf.level=.95, assurance=.99)
 }

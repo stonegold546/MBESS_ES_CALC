@@ -20,7 +20,7 @@ verify.ss = FALSE, Tol = 1e-09, ...)
   \item{Population.R2}{ value of the population multiple correlation coefficient }
   \item{conf.level}{ confidence interval level (e.g., .95, .99, .90); 1-Type I error rate }
   \item{width}{width of the confidence interval (see \code{which.width}) }
-  \item{Random.Predictors}{ whether or not the predictor variables are random (set to TRUE) or are fixed (set to FALSE) }
+  \item{Random.Predictors}{ whether or not the predictor variables are random (set to \code{TRUE}) or are fixed (set to \code{FALSE}) }
   \item{Random.Regressors}{ an alias for \code{Random.Predictors}; \code{Random.Regressors} 
   overrides \code{Random.Predictors} }
   \item{which.width}{ defines the width that \code{width} refers to }
@@ -35,28 +35,18 @@ verify.ss = FALSE, Tol = 1e-09, ...)
 }
 \details{
 This function determines a necessary sample size so that the expected confidence 
-interval width for the squared multiple correlation coefficient is sufficiently 
-
-narrow (when \code{degree.of.certainty=NULL}) 
-so that the obtained confidence 
+interval width for the squared multiple correlation coefficient is sufficiently narrow (when \code{degree.of.certainty=NULL}) so that the obtained confidence 
 interval is no larger than the value specified with some desired degree of 
 certainty (i.e., a probability that the obtained width is less than the specified 
 width). The method depends on whether or not the regressors are regarded as fixed 
 or random. This is the case because the distribution theory for the two cases is 
 different and thus the confidence interval procedure is conditional on the type of 
 regressors. The default methods are approximate but can be made exact with the 
-specification of verify.ss=TRUE, which performs an a priori Monte Carlo simulation 
-study. Kelley (2007) and Kelley & Maxwell (2008) detail the methods used in the 
+specification of \code{verify.ss=TRUE}, which performs an a priori Monte Carlo simulation study. Kelley (2007) and Kelley & Maxwell (2008) detail the methods used in the 
 function, with the former focusing on random regressors and the latter on fixed regressors.
 
-It is recommended that the option \code{verify.ss} should always be used! Doing so uses the method implied 
-sample size as an estimate and then evaluates with an internal Monte Carlo simulation (i.e., via 
-"brute-force" methods) the exact sample size given the goals specified. When \code{verify.ss=TRUE}, 
-the default number of iterations is 10,000 but this can be changed by specifying G=5000 (or some other 
-value; 10000 is the recommended) When \code{verify.ss=TRUE} is specified, an internal function 
-\code{verify.ss.aipe.R2} calls upon the \code{ss.aipe.R2.sensitivity} function for purposes of the 
-internal Monte Carlo simulation study. See the \code{verify.ss.aipe.R2} function for arguments that 
-can be passed from \code{ss.aipe.R2} to \code{verify.ss.aipe.R2}.
+It is recommended that the option \code{verify.ss} should always be used! Doing so uses the method implied sample size as an estimate and then evaluates with an internal Monte Carlo simulation (i.e., via "brute-force" methods) the exact sample size given the goals specified. When \code{verify.ss=TRUE}, the default number of iterations is 10,000 but this can be changed by specifying G=5000 (or some other value; 10000 is the recommended) When \code{verify.ss=TRUE} is specified, an internal function \code{verify.ss.aipe.R2} calls upon the \code{ss.aipe.R2.sensitivity} function for purposes of the 
+internal Monte Carlo simulation study. See the \code{verify.ss.aipe.R2} function for arguments that can be passed from \code{ss.aipe.R2} to \code{verify.ss.aipe.R2}.
 }
 
 \value{
@@ -65,24 +55,24 @@ can be passed from \code{ss.aipe.R2} to \code{verify.ss.aipe.R2}.
 }
 
 \references{ 
-Algina, J. & Olejnik, S. (2000) Determining sample size for accurate estimation of the squared
+Algina, J. & Olejnik, S. (2000). Determining sample size for accurate estimation of the squared
 multiple correlation coefficient. \emph{Multivariate Behavioral Research, 35}, 119--136.
 
-Steiger, J. H. & Fouladi, R. T. (1992) R2: A computer program for interval estimation, power calculation,
+Steiger, J. H. & Fouladi, R. T. (1992). R2: A computer program for interval estimation, power calculation,
 and hypothesis testing for the squared multiple correlation. \emph{Behavior research methods, instruments and computers, 4}, 581--582.
 
-Kelley, K. (2007) Sample size planning for the squared multiple correlation coefficient:
+Kelley, K. (2007). Sample size planning for the squared multiple correlation coefficient:
 Accuracy in parameter estimation via narrow confidence intervals, 
 \emph{manuscripted submitted for publication}.
 
-Kelley, K. & Maxwell, S. E. (2008) Power and accuracy for omnibus and targeted effects: 
+Kelley, K. & Maxwell, S. E. (2008). Power and accuracy for omnibus and targeted effects: 
 Issues of sample size planning with applications to multiple regression. In P. Alasuuta, J. Brannen, & L. Bickman (Eds.),
 \emph{Handbook of Social Research Methods} (pp. 166--192). Newbury Park, CA: Sage.
 }
 
 \author{ Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu}) }
 
-\note{ This function without verify.SS=FALSE can be slow to converge when
+\note{ This function without \code{verify.SS=FALSE} can be slow to converge when
  \code{verify.SS=TRUE}, the function can take some time to converge (e.g., 15 minutes). 
  Most times this will not be the case, but it is possible in some situations.
 }

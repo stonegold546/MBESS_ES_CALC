@@ -12,8 +12,8 @@ Specified.N=NULL, Print.Progress = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{Rho2.Y_X}{population squared multiple correlation coefficient predicting the dependent variable (i.e., \code{Y}) from the \code{p} predictor variables (i.e., the X variables)}
-  \item{Rho2.Y_X.without.j}{population squared multiple correlation coefficient predicting the dependent variable (i.e., \code{Y}) from the \code{p}-1 predictor variables, where the one not used is the predictor of interest}
+  \item{Rho2.Y_X}{population squared multiple correlation coefficient predicting the dependent variable (i.e., \emph{Y}) from the \code{p} predictor variables (i.e., the \emph{X} variables)}
+  \item{Rho2.Y_X.without.j}{population squared multiple correlation coefficient predicting the dependent variable (i.e., \emph{Y}) from the \code{p}-1 predictor variables, where the one not used is the predictor of interest}
   \item{p}{number of predictor variables}
   \item{desired.power}{desired degree of statistical power for the test of targeted regression coefficient}
   \item{alpha.level}{Type I error rate}
@@ -38,13 +38,13 @@ for several options.
 \value{
   \item{Sample.Size}{either the necessary sample size or the specified sample size, depending if one is interested in determining the necessary sample size given a desired degree of statistical power or if one is interested in the determining the value of statistical power given a specified sample size, respectively}
   \item{Actual.Power}{Actual power of the situation described}
-  \item{Noncentral.t.Parm}{value of the noncentral distribution for the appropriate \code{t}-distribution}
-   \item{Effect.Size.NC.t}{effect size for the noncentral \code{t}-distribution; this is the square root of \code{Cohen.f2}, because \code{Cohen.f2} is the effect size using an \code{F}-distribution}
+  \item{Noncentral.t.Parm}{value of the noncentral distribution for the appropriate \emph{t}-distribution}
+   \item{Effect.Size.NC.t}{effect size for the noncentral \emph{t}-distribution; this is the square root of \code{Cohen.f2}, because \code{Cohen.f2} is the effect size using an \emph{F}-distribution}
 }
 \references{
 Cohen, J. (1988). \emph{Statistical power analysis for the behavioral sciences} (2nd ed.). Hillsdale, NJ: Erlbaum.
 
-Kelley, K. & Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, & L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166-192). Newbury Park, CA: Sage.
+Kelley, K. & Maxwell, S. E. (2008). Sample Size Planning with applications to multiple regression: Power and accuracy for omnibus and targeted effects. In P. Alasuuta, J. Brannen, & L. Bickman (Eds.), \emph{The Sage handbook of social research methods} (pp. 166--192). Newbury Park, CA: Sage.
 
 Maxwell, S. E. (2000). Sample size for multiple regression. \emph{Psychological Methods, 4}, 434--458.
 

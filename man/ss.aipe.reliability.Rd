@@ -44,16 +44,16 @@ Use \code{verbose=TRUE} if the function is taking a very long time to provide an
 \references{ McDonald, R. P. (1999). \emph{Test theory: A unified approach}. Mahwah, New Jersey: Lawrence 
 Erlbaum Associates, Publishers.
 
-van Zyl, J. M., Neudecker, H., & Nel, D. G. (2000) On the distribution of the maximum likelihood estimator 
-of Cronbach's alpha. \emph{Psychometrika, 65} (3), 271-280. }
+van Zyl, J. M., Neudecker, H., & Nel, D. G. (2000). On the distribution of the maximum likelihood estimator 
+of Cronbach's alpha. \emph{Psychometrika, 65} (3), 271--280. }
 
 \author{Leann J. Terry (Indiana University; \email{ljterry@Indiana.Edu});
 Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}
 
-\note{ Not all of the items can be entered into the function to represent the population values. For example, either 'data' can be used, or 'S', or  'i', 'cor.est', and 'psi.square', or 'i', 'lambda', and 'psi.square'. With a
-large number of iterations ('final.iter') this function may take considerable time.}
+\note{ Not all of the items can be entered into the function to represent the population values. For example, either 'data' can be used, or \code{S}, or  \code{i}, \code{cor.est}, and \code{psi.square}, or \code{i}, \code{lambda}, and \code{psi.square}. With a
+large number of iterations (\code{final.iter}) this function may take considerable time.}
 
-\section{Warning }{In some conditions, you may receive a warning, such as "In sem.default(ram = ram, S = S, N = N, param.names = pars, var.names = vars,;Could not compute QR decomposition of Hessian. Optimization probably did not converge." 
+\section{Warning }{In some conditions, you may receive a warning, such as "\code{In sem.default(ram = ram, S = S, N = N, param.names = pars, var.names = vars,; Could not compute QR decomposition of Hessian. Optimization probably did not converge.}" 
 This indicates that the model likely did not converge. In certain conditions this may occur because the model is not being fit well due to small sample size, a low number of iterations, or a poorly behaved covariance matrix.  } 
 
 \seealso{ \code{\link{CFA.1}}; \code{\link[sem]{sem}}; \code{\link{ci.reliability}};  }

@@ -15,8 +15,8 @@ Print.Progress = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{Rho2.Y_X}{population squared multiple correlation coefficient predicting the dependent variable (i.e., \code{Y}) from the \code{p} predictor variables (i.e., the X variables)}
-  \item{Rho2.Y_X.without.k}{population squared multiple correlation coefficient predicting the dependent variable (i.e., \code{Y}) from the \code{K}-1 predictor variables, where the one not used is the predictor of interest}
+  \item{Rho2.Y_X}{population squared multiple correlation coefficient predicting the dependent variable (i.e., \emph{Y}) from the \emph{p} predictor variables (i.e., the \emph{X} variables)}
+  \item{Rho2.Y_X.without.k}{population squared multiple correlation coefficient predicting the dependent variable (i.e., \emph{Y}) from the \code{K}-1 predictor variables, where the one not used is the predictor of interest}
   \item{K}{number of predictor variables}
   \item{desired.power}{desired degree of statistical power for the test of targeted regression coefficient}
   \item{alpha.level}{Type I error rate}
@@ -24,8 +24,8 @@ Print.Progress = FALSE)
   \item{beta.k}{population value of the regression coefficient for the predictor of interest}
   \item{sigma.X}{population standard deviation for the predictor variable of interest}
   \item{sigma.Y}{population standard deviation for the outcome variable}
-  \item{Rho2.k_X.without.k}{population squared multiple correlation coefficient predicting the predictor variable of interest from the remaining K-1 predictor variables}
-  \item{RHO.XX}{population correlation matrix for the \code{p} predictor variables}
+  \item{Rho2.k_X.without.k}{population squared multiple correlation coefficient predicting the predictor variable of interest from the remaining \code{K}-1 predictor variables}
+  \item{RHO.XX}{population correlation matrix for the \emph{p} predictor variables}
   \item{Rho.YX}{population vector of correlation coefficient between the \code{p} predictor variables and the criterion variable}
   \item{which.predictor}{identifies the predictor of interest when \code{RHO.XX} and \code{Rho.YX} are specified}
   \item{Cohen.f2}{Cohen's (1988) definition for an effect size for a targeted regression coefficient: \eqn{(Rho2.Y_X-Rho2.Y_X.without.j)/(1-Rho2.Y_X)}}
@@ -40,8 +40,8 @@ for several options.
 \value{
   \item{Sample.Size}{either the necessary sample size or the specified sample size, depending if one is interested in determining the necessary sample size given a desired degree of statistical power or if one is interested in the determining the value of statistical power given a specified sample size, respectively}
   \item{Actual.Power}{Actual power of the situation described}
-  \item{Noncentral.t.Parm}{value of the noncentral distribution for the appropriate \code{t}-distribution}
-   \item{Effect.Size.NC.t}{effect size for the noncentral \code{t}-distribution; this is the square root of \code{Cohen.f2}, because \code{Cohen.f2} is the effect size using an \code{F}-distribution}
+  \item{Noncentral.t.Parm}{value of the noncentral distribution for the appropriate \emph{t}-distribution}
+   \item{Effect.Size.NC.t}{effect size for the noncentral \emph{t}-distribution; this is the square root of \code{Cohen.f2}, because \code{Cohen.f2} is the effect size using an \emph{F}-distribution}
 }
 
 

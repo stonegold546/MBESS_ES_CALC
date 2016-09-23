@@ -1,6 +1,6 @@
 \name{ss.aipe.sc.ancova}
 \alias{ss.aipe.sc.ancova}
-\title{ Sample size planning from the AIPE perspective for standardized ANCOVA contrasts }
+\title{Sample size planning from the AIPE perspective for standardized ANCOVA contrasts }
 \description{
 Sample size planning from the accuracy in parameter estimation (AIPE) perspective for standardized ANCOVA contrasts.
 }
@@ -45,23 +45,24 @@ This function returns the sample size \emph{per group}.
 
 \references{ 
 Kelley, K. (2007). Constructing confidence intervals for standardized effect sizes: Theory, application, 
-and implementation. \emph{Journal of Statistical Software, 20} (8), 1-24.
+and implementation. \emph{Journal of Statistical Software, 20} (8), 1--24.
 
 Kelley, K., & Rausch, J. R. (2006). Sample size planning for the standardized mean difference: 
-Accuracy in Parameter Estimation via narrow confidence intervals. \emph{Psychological Methods, 11} (4), 363-385.
+Accuracy in Parameter Estimation via narrow confidence intervals. \emph{Psychological Methods, 11} (4), 363--385.
 
-Lai, K., & Kelley, K. (under review). Accuracy in parameter estimation for ANCOVA and ANOVA contrasts: Sample size planning via narrow confidence intervals.
+Lai, K., & Kelley, K. (2012). Accuracy in parameter estimation for ANCOVA and ANOVA contrasts: Sample size planning via narrow confidence intervals. 
+\emph{British Journal of Mathematical and Statistical Psychology, 65}, 350--370.
 
-Steiger, J. H., & Fouladi, R. T. (1997) Noncentrality interval estimation and the evaluation of
+Steiger, J. H., & Fouladi, R. T. (1997). Noncentrality interval estimation and the evaluation of
 statistical methods. In L. L. Harlow, S. A. Mulaik, & J.H. Steiger (Eds.), \emph{What if there were
-no significance tests?} (pp. 221-257). Mahwah, NJ: Lawrence Erlbaum.}
+no significance tests?} (pp. 221--257). Mahwah, NJ: Lawrence Erlbaum.}
 
 
-\author{ Keke Lai (University of Notre Dame, \email{Lai.15@ND.Edu}) }
+\author{ Keke Lai (University of California--Merced) }
 
 \note{ 
 When \code{divisor="s.anova"} and the argument \code{assurance} is specified, the necessary
-sample size per group returned by the function with \code{assurance} specified is slightly underestimated. 
+sample size \emph{per group} returned by the function with \code{assurance} specified is slightly underestimated. 
 The method to obtain exact sample size in the above situation has not been developed yet. A practical solution is
 to use the sample size returned as the starting value to conduct a priori Montre Carlo simulations with 
 function \code{\link{ss.aipe.sc.ancova.sensitivity}}, as discussed in Lai & Kelley (under review).

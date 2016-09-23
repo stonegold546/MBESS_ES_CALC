@@ -27,13 +27,13 @@ Noncentral = FALSE, Suppress.Statement = FALSE, ...)
   \item{conf.level}{ desired level of confidence for the computed interval (i.e., 1 - the Type I error rate)}
   \item{R2.Y_X.without.k}{ the squared multiple correlation coefficient predicting \emph{Y} from the \emph{K}-1 predictor
 variable with the \emph{k}th predictor of interest excluded }
-  \item{t.value}{ the t-value evaluating the null hypothesis that the population regression coefficient
+  \item{t.value}{ the \emph{t}-value evaluating the null hypothesis that the population regression coefficient
 for the \emph{k}th predictor equals zero }
   \item{alpha.lower}{ the Type I error rate for the lower confidence interval limit }
   \item{alpha.upper}{ the Type I error rate for the upper confidence interval limit }
-  \item{Noncentral}{ TRUE/FALSE statement specifying whether or not the noncentral approach to
+  \item{Noncentral}{ \code{TRUE} or \code{FALSE} statement specifying whether or not the noncentral approach to
 confidence intervals should be used }
-  \item{Suppress.Statement}{TRUE/FALSE statement specifying whether or not a statement should be printed
+  \item{Suppress.Statement}{\code{TRUE} or \code{FALSE} statement specifying whether or not a statement should be printed
 that identifies the type of confidence interval formed}
   \item{\dots}{ optional additional specifications for nested functions }
 }
@@ -48,14 +48,17 @@ standardized regression coefficient for \code{b.k}.
 \value{
 Returns the confidence limits for the standardized regression coefficients of interest from the standard
 approach to confidence interval formation or from the noncentral approach to confidence interval
-formation using the noncentral t-distribution.
+formation using the noncentral \emph{t}-distribution.
 }
 
 \references{ 
+Kelley, K. (2007). Confidence intervals for standardized effect sizes: Theory, application, 
+and implementation.\emph{ Journal of Statistical Software, 20}(8), 1--24.
+
 Kelley, K. & Maxwell, S. E. (2003). Sample size for Multiple Regression: Obtaining regression
 coefficients that are accurate, not simply significant.\emph{ Psychological Methods, 8}, 305--321.
 
-Kelley, K. & Maxwell, S. E. (In press). Power and accuracy for omnibus and targeted effects:
+Kelley, K. & Maxwell, S. E. (2008). Power and accuracy for omnibus and targeted effects:
 Issues of sample size planning with applications to Multiple Regression. \emph{Handbook of Social Research
 Methods}, J. Brannon, P. Alasuutari, and L. Bickman (Eds.). New York, NY: Sage Publications.
 

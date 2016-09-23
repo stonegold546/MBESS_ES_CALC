@@ -52,16 +52,16 @@ on how to obtain the model implied covariance matrix in the RAM notation given m
 }
 
 \references{
-Cudeck, R., & Browne, M. W. (1992). Constructing a covariance matrix that yields a specified minimizer and a specified minimum discrepancy function value. \emph{Psychometrika, 57}, 357-369. 
+Cudeck, R., & Browne, M. W. (1992). Constructing a covariance matrix that yields a specified minimizer and a specified minimum discrepancy function value. \emph{Psychometrika, 57}, 357--369. 
 
-Fox, J. (2006). Structural equation modeling with the sem package in R. \emph{Structural Equation Modeling, 13}, 465-486.
+Fox, J. (2006). Structural equation modeling with the sem package in R. \emph{Structural Equation Modeling, 13}, 465--486.
 
 Kelley, K., & Lai, K. (2010). Accuracy in parameter estimation for the root mean square of approximation: Sample size planning for narrow confidence intervals. \emph{Manuscript under review}.
 
-McArdle, J. J., & McDonald, R. P. (1984). Some algebraic properties of the reticular action model. \emph{British Journal of Mathematical and Statistical Psychology, 37}, 234-251.
+McArdle, J. J., & McDonald, R. P. (1984). Some algebraic properties of the reticular action model. \emph{British Journal of Mathematical and Statistical Psychology, 37}, 234--251.
 }
 \author{
-Keke Lai (University of California -- Merced; \email{klai25@ucmerced.edu}) and Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})
+Keke Lai (University of California -- Merced) and Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})
 }
 \note{Sometimes this function jumps out of the loop before it finishes the simulation. The reason is because the 
  \code{\link[sem]{sem}} function that this function calls to fit the model fails to converge when searching for

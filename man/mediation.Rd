@@ -26,7 +26,7 @@ complete.set=FALSE)
   \item{mean.m}{mean of the \code{m} (mediator) variable when a covariance matrix (\code{S}) is used}
   \item{mean.dv}{mean of the \code{y/dv} (dependent/outcome) variable when a covariance matrix (\code{S}) is used}
   \item{conf.level}{desired level of confidence (e.g., .90, .95, .99, etc.)}
-  \item{bootstrap}{TRUE or FALSE, based on whether or not a bootstrap procedure is performed to obtain confidence intervals for the various effect sizes}
+  \item{bootstrap}{\code{TRUE} or \code{FALSE}, based on whether or not a bootstrap procedure is performed to obtain confidence intervals for the various effect sizes}
   \item{B}{number of bootstrap replications when \code{bootstrap=TRUE} (e.g., 10000)}
   \item{which.boot}{which bootstrap method to use. It can be \code{Percentile} or \code{BCa}, or both}
   \item{save.bs.replicates}{Logical argument indicating whether to save the each bootstrap sample or not}
@@ -78,27 +78,27 @@ Hansen and McNeal's (1996) Effect Size Index for Two Groups}
 
 }
 \references{ 
-Buyse, M., & Molenberghs, G. (1998). Criteria for the validation of surrogate endpoints in randomized experiments. \emph{Biometrics, 54}, 1014-1029.
+Buyse, M., & Molenberghs, G. (1998). Criteria for the validation of surrogate endpoints in randomized experiments. \emph{Biometrics, 54}, 1014--1029.
 
-Ditlevsen, S., Christensen, U., Lynch, J., Damsgaard, M. T., & Keiding, N. (2005). The mediation proportion: A structural equation approach for estimating the proportion of exposure effect on outcome explained by an intermediate variable. \emph{Epidemiology, 16}, 114-120.
+Ditlevsen, S., Christensen, U., Lynch, J., Damsgaard, M. T., & Keiding, N. (2005). The mediation proportion: A structural equation approach for estimating the proportion of exposure effect on outcome explained by an intermediate variable. \emph{Epidemiology, 16}, 114--120.
 
-Freedman, L. S. (2001). Confidence intervals and statistical power of the 'Validation' ratio for surrogate or intermediate endpoints. \emph{Journal of Statistical Planning and Inference, 96}, 143-153.
+Freedman, L. S. (2001). Confidence intervals and statistical power of the 'Validation' ratio for surrogate or intermediate endpoints. \emph{Journal of Statistical Planning and Inference, 96}, 143--153.
 
-Hansen, W. B., & McNeal, R. B. (1996). The law of maximum expected potential effect: Constraints placed on program effectiveness by mediator relationships. \emph{Health Education Research, 11}, 501-507.
+Hansen, W. B., & McNeal, R. B. (1996). The law of maximum expected potential effect: Constraints placed on program effectiveness by mediator relationships. \emph{Health Education Research, 11}, 501--507.
 
-Huang, B., Sivaganesan, S., Succop, P., & Goodman, E. (2004). Statistical assessment of mediational effects for logistic mediational models. \emph{Statistics in Medicine, 23}, 2713-2728.
+Huang, B., Sivaganesan, S., Succop, P., & Goodman, E. (2004). Statistical assessment of mediational effects for logistic mediational models. \emph{Statistics in Medicine, 23}, 2713--2728.
 
 Lachowicz, M. J., Preacher, K. J., & Kelley, K. (submitted). A novel measure of effect size for mediation analysis. Submited for publication. 
 
-Lindenberger, U., & Potter, U. (1998). The complex nature of unique and shared effects in hierarchical linear regression: Implications for developmental psychology. \emph{Psychological Methods, 3}, 218-230.
+Lindenberger, U., & Potter, U. (1998). The complex nature of unique and shared effects in hierarchical linear regression: Implications for developmental psychology. \emph{Psychological Methods, 3}, 218--230.
 
 MacKinnon, D. P. (2008). \emph{Introduction to statistical mediation analysis}. Mahwah, NJ: Erlbaum.
 
-Preacher, K. J., & Hayes, A. F. (2008b). Asymptotic and resampling strategies for assessing and comparing indirect effects in multiple mediator models. \emph{Behavior Research Methods, 40}, 879-891.
+Preacher, K. J., & Hayes, A. F. (2008b). Asymptotic and resampling strategies for assessing and comparing indirect effects in multiple mediator models. \emph{Behavior Research Methods, 40}, 879--891.
 
-Preacher, K. J., & Kelley, K. (2011). Effect size measures for mediation models: Quantitative and graphical strategies for communicating indirect effects. \emph{Psychological Methods, 16}, 93-115.
+Preacher, K. J., & Kelley, K. (2011). Effect size measures for mediation models: Quantitative and graphical strategies for communicating indirect effects. \emph{Psychological Methods, 16}, 93--115.
 
-Sobel, M. E. (1982). Asymptotic confidence intervals for indirect effects in structural equation models. In S. Leinhardt (Ed.), \emph{Sociological Methodology 1982} (pp. 290-312). Washington DC: American Sociological Association.
+Sobel, M. E. (1982). Asymptotic confidence intervals for indirect effects in structural equation models. In S. Leinhardt (Ed.), \emph{Sociological Methodology 1982} (pp. 290--312). Washington DC: American Sociological Association.
 
 Wen, Z., & Fan, X. (2015). Monotonicity of effect sizes: Questioning kappa-squared as mediation effect size measure. 
 \emph{Psychological Methods}, \emph{20}, 193--203.

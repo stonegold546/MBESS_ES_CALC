@@ -21,7 +21,7 @@ conf.level = 0.95, alpha.lower = NULL, alpha.upper = NULL, ...)
   \item{...}{ allows one to potentially include parameter values for inner functions}
 }
 \details{
-Uses the noncentral \code{t}-distribution to calculate the confidence interval for the population coefficient of variation.
+Uses the noncentral \emph{t}-distribution to calculate the confidence interval for the population coefficient of variation.
 }
 \value{
 \item{Lower.Limit.CofV}{Lower confidence interval limit}

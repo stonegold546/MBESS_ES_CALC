@@ -50,11 +50,11 @@ APR is indicated by (a) PPOP, playground popularity; (b) SPOP, seating popularit
 }
 \source{
 Maruyama, G., & McGarvey, B. (1980). Evaluating causal models: An application of maximum-likelihood analysis
-of structural equations. \emph{Psychological Bulletin, 87} (3), 502-512.
+of structural equations. \emph{Psychological Bulletin, 87} (3), 502--512.
 }
 \references{
 Maruyama, G., & McGarvey, B. (1980). Evaluating causal models: An application of maximum-likelihood analysis
-of structural equations. \emph{Psychological Bulletin, 87} (3), 502-512.
+of structural equations. \emph{Psychological Bulletin, 87} (3), 502--512.
 }
 %\examples{}
 \keyword{datasets}

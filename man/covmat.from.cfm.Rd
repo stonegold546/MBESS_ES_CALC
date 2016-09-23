@@ -3,7 +3,7 @@
 
 \title{ Covariance matrix from confirmatory (single) factor model.}
 \description{
-  Function calculates a covariance matrix using the specified Lambda and Psi.Square values from a confirmatory
+  Function calculates a covariance matrix using the specified \code{Lambda} and \code{Psi.Square} values from a confirmatory
 factor model approach (McDonald, 1999).
 }
 \usage{

@@ -3,11 +3,11 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Confidence Interval for a Reliability Coefficient }
 \description{
-A function to calculate the point estimate and confidence interval for a reliability coefficient (alpha, omega, and variations thereof). Please see the many options; the defaults may not be best for your situtaion. BKelley and Pornprasertmanit (in press), for example, recomend bias corrected and accelerated bootstrap(\code{"interval.type=bca"} with categorical omega (\code{type=hierarchical}).
+A function to calculate the point estimate and confidence interval for a reliability coefficient (alpha, omega, and variations thereof). Please see the many options; the defaults may not be best for your situtaion. See Kelley and Pornprasertmanit (in press) for recomendation and a discussion of the methods, where they ultimately recommend the bias corrected and accelerated bootstrap(\code{"interval.type=bca"} with categorical omega (\code{type=hierarchical}).
 }
 \usage{
 ci.reliability(data = NULL, S = NULL, N = NULL, aux = NULL, 
-type = "omega", interval.type = "ll", B = 10000, conf.level = 0.95)
+type = "omega", interval.type = "mlr", B = 10000, conf.level = 0.95)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -39,7 +39,7 @@ The list below shows all methods to find the confidence interval of reliability.
 	\item \code{"icc"} or \code{25} for the Fisher's \eqn{z} transformation on the intraclass correlation approach, \eqn{z = \log{1 - \alpha}}. The variance of the \eqn{z} is \eqn{\frac{2p}{N(p - 1)}} where \eqn{p} is the number of items (Fisher, 1991, p. 221; van Zyl et al., 2000, p. 277).
 	\item \code{"ml"} or \code{31} or \code{normal-theory} to analyze the confidence interval based on normal-theory approach (or multivariate delta method). See van Zyl, Neudecker, & Nel (2000, Equation 21) for the confidence interval of coefficient alpha (also be referred as Iacobucci & Duhachek's, 2003, method). See Raykov (2002) for details for coefficient omega. If users use \code{type="alpha-cfa"}, the \code{sem} package will be used to obtain parameter estimates and standard errors used for the formula proposed by Raykov (2002).
 	\item \code{"mll"} or \code{32} to analyze the confidence interval based on normal-theory approach as above. However, the point estimate and standard error were used to build confidence interval using logistic transformation as the note below.
-	\item \code{"mlr"} or \code{33} to analyze the confidence interval based on normal-theory approach (or multivariate delta method). However, the estimation method is to use robust standard error (Satorra and Bentler, 2000). 
+	\item \code{"mlr"} or \code{33} to analyze the confidence interval based on normal-theory approach (or multivariate delta method). However, the estimation method uses  robust standard errors (Satorra and Bentler, 2000). This is the default estimation apporach (but see Kelley and Pornprasertmanit (in press) who recomend the BCa bootstrap [which is \code{bca}])
 	\item \code{"mlrl"} or \code{34} to analyze he confidence interval based on normal-theory approach using robust standard error and logistic transformation (see below). 
 	\item \code{"adf"} or \code{35} for asymtotic distribution-free method (see Maydeu-Olivares, Coffman, & Hartman, 2007 for further details for coefficient omega; we use phantom variable approach, Cheung, 2009, and \code{"WLS"} estimator for coefficient omega, Browne, 1984, in the \code{lavaan} package, Rosseel, 2012).
 	\item \code{"adfl"} or \code{36} to use asymptotic distribution-free method to derive standard error and parameter estimate. Then, logistic transformation is used to build confidence interval (see below).
@@ -103,7 +103,7 @@ Iacobucci, D., & Duhachek, A. (2003). Advancing alpha: measuring reliability wit
 
 Kelley, K. & Pornprasertmanit, P. (in press). Confidence intervals for population reliability coefficients: Evaluation of methods, recommendations, and software for homogeneous composite measures. \emph{Psychological Methods.}
 
-Koning, A. J., & Franses, P. H. (2003). \emph{Confidence intervals for Cronbach&grave;s coefficient
+Koning, A. J., & Franses, P. H. (2003). \emph{Confidence intervals for Cronbach's coefficient
 alpha values} (ERIM Report Series Ref. No. ERS-2003-041-MKT). Rotterdam, The Netherlands:
 Erasmus Research Institute of Management.
 
@@ -130,7 +130,7 @@ of Cronbach's alpha. \emph{Psychometrika, 65} (3), 271--280.
 Yuan, K. & Bentler, P. M. (2002). On robustness of the normal-theory based asymptotic distributions of three
 reliability coefficient estimates. \emph{Psychometrika, 67} (2), 251--259.
 }
-\author{Sunthud Pornprasertmanit (Texas Tech University; \email{sunthud.pornprasertmanit@ttu.edu}) and Ken Kelley (University of Notre Dame; \email{kkelley@nd.edu}. The previous version was written by Keke Lai (University of California-Merced), Leann J. Terry, and Ken Kelley}
+\author{Sunthud Pornprasertmanit (Texas Tech University; \email{sunthud.pornprasertmanit@ttu.edu}) and Ken Kelley (University of Notre Dame; \email{kkelley@nd.edu}. The previous version was written by Keke Lai (University of California-Merced), Leann J. Terry (while at Indiana University), and Ken Kelley}
 
 \note{This function is not compatible with code from MBESS Version 3.}
 
@@ -140,12 +140,15 @@ reliability coefficient estimates. \emph{Psychometrika, 67} (2), 251--259.
 
 \examples{
 # Use this function for the attitude dataset (ignoring the overall rating variable)
-ci.reliability(data=attitude[,-1], type = "omega", interval.type = "mlrl", B = 100)
+# ci.reliability(data=attitude[,-1], type = "omega", interval.type = "mlrl")
+
+# ci.reliability(data=attitude[,-1], type = "alpha", interval.type = "ll")
+
 
 ## Forming a hypothetical population covariance matrix
-Pop.Cov.Mat <- matrix(.3, 9, 9)
-diag(Pop.Cov.Mat) <- 1
-ci.reliability(S=Pop.Cov.Mat, N=50, type="alpha", interval.type = "bonett")
+# Pop.Cov.Mat <- matrix(.3, 9, 9)
+# diag(Pop.Cov.Mat) <- 1
+# ci.reliability(S=Pop.Cov.Mat, N=50, type="alpha", interval.type = "bonett")
 }
 \keyword{misc}
 \keyword{htest}% __ONLY ONE__ keyword per line

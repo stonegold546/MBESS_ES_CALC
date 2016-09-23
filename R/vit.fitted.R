@@ -1,7 +1,6 @@
 `vit.fitted` <-
 function(fit.Model, layout = c(3,3), ylab = "", xlab = "", pct.rand = NULL, number.rand = NULL,
                  subset.ids=NULL, same.scales = TRUE, save.pdf=FALSE, save.eps=FALSE, save.jpg=FALSE, file="", ...)
-                 
 {
 
 ###############################################################################
@@ -66,7 +65,7 @@ if(xlab=="") xlab=colnames(all.data)[1]
 if(same.scales==TRUE) ylim <- c(min(all.data[3]),max(all.data[3]))
 if(same.scales==FALSE) ylim <- NULL
 
-Unique.ID.Values <- unique(as.matrix(all.data[[".group"]]))
+Unique.ID.Values <- unique(as.matrix(all.data[[".groups"]]))
 
 if(is.null(number.rand)) 
 {
@@ -103,10 +102,13 @@ Unique.ID.Values <- subset.ids
 # N is the number of cases we will plot and in the Quality.of.Fit object
 
 N <- length(Unique.ID.Values)
-Residuals <- as.data.frame(cbind(ID=as.character(as.matrix(fit.Model$groups[,1])), 
-                                 Y=all.data[all.data[[".type"]]=="original",][,3], 
-                                 Fitted=fitted(fit.Model), 
-                                 Residual=resid(fit.Model)))
+
+Residuals <- cbind(ID=c(as.numeric(as.matrix(fit.Model$groups[,1]))), 
+                              Y=c(all.data[all.data[[".type"]]=="original",][,3]), 
+                         Fitted=c(fitted(fit.Model)), 
+                       Residual=c(resid(fit.Model)))
+rownames(Residuals) <- 1:length(rownames(Residuals))
+Residuals <- as.data.frame(Residuals)
 
 par(mfrow=layout, mar = c(4, 3, 3, 1), mgp = c(2, .5, 0))
 plots.per.page <- layout[1]*layout[2]
@@ -120,7 +122,7 @@ Y <- as.numeric(as.character(Residuals[ids,"Y"]))
 fit <- as.numeric(as.character(Residuals[ids,"Fitted"]))
 res <- as.numeric(as.character(Residuals[ids,"Residual"]))
 
-These.data <- all.data[all.data[[".group"]]==Unique.ID.Values[i],]
+These.data <- all.data[all.data[[".groups"]]==Unique.ID.Values[i],]
 predicted.data <- These.data[These.data[[".type"]]=="predicted",]
 original.data <- These.data[These.data[[".type"]]=="original",]
 
@@ -156,7 +158,7 @@ lines(predicted.data[[colnames(These.data)[1]]], predicted.data[[colnames(These.
 if(class(fit.Model)[1]=="lmer")
 {
 
-all.data <- attributes(fit.Model)$frame
+all.data <- stats::model.frame(fit.Model)
 
 Unique.ID.Values <- as.matrix(unique(all.data[,dim(all.data)[2]])) 
 
@@ -199,7 +201,7 @@ N <- length(Unique.ID.Values)
 ###############################################################################
 coeff <- as.data.frame(coef(fit.Model)[1])
 
-min.max <- c(min(all.data[,2]),max(all.data[,2]))
+min.max <- c(min(all.data[,3]),max(all.data[,3]))
 
 line.x <- seq(min.max[1],min.max[2],length=100)
 

@@ -33,7 +33,7 @@ if(is.null(F.value)) stop("You must specify the observed F-value ('F.value') fro
 Lims <- conf.limits.ncf(F.value = F.value, conf.level = NULL, df.1 = df.1, 
         df.2 = df.2, alpha.lower = alpha.lower, alpha.upper = alpha.upper, ...)
 
-print(paste("The", 1-(alpha.lower + alpha.upper), "confidennce limits for the signal to noise ratio are given as:"))
+# print(paste("The", 1-(alpha.lower + alpha.upper), "confidennce limits for the signal to noise ratio are given as:"))
 return(list(Lower.Limit.of.the.Square.Root.of.the.Signal.to.Noise.Ratio=sqrt(max(0, Lims$Lower.Limit/N)),
 Upper.Limit.of.the.Square.Root.of.the.Signal.to.Noise.Ratio=sqrt(Lims$Upper.Limit/N)))
 }

@@ -14,14 +14,14 @@ alpha.upper = NULL, t.value, tol = 1e-09, sup.int.warns = TRUE,
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
- \item{ncp}{the noncentrality parameter (e.g., observed t-value) of interest.}
+ \item{ncp}{the noncentrality parameter (e.g., observed \emph{t}-value) of interest.}
   \item{df}{the degrees of freedom.}
   \item{conf.level}{the level of confidence for a symmetric confidence interval.}
   \item{alpha.lower}{the proportion of values beyond the lower limit of the confidence interval (cannot be used with \code{conf.level}).}
   \item{alpha.upper}{the proportion of values beyond the upper limit of the confidence interval (cannot be used with \code{conf.level}).}
   \item{t.value}{alias for \code{ncp}}
   \item{tol}{is the tolerance of the iterative method for determining the critical values.}
-  \item{sup.int.warns}{Suppress internal warnings (from internal functions): TRUE or FALSE}
+  \item{sup.int.warns}{Suppress internal warnings (from internal functions): \code{TRUE} or \code{FALSE}}
   \item{\dots}{ allows one to potentially include parameter values for inner functions}
 }
 \details{

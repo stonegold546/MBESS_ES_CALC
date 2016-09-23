@@ -10,7 +10,7 @@ power.equivalence.md.plot(alpha, logscale, theta1, theta2, sigma, n, nu, title2)
 }
 
 \arguments{
-  \item{alpha}{ \emph{alpha} level for the 2 t-tests (usually \emph{alpha}=0.05). 
+  \item{alpha}{ \emph{alpha} level for the 2 \emph{t}-tests (usually \emph{alpha}=0.05). 
   Confidence interval for full test is at level 1- 2*\code{alpha} }
   \item{logscale}{ whether to use logarithmic scale \code{TRUE} or not \code{FALSE} }
   \item{theta1}{ lower limit of equivalence interval}

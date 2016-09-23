@@ -17,7 +17,7 @@ ancova.random.data(mu.y, mu.x, sigma.y, sigma.x, rho, J, n, randomized = TRUE)
   \item{sigma.x}{ the population standard deviation of the covariate}
   \item{rho}{ the population correlation coefficient between the response and the covariate }
   \item{J}{ the number of groups }
-  \item{n}{ the number of sample size per group }
+  \item{n}{ the number of sample size \emph{per group} }
   \item{randomized}{ a logical statement of whether randomized design is used}
 }
 \details{
@@ -29,7 +29,7 @@ This function assumes homogeneous covariance matrix among groups, in both the ra
 non-randomized design contexts. 
 }
 \value{
-This function returns an \eqn{n} by \eqn{J2} matrix, where \eqn{n} and \eqn{J} are what are defined 
+This function returns an \eqn{n} by \eqn{J2} matrix, where \eqn{n} and \eqn{J} are as defined 
 in the argument. The first \eqn{J} columns of the matrix contains the random data for the response, and
 the second \eqn{J} columns of the matrix contains the random data for the covariate.
 }
