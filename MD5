@@ -1,4 +1,4 @@
-20d8af15f7a4c8ee8e006ea350e9f6ce *DESCRIPTION
+c7890591479ea4cbeb49427d9791d41f *DESCRIPTION
 ffb263a080a6eacf093da0b03ee64136 *NAMESPACE
 55a9ee6b1494cb67d95eee01f29860aa *R/CFA.1.R
 6911ad5f6eb9fd67941e3f6c0ee32f6c *R/Expected.R2.R
@@ -38,7 +38,7 @@ d3342f3f29cb082d9ce141057ccf955f *R/cv.R
 adabb239ebb5f974674ec788851167a3 *R/intr.plot.2d.R
 727bc4636ef513d9e06dcd3eef85dfef *R/intr.plot.R
 fedf52f931b205b559a9f5ff9b30a539 *R/lambda2delta.R
-f93045e0b989d142ab8722eb080c8180 *R/mediation.R
+5e5f90fb522e9e093d3cc874dafc8cf1 *R/mediation.R
 c8cb8753ec28c73fc42f28bf146cd283 *R/mediation.effect.bar.plot.R
 b106200378a181709cb85214cd912894 *R/mediation.effect.plot.R
 372bf333692accf061b11179f85ee520 *R/mr.cv.R

@@ -279,8 +279,7 @@ to.get.M.a <- a.contained[a.contained < 0]
                 Success.of.Surrogate.Endpoint = Success.of.Surrogate.Endpoint, 
                 SOS = SOS)
           
-            Results.mediation <- list(
-                Y.on.X = Regression.of.Y.on.X, 
+            Results.mediation <- list(Y.on.X = Regression.of.Y.on.X, 
                 M.on.X = Regression.of.M.on.X, 
                 Y.on.X.and.M = Regression.of.Y.on.X.and.M, 
                 Effect.Sizes=Effect.Sizes)
@@ -305,8 +304,7 @@ to.get.M.a <- a.contained[a.contained < 0]
                   Residual.Based.Standardized_gamma = c(Estimate=Residual.Based.Standardized_gamma), 
                   SOS = SOS)
               
-                Results.mediation <- list(
-                  Y.on.X = Regression.of.Y.on.X, 
+                Results.mediation <- list(Y.on.X = Regression.of.Y.on.X, 
                   M.on.X = Regression.of.M.on.X, 
                   Y.on.X.and.M = Regression.of.Y.on.X.and.M,
                   Effect.Sizes = Effect.Sizes)
@@ -334,8 +332,8 @@ to.get.M.a <- a.contained[a.contained < 0]
                   ES.for.two.groups = ES, 
                   SOS = SOS)
                 
-                Results.mediation <- list(
-                  Y.on.X = Regression.of.Y.on.X, 
+
+                Results.mediation <- list(Y.on.X = Regression.of.Y.on.X, 
                   M.on.X = Regression.of.M.on.X, 
                   Y.on.X.and.M = Regression.of.Y.on.X.and.M, 
                   Effect.Sizes = Effect.Sizes)
@@ -344,10 +342,9 @@ to.get.M.a <- a.contained[a.contained < 0]
                   
             }
         }
-        
         return(Results.mediation)
     }
-  
+
 # Here is the internal bootstrap function.
 .mediation.bs <- function(x, mediator, dv, S=S, conf.level = conf.level, B = B, which.boot="all", ...)
 {
@@ -434,14 +431,12 @@ BS.Result <- .mediation.bs(x=x, mediator=mediator, dv=dv, S=S, conf.level=conf.l
 Result <- list(Y.on.X=Result$Y.on.X, M.on.X=Result$M.on.X, Y.on.X.and.M=Result$Y.on.X.and.M, Bootstrap.Results=BS.Result)
 }
 
-
 # Added to NOT report kappa squared by default (user has to request it specifically using the argument: kappa.squared=TRUE)
 if(complete.set==FALSE)
 {
 if(bootstrap==FALSE)
 {
-Result <- cbind(Result$Effect.Sizes[!rownames(Result$Effect.Sizes)%in%c("Maximum.Possible.Mediation.Effect", "ab.to.Maximum.Possible.Mediation.Effect_kappa.squared"), 1])
-colnames(Result) <- "Estimate"
+Result$Effect.Sizes <- cbind(Result$Effect.Sizes[!rownames(Result$Effect.Sizes)%in%c("Maximum.Possible.Mediation.Effect", "ab.to.Maximum.Possible.Mediation.Effect_kappa.squared"), 1])  
 }
 if(bootstrap==TRUE)
 {
@@ -449,7 +444,6 @@ col.names <- colnames(Result)
 Result <- cbind(Result$Bootstrap.Results[!rownames(Result$Bootstrap.Results)%in%c("Maximum.Possible.Mediation.Effect", "ab.to.Maximum.Possible.Mediation.Effect_kappa.squared"), ])
 }
 }
-
 
 return(Result)
 }
