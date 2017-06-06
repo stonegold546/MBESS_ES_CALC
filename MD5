@@ -1,4 +1,4 @@
-c7890591479ea4cbeb49427d9791d41f *DESCRIPTION
+b9bc839728f102b5a247fe914f44679a *DESCRIPTION
 ffb263a080a6eacf093da0b03ee64136 *NAMESPACE
 55a9ee6b1494cb67d95eee01f29860aa *R/CFA.1.R
 6911ad5f6eb9fd67941e3f6c0ee32f6c *R/Expected.R2.R
@@ -81,7 +81,7 @@ e5bf5dc69a7ca0d556c99ed43068f3df *R/ss.aipe.sem.path.sensitiv.R
 acf194b5126f430f4891e9f3963e8366 *R/ss.aipe.src.R
 6a17c2f61cd2434ef23939b8496cc1e4 *R/ss.aipe.src.sensitivity.R
 db40d14c168f7576d4aeb5fb9f073673 *R/ss.power.R2.R
-58eb5bd91d7093d653a32a9b9395e4bf *R/ss.power.pcm.R
+5e0133bdfb8104497e175d0f919b9cbc *R/ss.power.pcm.R
 a9aa364ca17df03f44d01ec1cafaaa83 *R/ss.power.rc.R
 181f9c057f21d0bb9299d110196a4bed *R/ss.power.reg.coef.R
 bf6cbc3a20393aa97144dc593a7f7412 *R/ss.power.sem.R
@@ -105,7 +105,7 @@ e9d80bf93ce35b78f24be92e283353d8 *man/Cor.Mat.MM.Rd
 fe80f7ee0842fbfcef689620d546a4bf *man/F.and.R2.Noncentral.Conversion.Rd
 5e86494b524f8ecc2b398bd44050c8f2 *man/Gardner.LD.Rd
 72c25ccff67ba7482cba910204a7628f *man/HS.data.Rd
-1b4550c66af87b17fd14a6b1f964d3ae *man/MBESS-package.Rd
+1cd0a4117ac15667388f6aa20ea0d1db *man/MBESS-package.Rd
 586e4beb9b34f2cf7d25747b6d1229ec *man/Sigma.2.SigmaStar.Rd
 31531efe5f5e203c4f638e64f3058451 *man/Variance.R2.Rd
 495e84be1f028824d6ce16ae108e455e *man/aipe.smd.Rd
@@ -137,14 +137,14 @@ e9b5f5e93c507d82c27f07887bc1f2b0 *man/cor2cov.Rd
 3632069c72cef7137057e592c5271bcc *man/cv.Rd
 e757f9eea99e11516356edb0c5b79812 *man/intr.plot.2d.Rd
 706d2a0283620741734949986d91241a *man/intr.plot.Rd
-b332dec50f4348cda6b505754a77b6c6 *man/mediation.Rd
+5a587c1ecdfdfba8a2e3e6c5a1062dcf *man/mediation.Rd
 f43568c13b1b2af0e0c09d964e1972ab *man/mediation.effect.bar.plot.Rd
 44511c2579b3dde9910f7d75f37dc62a *man/mediation.effect.plot.Rd
 59ed62be94f61cec191b3060a0d7ff87 *man/mr.cv.Rd
 6c305949d9ec77b4c4cca4f585e938f1 *man/mr.smd.Rd
 33b0b57392b6552d9661e3a66914e3b3 *man/power.density.equivalence.md.Rd
 ab6c7e36ce6ac49031672fdc2e876d70 *man/power.equivalence.md.Rd
-739e2ff34c76a7ec8e42bd22c5394224 *man/power.equivalence.md.plot.Rd
+91179f4b3fdce6d33f96208a05e88236 *man/power.equivalence.md.plot.Rd
 9bab5d879e7e848f0fd2493567c474cd *man/prof.salary.Rd
 e48b8ea8c6c026e21ae0c5e35c08ec3a *man/s.u.Rd
 b7bfc8fdd3b10a6e3ce908da6dbd0afd *man/signal.to.noise.R2.Rd
@@ -178,7 +178,7 @@ ef07b9ecf2d16f1d7c95c7488d81d86a *man/ss.aipe.smd.Rd
 6d4c3128dbe638e62778c6d2fe20686d *man/ss.aipe.src.Rd
 b69762871ff4e6ac368c728c756a283b *man/ss.aipe.src.sensitivity.Rd
 68f23becf41b4936dd9c88d87d0fc035 *man/ss.power.R2.Rd
-8b798f873db4264c53643fc390b07438 *man/ss.power.pcm.Rd
+eb66b750fde39b8105a9510942ce5b63 *man/ss.power.pcm.Rd
 aa9b27f7e979cefc5d16631258736e84 *man/ss.power.rc.Rd
 790ecc553570cde6b4f0f4e8b6efee7b *man/ss.power.reg.coef.Rd
 03dc4dcd3abaaf695014e9f1e90d24b2 *man/ss.power.sem.Rd
@@ -188,7 +188,7 @@ ce7666db46c2bd1f7afe56c0289f36d8 *man/ssAIPECRDES.Rd
 7e4da795ee8cbbc8980ffc9c8c1df15c *man/theta.2.Sigma.theta.Rd
 cc50e803f6105c45d590a6dc66b86e45 *man/transform_Z.r.Rd
 bf32cbcd7c381ec7327ce9faad629bff *man/transform_r.Z.Rd
-5a7f9e6a3f3bdbc0f6a3bf717d8c25e1 *man/upsilon.Rd
+a736e1c28b2c604bb3e6d75d7398dcf3 *man/upsilon.Rd
 7aabc0b37702a79ab0764a0657cf904d *man/verify.ss.aipe.R2.Rd
 afafa518c56250eaa1b1cf05444320f0 *man/vit.Rd
 43993d1f4d2e904e0d58515296d1d63d *man/vit.fitted.Rd

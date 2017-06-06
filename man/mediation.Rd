@@ -125,7 +125,7 @@ mean.m=5.892785, mean.dv=1.649316, conf.level=.95)
 # Clear the workspace:
 rm(list=ls(all=TRUE))
 
-# An (Unrealistic) example data (from Hayes) 
+# An (unrealistic) example data (from Hayes) 
 Data <- rbind(
   c(-5.00, 25.00, -1.00),
   c(-4.00, 16.00, 2.00),
@@ -151,7 +151,7 @@ Data <- rbind(
   c(5.00, 25.00, 13.00))
 
 
-# "Regular" example of the Hayes data.
+# Raw data example of the Hayes data.
 mediation(x=Data[,1], mediator=Data[,2], dv=Data[,3], conf.level=.95)
 
 # Sufficient statistics example of the Hayes data.
@@ -189,8 +189,15 @@ sqrt(var(IE))
 # CIs from percentile perspective
 quantile(IE, probs=c(.025, .975))
 
-# p-value. 
-mean(IE>0)
+# Two-sided p-value. 
+## First, calculate obseved value of the indirect effect and extract it here. 
+IE.Observed <- mediation(x=Data[,1], mediator=Data[,2], dv=Data[,3], 
+conf.level=.95)$Effect.Sizes[1,]
+
+## Now, find those values of the bootstrap indirect effects that are more extreme (in an absolute 
+## sense) than the indirect effect observed. Note that the p-value is 1 here because the observed
+## indirect effect is exactly 0. 
+mean(abs(IE) >= abs(IE.Observed))
 }
 }
 \keyword{multivariate}

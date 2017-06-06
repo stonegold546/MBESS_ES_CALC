@@ -50,6 +50,7 @@ Kem Phillips; \email{kemphillips@comcast.net}
 %\seealso{ \code{\link{power.equivalence.md.plot}}, \code{\link{power.density.equivalence.md}}}
 
 \examples{
+\dontrun{
 # Suppose that two formulations of a drug are to be compared 
 # on the regular scale using a two-period crossover design, 
 # with theta1 = -0.20, theta2 = 0.20, rm(CV) = 0.20, and 
@@ -77,7 +78,7 @@ nu<-c(6,10,16,22,28,38,58)
 # degrees of freedom. This corresponds to Diletti, Figure 1c. Use
 
 power.equivalence.md.plot(.05, TRUE, .8, 1.25, .20, n, nu, 'Diletti, Figure 1c')
-
+}
 }
 
 \keyword{ design}

@@ -64,7 +64,7 @@ Note that this function overcomes some limitations of other effects for mediatio
 \link{mediation}
 }
 \examples{
-
+\dontrun{
 # To generate the multivariate data for the examples. 
 require(MASS)
 
@@ -206,6 +206,7 @@ y <- c('y')
 seq.med <- list('m2~m1','m3~m2')
 
 upsilon(data,x,m,y,seq.med=seq.med)
+}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
