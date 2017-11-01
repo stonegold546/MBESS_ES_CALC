@@ -25,8 +25,8 @@
 \tabular{ll}{
 Package: \tab MBESS\cr
 Type: \tab Package\cr
-Version: \tab 4.4.0 \cr
-Date: \tab 2017-07-18\cr
+Version: \tab 4.4.1 \cr
+Date: \tab 2017-10-31\cr
 License: \tab GPL(>=2)\cr
 }
 Please read the manual and visit the corresponding web site 
