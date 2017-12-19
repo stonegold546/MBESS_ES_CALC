@@ -7,17 +7,21 @@ A function for estimating the mediation effect size as discussed in Lachowicz, P
 This function implements the upsilon effect size statistic as described in Lachowicz, Preacher, & Kelley (in press).  
 }
 \usage{
-upsilon(x, mediator, dv, conf.level = 0.95, bootstrap = TRUE, B = 1000,
-boot.type = "ordinary", ...)
+upsilon(x, mediator, dv, conf.level = 0.95, bootstrap.lavaan = TRUE, 
+bootstrap.lavaan.type = "ordinary", bootstrap.boot=FALSE, bootstrap.boot.type = "perc",
+B = 1000, boot.data.out=FALSE, ...)
 }
 \arguments{
   \item{x}{\code{x} is the independent variable. }
-  \item{mediator}{\code{mediator} is the mediator variable. }
-  \item{dv}{\code{dv} is the outcome or dependent variable. }
+  \item{mediator}{\code{mediator} is the mediator variable.}
+  \item{dv}{\code{dv} is the outcome or dependent variable.}
   \item{conf.level}{\code{conf.level} is the desired confidence coefficient (i.e., the complement of the Type I error rate).}
-  \item{bootstrap}{TRUE or FALSE regarding if a bootstrap confidence interval should be performed.}
-  \item{B}{The number of bootstrap replications}
-\item{boot.type}{The type of bootstrap confidence interval.}
+  \item{bootstrap.lavaan}{\code{TRUE} or \code{FALSE} regarding if a bootstrap confidence interval should be performed using \code{bootstrapLavaan()} function.}
+  \item{bootstrap.lavaan.type}{The type of bootstrap confidence interval, either \code{"ordinary"} or \code{"bollen.stine"} (default is \code{"ordinary"}).}
+  \item{bootstrap.boot}{TRUE or FALSE regarding if a bootstrap confidence interval should be performed using package boot (default is \code{FALSE}).}
+  \item{bootstrap.boot.type}{The type of bootstrap confidence interval using the \code{boot.ci()} function form the boot package, which includes \code{"normal"}, \code{"basic"}, \code{"student"}, \code{"perc"}, and \code{"bca"} CIs (default is \code{"perc"} CIs).}
+  \item{B}{The number of bootstrap replications (1000 is default)}
+\item{boot.data.out}{\code{TRUE} or \code{FALSE} regarding if bootstrap data is returned with function output (only available if \code{bootstrap.boot = TRUE}).}
 \item{\dots}{Allows specifictions for functions that are used within this function.}
 }
 %\details{
@@ -40,7 +44,7 @@ Lachowicz
 Mark J. Lachowicz (Vanderbilt University; \email{Mark.J.Lachowicz@Vanderbilt.edu})
 }
 \note{
-Note that this function overcomes some limitations of other effects for mediation models, such as those discussed in Preacher and Kelley (2012) and Wen and Fan (2015). This function can only be used for simple mediation models at this time. 
+Note that this function overcomes some limitations of other effects for mediation models, such as those discussed in Preacher and Kelley (2012) and Wen and Fan (2015) and that was developed and delineated in Lachowicz, Preacher, and Kelley, K (in press). This function can only be used for simple mediation models at this time. Note that \code{upsilon()} was included in the \code{mediation()} function but it has become it's own function to provide more flexibility. 
 }
 
 \seealso{
