@@ -1,26 +1,23 @@
 \name{upsilon}
 \alias{upsilon}
 \title{
-A function for estimating the mediation effect size as discussed in Lachowicz, Preacher, & Kelley (in press). 
-}
+This function implements the upsilon effect size statistic as described in Lachowicz, Preacher, & Kelley (in press) for mediation.}
 \description{
-This function implements the upsilon effect size statistic as described in Lachowicz, Preacher, & Kelley (in press).  
-}
+This function implements the upsilon effect size statistic as described in Lachowicz, Preacher, & Kelley (in press) for mediation.}
 \usage{
-upsilon(x, mediator, dv, conf.level = 0.95, bootstrap.lavaan = TRUE, 
-bootstrap.lavaan.type = "ordinary", bootstrap.boot=FALSE, bootstrap.boot.type = "perc",
-B = 1000, boot.data.out=FALSE, ...)
+upsilon(x, mediator, dv, conf.level = 0.95, bootstrap = TRUE, 
+bootstrap.package = "lavaan", bootstrap.type="ordinary", B = 1000,
+boot.data.out=FALSE, ...)
 }
 \arguments{
-  \item{x}{\code{x} is the independent variable. }
-  \item{mediator}{\code{mediator} is the mediator variable.}
-  \item{dv}{\code{dv} is the outcome or dependent variable.}
-  \item{conf.level}{\code{conf.level} is the desired confidence coefficient (i.e., the complement of the Type I error rate).}
-  \item{bootstrap.lavaan}{\code{TRUE} or \code{FALSE} regarding if a bootstrap confidence interval should be performed using \code{bootstrapLavaan()} function.}
-  \item{bootstrap.lavaan.type}{The type of bootstrap confidence interval, either \code{"ordinary"} or \code{"bollen.stine"} (default is \code{"ordinary"}).}
-  \item{bootstrap.boot}{TRUE or FALSE regarding if a bootstrap confidence interval should be performed using package boot (default is \code{FALSE}).}
-  \item{bootstrap.boot.type}{The type of bootstrap confidence interval using the \code{boot.ci()} function form the boot package, which includes \code{"normal"}, \code{"basic"}, \code{"student"}, \code{"perc"}, and \code{"bca"} CIs (default is \code{"perc"} CIs).}
-  \item{B}{The number of bootstrap replications (1000 is default)}
+\item{x}{\code{x} is the independent variable. }
+\item{mediator}{\code{mediator} is the mediator variable.}
+\item{dv}{\code{dv} is the outcome or dependent variable.}
+\item{conf.level}{\code{conf.level} is the desired confidence coefficient (i.e., the complement of the Type I error rate).}
+\item{bootstrap}{\code{TRUE} or \code{FALSE} regarding if a bootstrap confidence interval should be constructed}
+\item{bootstrap.package}{The package that will be used for bootstrapping, either \pkg{lavaan} or \pkg{boot} (default is \pkg{lavaan}).}
+\item{bootstrap.type}{The type of bootstrap confidence interval. If \code{bootstrap.package = ``lavaan''}, this can be either \code{"ordinary"} or\code{"bollen.stine"} (default is \code{"ordinary"}). If \code{bootstrap.package = ``boot''}, \code{"normal"}, \code{"basic"}, \code{"student"}, \code{"perc"}, or \code{"bca"} CIs (default is \code{"perc"}.}
+\item{B}{The number of bootstrap replications (1000 is default)}
 \item{boot.data.out}{\code{TRUE} or \code{FALSE} regarding if bootstrap data is returned with function output (only available if \code{bootstrap.boot = TRUE}).}
 \item{\dots}{Allows specifictions for functions that are used within this function.}
 }
@@ -31,7 +28,7 @@ B = 1000, boot.data.out=FALSE, ...)
 Returns the value of the effect size upsilon for a simple mediation model. 
 }
 \references{
-Lachowicz, M. J., Preacher, K. J., & Kelley, K. (in press). A novel measure of effect size for mediation analysis. \emph{Psychological Methods}, \emph{X}, X--X.  
+Lachowicz, M. J., Preacher, K. J., & Kelley, K. (in press). A novel measure of effect size for mediation analysis. \emph{Psychological Methods}, \emph{X}, X--X.
 
 Preacher, K. J., & Kelley, K. (2011). Effect size measures for mediation models: quantitative strategies for communicating indirect effects. \emph{Psychological Methods}, \emph{16}, 93--115. 
 
@@ -48,6 +45,6 @@ Note that this function overcomes some limitations of other effects for mediatio
 }
 
 \seealso{
-\link{mediation}
+\link{mediation},\link{lavaan},\link{boot}
 }
 \keyword{design}

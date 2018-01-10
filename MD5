@@ -1,4 +1,4 @@
-514edec3e96f3cc42a2054c44146bd85 *DESCRIPTION
+5a4554bd4fa400c14a060c1de0d1f2ad *DESCRIPTION
 ffb263a080a6eacf093da0b03ee64136 *NAMESPACE
 55a9ee6b1494cb67d95eee01f29860aa *R/CFA.1.R
 6911ad5f6eb9fd67941e3f6c0ee32f6c *R/Expected.R2.R
@@ -88,7 +88,7 @@ bf6cbc3a20393aa97144dc593a7f7412 *R/ss.power.sem.R
 b084431c47d09eb54ad38b8396bcbf86 *R/theta.2.Sigma.theta.R
 9de3ec532bcff2c4762abd89f9220463 *R/transform_Z.r.R
 9591561dbd47377320868c164b1a6ca7 *R/transform_r.Z.R
-014ba68f2ea506e47b72bf9d5b18161e *R/upsilon.R
+39fa87f7c8f88d3b4964a0fe6882084a *R/upsilon.R
 ae84e20a71c55dc77ae7fd21fc1939cf *R/verify.ss.aipe.R2.R
 7e4662202d0e0b2ed7f4909a4c38694d *R/vit.R
 fd76671db4f965ab643d93392f8856f9 *R/vit.fitted.R
@@ -105,7 +105,7 @@ e9d80bf93ce35b78f24be92e283353d8 *man/Cor.Mat.MM.Rd
 fe80f7ee0842fbfcef689620d546a4bf *man/F.and.R2.Noncentral.Conversion.Rd
 5e86494b524f8ecc2b398bd44050c8f2 *man/Gardner.LD.Rd
 72c25ccff67ba7482cba910204a7628f *man/HS.data.Rd
-f635553abd413883dffc69a632ca9fef *man/MBESS-package.Rd
+6f1c0888efa37b3a24b2f46496d2e17c *man/MBESS-package.Rd
 586e4beb9b34f2cf7d25747b6d1229ec *man/Sigma.2.SigmaStar.Rd
 31531efe5f5e203c4f638e64f3058451 *man/Variance.R2.Rd
 495e84be1f028824d6ce16ae108e455e *man/aipe.smd.Rd
@@ -188,7 +188,7 @@ ce7666db46c2bd1f7afe56c0289f36d8 *man/ssAIPECRDES.Rd
 7e4da795ee8cbbc8980ffc9c8c1df15c *man/theta.2.Sigma.theta.Rd
 cc50e803f6105c45d590a6dc66b86e45 *man/transform_Z.r.Rd
 bf32cbcd7c381ec7327ce9faad629bff *man/transform_r.Z.Rd
-eb5930b541adbedb9d6fdf9e2a0eac1b *man/upsilon.Rd
-7aabc0b37702a79ab0764a0657cf904d *man/verify.ss.aipe.R2.Rd
+a9553950b0deb319256b909dc04bb148 *man/upsilon.Rd
+8523c96b624bad989bcd182eeb734b54 *man/verify.ss.aipe.R2.Rd
 afafa518c56250eaa1b1cf05444320f0 *man/vit.Rd
 43993d1f4d2e904e0d58515296d1d63d *man/vit.fitted.Rd

@@ -31,7 +31,7 @@ recommended.
 }
 \value{
 Returns the exact (provided \code{G} is large enough) sample size necessary to satisfy the 
-condidtions specified.
+conditions specified.
 }
 %\references{ ~put references to the literature/web site here ~ }
 \author{Ken Kelley (University of Notre Dame; \email{KKelley@ND.Edu})}

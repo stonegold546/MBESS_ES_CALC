@@ -1,8 +1,8 @@
 Package: MBESS
 Type: Package
 Title: The MBESS R Package
-Version: 4.4.2
-Date: 2017-12-19
+Version: 4.4.3
+Date: 2018-1-10
 Authors@R: c(person("Ken", "Kelley", role=c("aut", "cre"), email="kkelley@nd.edu"))
 Maintainer: Ken Kelley <kkelley@nd.edu>
 Depends: R (>= 3.2.0), stats
@@ -26,7 +26,7 @@ License: GPL-2 | GPL-3
 URL: http://nd.edu/~kkelley/site/MBESS.html
 RoxygenNote: 6.0.0
 NeedsCompilation: no
-Packaged: 2017-12-19 16:23:40 UTC; kkelley
+Packaged: 2018-01-10 21:05:40 UTC; kkelley
 Author: Ken Kelley [aut, cre]
 Repository: CRAN
-Date/Publication: 2017-12-19 20:22:07 UTC
+Date/Publication: 2018-01-10 23:37:02 UTC
