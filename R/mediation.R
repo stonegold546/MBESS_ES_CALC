@@ -157,7 +157,7 @@ mediation <- function (x, mediator, dv, S = NULL, N = NULL, x.location.S = NULL,
             2] * (N - 1) + N * mean.x * mean.m), c(mean.m * N, 
             S.XX[1, 2] * (N - 1) + N * mean.x * mean.m, (S.XX[2, 
                 2] * (N - 1) + N * mean.m^2)))
-        SE.Y_XM <- cbind(sqrt(diag(solve(x.prime.x))) * RMSE.Y_XM)
+        SE.Y_XM <- cbind(sqrt(diag(solve(x.prime.x))) * c(RMSE.Y_XM))
         t.Y_XM <- t(B.Y_XM)/SE.Y_XM
         p.Y_XM <- 2 * (pt(-1 * abs(t.Y_XM), df = N - 2 - 1))
         CL.Low.Y_XM <- t(B.Y_XM) - qt(1 - (1 - conf.level)/2, 

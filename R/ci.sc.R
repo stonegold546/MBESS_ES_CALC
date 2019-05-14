@@ -24,7 +24,7 @@ if(is.null(n)) stop("You must specify the vector per group/level sample size ('n
 if(is.null(c.weights)) stop("You must specify the vector of contrast weights ('c.weights').")
 
 psi <- Psi/s.anova
-lambda <- psi*part.of.se
+lambda <- psi/part.of.se
 }
 
 if(!is.null(ncp))
@@ -55,6 +55,7 @@ alpha.upper <- (1-conf.level)/2
 
 if(is.null(N)) stop("You must specify the total sample size ('N').")
 if(is.null(df.error)) df.2 <- N - length(means)
+if(!is.null(df.error)) df.2 <- df.error
 
 Lims <- conf.limits.nct(ncp=lambda, df=df.2, conf.level = NULL, alpha.lower = alpha.lower, 
         alpha.upper = alpha.upper, sup.int.warns=TRUE, method = "all", ...)

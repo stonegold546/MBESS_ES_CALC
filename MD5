@@ -1,4 +1,4 @@
-5a4554bd4fa400c14a060c1de0d1f2ad *DESCRIPTION
+0fff16d5d12876620b7352a48176c41b *DESCRIPTION
 ffb263a080a6eacf093da0b03ee64136 *NAMESPACE
 55a9ee6b1494cb67d95eee01f29860aa *R/CFA.1.R
 6911ad5f6eb9fd67941e3f6c0ee32f6c *R/Expected.R2.R
@@ -18,9 +18,9 @@ e28cd9ee1140d2e5a84046ded0785df2 *R/ci.cv.R
 02b33e6fc80f74f34741be7965e06b02 *R/ci.pvaf.R
 186660f6001fdbe92938d2366cfa3669 *R/ci.rc.R
 f64365ac97e6c1f03e922c7fe0cffc51 *R/ci.reg.coef.R
-86c6428eef5dbdf33710528735413595 *R/ci.reliability.R
+988cb260fc6da6e655561bd896d5aef7 *R/ci.reliability.R
 55195fc9e9691b02a819175fa3cfb242 *R/ci.rmsea.R
-1dd87bffe171d5befe88e620cbbf5a6e *R/ci.sc.R
+18407a9f7903740276ba7fa15eb77d5d *R/ci.sc.R
 8970c97ba77095a8d0f2f393b849d10a *R/ci.sc.ancova.R
 3e2f016468fe10c02202b01d92dc1acf *R/ci.sm.R
 dfa7ebb676ca351b0884b3e61e56a1d9 *R/ci.smd.R
@@ -38,7 +38,7 @@ d3342f3f29cb082d9ce141057ccf955f *R/cv.R
 adabb239ebb5f974674ec788851167a3 *R/intr.plot.2d.R
 727bc4636ef513d9e06dcd3eef85dfef *R/intr.plot.R
 fedf52f931b205b559a9f5ff9b30a539 *R/lambda2delta.R
-5e5f90fb522e9e093d3cc874dafc8cf1 *R/mediation.R
+1db5c38b9935caa8702c01af5d68a3c2 *R/mediation.R
 c8cb8753ec28c73fc42f28bf146cd283 *R/mediation.effect.bar.plot.R
 b106200378a181709cb85214cd912894 *R/mediation.effect.plot.R
 372bf333692accf061b11179f85ee520 *R/mr.cv.R
@@ -89,6 +89,7 @@ b084431c47d09eb54ad38b8396bcbf86 *R/theta.2.Sigma.theta.R
 9de3ec532bcff2c4762abd89f9220463 *R/transform_Z.r.R
 9591561dbd47377320868c164b1a6ca7 *R/transform_r.Z.R
 39fa87f7c8f88d3b4964a0fe6882084a *R/upsilon.R
+272f4c7dcdbd73da70d6c3e8ffadceb8 *R/var.ete.R
 ae84e20a71c55dc77ae7fd21fc1939cf *R/verify.ss.aipe.R2.R
 7e4662202d0e0b2ed7f4909a4c38694d *R/vit.R
 fd76671db4f965ab643d93392f8856f9 *R/vit.fitted.R
@@ -189,6 +190,7 @@ ce7666db46c2bd1f7afe56c0289f36d8 *man/ssAIPECRDES.Rd
 cc50e803f6105c45d590a6dc66b86e45 *man/transform_Z.r.Rd
 bf32cbcd7c381ec7327ce9faad629bff *man/transform_r.Z.Rd
 a9553950b0deb319256b909dc04bb148 *man/upsilon.Rd
+a07394081e13e020e7de799a3a7a23cf *man/var.ete.Rd
 8523c96b624bad989bcd182eeb734b54 *man/verify.ss.aipe.R2.Rd
 afafa518c56250eaa1b1cf05444320f0 *man/vit.Rd
 43993d1f4d2e904e0d58515296d1d63d *man/vit.fitted.Rd
