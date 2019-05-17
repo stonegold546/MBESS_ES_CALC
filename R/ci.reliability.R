@@ -2,7 +2,7 @@ ci.reliability <- function(data = NULL, S = NULL, N = NULL, aux = NULL, type = "
                            interval.type = "mlr", B = 10000, conf.level = 0.95) 
 {
 
-data <- as.data.frame(data)
+if(!is.null(data)) data <- as.data.frame(data)
   
 if(is.null(type) || type == "default") 
     {
