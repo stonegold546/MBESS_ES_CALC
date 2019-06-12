@@ -6,6 +6,12 @@ if(!is.null(certainty)) assurance<- certainty
 
 alpha <- 1-conf.level
 
+# Because the properties of the distribution does not change for negative or positive values, other than sign changes,
+# this is added to simplify later code. 
+sm <- abs(sm)
+# Thanks to Guy Prochilo <University of Melbourne> for asking a question about negative standardized means that led to a fix in this function. 
+# Namely, the addition of the abs() here, where the lack of this caused problems later for assurance parameters. 
+
 if(is.null(assurance))
     { # Initial starting value for n using the z distribution.
     n.0 <- (qnorm(1-alpha/2) / (width/2))^2       
@@ -47,7 +53,7 @@ if(!is.null(assurance))
     if(assurance <= .50) stop("The 'assurance' should be larger than 0.5 (but less than 1).", call.=FALSE)
     
     n0 <- ss.aipe.sm(sm=sm, conf.level=conf.level, width=width, assurance=NULL, ...)
-    
+
     Limit.2.Sided <- (1/sqrt(n0) ) * conf.limits.nct(ncp=sm*sqrt(n0), df=n0-1, 
     alpha.upper=(1-assurance)/2, alpha.lower=(1-assurance)/2)$Upper.Limit
 

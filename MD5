@@ -1,4 +1,4 @@
-2c92248f6268c578a2e7e71019f50c08 *DESCRIPTION
+f49c69a0c93fbdcf7814ae046d330f51 *DESCRIPTION
 ffb263a080a6eacf093da0b03ee64136 *NAMESPACE
 55a9ee6b1494cb67d95eee01f29860aa *R/CFA.1.R
 6911ad5f6eb9fd67941e3f6c0ee32f6c *R/Expected.R2.R
@@ -55,8 +55,8 @@ a813224d42b5037c23d4b71799604e94 *R/ss.aipe.R2.R
 c883e949dbc7978b6416899f19350499 *R/ss.aipe.c.R
 87bfc49e3cb03030d9e52ba2eb04c281 *R/ss.aipe.c.ancova.R
 fa669b3deae4e67fe145299fd23b631f *R/ss.aipe.c.ancova.sensitivity.R
-9df0b00a1918e68200672f38d0c3781e *R/ss.aipe.cv.R
-59b96ad08443e7e9d27312e5dae0c6b5 *R/ss.aipe.cv.sensitivity.R
+b4f81d93dccd4bbecd3555b77de377cb *R/ss.aipe.cv.R
+c3baeb433c7cc0bfc5180c09d1893ff8 *R/ss.aipe.cv.sensitivity.R
 4a47c85e96997c84aac11b0caa880f45 *R/ss.aipe.pcm.R
 e0a4f490e57613d5bc0b778309f99dfb *R/ss.aipe.rc.R
 b03d9a5595d2aa050447606e66d2ab59 *R/ss.aipe.rc.sensitivity.R
@@ -71,7 +71,7 @@ bbcd68ae1e9f35570d34a21fe911ffd5 *R/ss.aipe.sc.ancova.R
 abdb088d05f822ceb191d2d2f75cdd0f *R/ss.aipe.sc.sensitivity.R
 dd8f1ad3b5c6e9944757f5b0a08e01b2 *R/ss.aipe.sem.path.R
 e5bf5dc69a7ca0d556c99ed43068f3df *R/ss.aipe.sem.path.sensitiv.R
-4bf1a40cb1b9022f4522cf24e0d4137c *R/ss.aipe.sm.R
+42e37cf2d20cb71fdf556593b55847bd *R/ss.aipe.sm.R
 1c929f08b676073b0ed4f4c8ced32ca6 *R/ss.aipe.sm.sensitivity.R
 8ea38cc6f20c322892e9ca7093ea379c *R/ss.aipe.smd.R
 2327c636416901e4ff51ecc6149d3f5f *R/ss.aipe.smd.full.R
@@ -156,8 +156,8 @@ f9e363f49751d3cec2ac0eaa94cbf0f5 *man/smd.c.Rd
 3a4f59b19125db4c607210c90f6e2f34 *man/ss.aipe.c.Rd
 6379e92f053797408d172e583e3e5b07 *man/ss.aipe.c.ancova.Rd
 1a54f04e4091802021d642c965fb2378 *man/ss.aipe.c.ancova.sensitivity.Rd
-5956a35137747d5a33fff5697d898648 *man/ss.aipe.cv.Rd
-d72e887be666b841bd16f47b263fed30 *man/ss.aipe.cv.sensitivity.Rd
+1039e1a919b907327110765607512ea6 *man/ss.aipe.cv.Rd
+41f17640fcf4ad71a87109db90368a97 *man/ss.aipe.cv.sensitivity.Rd
 3381a87482f4a217f162ece465e375ff *man/ss.aipe.pcm.Rd
 ea4bd62dd48a0f0329ca6f93bf153b03 *man/ss.aipe.rc.Rd
 b0b84224b88b50657af77af3b181153e *man/ss.aipe.rc.sensitivity.Rd

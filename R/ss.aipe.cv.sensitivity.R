@@ -13,6 +13,7 @@ stop("The arguments 'assurance' and 'certainty' must have the same value.")
 if(!is.null(degree.of.certainty) && !is.null (certainty) && degree.of.certainty!=certainty) 
 stop("The arguments 'degree.of.certainty' and 'certainty' must have the same value.")
 
+
 if(is.null(Estimated.C.of.V))
 {
 if(is.null(Specified.N)) stop("Since you did not specify an \'Estimated.C.of.V\', \'Specified.N\' must be specified.")
@@ -24,6 +25,9 @@ if(!is.null(Estimated.C.of.V))
 if(!is.null(Specified.N))  stop("Since you specified an \'Estimated.C.of.V\', \'Specified.N\' should not be specified.")
 N <- ss.aipe.cv(C.of.V=Estimated.C.of.V, mu=NULL, sigma=NULL, width=width, conf.level=conf.level, alpha.lower=NULL, alpha.upper=NULL, degree.of.certainty=degree.of.certainty, Suppress.Statement=TRUE)
 }
+
+if(Estimated.C.of.V<=0) stop("The 'Estimated.C.of.V' value should be positive (see Chattopadhyaya and Kelley, 2016)")
+if(Estimated.C.of.V<=0) stop("The 'Estimated.C.of.V' value should be positive (see Chattopadhyaya and Kelley, 2016)")
 
 CN <- c("Lower.Limit", "Upper.Limit", "CV", "Int.OK", "Width")
 Results <- matrix(NA, G, length(CN))

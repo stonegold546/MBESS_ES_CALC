@@ -5,7 +5,7 @@ size planning}
 
 \description{Determines the necessary sample size so that the expected confidence interval width
 for the coefficient of variation will be sufficiently narrow, optionally with a desired degree of 
-certainty that the interval will not be wider than desired.}
+certainty that the interval will not be wider than desired. The value of \code{C.of.V} should be positive.}
 \usage{
 ss.aipe.cv(C.of.V = NULL, width = NULL, conf.level = 0.95, 
 degree.of.certainty = NULL, assurance=NULL, certainty=NULL, 

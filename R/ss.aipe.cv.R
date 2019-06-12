@@ -4,6 +4,8 @@ if(!is.null(certainty)& is.null(degree.of.certainty)&is.null(assurance)) degree.
 if (is.null(assurance) && !is.null (degree.of.certainty)& is.null(certainty)) assurance <-degree.of.certainty
 if (!is.null(assurance) && is.null (degree.of.certainty)& is.null(certainty)) assurance -> degree.of.certainty
 
+if(C.of.V<=0) stop("The 'C.of.V' value should be positive (see Chattopadhyaya and Kelley, 2016)")
+
 if(!is.null(assurance) && !is.null (degree.of.certainty) && assurance!=degree.of.certainty) 
 stop("The arguments 'assurance' and 'degree.of.certainty' must have the same value.")
 

@@ -6,7 +6,8 @@
 Performs sensitivity analysis for sample size determination for the coefficient of variation
 given a population coefficient of variation (or population mean and standard deviation) and goals for the 
 sample size procedure. Allows one to determine the effect of being wrong when estimating the 
-population coefficient of variation in terms of the width of the obtained (two-sided) confidence intervals. }
+population coefficient of variation in terms of the width of the obtained (two-sided) confidence intervals. 
+The values of \code{True.C.of.V} and \code{Estimated.C.of.V} should be positive.}
 \usage{
 ss.aipe.cv.sensitivity(True.C.of.V = NULL, Estimated.C.of.V = NULL,
 width = NULL, degree.of.certainty = NULL, assurance=NULL, certainty=NULL, 
