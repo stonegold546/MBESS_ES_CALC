@@ -4,14 +4,14 @@ ci.reliability <- function(data = NULL, S = NULL, N = NULL, aux = NULL, type = "
 
 if(!is.null(data)) data <- as.data.frame(data)
   
-if(is.null(type) || type == "default") 
+if(is.null(type)) 
     {
     if(!is.null(data) && all(apply(data, 2, function(x) length(table(x))) <= 10)) 
       {type <- 5
       warnings("Categorical omega is used because your variables look like ordered categorical variables. If not, please specify the 'type' argument.")
       } else {
       type <- 4
-      warnings("Hiearachical omega is used by default for covariance matrix input or continuous data input.")
+      warnings("Hierarchical omega is used by default for covariance matrix input or continuous data input.")
               }
   }
   

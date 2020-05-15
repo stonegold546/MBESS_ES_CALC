@@ -3,7 +3,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Confidence Interval for a Reliability Coefficient }
 \description{
-A function to calculate the point estimate and confidence interval for a reliability coefficient (alpha, omega, and variations thereof). Please see the many options; the defaults may not be best for your situtaion. See Kelley and Pornprasertmanit (in press) for recomendation and a discussion of the methods, where they ultimately recommend the bias corrected and accelerated bootstrap(\code{"interval.type=bca"} with categorical omega (\code{type=hierarchical}).
+A function to calculate the point estimate and confidence interval for a reliability coefficient (alpha, omega, and variations thereof). Please see the many options; the defaults may not be best for your situation. See Kelley and Pornprasertmanit (2016) for recommendation and a discussion of the methods, where they ultimately recommend the bias-corrected and accelerated bootstrap (\code{interval.type="bca"} with hierarchical omega (\code{type="hierarchical"}) for continuous items.
 }
 \usage{
 ci.reliability(data = NULL, S = NULL, N = NULL, aux = NULL, 
@@ -11,12 +11,12 @@ type = "omega", interval.type = "mlr", B = 10000, conf.level = 0.95)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{data}{The dataset that the reliability coefficient is obtained from. Real data set is required for categorical omega. Also, real data set is required for bootstrap confidence intervals or asymptotic distribution free confidence interval }
-  \item{S}{Symmetric covariance matrix. Correlation matrix can be specified here but not recommended because, in the function, Confirmatory Factor Analysis (CFA) is analyzed based on covariance matrix. }
+  \item{data}{The data set that the reliability coefficient is obtained from. The full data set is required for categorical omega. Also, the full data set is required for bootstrap confidence intervals or asymptotic distribution free confidence interval.}
+  \item{S}{Symmetric covariance matrix. Correlation matrix can be specified here but not recommended because, in the function, Confirmatory Factor Analysis (CFA) is analyzed based on covariance matrix.}
   \item{N}{The total sample size. Sample size is needed only that \code{S} is specified.}
   \item{aux}{The names of auxiliary variables. Auxiliary variables will not be used as a composite but they will be used to handle missing observations. Note that full information maximum likelihood is used if auxiliary variables are specified. See \link[semTools]{auxiliary} for further details.}
-  \item{type}{The type of reliability coefficient to be calculated: \code{"alpha"} or \code{1} for coefficient alpha analyzed by the formula proposed by Cronbach (1951), \code{"alpha-cfa"} or \code{2} for coefficient alpha analyzed by CFA with tau-equivalence (method of estimator depending on confidence interval method but none of them is unweighted least square so technically the result is not equal to the formula from Cronbach), \code{"omega"} for coefficient omega, \code{"hierarchical"} for hierarchical omega, \code{"categorical"} for categorical omega. The default is to use hierarchical omega for continuous items and categorical omega for categorical items.}
-  \item{interval.type}{There are 13 options for the methods. See \code{details} below. Based on our simulation studies (Kelley and Pornprasertmanit, in press), bias corrected and accelerated bootstrap, \code{"bca"}, is recommended for categorical omega. Any bootstrap approaches (e.g., \code{"bca"} or \code{"perc"}) are recommended for hierarchical omega, coefficient omega, and coefficient alpha.}
+  \item{type}{The type of reliability coefficient to be calculated: \code{"alpha"} or \code{1} for coefficient alpha analyzed by the formula proposed by Cronbach (1951), \code{"alpha-cfa"} or \code{2} for coefficient alpha analyzed by CFA with tau-equivalence (method of estimator depending on confidence interval method but none of them is unweighted least square so technically the result is not equal to the formula from Cronbach), \code{"omega"} for coefficient omega, \code{"hierarchical"} for hierarchical omega, \code{"categorical"} for categorical omega. If  \code{type} is specified as \code{NULL}, the default is to use hierarchical omega for continuous items and categorical omega for categorical items. The default, however, is simply \code{"omega"}.}
+  \item{interval.type}{There are 13 options for the methods. See \code{details} below. Based on our simulation studies (Kelley and Pornprasertmanit, 2016), bias corrected and accelerated bootstrap, \code{"bca"}, is recommended for categorical omega. Any bootstrap approaches (e.g., \code{"bca"} or \code{"perc"}) are recommended for hierarchical omega, coefficient omega, and coefficient alpha.}
   \item{B}{the number of bootstrap replications}
   \item{conf.level}{ the confidence level (i.e., 1-Type I error rate)}
 }
@@ -29,7 +29,7 @@ The list below shows all methods to find the confidence interval of reliability.
 
 \enumerate{
 	\item \code{"none"} or \code{0} to not find any confidence interval
-	\item \code{"parallel"} or \code{11} to assume that the items are parallel and analyze confidence interval based on wald confidence interval (see van Zyl, Neudecker, & Nel, 2000, Equation 22; also referred as the asymptotic method of Koning & Franses, 2003).
+	\item \code{"parallel"} or \code{11} to assume that the items are parallel and analyze confidence interval based on Wald confidence interval (see van Zyl, Neudecker, & Nel, 2000, Equation 22; also referred as the asymptotic method of Koning & Franses, 2003).
 	\item \code{"feldt"} or \code{12} is based on that \eqn{\frac{1 - \alpha}{1 - \hat{\alpha}}} is distributed as \eqn{F} distribution with the degree of freedoms of \eqn{N - 1} and \eqn{(N - 1) \times (p - 1)} (Feldt, 1965).
 	\item \code{"siotani"} or \code{13} is the same as the \code{"feldt"} method but using the degree of freedoms of \eqn{N} and \eqn{N \times (p - 1)} (Siotani, Hayakawa, & Fujikoshi, 1985; van Zyl et al., 2000, Equations 7 and 8; also referred as the exact method of Koning & Franses, 2003).
 	\item \code{"fisher"} or \code{21} for the Fisher's \eqn{z} transformation on the correlation coefficient approach, \eqn{z = 0.5 \times \log{\frac{1 + \alpha}{1 - \alpha}}}, directly on the coefficient alpha and find confidence interval of transformed scale (Fisher, 1950). The variance of the \eqn{z} is \eqn{\frac{1}{N - 3}} where \eqn{N} is the total sample size.
@@ -39,9 +39,9 @@ The list below shows all methods to find the confidence interval of reliability.
 	\item \code{"icc"} or \code{25} for the Fisher's \eqn{z} transformation on the intraclass correlation approach, \eqn{z = \log{1 - \alpha}}. The variance of the \eqn{z} is \eqn{\frac{2p}{N(p - 1)}} where \eqn{p} is the number of items (Fisher, 1991, p. 221; van Zyl et al., 2000, p. 277).
 	\item \code{"ml"} or \code{31} or \code{normal-theory} to analyze the confidence interval based on normal-theory approach (or multivariate delta method). See van Zyl, Neudecker, & Nel (2000, Equation 21) for the confidence interval of coefficient alpha (also be referred as Iacobucci & Duhachek's, 2003, method). See Raykov (2002) for details for coefficient omega. If users use \code{type="alpha-cfa"}, the \code{sem} package will be used to obtain parameter estimates and standard errors used for the formula proposed by Raykov (2002).
 	\item \code{"mll"} or \code{32} to analyze the confidence interval based on normal-theory approach as above. However, the point estimate and standard error were used to build confidence interval using logistic transformation as the note below.
-	\item \code{"mlr"} or \code{33} to analyze the confidence interval based on normal-theory approach (or multivariate delta method). However, the estimation method uses  robust standard errors (Satorra and Bentler, 2000). This is the default estimation apporach (but see Kelley and Pornprasertmanit (in press) who recomend the BCa bootstrap [which is \code{bca}])
+	\item \code{"mlr"} or \code{33} to analyze the confidence interval based on normal-theory approach (or multivariate delta method). However, the estimation method uses  robust standard errors (Satorra and Bentler, 2000). This is the default estimation approach (but see Kelley and Pornprasertmanit (2016) who recommend the BCa bootstrap [which is \code{bca}])
 	\item \code{"mlrl"} or \code{34} to analyze he confidence interval based on normal-theory approach using robust standard error and logistic transformation (see below). 
-	\item \code{"adf"} or \code{35} for asymtotic distribution-free method (see Maydeu-Olivares, Coffman, & Hartman, 2007 for further details for coefficient omega; we use phantom variable approach, Cheung, 2009, and \code{"WLS"} estimator for coefficient omega, Browne, 1984, in the \code{lavaan} package, Rosseel, 2012).
+	\item \code{"adf"} or \code{35} for asymptotic distribution-free method (see Maydeu-Olivares, Coffman, & Hartman, 2007 for further details for coefficient omega; we use phantom variable approach, Cheung, 2009, and \code{"WLS"} estimator for coefficient omega, Browne, 1984, in the \code{lavaan} package, Rosseel, 2012).
 	\item \code{"adfl"} or \code{36} to use asymptotic distribution-free method to derive standard error and parameter estimate. Then, logistic transformation is used to build confidence interval (see below).
 	\item \code{"ll"} or \code{37} for profile likelihood-based confidence interval of both reliability coefficients (Cheung, 2009) analyzed by the \code{OpenMx} package (Boker et al., 2011)
 	\item \code{"bsi"} or \code{41} for standard bootstrap confidence interval which finds the standard deviation across the bootstrap estimates, multiply the standard deviation by critical value, and add and subtract from the reliability estimate.
@@ -101,7 +101,7 @@ coefficients. \emph{Psychometrika, 41,} 219--231.
 Iacobucci, D., & Duhachek, A. (2003). Advancing alpha: measuring reliability with confidence.
 \emph{Journal of Consumer Psychology, 13,} 478--487.
 
-Kelley, K. & Pornprasertmanit, P. (in press). Confidence intervals for population reliability coefficients: Evaluation of methods, recommendations, and software for homogeneous composite measures. \emph{Psychological Methods.}
+Kelley, K. & Pornprasertmanit, P. (2016). Confidence intervals for population reliability coefficients: Evaluation of methods, recommendations, and software for homogeneous composite measures. \emph{Psychological Methods, 21,} 69--92.
 
 Koning, A. J., & Franses, P. H. (2003). \emph{Confidence intervals for Cronbach's coefficient
 alpha values} (ERIM Report Series Ref. No. ERS-2003-041-MKT). Rotterdam, The Netherlands:

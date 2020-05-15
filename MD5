@@ -1,4 +1,4 @@
-f49c69a0c93fbdcf7814ae046d330f51 *DESCRIPTION
+12846b332f727fd9e39d8e447d2ce9eb *DESCRIPTION
 ffb263a080a6eacf093da0b03ee64136 *NAMESPACE
 55a9ee6b1494cb67d95eee01f29860aa *R/CFA.1.R
 6911ad5f6eb9fd67941e3f6c0ee32f6c *R/Expected.R2.R
@@ -18,7 +18,7 @@ e28cd9ee1140d2e5a84046ded0785df2 *R/ci.cv.R
 02b33e6fc80f74f34741be7965e06b02 *R/ci.pvaf.R
 186660f6001fdbe92938d2366cfa3669 *R/ci.rc.R
 f64365ac97e6c1f03e922c7fe0cffc51 *R/ci.reg.coef.R
-da2a87a4cfbcb34e7eb502b78d1086e1 *R/ci.reliability.R
+07f360e2531da076cff3c69756d1a446 *R/ci.reliability.R
 55195fc9e9691b02a819175fa3cfb242 *R/ci.rmsea.R
 18407a9f7903740276ba7fa15eb77d5d *R/ci.sc.R
 8970c97ba77095a8d0f2f393b849d10a *R/ci.sc.ancova.R
@@ -97,7 +97,7 @@ bba48cc0da7cc603c06dbedf1f20109e *R/widthsscrd.R
 922f5b840d4b58eaae26dab6e8ead504 *data/Cor.Mat.Lomax.rda
 b789aeea95dc7e97e281df2562b54242 *data/Cor.Mat.MM.rda
 bab6794516c3603fa8761b2fb06dba64 *data/Gardner.LD.rda
-869781a19ba141c501f2551a38401f23 *data/HS.data.rda
+71ea5b986b05efb2b7f51591abe478b4 *data/HS.rda
 98e4a4e5c77c0634ae315f6b55548706 *data/prof.salary.rda
 5765b15567b44e2f398e64e069ee25d8 *man/CFA.1.Rd
 a3392b43b1eb007ff3fe7dba07c67242 *man/Cor.Mat.Lomax.Rd
@@ -105,7 +105,7 @@ e9d80bf93ce35b78f24be92e283353d8 *man/Cor.Mat.MM.Rd
 6e5122f7dc2db26319c1c515dbbe0387 *man/Expected.R2.Rd
 fe80f7ee0842fbfcef689620d546a4bf *man/F.and.R2.Noncentral.Conversion.Rd
 5e86494b524f8ecc2b398bd44050c8f2 *man/Gardner.LD.Rd
-72c25ccff67ba7482cba910204a7628f *man/HS.data.Rd
+0bc26fbb99d8df0073eead6884aebb44 *man/HS.Rd
 6f1c0888efa37b3a24b2f46496d2e17c *man/MBESS-package.Rd
 586e4beb9b34f2cf7d25747b6d1229ec *man/Sigma.2.SigmaStar.Rd
 31531efe5f5e203c4f638e64f3058451 *man/Variance.R2.Rd
@@ -120,7 +120,7 @@ f2fc9fd90eb1fad7f0bf93402debb254 *man/ci.cc.Rd
 3c612b73a6e515020f7ef13a77244bd9 *man/ci.pvaf.Rd
 1e540c36fc7560d5087d350184477eb7 *man/ci.rc.Rd
 8b639c104e67ad974f0e25454a7e50a3 *man/ci.reg.coef.Rd
-c7b0d2085fefe5fdfec571bb1f55c994 *man/ci.reliability.Rd
+61c9303f7796bd01dcba79cab219ff8c *man/ci.reliability.Rd
 7edd994c8a94157c3a674ee832be3d95 *man/ci.rmsea.Rd
 bc66bfd56faa1ee9cd1368cd3095753e *man/ci.sc.Rd
 ffc6a217e2327a57809f83adb60e25e3 *man/ci.sc.ancova.Rd
